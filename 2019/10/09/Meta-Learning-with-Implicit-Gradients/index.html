@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    
+    
+    
+    <title>Meta-Learning with Implicit Gradients | Hamish的科研blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="摘要智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Meta-Learning with Implicit Gradients">
+<meta property="og:url" content="http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/index.html">
+<meta property="og:site_name" content="Hamish的科研blog">
+<meta property="og:description" content="摘要智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623075/wps_2019-09-29_21-00-20_cotcjg.png">
+<meta property="og:updated_time" content="2019-10-09T12:26:41.989Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Meta-Learning with Implicit Gradients">
+<meta name="twitter:description" content="摘要智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式">
+<meta name="twitter:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623075/wps_2019-09-29_21-00-20_cotcjg.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Kang Yachen</h5>
+          <a href="mailto:kangyachen@westlake.edu.cn" title="kangyachen@westlake.edu.cn" class="mail">kangyachen@westlake.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sherlockbear" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Meta-Learning with Implicit Gradients</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Meta-Learning with Implicit Gradients</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-09T12:26:02.000Z" itemprop="datePublished" class="page-time">
+  2019-10-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Meta-Learning-with-Implicit-Gradients"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Meta-Learning with Implicit Gradients</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-09 20:26:02" datetime="2019-10-09T12:26:02.000Z"  itemprop="datePublished">2019-10-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式MAML算法，该算法仅取决于inner level优化的解，而不取决于inner loop优化器采用的路径。这有效地将元梯度计算与inner loop优化器的选择解耦。因此，我们的方法与inner loop优化器的选择无关，并且可以优雅地处理许多梯度步骤而不会梯度消失或内存限制。从理论上讲，我们证明隐式MAML可以使用不超过计算单个内循环梯度所需的内存占用量来计算准确的元梯度，而不会增加总的计算成本。从实验上，我们证明了隐式MAML的这些好处可转化为在少样本的图像识别benchmarks上的经验收益。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623075/wps_2019-09-29_21-00-20_cotcjg.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-09T12:26:41.989Z" itemprop="dateUpdated">2019-10-09 20:26:41</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/09/Meta-Learning-with-Implicit-Gradients/" target="_blank" rel="external">http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Kang Yachen">
+            Kang Yachen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Meta-Learning with Differentiable Convex Optimization</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Kang Yachen &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACq0lEQVR42u3aQWrDQAwF0Nz/0i2ULgrFyZc0crJ4XhWTePRcGCkaPR7x9fVzJXf+3v9/5+q7yeevvnXgwsPDw2uFfnX1FkieeQWuxvPi+Xh4eHhrvOqSeXrIV8kTTP40PDw8vPfyqptyngyeR/I8Hjw8PLzP51UL6CTB9FIFHh4e3nt5SVgbLeC8/bHea8HDw8Or9VELIX7C34vne3h4eHiDY6q8/M235jxJTOL8fQIeHh7eAq96uJUfdCXt3bxZXM0CL/4DeHh4eGNe9cA+H4HKX0SvWZynHzw8PLxTvN7IVP4KCht3K0m8WB0PDw9vgVfd7qujBr2AekNgl3kPDw8Pb4FX3bjnL6I3RhD9Mmj2KvDw8PA6vGq53JtTGI1GFdvHeHh4eBu86qDA5Gjq1BFXkhjw8PDw7uT1ytbJ8NZk6OpFYwIPDw9vgZe3R88GNxlEaNbgeHh4eId4+RZcPcpKkk2v2VEYbsDDw8Nb5p0trM8eXFVTCB4eHt4eL1ksL2pHdf2g7RvNlOHh4eHdyEtapfM2bvUoLkkVeHh4eHu851vwvMEaNQ5a5XUhKjw8PLxDvKQ5m5S2eQOi95z8deDh4eFt86oBbTcvTg2BRV/Aw8PDG3dT83ZD72gquX/qIK0wtIqHh4fX4vU2+mqTIgnl1LgVHh4e3h6vd1iVlL8TzORV4uHh4d3Py5sCk4WrY1V5bwEPDw9vm9cbZiqMOh0tqQ9ceHh4eAuYpLzuMapDAHkRP/rFgIeHh3eyaj2wrfdeTc6ojh3g4eHhneLlyWDSsJgU6/mKeHh4eHfyJuVvL6x5E3k0GYGHh4d3Cy8vkZPBgvx+E4aHh4f3Mbw8oFP3R/Hg4eHhrfEmzYg8xF7LuPoS8fDw8LZ5kyV7h2F5G3feRMbDw8M7yvsGYEHPFJRbH+wAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+</body>
+</html>

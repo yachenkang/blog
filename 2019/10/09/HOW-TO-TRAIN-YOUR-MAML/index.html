@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    
+    
+    
+    <title>HOW TO TRAIN YOUR MAML | Hamish的科研blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="摘要少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HOW TO TRAIN YOUR MAML">
+<meta property="og:url" content="http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/index.html">
+<meta property="og:site_name" content="Hamish的科研blog">
+<meta property="og:description" content="摘要少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png">
+<meta property="og:updated_time" content="2019-10-09T13:56:40.058Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HOW TO TRAIN YOUR MAML">
+<meta name="twitter:description" content="摘要少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们">
+<meta name="twitter:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Kang Yachen</h5>
+          <a href="mailto:kangyachen@westlake.edu.cn" title="kangyachen@westlake.edu.cn" class="mail">kangyachen@westlake.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sherlockbear" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">HOW TO TRAIN YOUR MAML</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">HOW TO TRAIN YOUR MAML</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-09T12:31:44.000Z" itemprop="datePublished" class="page-time">
+  2019-10-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-MAML"><span class="post-toc-number">2.</span> <span class="post-toc-text">3 MAML</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-MAML的问题"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">3.1 MAML的问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-稳定，自动和改进的MAML"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">4 稳定，自动和改进的MAML</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-HOW-TO-TRAIN-YOUR-MAML"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">HOW TO TRAIN YOUR MAML</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-09 20:31:44" datetime="2019-10-09T12:31:44.000Z"  itemprop="datePublished">2019-10-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们提出了对MAML的各种修改，这些修改不仅可以稳定系统，而且可以大大提高MAML的泛化性能，收敛速度和计算开销，我们称之为MAML++。</p>
+<h3 id="3-MAML"><a href="#3-MAML" class="headerlink" title="3 MAML"></a>3 MAML</h3><script type="math/tex; mode=display">
+\theta_{0}=\theta_{0}-\beta \nabla_{\theta} \sum_{b=1}^{B} \mathcal{L}_{T_{b}}\left(f_{\theta_{N}^{b}\left(\theta_{0}\right)}\right)</script><h4 id="3-1-MAML的问题"><a href="#3-1-MAML的问题" class="headerlink" title="3.1 MAML的问题"></a>3.1 MAML的问题</h4><p>MAML的简单，优雅和高性能使其成为元学习的非常强大的框架。但是，MAML也有许多问题，使其难以使用。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>梯度不稳定性</strong>：<br>如上图所示，受到神经网络结构和全局超参数设置的影响，MAML在训练过程中可能非常不稳定。优化outer loop涉及多次穿过由同一网络组成的未展开的inner loop进行导数的反向传播。仅此一项就可能导致梯度问题。但是，模型架构进一步加剧了梯度问题，标准4层卷积网络但没有skip-connections。缺少任何skip-connections意味着每个梯度必须多次通过每个卷积层。实际上，梯度将被多次乘以相同的参数集。经过多次反向传播后，展开网络的深度结构和skip-connections的缺失会分别引起梯度爆炸和梯度消失问题。</p>
+<p><strong>二阶导数成本</strong>：<br>通过梯度更新步骤进行优化需要计算二阶梯度，而二阶梯度的计算成本非常高昂。MAML的作者建议使用一阶近似将处理速度提高三倍，但是使用这些近似可能会对最终的泛化误差产生负面影响。已经在Reptile(Nichol et al., 2018)中尝试了进一步使用一阶方法的尝试，作者在基本模型上应用标准SGD，然后更新其初始化参数向N步更新后的参数方向迈出一步。Reptile的结果变化较大，在某些情况下超过MAML，而在另一些情况下则不如MAML。尚未提出减少计算时间而不牺牲泛化性能的方法。</p>
+<p><strong>缺少Batch Normalization统计量累积</strong>：<br>影响生成性能的另一个问题是原始MAML论文中在实验中使用Batch Normalization的方式。不是累积运行统计信息，而是将当前batch的统计信息用于Batch Normalization。这导致Batch Normalization的效果较差，因为学习的偏差必须适应各种不同的均值和标准差，而不是单个均值和标准差。另一方面，如果Batch Normalization使用累积的运行统计信息，则最终将收敛到某些全局平均值和标准偏差。这样就只剩下一个均值和标准偏差来学习偏差了。使用running统计信息而不是batch统计信息，可以极大地提高收敛速度，稳定性和泛化性能，因为归一化的特征将导致更平滑的优化环境（Santurkar et al.，2018）。</p>
+<p><strong>共享（跨step）Batch Normalization偏差</strong>：<br>MAML中的批处理规范化的另一个问题源于以下事实：Batch Normalization偏差未在inner loop中更新；相反，在基础模型的所有迭代中都使用相同的偏差。隐式地执行此操作将假定所有基本模型在整个inner loop更新中都是相同的，因此通过它们传递的特征具有相同的分布。这是一个错误的假设，因为在每次inner loop更新时，都会实例化一个新的基础模型，该基础模型与前一个基础模型的差异足以从偏差估计的角度将其视为新模型。因此，为基本模型的所有迭代学习单个偏差集会限制性能。</p>
+<p><strong>共享的inner loop（跨step和跨参数）学习率</strong>：<br>影响泛化和收敛速度（就训练迭代而言）的一个问题是对所有参数和所有更新步骤使用共享学习率的问题。这样做会带来两个主要问题。具有固定的学习率要求进行多次超参数搜索，以找到特定数据集的正确学习率； 根据搜索的完成方式，此过程可能在计算上非常昂贵。<br>（Li et al。，2017）中的作者建议为网络的每个参数学习学习率并更新方向。这样做解决了手动搜索正确学习率的问题，并且还允许各个参数具有较小或较大的学习率。然而，这种方法带来了自己的问题。由于网络包含40K到50K的参数（取决于数据点的维数），因此学习每个网络参数的学习率意味着要增加计算量并增加内存使用量。</p>
+<p><strong>固定outer loop学习率</strong>：<br>在MAML中，作者使用具有固定学习率的Adam来优化元目标。事实证明，使用阶跃或余弦函数对学习率进行退火对于在多种情况下实现最新的泛化性能至关重要(Loshchilov &amp; Hutter, 2016; He et al., 2016; Larsson et al., 2016; Huang et al., 2017)。因此，我们认为使用静态学习率会降低MAML的泛化性能，这也可能是优化速度较慢的原因。此外，具有固定的学习速率可能意味着必须花费更多（计算）时间来调整学习速率。</p>
+<h4 id="4-稳定，自动和改进的MAML"><a href="#4-稳定，自动和改进的MAML" class="headerlink" title="4 稳定，自动和改进的MAML"></a>4 稳定，自动和改进的MAML</h4><p>在本节中，我们提出了解决MAML框架问题的方法，如第3.1节所述。每个解决方案都有一个与要解决的问题相同的参考。</p>
+<p><strong>梯度不稳定性→多步损失优化（MSL）</strong>：<br>MAML最小化完成对support set任务的<strong>所有</strong>inner-loop更新后的基础网络所计算出的在target set的loss。相反，我们建议最小化完成对support set任务的<strong>每一步</strong>更新的基础网络所计算出的在target set的loss。更具体地说，我们建议最小化的loss是每步support set loss更新后target set loss的加权总和。更正式地：</p>
+<script type="math/tex; mode=display">
+\theta=\theta-\beta \nabla_{\theta} \sum_{b=1}^{B} \sum_{i=0}^{N} v_{i} \mathcal{L}_{T_{b}}\left(f_{\theta_{i}^{b}}\right)</script><p>其中$\beta$是学习率，$L_{T_b}(f_{\theta^b_i})$表示在$i$向最小化support set任务loss更新后的基本网络权重在任务$b$的target set loss，$v_i$表示步骤$i$中target set loss的重要性权重， 用于计算加权和。</p>
+<p>通过使用上面提出的multi-step loss，我们改善了梯度传播，因为现在每一步的基础网络权重都直接（对于当前步loss）和间接（来自后续步的loss）接收梯度。使用第3节中描述的原始方法，由于反向传播，除最后一步外，每个步骤的基础网络权重都被隐式优化，这导致了MAML的许多不稳定问题。但是，如图1所示，使用multi-step loss可以缓解此问题。此外，我们对每步损耗采用了退火加权。最初，所有损失都对损失具有相同的贡献，但是随着迭代次数的增加，我们会减少早期步骤的权重，并逐渐增加后续步骤的权重。这样做是为了确保随着训练的进行，最终步数loss会受到优化器的更多关注，从而确保其达到可能的最低损失。如果不使用退火，我们发现最终损失可能会高于原始方法。</p>
+<p><strong>二阶导数成本→导数退火（DA）</strong>：<br>使MAML具有更高的计算效率的一种方法是减少所需的inner-loop更新次数，这可以通过本报告后续部分中介绍的某些方法来实现。但是，在本段中，我们提出了一种直接减少per-step计算开销的方法。MAML的作者提出了梯度导数的一阶近似的用法。但是，他们在整个训练阶段都采用了一阶近似。相反，我们建议随着训练的进行对微分阶数进行退火。更具体地说，我们建议在训练阶段的前50个epochs使用一阶梯度，然后在训练阶段的其余时间使用二阶梯度。我们凭经验证明，这样做可以大大加快前50个epochs的速度，同时允许进行二阶训练，以实现二阶梯度提供给模型的强大泛化性能。另一个有趣的观察结果是，与更不稳定的仅二阶实验相反，微分阶数退火实验没有出现梯度爆炸或消失的事件。在开始使用二阶导数之前使用一阶可以用作一种强大的预训练方法，该方法可以学习不太可能产生梯度爆炸/减小问题的参数。</p>
+<p><strong>缺少Batch Normalization统计信息累积→Per-Step Batch Normalization运行统计信息（BNRS）</strong>：<br>在MAML Finn et al. (2017)的原始实现中，作者仅使用当前batch统计信息作为Batch Normalization统计信息。我们认为，这导致了3.1节中描述的各种不良影响。为了缓解这些问题，我们建议使用running batch统计信息进行Batch Normalization。要在MAML上下文中简单地实现Batch Normalization，就需要在inner-loop fast-knowledge获取过程的所有更新步骤之间共享running batch统计信息。然而，这样做将导致不希望的结果，即所存储的统计信息将在网络的所有inner loop更新之间共享。由于能在跨网络参数的多个更新上工作的学习参数的复杂性不断提高，因此这将导致优化问题，并有可能减慢或完全停止优化。更好的替代方法是按步骤收集统计信息。要按步骤收集running统计信息，需要实例化网络中每个Batch Normalization层的N组running平均值和running标准偏差集（其中N是inner loop更新步骤的总数），并使用优化过程中采取的步骤分别更新running统计信息。per-step batch normalization方法应加快MAML的优化速度，同时潜在地提高泛化性能。</p>
+<p><strong>共享（跨步骤）Batch Normalization偏差→Per-Step Batch Normalization权重和偏差（BNWB）</strong>：<br>在MAML论文中，作者训练他们的模型去学到对每一层的<strong>一组</strong>偏差。这样做是假设通过网络传递的特征的分布是相似的。但是，这是一个错误的假设，因为基本模型已更新了许多次，从而使特征分布彼此之间越来越不相似。为了解决这个问题，我们建议在inner-loop更新过程中<strong>每步</strong>学习一组偏差。这样做意味着Batch Normalization将学习特定于在每个集合处看到的特征分布的偏差，这将提高收敛速度，稳定性和泛化性能。</p>
+<p><strong>共享的inner loop学习率（跨步和跨参数）→学习每层每步学习率和梯度方向（LSLR）</strong>：<br>Li et al. (2017)的先前工作，证明了学习基础网络中<strong>每个</strong>参数的学习率和梯度方向可以提高系统的泛化性能。然而，这导致参数数量增加和计算开销增加的结果。因此，我们建议改为学习网络中每一层的学习率和方向，以及随着基础网络的逐步适应而学习不同的学习率。学习每层而不是每个参数的学习率和方向应该减少所需的内存和计算，同时在更新步骤中提供更多的灵活性。此外，对于学习到的每个学习率，将有N个实例的学习率，每个步骤要采用一个实例。通过这样做，参数可以自由学习在每步降低学习率，这可以帮助减轻过拟合的情况。</p>
+<p><strong>固定outer loop学习率→元优化器学习率的余弦退火（CA）</strong>：<br>在MAML中，作者在元模型的优化器上使用静态学习率。通过使用阶跃函数(He et al., 2016)或余弦函数(Loshchilov＆Hutter，2016)对学习率进行退火已被证明对于具有更高泛化能力的学习模型至关重要。余弦退火调度在产生最新技术结果方面特别有效，同时消除了对学习速率空间进行任何超参数搜索的需求。因此，我们建议将余弦退火调度应用于元模型的优化器（即元优化器）。退火学习率可使模型更有效地拟合训练集，结果可能会产生更高的泛化性能。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-09T13:56:40.058Z" itemprop="dateUpdated">2019-10-09 21:56:40</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" target="_blank" rel="external">http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Kang Yachen">
+            Kang Yachen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&title=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&title=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/09/Learning-to-Learn-via-Self-Critique/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Learning to Learn via Self-Critique</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Kang Yachen &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&title=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&title=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3awY7rMAgF0P7/T+dJs62aXCB5Uuzj1ahtHJ9ZIDB8PvE6/tavz7/X91Pf357v9nliYWBgvJZxnK5fv8l36D2V/wYDA2MfxnmQPT9Kb7fkLcluGBgYGMlx7wqpyXsxMDAwqoznUkkMDAyMXljspYznjHP2I7U4BgbGCxnVxsD//PvB/gYGBsZLGEdxVdPHXnuyfCoMDIylGUlaNg++906FFDJcDAyMJRh5eTkJndVyNz8DBgbGPoy7jtVrTyah+SKsY2BgbMOopnG98Yt5yXqR22JgYCzHmIS5XsnaK4DzMQ4MDIy1GcmIQxKO52XwRcma3B1iYGAsx6he00+CZjWhHN0dYmBgLMHojVA8EY6Tt/z8HAMDYwNGbxSslxT2mg0X32JgYCzNmF+Q9a7Jqocuj5FhYGAsxKhe6OfhuJpoJu3Mi2ELDAyMRRlJaMuvyfKiNy+JC8krBgbGBow815qMiD0xeIGBgbEPIwms88ZAr8F5W2qIgYHxQkbUIGyVpr3rtvNyOupvYGBgbMbIi9hew7IaiKMqHAMDYzlG9QWTS7ecmrdaMTAwdmAcxZVc9+fhe7LzJ4/KGBgYL2dM4vRkzOuRxgAGBsbSjHwYq9BtGETCaqMCAwNjH0aydfLK6Co/bnYm/3QMDAyMvBzN2wb5s+dnw8DAwMhTw17DoDp4cXPAxcDAeCEjL2Jz2F2BuDw5goGBsRxj0hiolqPV0bGbr/YwMDDex/gHWV884gLMC3YAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    
+    
+    
+    <title>Learning to Learn via Self-Critique | Hamish的科研blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="摘要在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Learning to Learn via Self-Critique">
+<meta property="og:url" content="http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/index.html">
+<meta property="og:site_name" content="Hamish的科研blog">
+<meta property="og:description" content="摘要在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信息">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623088/wps_2019-09-28_22-57-12_eioif3.png">
+<meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570624552/wps_2019-10-09_20-35-27_twt5kl.png">
+<meta property="og:updated_time" content="2019-10-09T12:36:06.903Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Learning to Learn via Self-Critique">
+<meta name="twitter:description" content="摘要在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信息">
+<meta name="twitter:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623088/wps_2019-09-28_22-57-12_eioif3.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Kang Yachen</h5>
+          <a href="mailto:kangyachen@westlake.edu.cn" title="kangyachen@westlake.edu.cn" class="mail">kangyachen@westlake.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sherlockbear" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Learning to Learn via Self-Critique</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Learning to Learn via Self-Critique</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-10-09T12:33:12.000Z" itemprop="datePublished" class="page-time">
+  2019-10-09
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-Self-Critique-and-Adapt"><span class="post-toc-number">2.</span> <span class="post-toc-text">3 Self-Critique and Adapt</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Learning-to-Learn-via-Self-Critique"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Learning to Learn via Self-Critique</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-09 20:33:12" datetime="2019-10-09T12:33:12.000Z"  itemprop="datePublished">2019-10-09</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信息。通过transductive learning来使用target-set样本需要更先进的方法；at inference time, the target-set contains only unlabelled input data-points, and so discriminative learning cannot be used。在本文中，我们提出了一个名为“Self-Critique and Adapt”或SCA的框架，该框架可以学习无标签损失函数，该函数被参数化为神经网络。基本模型使用现有方法（例如，随机梯度下降与交叉熵损失相结合）在支持集上学习，然后使用学习到的损失函数针对传入的target-task进行更新。学习无标签损失函数，以便target-set-updated模型实现更高的泛化性能。实验表明，与仅适用于支持集的基准相比，SCA可以显着降低错误率，并可以在Mini-ImageNet和Caltech-UCSD Birds 200上获得最先进的基准性能。</p>
+<h3 id="3-Self-Critique-and-Adapt"><a href="#3-Self-Critique-and-Adapt" class="headerlink" title="3 Self-Critique and Adapt"></a>3 Self-Critique and Adapt</h3><p>为了让模型学习和适应仅输入数据点可用的设置（例如，在给定任务的少样本target-set上），就需要一种无标签损失函数。例如，许多无监督的学习方法试图使生成概率最大化，因此使用负对数似然度（或其bound）作为损失函数。通常，大多数生成模型都与任务无关。在一组特定的任务中，针对损失函数可能会有更恰当和专业的选择。</p>
+<p>手动设计这样的损失函数具有挑战性，通常只能产生可能在一种设置下起作用而在另一种情况下不起作用的损失函数。了解损失函数选择的全部影响并不容易。相反，我们提出了一种Self-Critique and Adapt方法，该方法元学习特定任务集的损失函数。它是通过使用set-to-set少样本学习框架并使用端到端基于梯度的可微元学习作为我们的学习框架来解决问题的。</p>
+<p>SCA与模型无关，可以应用在<strong>任何</strong>使用内环优化过程来获取特定于任务的信息的端到端可微且基于梯度的元学习方法之上。许多这样的方法（Ravi and Larochelle, 2016; Finn et al., 2017; Li et al., 2017; Antoniou et al., 2019; Finn et al., 2018; Qiao et al., 2018; Rusu et al., 2018; Grant et al., 2018）目前正在争夺少样本学习领域中的SOTA。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623088/wps_2019-09-28_22-57-12_eioif3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在上图中总结的Self-Critique and Adapt，采用一个基本模型并使用现有的基于梯度的元学习方法(e.g. MAML (Finn et al., 2017), MAML++ (Antoniou et al., 2019) or LEO (Rusu et al., 2018))，根据support-set更新基本模型，然后推断出对target-set的预测。推断出预测后，将它们与其他基本模型相关的信息（例如模型参数，任务嵌入等）串联在一起，然后传递到可学习的critic loss network，其输出应解释为给定输入的loss值。该critic network计算并返回关于target-set的损失。然后针对该critic loss，使用任何随机梯度优化方法(如SGD)更新基本模型；如有必要，可以多次进行更新。这种inner-loop优化可生成特定于support/target set信息的预测模型。</p>
+<p>内部循环过程在推理时直接用于手头的任务。但是，与其他元学习设置一样，我们使用一系列训练任务来优化inner-loop（这些任务与第7节中所述的测试任务不同）。使用训练任务中的ground truth标签评估inner-loop学习的预测模型的质量。然后，outer loop优化初始参数和critic loss，以最大化inner loop预测的质量。与其他元学习方法一样，整个inner loop的可微性确保可以使用基于梯度的方法来学习此outer loop。</p>
+<p>在本文中，我们使用MAML ++作为基本方法。我们用$f(\cdot,\theta)$表示参数化为神经网络的模型，参数为$\theta$，critic loss $C(\cdot,W)$也是参数为$W$的神经网络。我们想学习好的参数$\theta$和$W$，当优化模型$f$时，针对support set $S_b=\{x_S, y_S\}$上的loss $L$，需要执行$N$步优化，然后再针对critic loss $C$ 另外向target-set $T_b = \{x_T\}$优化$I$步，可以在target-set上实现良好的泛化性能。这里，$b$是一个具体任务在一批任务中的索引。完整算法在下面进行了描述。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570624552/wps_2019-10-09_20-35-27_twt5kl.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>算法框图中的等式2定义了潜在的条件特征集合$F$，这些特征概括了基本模型及其行为。这些特征可以被无监督的critic loss $C$ 用来调整target set 更新。在这些可能的特征中，$f (\theta_N,x_T)$是基本模型$f$的预测，使用参数$\theta_N$（即针对support-set loss的N步更新后的参数），而$g(x_S,x_n)$是任务嵌入，参数化为神经网络，该神经网络以support和target输入数据点为条件。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-09T12:36:06.903Z" itemprop="dateUpdated">2019-10-09 20:36:06</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/09/Learning-to-Learn-via-Self-Critique/" target="_blank" rel="external">http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Kang Yachen">
+            Kang Yachen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Learning to Learn via Self-Critique》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/10/09/Meta-Learning-A-Survey/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Meta-Learning: A Survey</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">HOW TO TRAIN YOUR MAML</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Kang Yachen &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Learning to Learn via Self-Critique》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aQW7jMBAEQP//09lrgIWc7hky8aF0MmKFYsEAOerh6xVfXw/X92/f3///nU/3vB/zdePCw8PDOzT1diqn7n8/z3zOeHh4eLd5yXD10PHU260imTMeHh7e5/BmD8u3jbY0x8PDw/t8XlIiJ98m9+Ph4eF9Mi8fLufl4+TR8MWsBQ8PD69LDKIu0ud8vtLfw8PDw1t31fMm1mycWblcPAUPDw/vAi9fcPOJ5iX1bIWv78TDw8O7xkte9U8dCNiHDsXWgoeHh/crvE1IkR+cyqe4OoKAh4eHd5S3iQ/yZlhbfM/G/6GYxsPDwzvEmx2QmhXcs7A4KbsPpBp4eHh4JW/Tshou0OV8Vkev8PDw8H6Rl28Ym+AgDyMSap0i4+Hh4Y14+9g03xKSorkdp8iq8fDw8A7x9sV03uLaYJIf4IejA3h4eHhr3qbF1S73SeGbzKQ4XoCHh4d3gZcfqGoL4rZk3zTAhsExHh4e3og3e+1vF+68XG5/h6L1hYeHh3eBt59Kvrjnh64S6uMc8PDw8C7w2vg1iVZnhwmS8Tej4eHh4Z3iJaFtsj20wcGeHf0dDw8P7wJv1vJPCut8iZ+13PDw8PD+ijcrcPMQIY9lk3HqRh0eHh7eBd4mVpgdL5htKm2Ai4eHh/c7vM3CnT/s3tGr6asEHh4e3paXB7v5Et8eEZi1xB5HwMPDw7vGS4KJWUSbxxltK27V5cPDw8Mb8b7KK29fzdr/s4bZ4//i4eHhXeC1C24y3bMFcfK5jifw8PDw1ry2wE2ihM3CPdtyojACDw8P7yhvv9xvlv5hKZxHEnh4eHh/ymsPWrUxxKaIfyyp8fDw8D6Alwe+7Wg5e3WmDA8PD2/NS8KIWWzRtrvOts3w8PDwbvDa1/tZAX0qpDgVWODh4eGNeP8AzKbkKYBDclMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+</body>
+</html>

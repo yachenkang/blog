@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hamish的科研blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2019-10-09T14:13:30.577Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Kang Yachen</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Meta-Learning: A Survey</title>
+    <link href="http://yoursite.com/2019/10/09/Meta-Learning-A-Survey/"/>
+    <id>http://yoursite.com/2019/10/09/Meta-Learning-A-Survey/</id>
+    <published>2019-10-09T12:37:57.000Z</published>
+    <updated>2019-10-09T14:13:30.577Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>元学习或学会学习是系统地观察不同机器学习方法如何在广泛的学习任务中执行的科学，然后从这种经验或元数据中学习，以比其他方式更快地学习新任务 。<br>这不仅极大地加速和改进了机器学习流程或神经网络架构的设计，还使我们能够用数据驱动方式学习的新方法取代手工设计算法。<br>在本章中，我们将概述这个迷人且不断发展的领域的最新技术。</p><h3 id="1-简介"><a href="#1-简介" class="headerlink" title="1 简介"></a>1 简介</h3><hr><p>当我们学习新技能时，我们很少 - 如果有的话 - 从头开始。我们从之前在相关任务中学到的技能开始，重用以前运作良好的方法，并根据经验关注可能值得尝试的内容（Lake et al。，2017）。通过学到的所有技能，学习新技能变得更容易，需要更少的示例和更少的试错。简而言之，我们跨任务学习如何学习。同样，在为特定任务构建机器学习模型时，我们通常会建立相关任务的经验，或者使用我们（通常是隐含的）对机器学习技术行为的理解来帮助做出正确的选择。</p><p>元学习的挑战是以系统的，数据驱动的方式从先前的经验中学习。首先，我们需要收集描述先前学习任务和先前学习模型的<strong>元数据</strong>。它们包括用于训练模型的精确<strong>算法配置</strong>，包括超参数设置，流程组合和/或网络架构，所得到的<strong>模型评估</strong>，例如准确性和训练时间，学到的模型参数，例如训练到的神经网络的权重，以及任务本身的可测量的适当关系，也称为<strong>元特征</strong>。接着，我们需要从这个先前的元数据开始<strong>学习</strong>，以提取和传递知识用于指导搜索新任务的最佳模型。本章简要概述了有效实现这一目标的不同元学习方法。</p><p><strong>元学习</strong>一词涵盖基于其他任务的先前经验的任何类型的学习。这些先前的任务越<strong>相似</strong>，我们可以利用的元数据类型就越多，并且定义任务相似性将是一个关键的总体挑战。也许不用说，天下没有免费的午餐（Wolpert和Macready，1996； Giraud-Carrier和Provost，2005）。当一项新任务代表完全不相关的现象或随机噪音时，利用先前的经验将无效。幸运的是，在现实世界中的任务中，有很多机会可以学习以前的经验。</p><p>在本章的其余部分，我们根据元数据学习所利用的元数据类型对元学习技术进行分类，从最通用的到最特定于任务的。首先，在第2节中，我们讨论如何<strong>纯粹从模型评估中学习</strong>。这些技术可用于推荐通常有用的配置和配置搜索空间，以及从<strong>经验相似的</strong>任务中转移知识。在第3节中，我们讨论如何<strong>表征</strong>任务以更明确地表达任务相似性并建立元模型来学习数据特征与学习性能之间的关系。最后，第4节介绍了如何在固有相似的任务之间<strong>传递训练后的模型参数</strong>，例如共享相同的输入功能，从而可以进行迁移学习（Pan和Yang，2010）和少样本学习（Ravi和Larochelle，2017）。</p><p>请注意，尽管<strong>多任务学习</strong>（Caruana，1997）（同时学习多个相关任务）和<strong>集成学习</strong>（Dietterich，2000）（在同一任务上构建多个模型）通常可以与元学习系统有意义地结合，本身并不涉及在其他任务上的先前经验中学习。</p><h3 id="2-Learning-from-Model-Evaluations"><a href="#2-Learning-from-Model-Evaluations" class="headerlink" title="2. Learning from Model Evaluations"></a>2. Learning from Model Evaluations</h3><hr><p>考虑到我们可以访问先前任务$t_j \in T$，所有已知任务的集合以及一组学习算法，这些算法完全由其<strong>配置</strong>$\theta_i\in \Theta$定义； 在此，$\Theta$表示离散的，连续的或混合的配置空间，其可以包括超参数设置，流程组件和/或网络架构组件。$P$是任务$t_j$上所有配置$\theta_i$的所有先前标量评估$P_{i, j}=P(\theta_i,t_j)$的集合，根据预先定义的评估方法，例如 准确性和模型评估技术，例如 交叉验证。$P_{new}$是新任务$t_{new}$上一组已知评估$P_{i,new}$的集合。现在，我们想训练一个元学习器$L$，它预测针对新任务$t_{new}$的推荐配置$\Theta^\ast _{new}$。元学习器接受元数据$P\cup P_{new}$的训练。$P$通常是事先收集的，或者是从元数据存储库中提取的（Vanschoren等，2014，2012）。通过元学习技术本身以迭代方式学习$P_{new}$，有时以另一种方法生成的初始$P’_ {new}$进行<strong>热启动</strong>。</p><h4 id="2-1-Task-Independent-Recommendations"><a href="#2-1-Task-Independent-Recommendations" class="headerlink" title="2.1 Task-Independent Recommendations"></a>2.1 Task-Independent Recommendations</h4><p>首先，假设无法获得有关$t_{new}$的任何评估，因此$P_{new}=\emptyset$。然后，我们仍然可以学习函数$f: \Theta \times T \to \{\theta^\ast _ k\},k = 1..K$，产生了一组<strong>独立</strong>于$t_{new}$的推荐配置。然后可以重新评估这些$\theta ^ \ast _ k$，以选择最佳的$\theta  _ k$，或热启动进一步的优化方法，例如第2.3节中讨论的方法。</p><p>这种方法通常会产生排序，即<strong>有序</strong>集合$\theta ^ \ast _ k$。这通常是通过将$\theta$离散化为一组候选配置$\theta_ i$，该候选配置也称为<strong>portfolio</strong>，在大量任务$t_j$上进行评估来完成的。然后，我们可以根据<strong>成功率</strong>，<strong>AUC</strong>或<strong>significant wins</strong>来建立每个任务上的排名（Brazdil等，2003a； Demˇsar，2006； Leite等，2012）。但是，通常希望将同样好的但速度更快的算法排在更高的位置，并且已经提出了多种方法来权衡准确性和训练时间（Brazdil等人，2003a; van Rijn等人，2015）。接下来，我们可以将这些单任务排名汇总为<strong>全局排名</strong>，例如通过计算在所有任务上的平均排名（Lin，2010; Abdulrahman et al。，2018）。当没有足够的数据来建立全局排名时，可以根据每个先验任务的最佳已知配置来推荐<strong>配置子集</strong>（Todorovski和Dzeroski，1999; Kalousis，2002），或者返回<strong>准线性排名</strong>（Cook等。（1996）。</p><p>为了找到任务$t_{new}$的最佳$\theta^\ast$，这是从未见过的任务，一种随时随地的简单方法是选择前$K$个配置（Brazdil等人，2003a），从列表中查找并依次评估每个配置在$t_{new}$上的表现。在固定值$K$个，时间预算约束或找到足够准确的模型之后，可以停止此评估。在时间受限的环境中，已表明多目标排名（包括训练时间）更快地收敛到接近最优的模型（Abdulrahman等，2018； van Rijn等，2015），并提供了强有力的基线用于算法比较（Abdulrahman等，2018; Leite等，2012）。</p><p>与上述方法非常不同的方法是，首先对特定任务$t_j$的所有先前评估拟合微分函数$f_j(\theta_i)= P_{i,j}$，然后使用梯度下降找到每个先前任务的优化配置$\theta^\ast _ j$（Wistuba等人，2015a）。假设某些任务$t_j$与$t_{new}$相似，则这些$\theta ^ \ast _ j$对于热启动贝叶斯优化方法很有用。</p><h4 id="2-2-Confifiguration-Space-Design"><a href="#2-2-Confifiguration-Space-Design" class="headerlink" title="2.2 Confifiguration Space Design"></a>2.2 Confifiguration Space Design</h4><h4 id="2-3-Confifiguration-Transfer"><a href="#2-3-Confifiguration-Transfer" class="headerlink" title="2.3 Confifiguration Transfer"></a>2.3 Confifiguration Transfer</h4><h5 id="2-3-1-Relative-Landmarks"><a href="#2-3-1-Relative-Landmarks" class="headerlink" title="2.3.1 Relative Landmarks"></a>2.3.1 Relative Landmarks</h5><h5 id="2-3-2-Surrogate-Models"><a href="#2-3-2-Surrogate-Models" class="headerlink" title="2.3.2 Surrogate Models"></a>2.3.2 Surrogate Models</h5><h5 id="2-3-3-Warm-Started-Multi-task-Learning"><a href="#2-3-3-Warm-Started-Multi-task-Learning" class="headerlink" title="2.3.3 Warm-Started Multi-task Learning"></a>2.3.3 Warm-Started Multi-task Learning</h5><h5 id="2-3-4-Other-Techniques"><a href="#2-3-4-Other-Techniques" class="headerlink" title="2.3.4 Other Techniques"></a>2.3.4 Other Techniques</h5><h4 id="2-4-Learning-Curves"><a href="#2-4-Learning-Curves" class="headerlink" title="2.4 Learning Curves"></a>2.4 Learning Curves</h4><h3 id="3-Learning-from-Task-Properties"><a href="#3-Learning-from-Task-Properties" class="headerlink" title="3. Learning from Task Properties"></a>3. Learning from Task Properties</h3><hr><h4 id="2-1-Task-Independent-Recommendations-1"><a href="#2-1-Task-Independent-Recommendations-1" class="headerlink" title="2.1 Task-Independent Recommendations"></a>2.1 Task-Independent Recommendations</h4><h4 id="2-2-Confifiguration-Space-Design-1"><a href="#2-2-Confifiguration-Space-Design-1" class="headerlink" title="2.2 Confifiguration Space Design"></a>2.2 Confifiguration Space Design</h4><h4 id="2-3-Confifiguration-Transfer-1"><a href="#2-3-Confifiguration-Transfer-1" class="headerlink" title="2.3 Confifiguration Transfer"></a>2.3 Confifiguration Transfer</h4><h5 id="2-3-1-Relative-Landmarks-1"><a href="#2-3-1-Relative-Landmarks-1" class="headerlink" title="2.3.1 Relative Landmarks"></a>2.3.1 Relative Landmarks</h5><h5 id="2-3-2-Surrogate-Models-1"><a href="#2-3-2-Surrogate-Models-1" class="headerlink" title="2.3.2 Surrogate Models"></a>2.3.2 Surrogate Models</h5><h5 id="2-3-3-Warm-Started-Multi-task-Learning-1"><a href="#2-3-3-Warm-Started-Multi-task-Learning-1" class="headerlink" title="2.3.3 Warm-Started Multi-task Learning"></a>2.3.3 Warm-Started Multi-task Learning</h5><h5 id="2-3-4-Other-Techniques-1"><a href="#2-3-4-Other-Techniques-1" class="headerlink" title="2.3.4 Other Techniques"></a>2.3.4 Other Techniques</h5><h4 id="2-4-Learning-Curves-1"><a href="#2-4-Learning-Curves-1" class="headerlink" title="2.4 Learning Curves"></a>2.4 Learning Curves</h4><h3 id="3-Learning-from-Task-Properties-1"><a href="#3-Learning-from-Task-Properties-1" class="headerlink" title="3. Learning from Task Properties"></a>3. Learning from Task Properties</h3><hr><h4 id="3-1-Meta-Features"><a href="#3-1-Meta-Features" class="headerlink" title="3.1 Meta-Features"></a>3.1 Meta-Features</h4><h4 id="3-2-Learning-Meta-Features"><a href="#3-2-Learning-Meta-Features" class="headerlink" title="3.2 Learning Meta-Features"></a>3.2 Learning Meta-Features</h4><h4 id="3-3-Warm-Starting-Optimization-from-Similar-Tasks"><a href="#3-3-Warm-Starting-Optimization-from-Similar-Tasks" class="headerlink" title="3.3 Warm-Starting Optimization from Similar Tasks"></a>3.3 Warm-Starting Optimization from Similar Tasks</h4><h4 id="3-4-Meta-Models"><a href="#3-4-Meta-Models" class="headerlink" title="3.4 Meta-Models"></a>3.4 Meta-Models</h4><h5 id="3-4-1-Ranking"><a href="#3-4-1-Ranking" class="headerlink" title="3.4.1 Ranking"></a>3.4.1 Ranking</h5><h5 id="3-4-2-Performance-Prediction"><a href="#3-4-2-Performance-Prediction" class="headerlink" title="3.4.2 Performance Prediction"></a>3.4.2 Performance Prediction</h5><h4 id="3-5-Pipeline-Synthesis"><a href="#3-5-Pipeline-Synthesis" class="headerlink" title="3.5 Pipeline Synthesis"></a>3.5 Pipeline Synthesis</h4><h4 id="3-6-To-Tune-or-Not-to-Tune"><a href="#3-6-To-Tune-or-Not-to-Tune" class="headerlink" title="3.6 To Tune or Not to Tune?"></a>3.6 To Tune or Not to Tune?</h4><h3 id="4-Learning-from-Prior-Models"><a href="#4-Learning-from-Prior-Models" class="headerlink" title="4. Learning from Prior Models"></a>4. Learning from Prior Models</h3><hr><h4 id="4-1-Transfer-Learning"><a href="#4-1-Transfer-Learning" class="headerlink" title="4.1 Transfer Learning"></a>4.1 Transfer Learning</h4><h4 id="4-2-Meta-Learning-in-Neural-Networks"><a href="#4-2-Meta-Learning-in-Neural-Networks" class="headerlink" title="4.2 Meta-Learning in Neural Networks"></a>4.2 Meta-Learning in Neural Networks</h4><h4 id="4-3-Few-Shot-Learning"><a href="#4-3-Few-Shot-Learning" class="headerlink" title="4.3 Few-Shot Learning"></a>4.3 Few-Shot Learning</h4><h4 id="4-4-Beyond-Supervised-Learning"><a href="#4-4-Beyond-Supervised-Learning" class="headerlink" title="4.4 Beyond Supervised Learning"></a>4.4 Beyond Supervised Learning</h4><h3 id="5-Conclusion"><a href="#5-Conclusion" class="headerlink" title="5. Conclusion"></a>5. Conclusion</h3><hr><p>元学习机会以许多不同的方式展现出来，并且可以使用多种学习技术加以体现。每当我们尝试学习某个任务时，无论成功与否，我们都会获得有益的经验，可以利用这些经验来学习新任务。我们永远不必完全从头开始。相反，我们应该系统地收集我们的“学习资源”，并从中学习以构建随着时间的推移不断改进的AutoML系统，从而帮助我们更加有效地解决新的学习问题。我们遇到的新任务越多，这些新任务越相似，我们就越可以利用先前的经验，以至于大多数必需的学习已经事先完成。计算机系统能够存储几乎无限量的以前的学习经验（以元数据的形式）的能力为以全新的方式使用该经验提供了广泛的机会，而我们才刚刚开始学习如何从中学习事先有效的经验。然而，这是一个值得实现的目标：学习如何学习任何任务，不仅使我们了解如何学习特定的任务，还使我们拥有了更多的能力。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;元学习或学会学习是系统地观察不同机器学习方法如何在广泛的学习任务中执行的科学，然后从这种经验或元数据中学习，以比其他方式更快地学习新任务 。
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Learning to Learn via Self-Critique</title>
+    <link href="http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/"/>
+    <id>http://yoursite.com/2019/10/09/Learning-to-Learn-via-Self-Critique/</id>
+    <published>2019-10-09T12:33:12.000Z</published>
+    <updated>2019-10-09T12:36:06.903Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信息。通过transductive learning来使用target-set样本需要更先进的方法；at inference time, the target-set contains only unlabelled input data-points, and so discriminative learning cannot be used。在本文中，我们提出了一个名为“Self-Critique and Adapt”或SCA的框架，该框架可以学习无标签损失函数，该函数被参数化为神经网络。基本模型使用现有方法（例如，随机梯度下降与交叉熵损失相结合）在支持集上学习，然后使用学习到的损失函数针对传入的target-task进行更新。学习无标签损失函数，以便target-set-updated模型实现更高的泛化性能。实验表明，与仅适用于支持集的基准相比，SCA可以显着降低错误率，并可以在Mini-ImageNet和Caltech-UCSD Birds 200上获得最先进的基准性能。</p><h3 id="3-Self-Critique-and-Adapt"><a href="#3-Self-Critique-and-Adapt" class="headerlink" title="3 Self-Critique and Adapt"></a>3 Self-Critique and Adapt</h3><p>为了让模型学习和适应仅输入数据点可用的设置（例如，在给定任务的少样本target-set上），就需要一种无标签损失函数。例如，许多无监督的学习方法试图使生成概率最大化，因此使用负对数似然度（或其bound）作为损失函数。通常，大多数生成模型都与任务无关。在一组特定的任务中，针对损失函数可能会有更恰当和专业的选择。</p><p>手动设计这样的损失函数具有挑战性，通常只能产生可能在一种设置下起作用而在另一种情况下不起作用的损失函数。了解损失函数选择的全部影响并不容易。相反，我们提出了一种Self-Critique and Adapt方法，该方法元学习特定任务集的损失函数。它是通过使用set-to-set少样本学习框架并使用端到端基于梯度的可微元学习作为我们的学习框架来解决问题的。</p><p>SCA与模型无关，可以应用在<strong>任何</strong>使用内环优化过程来获取特定于任务的信息的端到端可微且基于梯度的元学习方法之上。许多这样的方法（Ravi and Larochelle, 2016; Finn et al., 2017; Li et al., 2017; Antoniou et al., 2019; Finn et al., 2018; Qiao et al., 2018; Rusu et al., 2018; Grant et al., 2018）目前正在争夺少样本学习领域中的SOTA。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623088/wps_2019-09-28_22-57-12_eioif3.png" alt title>                </div>                <div class="image-caption"></div>            </figure><p>在上图中总结的Self-Critique and Adapt，采用一个基本模型并使用现有的基于梯度的元学习方法(e.g. MAML (Finn et al., 2017), MAML++ (Antoniou et al., 2019) or LEO (Rusu et al., 2018))，根据support-set更新基本模型，然后推断出对target-set的预测。推断出预测后，将它们与其他基本模型相关的信息（例如模型参数，任务嵌入等）串联在一起，然后传递到可学习的critic loss network，其输出应解释为给定输入的loss值。该critic network计算并返回关于target-set的损失。然后针对该critic loss，使用任何随机梯度优化方法(如SGD)更新基本模型；如有必要，可以多次进行更新。这种inner-loop优化可生成特定于support/target set信息的预测模型。</p><p>内部循环过程在推理时直接用于手头的任务。但是，与其他元学习设置一样，我们使用一系列训练任务来优化inner-loop（这些任务与第7节中所述的测试任务不同）。使用训练任务中的ground truth标签评估inner-loop学习的预测模型的质量。然后，outer loop优化初始参数和critic loss，以最大化inner loop预测的质量。与其他元学习方法一样，整个inner loop的可微性确保可以使用基于梯度的方法来学习此outer loop。</p><p>在本文中，我们使用MAML ++作为基本方法。我们用$f(\cdot,\theta)$表示参数化为神经网络的模型，参数为$\theta$，critic loss $C(\cdot,W)$也是参数为$W$的神经网络。我们想学习好的参数$\theta$和$W$，当优化模型$f$时，针对support set $S_b=\{x_S, y_S\}$上的loss $L$，需要执行$N$步优化，然后再针对critic loss $C$ 另外向target-set $T_b = \{x_T\}$优化$I$步，可以在target-set上实现良好的泛化性能。这里，$b$是一个具体任务在一批任务中的索引。完整算法在下面进行了描述。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570624552/wps_2019-10-09_20-35-27_twt5kl.png" alt title>                </div>                <div class="image-caption"></div>            </figure><p>算法框图中的等式2定义了潜在的条件特征集合$F$，这些特征概括了基本模型及其行为。这些特征可以被无监督的critic loss $C$ 用来调整target set 更新。在这些可能的特征中，$f (\theta_N,x_T)$是基本模型$f$的预测，使用参数$\theta_N$（即针对support-set loss的N步更新后的参数），而$g(x_S,x_n)$是任务嵌入，参数化为神经网络，该神经网络以support和target输入数据点为条件。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>HOW TO TRAIN YOUR MAML</title>
+    <link href="http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/"/>
+    <id>http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/</id>
+    <published>2019-10-09T12:31:44.000Z</published>
+    <updated>2019-10-09T13:56:40.058Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们提出了对MAML的各种修改，这些修改不仅可以稳定系统，而且可以大大提高MAML的泛化性能，收敛速度和计算开销，我们称之为MAML++。</p><h3 id="3-MAML"><a href="#3-MAML" class="headerlink" title="3 MAML"></a>3 MAML</h3><script type="math/tex; mode=display">\theta_{0}=\theta_{0}-\beta \nabla_{\theta} \sum_{b=1}^{B} \mathcal{L}_{T_{b}}\left(f_{\theta_{N}^{b}\left(\theta_{0}\right)}\right)</script><h4 id="3-1-MAML的问题"><a href="#3-1-MAML的问题" class="headerlink" title="3.1 MAML的问题"></a>3.1 MAML的问题</h4><p>MAML的简单，优雅和高性能使其成为元学习的非常强大的框架。但是，MAML也有许多问题，使其难以使用。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png" alt title>                </div>                <div class="image-caption"></div>            </figure><p><strong>梯度不稳定性</strong>：<br>如上图所示，受到神经网络结构和全局超参数设置的影响，MAML在训练过程中可能非常不稳定。优化outer loop涉及多次穿过由同一网络组成的未展开的inner loop进行导数的反向传播。仅此一项就可能导致梯度问题。但是，模型架构进一步加剧了梯度问题，标准4层卷积网络但没有skip-connections。缺少任何skip-connections意味着每个梯度必须多次通过每个卷积层。实际上，梯度将被多次乘以相同的参数集。经过多次反向传播后，展开网络的深度结构和skip-connections的缺失会分别引起梯度爆炸和梯度消失问题。</p><p><strong>二阶导数成本</strong>：<br>通过梯度更新步骤进行优化需要计算二阶梯度，而二阶梯度的计算成本非常高昂。MAML的作者建议使用一阶近似将处理速度提高三倍，但是使用这些近似可能会对最终的泛化误差产生负面影响。已经在Reptile(Nichol et al., 2018)中尝试了进一步使用一阶方法的尝试，作者在基本模型上应用标准SGD，然后更新其初始化参数向N步更新后的参数方向迈出一步。Reptile的结果变化较大，在某些情况下超过MAML，而在另一些情况下则不如MAML。尚未提出减少计算时间而不牺牲泛化性能的方法。</p><p><strong>缺少Batch Normalization统计量累积</strong>：<br>影响生成性能的另一个问题是原始MAML论文中在实验中使用Batch Normalization的方式。不是累积运行统计信息，而是将当前batch的统计信息用于Batch Normalization。这导致Batch Normalization的效果较差，因为学习的偏差必须适应各种不同的均值和标准差，而不是单个均值和标准差。另一方面，如果Batch Normalization使用累积的运行统计信息，则最终将收敛到某些全局平均值和标准偏差。这样就只剩下一个均值和标准偏差来学习偏差了。使用running统计信息而不是batch统计信息，可以极大地提高收敛速度，稳定性和泛化性能，因为归一化的特征将导致更平滑的优化环境（Santurkar et al.，2018）。</p><p><strong>共享（跨step）Batch Normalization偏差</strong>：<br>MAML中的批处理规范化的另一个问题源于以下事实：Batch Normalization偏差未在inner loop中更新；相反，在基础模型的所有迭代中都使用相同的偏差。隐式地执行此操作将假定所有基本模型在整个inner loop更新中都是相同的，因此通过它们传递的特征具有相同的分布。这是一个错误的假设，因为在每次inner loop更新时，都会实例化一个新的基础模型，该基础模型与前一个基础模型的差异足以从偏差估计的角度将其视为新模型。因此，为基本模型的所有迭代学习单个偏差集会限制性能。</p><p><strong>共享的inner loop（跨step和跨参数）学习率</strong>：<br>影响泛化和收敛速度（就训练迭代而言）的一个问题是对所有参数和所有更新步骤使用共享学习率的问题。这样做会带来两个主要问题。具有固定的学习率要求进行多次超参数搜索，以找到特定数据集的正确学习率； 根据搜索的完成方式，此过程可能在计算上非常昂贵。<br>（Li et al。，2017）中的作者建议为网络的每个参数学习学习率并更新方向。这样做解决了手动搜索正确学习率的问题，并且还允许各个参数具有较小或较大的学习率。然而，这种方法带来了自己的问题。由于网络包含40K到50K的参数（取决于数据点的维数），因此学习每个网络参数的学习率意味着要增加计算量并增加内存使用量。</p><p><strong>固定outer loop学习率</strong>：<br>在MAML中，作者使用具有固定学习率的Adam来优化元目标。事实证明，使用阶跃或余弦函数对学习率进行退火对于在多种情况下实现最新的泛化性能至关重要(Loshchilov &amp; Hutter, 2016; He et al., 2016; Larsson et al., 2016; Huang et al., 2017)。因此，我们认为使用静态学习率会降低MAML的泛化性能，这也可能是优化速度较慢的原因。此外，具有固定的学习速率可能意味着必须花费更多（计算）时间来调整学习速率。</p><h4 id="4-稳定，自动和改进的MAML"><a href="#4-稳定，自动和改进的MAML" class="headerlink" title="4 稳定，自动和改进的MAML"></a>4 稳定，自动和改进的MAML</h4><p>在本节中，我们提出了解决MAML框架问题的方法，如第3.1节所述。每个解决方案都有一个与要解决的问题相同的参考。</p><p><strong>梯度不稳定性→多步损失优化（MSL）</strong>：<br>MAML最小化完成对support set任务的<strong>所有</strong>inner-loop更新后的基础网络所计算出的在target set的loss。相反，我们建议最小化完成对support set任务的<strong>每一步</strong>更新的基础网络所计算出的在target set的loss。更具体地说，我们建议最小化的loss是每步support set loss更新后target set loss的加权总和。更正式地：</p><script type="math/tex; mode=display">\theta=\theta-\beta \nabla_{\theta} \sum_{b=1}^{B} \sum_{i=0}^{N} v_{i} \mathcal{L}_{T_{b}}\left(f_{\theta_{i}^{b}}\right)</script><p>其中$\beta$是学习率，$L_{T_b}(f_{\theta^b_i})$表示在$i$向最小化support set任务loss更新后的基本网络权重在任务$b$的target set loss，$v_i$表示步骤$i$中target set loss的重要性权重， 用于计算加权和。</p><p>通过使用上面提出的multi-step loss，我们改善了梯度传播，因为现在每一步的基础网络权重都直接（对于当前步loss）和间接（来自后续步的loss）接收梯度。使用第3节中描述的原始方法，由于反向传播，除最后一步外，每个步骤的基础网络权重都被隐式优化，这导致了MAML的许多不稳定问题。但是，如图1所示，使用multi-step loss可以缓解此问题。此外，我们对每步损耗采用了退火加权。最初，所有损失都对损失具有相同的贡献，但是随着迭代次数的增加，我们会减少早期步骤的权重，并逐渐增加后续步骤的权重。这样做是为了确保随着训练的进行，最终步数loss会受到优化器的更多关注，从而确保其达到可能的最低损失。如果不使用退火，我们发现最终损失可能会高于原始方法。</p><p><strong>二阶导数成本→导数退火（DA）</strong>：<br>使MAML具有更高的计算效率的一种方法是减少所需的inner-loop更新次数，这可以通过本报告后续部分中介绍的某些方法来实现。但是，在本段中，我们提出了一种直接减少per-step计算开销的方法。MAML的作者提出了梯度导数的一阶近似的用法。但是，他们在整个训练阶段都采用了一阶近似。相反，我们建议随着训练的进行对微分阶数进行退火。更具体地说，我们建议在训练阶段的前50个epochs使用一阶梯度，然后在训练阶段的其余时间使用二阶梯度。我们凭经验证明，这样做可以大大加快前50个epochs的速度，同时允许进行二阶训练，以实现二阶梯度提供给模型的强大泛化性能。另一个有趣的观察结果是，与更不稳定的仅二阶实验相反，微分阶数退火实验没有出现梯度爆炸或消失的事件。在开始使用二阶导数之前使用一阶可以用作一种强大的预训练方法，该方法可以学习不太可能产生梯度爆炸/减小问题的参数。</p><p><strong>缺少Batch Normalization统计信息累积→Per-Step Batch Normalization运行统计信息（BNRS）</strong>：<br>在MAML Finn et al. (2017)的原始实现中，作者仅使用当前batch统计信息作为Batch Normalization统计信息。我们认为，这导致了3.1节中描述的各种不良影响。为了缓解这些问题，我们建议使用running batch统计信息进行Batch Normalization。要在MAML上下文中简单地实现Batch Normalization，就需要在inner-loop fast-knowledge获取过程的所有更新步骤之间共享running batch统计信息。然而，这样做将导致不希望的结果，即所存储的统计信息将在网络的所有inner loop更新之间共享。由于能在跨网络参数的多个更新上工作的学习参数的复杂性不断提高，因此这将导致优化问题，并有可能减慢或完全停止优化。更好的替代方法是按步骤收集统计信息。要按步骤收集running统计信息，需要实例化网络中每个Batch Normalization层的N组running平均值和running标准偏差集（其中N是inner loop更新步骤的总数），并使用优化过程中采取的步骤分别更新running统计信息。per-step batch normalization方法应加快MAML的优化速度，同时潜在地提高泛化性能。</p><p><strong>共享（跨步骤）Batch Normalization偏差→Per-Step Batch Normalization权重和偏差（BNWB）</strong>：<br>在MAML论文中，作者训练他们的模型去学到对每一层的<strong>一组</strong>偏差。这样做是假设通过网络传递的特征的分布是相似的。但是，这是一个错误的假设，因为基本模型已更新了许多次，从而使特征分布彼此之间越来越不相似。为了解决这个问题，我们建议在inner-loop更新过程中<strong>每步</strong>学习一组偏差。这样做意味着Batch Normalization将学习特定于在每个集合处看到的特征分布的偏差，这将提高收敛速度，稳定性和泛化性能。</p><p><strong>共享的inner loop学习率（跨步和跨参数）→学习每层每步学习率和梯度方向（LSLR）</strong>：<br>Li et al. (2017)的先前工作，证明了学习基础网络中<strong>每个</strong>参数的学习率和梯度方向可以提高系统的泛化性能。然而，这导致参数数量增加和计算开销增加的结果。因此，我们建议改为学习网络中每一层的学习率和方向，以及随着基础网络的逐步适应而学习不同的学习率。学习每层而不是每个参数的学习率和方向应该减少所需的内存和计算，同时在更新步骤中提供更多的灵活性。此外，对于学习到的每个学习率，将有N个实例的学习率，每个步骤要采用一个实例。通过这样做，参数可以自由学习在每步降低学习率，这可以帮助减轻过拟合的情况。</p><p><strong>固定outer loop学习率→元优化器学习率的余弦退火（CA）</strong>：<br>在MAML中，作者在元模型的优化器上使用静态学习率。通过使用阶跃函数(He et al., 2016)或余弦函数(Loshchilov＆Hutter，2016)对学习率进行退火已被证明对于具有更高泛化能力的学习模型至关重要。余弦退火调度在产生最新技术结果方面特别有效，同时消除了对学习速率空间进行任何超参数搜索的需求。因此，我们建议将余弦退火调度应用于元模型的优化器（即元优化器）。退火学习率可使模型更有效地拟合训练集，结果可能会产生更高的泛化性能。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Lear
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION</title>
+    <link href="http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/"/>
+    <id>http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/</id>
+    <published>2019-10-09T12:27:13.000Z</published>
+    <updated>2019-10-09T12:29:28.270Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作时存在实际困难。我们表明，有可能通过学习到一个模型参数的依赖数据的潜在生成表示，并在此低维潜在空间中执行基于梯度的元学习，从而绕过这些限制。最终的方法，latent embedding optimization（LEO），将基于梯度的自适应过程与模型参数的底层高维空间解耦。我们的评估表明，LEO可以在竞争激烈的miniImageNet和tieredImageNet少样本分类任务中达到最先进的性能。进一步的分析表明，LEO能够捕获数据中的不确定性，并能通过在潜在空间中进行优化，更有效地进行适应。</p><h4 id="2-3-LATENT-EMBEDDING-OPTIMIZATION-FOR-META-LEARNING"><a href="#2-3-LATENT-EMBEDDING-OPTIMIZATION-FOR-META-LEARNING" class="headerlink" title="2.3 LATENT EMBEDDING OPTIMIZATION FOR META-LEARNING"></a>2.3 LATENT EMBEDDING OPTIMIZATION FOR META-LEARNING</h4><p>本文的主要贡献是表明，有可能并且确实有益的是，将基于优化的元学习技术与模型参数的高维空间解耦。我们通过学习具有信息瓶颈的随机潜在空间来实现这一目标，该瓶颈取决于输入数据，并从中生成高维参数。</p><p>我们没有像在MAML中那样显式实例化并维护一组唯一的模型参数θ，而是学习了具有相同目的的模型参数的生成分布。这是一个自然扩展：我们将找到单个最佳$\theta^* \in\Theta$的要求放宽到近似于$\Theta$的数据相关条件概率分布的要求，这可能更具表达性。由编码过程和解码（或参数生成）过程组成的结构的选择，使我们能够在学习到的参数生成模型的低维嵌入空间中执行基于MAML梯度的适应步骤（或”inner loop”）（图1）。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623091/wps_2019-09-28_22-55-47_lrbegy.png" alt title>                </div>                <div class="image-caption"></div>            </figure><h5 id="2-3-1-模型概述"><a href="#2-3-1-模型概述" class="headerlink" title="2.3.1 模型概述"></a>2.3.1 模型概述</h5><p>大致的操作如（算法1）所示。首先，给定任务实例$T_i$，将输入$\{x^k_n\}$通过随机编码器以产生潜在边码$z$，然后使用参数生成器将其解码为参数$\theta_i$。给定这些实例化的模型参数，在潜在空间中应用一个或多个适应步骤，通过计算相对于$z$的loss的微分，梯度更新几步获得$z\prime$，解码新的模型参数并获得新的loss。最后，对优化后的编码进行解码以生成最终的适应参数$\theta\prime_i$，该参数可用于执行任务或计算任务特定的meta-loss。通过这种方式，LEO结合了<strong>基于模型</strong>和<strong>基于优化</strong>的元学习的各个方面，产生的参数首先取决于输入数据，然后通过梯度下降进行调整。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623095/wps_2019-09-28_22-54-48_qbjlvg.png" alt title>                </div>                <div class="image-caption"></div>            </figure><p>图2显示了生成的网络的结构。直觉上，解码器类似于生成模型，从低维潜在编码映射到模型参数的分布。编码过程可确保基于梯度的适应之前的初始潜在编码和参数已经与数据相关。该编码过程还利用了一个关系网络，该关系网络允许潜在编码依赖于上下文，考虑到问题实例中所有类之间的成对关系。在以下各节中，我们将更正式地解释LEO的各个步骤。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623092/wps_2019-09-28_22-55-25_jksoke.png" alt title>                </div>                <div class="image-caption"></div>            </figure><h5 id="2-3-2-INITIALIZATION-GENERATING-PARAMETERS-CONDITIONED-ON-A-FEW-EXAMPLES"><a href="#2-3-2-INITIALIZATION-GENERATING-PARAMETERS-CONDITIONED-ON-A-FEW-EXAMPLES" class="headerlink" title="2.3.2 INITIALIZATION: GENERATING PARAMETERS CONDITIONED ON A FEW EXAMPLES"></a>2.3.2 INITIALIZATION: GENERATING PARAMETERS CONDITIONED ON A FEW EXAMPLES</h5><ul><li><strong>Encoding</strong></li><li><strong>Decoding</strong></li></ul><h5 id="2-3-3-ADAPTATION-BY-LATENT-EMBEDDING-OPTIMIZATION-LEO-THE-“INNER-LOOP”"><a href="#2-3-3-ADAPTATION-BY-LATENT-EMBEDDING-OPTIMIZATION-LEO-THE-“INNER-LOOP”" class="headerlink" title="2.3.3 ADAPTATION BY LATENT EMBEDDING OPTIMIZATION (LEO) (THE “INNER LOOP”)"></a>2.3.3 ADAPTATION BY LATENT EMBEDDING OPTIMIZATION (LEO) (THE “INNER LOOP”)</h5><h5 id="2-3-4-META-TRAINING-STRATEGY-THE-“OUTER-LOOP”"><a href="#2-3-4-META-TRAINING-STRATEGY-THE-“OUTER-LOOP”" class="headerlink" title="2.3.4 META-TRAINING STRATEGY (THE “OUTER LOOP”)"></a>2.3.4 META-TRAINING STRATEGY (THE “OUTER LOOP”)</h5><h5 id="2-3-5-BEYOND-CLASSIFICATION-AND-LINEAR-OUTPUT-LAYERS"><a href="#2-3-5-BEYOND-CLASSIFICATION-AND-LINEAR-OUTPUT-LAYERS" class="headerlink" title="2.3.5 BEYOND CLASSIFICATION AND LINEAR OUTPUT LAYERS"></a>2.3.5 BEYOND CLASSIFICATION AND LINEAR OUTPUT LAYERS</h5>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Meta-Learning with Implicit Gradients</title>
+    <link href="http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/"/>
+    <id>http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/</id>
+    <published>2019-10-09T12:26:02.000Z</published>
+    <updated>2019-10-09T12:26:41.989Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式MAML算法，该算法仅取决于inner level优化的解，而不取决于inner loop优化器采用的路径。这有效地将元梯度计算与inner loop优化器的选择解耦。因此，我们的方法与inner loop优化器的选择无关，并且可以优雅地处理许多梯度步骤而不会梯度消失或内存限制。从理论上讲，我们证明隐式MAML可以使用不超过计算单个内循环梯度所需的内存占用量来计算准确的元梯度，而不会增加总的计算成本。从实验上，我们证明了隐式MAML的这些好处可转化为在少样本的图像识别benchmarks上的经验收益。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623075/wps_2019-09-29_21-00-20_cotcjg.png" alt title>                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Meta-Learning with Differentiable Convex Optimization</title>
+    <link href="http://yoursite.com/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/"/>
+    <id>http://yoursite.com/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/</id>
+    <published>2019-10-09T12:19:00.000Z</published>
+    <updated>2019-10-09T12:20:29.568Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>少样本学习的许多元学习方法都依赖于简单的基础学习器，例如最近邻分类器。但是，即使在少样本情况下，经过判别训练的线性判别器可以提供更好的泛化能力。我们建议使用这些判别器作为基础学习器，以学习少样本学习的表示形式，并表明它们在一系列少样本识别benchmarks中提供了特征尺寸和性能之间的更好权衡。我们的目标是学习在线性分类规则下对新类别很好地泛化的特征嵌入。为了有效地解决该目标，我们利用线性分类器的两个属性：凸问题的最优性条件的隐式微分和优化问题的对偶表示。这使我们可以在计算开销适度增加的情况下使用具有更高泛化性的高维嵌入。我们的方法名为MetaOptNet，可在miniImageNet，tieredImageNet，CIFAR-FS和FC100一次性学习基准上获得最先进的性能。代码可以在<a href="https://github.com/kjunelee/MetaOptNet" target="_blank" rel="noopener">这里</a>找到</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623069/wps_2019-09-30_16-53-43_ri1avv.png" alt title>                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;少样本学习的许多元学习方法都依赖于简单的基础学习器，例如最近邻分类器。但是，即使在少样本情况下，经过判别训练的线性判别器可以提供更好的泛化能
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
