@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Hamish的科研blog</title>
-  
+  <icon>https://www.gravatar.com/avatar/3a8d3023f7286597c0df6b02acb9fa24</icon>
   
   <link href="/atom.xml" rel="self"/>
   
@@ -11,7 +11,7 @@
   
   <author>
     <name>Kang Yachen</name>
-    
+    <email>kangyachen@westlake.edu.cn</email>
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
@@ -109,20 +109,23 @@
     <link href="http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/"/>
     <id>http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/</id>
     <published>2019-10-09T12:26:02.000Z</published>
-    <updated>2019-10-09T12:26:41.989Z</updated>
+    <updated>2019-10-10T13:38:57.602Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式MAML算法，该算法仅取决于inner level优化的解，而不取决于inner loop优化器采用的路径。这有效地将元梯度计算与inner loop优化器的选择解耦。因此，我们的方法与inner loop优化器的选择无关，并且可以优雅地处理许多梯度步骤而不会梯度消失或内存限制。从理论上讲，我们证明隐式MAML可以使用不超过计算单个内循环梯度所需的内存占用量来计算准确的元梯度，而不会增加总的计算成本。从实验上，我们证明了隐式MAML的这些好处可转化为在少样本的图像识别benchmarks上的经验收益。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623075/wps_2019-09-29_21-00-20_cotcjg.png" alt title>                </div>                <div class="image-caption"></div>            </figure>]]></content>
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式MAML算法，该算法仅取决于inner level优化的解，而不取决于inner loop优化器采用的路径。这有效地将元梯度计算与inner loop优化器的选择解耦。因此，我们的方法与inner loop优化器的选择无关，并且可以优雅地处理许多梯度步骤而不会梯度消失或内存限制。从理论上讲，我们证明隐式MAML可以使用不超过计算单个内循环梯度所需的内存占用量来计算准确的元梯度，而不会增加总的计算成本。从实验上，我们证明了隐式MAML的这些好处可转化为在少样本的图像识别benchmarks上的经验收益。</p><a id="more"></a><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/wps_2019-09-29_21-00-20.png" alt title>                </div>                <div class="image-caption"></div>            </figure><h3 id="Problem-Formulation-and-Notations"><a href="#Problem-Formulation-and-Notations" class="headerlink" title="Problem Formulation and Notations"></a>Problem Formulation and Notations</h3><p>我们首先在少样本监督学习的背景下提出元学习问题，然后概括该概念以帮助本文的其余论述。</p><h4 id="Review-of-Few-Shot-Supervised-Learning-and-MAML"><a href="#Review-of-Few-Shot-Supervised-Learning-and-MAML" class="headerlink" title="Review of Few-Shot Supervised Learning and MAML"></a>Review of Few-Shot Supervised Learning and MAML</h4><p>在这种设置下，我们从$P(T)$中提取了一系列元训练任务$\{T_i\} ^M_{i = 1}$。每个任务$T_i$与一个数据集$D_i$相关联，我们可以从中采样两个不相交的集合：$D^{tr}_i$和$D^{test}_i$。这些数据集都由$K$个输入输出对组成。令$x\in X$和$y\in Y$分别表示输入和输出。数据集采用$D^{tr}_i = \{(x^k_i，y^k_i)\}^K_{k = 1}$的形式，对于$D^{test}_i$同样。我们对学习 $h_\phi(x): X \to Y $形式的模型感兴趣，由$\phi\in\Phi\equiv\mathbb {R}^{d}$参数化。任务的性能由损失函数指定，例如交叉熵或平方误差损失。我们将损失函数以$L(\phi，D)$的形式写成参数向量和数据集的函数。任务$T_i$的目标是使用$D^{tr}_ i$学习特定于任务的参数$\phi_i$，以便我们可以使任务的总体或测试损失$L(\phi_i，D^{test}_ i)$最小化。</p><p>在一般的双层元学习设置中，我们考虑使用一组元参数$\theta\in\Theta\equiv\mathbb{R}^{d}$和来自任务任务的训练数据集用于计算任务特定参数的算法空间，形式化如$\phi_i= Alg(\theta,D^{tr}_ i)$针对任务$T_i$。元学习的目标是学习适应后产生良好任务特定参数的元参数，如下所示：</p><script type="math/tex; mode=display">\overbrace{\boldsymbol{\theta}_{\mathrm{ML}}^{*}:=\underset{\boldsymbol{\theta} \in \Theta}{\operatorname{argmin}} F(\boldsymbol{\theta})}^{\text{outer-level}}, \text { where } F(\boldsymbol{\theta})=\frac{1}{M} \sum_{i=1}^{M} \mathcal{L}\left(\overbrace{Alg\left(\boldsymbol{\theta}, \mathcal{D}_{i}^{\mathrm{tr}}\right)}^{\text{inner-level}}, \mathcal{D}_{i}^{\mathrm{test}}\right)</script><p>由于我们通常将$Alg(\theta,D^{tr}_i)$解释为显式或隐式解决潜在优化问题，因此我们将其视为双层优化问题。在元测试（部署）时，当提供与新任务$T_j\sim P(T)$相对应的数据集$D^{tr}_j$时，我们可以通过对学到的元参数使用适应过程来获得良好的泛化性能（即低test error），即得到$\phi_j= Alg(\theta^\ast_{ML},D^{tr}_j)$。</p><p>在MAML中，$Alg(\theta,D)$对应于以$\theta$初始化的一个或多个梯度下降步骤。例如，如果使用一个梯度下降步骤，我们得到：</p><script type="math/tex; mode=display">\phi_{i} \equiv \mathcal{A} l g\left(\boldsymbol{\theta}, \mathcal{D}_{i}^{\mathrm{tr}}\right)=\boldsymbol{\theta}-\alpha \nabla_{\boldsymbol{\theta}} \mathcal{L}\left(\boldsymbol{\theta}, \mathcal{D}_{i}^{\mathrm{tr}}\right) . \quad \text { (inner-level of MAML) }</script><p>通常，$\alpha$是标量超参数，但也可以是可学习的向量。因此，对于MAML，元学习参数（$\theta^\ast_{ML}$）具有学习归纳偏差，该偏差特别适合于使用$K$个样本对$P(T)$中的任务进行微调。为了使用基于梯度的方法解决外层问题，我们需要一种贯穿$Alg$计算微分的方法。在MAML中，这对应于通过梯度下降的动力学进行反向传播。</p><h4 id="Proximal-Regularization-in-the-Inner-Level"><a href="#Proximal-Regularization-in-the-Inner-Level" class="headerlink" title="Proximal Regularization in the Inner Level"></a>Proximal Regularization in the Inner Level</h4><p>为了在内层水平上获得足够的学习，同时又避免过拟合，$Alg$需要纳入某种形式的正则化。由于MAML使用少量的梯度步骤，这对应于早停，可以解释为正则化和贝叶斯先验的一种形式。在病态条件数的优化情形和中等样本量学习的情况下，我们可能需要采用多个梯度下降步，这给MAML带来了两个挑战。首先，我们需要通过漫长的$Alg$优化路径进行存储和计算微分，这会带来相当大的计算和内存负担。其次，随着$Alg$中梯度步数的增加，模型参数$\{\phi_i\}$对元参数（$\theta $）的依赖关系会缩小和消失，从而使得元学习变得困难。为了克服这些限制，我们考虑使用更明确的正则化算法： </p><script type="math/tex; mode=display">\mathcal{Alg}^{\star}\left(\boldsymbol{\theta}, \mathcal{D}_{i}^{\mathrm{tr}}\right)=\underset{\boldsymbol{\phi}^{\prime} \in \Phi}{\operatorname{argmin}} \mathcal{L}\left(\boldsymbol{\phi}^{\prime}, \mathcal{D}_{i}^{\mathrm{tr}}\right)+\frac{\lambda}{2}\left\|\boldsymbol{\phi}^{\prime}-\boldsymbol{\theta}\right\|^{2}</script><p>等式中的正则项促使$\phi_i$保持接近$\theta$，从而始终保持很强的依赖性。正则化强度（$\lambda$）的作用类似于MAML中的学习率（$\alpha$），控制先验（$\theta$）相对于数据（$D^{tr}_T$）的强度。像$\alpha$一样，正则强度$\lambda$也可以被学习。此外，$\alpha$和$\lambda$都可以是标量，向量或完整矩阵。为简单起见，我们将$\lambda$作为标量超参数。在等式中，我们用$\star$表示优化问题已完全解决。在实践中，我们使用迭代算法（由$Alg$表示）进行有限迭代，其返回近似最小化解。我们在分析中明确考虑了近似解与精确解之间的差异。</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形
-      
+      &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要&quot;&gt;&lt;/a&gt;摘要&lt;/h3&gt;&lt;p&gt;智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式MAML算法，该算法仅取决于inner level优化的解，而不取决于inner loop优化器采用的路径。这有效地将元梯度计算与inner loop优化器的选择解耦。因此，我们的方法与inner loop优化器的选择无关，并且可以优雅地处理许多梯度步骤而不会梯度消失或内存限制。从理论上讲，我们证明隐式MAML可以使用不超过计算单个内循环梯度所需的内存占用量来计算准确的元梯度，而不会增加总的计算成本。从实验上，我们证明了隐式MAML的这些好处可转化为在少样本的图像识别benchmarks上的经验收益。&lt;/p&gt;
     
     </summary>
     
     
+      <category term="论文笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="meta-learning" scheme="http://yoursite.com/tags/meta-learning/"/>
+    
+      <category term="MAML" scheme="http://yoursite.com/tags/MAML/"/>
     
   </entry>
   
