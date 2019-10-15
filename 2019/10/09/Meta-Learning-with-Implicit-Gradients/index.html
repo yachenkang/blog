@@ -30,7 +30,9 @@
 <meta property="og:description" content="摘要智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/wps_2019-09-29_21-00-20.png">
-<meta property="og:updated_time" content="2019-10-10T13:38:57.602Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_2.png">
+<meta property="og:updated_time" content="2019-10-15T11:12:35.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Meta-Learning with Implicit Gradients">
 <meta name="twitter:description" content="摘要智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式">
@@ -158,7 +160,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Problem-Formulation-and-Notations"><span class="post-toc-number">2.</span> <span class="post-toc-text">Problem Formulation and Notations</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Review-of-Few-Shot-Supervised-Learning-and-MAML"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Review of Few-Shot Supervised Learning and MAML</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Proximal-Regularization-in-the-Inner-Level"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Proximal Regularization in the Inner Level</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Problem-Formulation-and-Notations"><span class="post-toc-number">2.</span> <span class="post-toc-text">Problem Formulation and Notations</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Review-of-Few-Shot-Supervised-Learning-and-MAML"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Review of Few-Shot Supervised Learning and MAML</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Proximal-Regularization-in-the-Inner-Level"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Proximal Regularization in the Inner Level</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#The-Bi-Level-Optimization-Problem"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">The Bi-Level Optimization Problem</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Total-and-Partial-Derivatives"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Total and Partial Derivatives</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#The-Implicit-MAML-Algorithm"><span class="post-toc-number">3.</span> <span class="post-toc-text">The Implicit MAML Algorithm</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Meta-Gradient-Computation"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Meta-Gradient Computation</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -204,7 +206,45 @@
 <h4 id="Proximal-Regularization-in-the-Inner-Level"><a href="#Proximal-Regularization-in-the-Inner-Level" class="headerlink" title="Proximal Regularization in the Inner Level"></a>Proximal Regularization in the Inner Level</h4><p>为了在内层水平上获得足够的学习，同时又避免过拟合，$Alg$需要纳入某种形式的正则化。由于MAML使用少量的梯度步骤，这对应于早停，可以解释为正则化和贝叶斯先验的一种形式。在病态条件数的优化情形和中等样本量学习的情况下，我们可能需要采用多个梯度下降步，这给MAML带来了两个挑战。首先，我们需要通过漫长的$Alg$优化路径进行存储和计算微分，这会带来相当大的计算和内存负担。其次，随着$Alg$中梯度步数的增加，模型参数$\{\phi_i\}$对元参数（$\theta $）的依赖关系会缩小和消失，从而使得元学习变得困难。为了克服这些限制，我们考虑使用更明确的正则化算法： </p>
 <script type="math/tex; mode=display">
 \mathcal{Alg}^{\star}\left(\boldsymbol{\theta}, \mathcal{D}_{i}^{\mathrm{tr}}\right)=\underset{\boldsymbol{\phi}^{\prime} \in \Phi}{\operatorname{argmin}} \mathcal{L}\left(\boldsymbol{\phi}^{\prime}, \mathcal{D}_{i}^{\mathrm{tr}}\right)+\frac{\lambda}{2}\left\|\boldsymbol{\phi}^{\prime}-\boldsymbol{\theta}\right\|^{2}</script><p>等式中的正则项促使$\phi_i$保持接近$\theta$，从而始终保持很强的依赖性。正则化强度（$\lambda$）的作用类似于MAML中的学习率（$\alpha$），控制先验（$\theta$）相对于数据（$D^{tr}_T$）的强度。像$\alpha$一样，正则强度$\lambda$也可以被学习。此外，$\alpha$和$\lambda$都可以是标量，向量或完整矩阵。为简单起见，我们将$\lambda$作为标量超参数。在等式中，我们用$\star$表示优化问题已完全解决。在实践中，我们使用迭代算法（由$Alg$表示）进行有限迭代，其返回近似最小化解。我们在分析中明确考虑了近似解与精确解之间的差异。</p>
-
+<h4 id="The-Bi-Level-Optimization-Problem"><a href="#The-Bi-Level-Optimization-Problem" class="headerlink" title="The Bi-Level Optimization Problem"></a>The Bi-Level Optimization Problem</h4><p>为方便起见，有时我们会使用下标而不是参数来表达对任务$T_i$的依赖性，例如我们写：</p>
+<script type="math/tex; mode=display">
+\mathcal{L}_{i}(\phi):=\mathcal{L}\left(\phi, \mathcal{D}_{i}^{\text {test }}\right), \quad \hat{\mathcal{L}}_{i}(\phi):=\mathcal{L}\left(\phi, \mathcal{D}_{i}^{\text {tr }}\right), \quad \mathcal{A} l g_{i}(\boldsymbol{\theta}):=\mathcal{A} \lg \left(\boldsymbol{\theta}, \mathcal{D}_{i}^{\text {tr }}\right)</script><p>使用这种表示法，可以将二层元学习问题更一般地写为：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}{\boldsymbol{\theta}_{\mathrm{ML}}^{*}:=\underset{\boldsymbol{\theta} \in \Theta}{\operatorname{argmin}} F(\boldsymbol{\theta}), \text { where } F(\boldsymbol{\theta})=\frac{1}{M} \sum_{i=1}^{M} \mathcal{L}_{i}\left(\mathcal{A} l g_{i}^{\star}(\boldsymbol{\theta})\right), \text { and }} \\ {\mathcal{A} l g_{i}^{\star}(\boldsymbol{\theta}):=\underset{\boldsymbol{\phi}^{\prime} \in \Phi}{\operatorname{argmin}} G_{i}\left(\boldsymbol{\phi}^{\prime}, \boldsymbol{\theta}\right), \text { where } G_{i}\left(\boldsymbol{\phi}^{\prime}, \boldsymbol{\theta}\right)=\hat{\mathcal{L}}_{i}\left(\boldsymbol{\phi}^{\prime}\right)+\frac{\lambda}{2}\left\|\boldsymbol{\phi}^{\prime}-\boldsymbol{\theta}\right\|^{2}}\end{array} \tag{4}</script><h4 id="Total-and-Partial-Derivatives"><a href="#Total-and-Partial-Derivatives" class="headerlink" title="Total and Partial Derivatives"></a>Total and Partial Derivatives</h4><p>我们用$d$表示全导数，用$\nabla$表示偏导数。对于形式为$L_i(\phi_i)$的嵌套函数，其中$\phi_i= Alg_i(\theta)$，我们有链式法则</p>
+<script type="math/tex; mode=display">
+\boldsymbol{d}_{\boldsymbol{\theta}} \mathcal{L}_{i}\left(\mathcal{A} l g_{i}(\boldsymbol{\theta})\right)=\frac{d \mathcal{A} l g_{i}(\boldsymbol{\theta})}{d \boldsymbol{\theta}} \nabla_{\boldsymbol{\phi}} \mathcal{L}_{i}(\boldsymbol{\phi})|_{\boldsymbol{\phi}=\mathcal{A} l g_{i}(\boldsymbol{\theta})}=\frac{d \mathcal{A} l g_{i}(\boldsymbol{\theta})}{d \boldsymbol{\theta}} \nabla_{\boldsymbol{\phi}} \mathcal{L}_{i}\left(\mathcal{A} l g_{i}(\boldsymbol{\theta})\right)</script><p>注意$d_{\theta} \mathcal{L}_{i}(Alg_{i}(\theta))$和$\nabla_{\phi} \mathcal{L}_{i}(Alg_{i}(\theta))$之间的重要区别。前者传递导数穿过$Alg_i(\theta)$，而后者则不穿过。$\nabla_{\phi} \mathcal{L}_{i}(Alg_{i}(\theta))$只是梯度函数，即$\nabla_{\phi} \mathcal{L}_{i}(\phi)$，以$\phi=Alg_{i}(\theta)$求值。还要注意，$d_{\theta} \mathcal{L}_{i}(Alg_{i}(\theta))$和$\nabla_{\phi} \mathcal{L}_{i}(Alg_{i}(\theta))$是d维向量，而$\frac{d Alg_{i}(\theta)}{d \theta}$是（d×d）大小的Jacobian矩阵。在本文中，我们还将无差别地使用$d_\theta$和$\frac{d}{d\theta}$。</p>
+<h3 id="The-Implicit-MAML-Algorithm"><a href="#The-Implicit-MAML-Algorithm" class="headerlink" title="The Implicit MAML Algorithm"></a>The Implicit MAML Algorithm</h3><p>我们的目的是使用形如$\theta \gets \theta - \eta d_\theta F(\theta)$的基于迭代梯度的算法解决公式4中的双层元学习问题。尽管为简单起见，我们基于标准梯度下降法导出了我们的方法，但也可以使用任何其他优化方法，例如准牛顿法或牛顿法，Adam或带动量的梯度下降法，而无需进行任何修改。使用链式法则扩展梯度下降更新为</p>
+<script type="math/tex; mode=display">
+\boldsymbol{\theta} \leftarrow \boldsymbol{\theta}-\eta \frac{1}{M} \sum_{i=1}^{M} \frac{d \mathcal{Alg}_{i}^{\star}(\boldsymbol{\theta})}{d \boldsymbol{\theta}} \nabla_{\phi} \mathcal{L}_{i}\left(\mathcal{A} l g_{i}^{\star}(\boldsymbol{\theta})\right)</script><p>在此，$\nabla_{\phi} \mathcal{L}_{i}(\mathcal{Alg}_{i}^{\star}(\theta))$即$\nabla_{\phi} \mathcal{L}_{i}(\phi)|_{\phi=\mathcal{Alg}_{i}^{\star}(\theta)}$，操作上可以通过自动微分而容易地求出。对于此更新规则，我们必须计算$\frac{d Alg^\star_{i}(\theta)}{d \theta}$，其中$Alg^\star_{i}$被隐式定义为优化问题(公式4)，这带来了主要挑战。现在，我们提出一种有效的算法（在计算和内存中）以计算元梯度。</p>
+<h4 id="Meta-Gradient-Computation"><a href="#Meta-Gradient-Computation" class="headerlink" title="Meta-Gradient Computation"></a>Meta-Gradient Computation</h4><p>如果将$Alg^\star_{i}(\theta)$实现为迭代算法（例如梯度下降），则计算$\frac{d Alg^\star_{i}(\theta)}{d \theta}$的一种方法是通过迭代过程传播导数，无论是正向还是反向。但是，这样做的缺点是必须明确依赖于优化路径，而优化路径必须完全存储在内存中，而当所需的梯度下降步数较多时，该路径很快变得难以处理。此外，对于诸如牛顿法的二阶优化方法，需要难以获得的三阶导数。此外，当使用不可微分的操作（如行搜索）时，此方法变得不可能。但是，通过认识到$Alg^\star_{i}$是隐式定义的优化问题的解决方案，我们可以采用一个不同的策略，该策略不需要考虑优化路径，而只需考虑最终结果。这源自以下引理。</p>
+<p><strong>引理 1.</strong> （隐式雅克比）考虑公式4中对于任务$T_i$定义的$Alg^\star_{i}(\theta)$。另$\phi_i=\mathcal{Alg}_{i}^{\star}(\theta)$为$Alg^\star_{i}(\theta)$的解。如果$\left(\boldsymbol{I}+\frac{1}{\lambda} \nabla_{\phi}^{2} \hat{\mathcal{L}}_{i}\left(\boldsymbol{\phi}_{i}\right)\right)$是可逆的，则导数雅可比行列式为</p>
+<script type="math/tex; mode=display">
+\frac{d \mathcal{Alg}_{i}^{\star}(\boldsymbol{\theta})}{d \boldsymbol{\theta}}=\left(\boldsymbol{I}+\frac{1}{\lambda} \nabla_{\phi}^{2} \hat{\mathcal{L}}_{i}\left(\boldsymbol{\phi}_{i}\right)\right)^{-1} \tag{6}</script><p>请注意，导数（Jacobian）仅取决于算法的最终结果，而不取决于算法采用的路径。因此，原则上，任何算法方法都可用于计算$Alg^\star_{i}(\theta)$，从而将元梯度计算与内部级优化器的选择解耦。</p>
+<p><strong>具体算法</strong>：虽然引理1提供了一种理想的方法来计算$Alg^\star_{i}$的雅可比行列式，因此通过扩展元梯度，在实践中可能很难直接使用它。有两个问题特别相关。首先，元梯度要求计算$Alg^\star_{i}(\theta)$，这是内部优化问题的精确解。实际上，我们可能只能获得近似解。第二，对于大型深度神经网络而言，显式地构造和求逆等式6中的矩阵，用于计算雅可比行列式，可能是棘手的。为了解决这些困难，我们考虑接近理想方法的可行算法。</p>
+<p>首先，我们考虑内部优化问题的近似解，可以通过迭代优化算法（例如梯度下降）获得。</p>
+<p><strong>定义1.</strong> （$\delta$-近似算法）另$Alg_i(\theta)$为$Alg^\star_{i}(\theta)$的$\delta$-近似，如：</p>
+<script type="math/tex; mode=display">
+\|Alg_{i}(\theta)-Alg_{i}^{\star}(\theta)\| \leq \delta</script><p>其次，我们将执行部分或近似矩阵求逆：</p>
+<p><strong>定义2.</strong> （$\delta’$-近似雅可比向量积）另$g_i$为一个向量满足</p>
+<script type="math/tex; mode=display">
+\|g_{i}-\left(I+\frac{1}{\lambda} \nabla_{\phi}^{2} \hat{\mathcal{L}}_{i}\left(\phi_{i}\right)\right)^{-1} \nabla_{\phi} \mathcal{L}_{i}\left(\phi_{i}\right)\| \leq \delta^{\prime}</script><p>这里$\phi_i=Alg_i(\theta)$且$Alg_i$基于定义1.</p>
+<p>注意，定义2中的$g_i$是任务$T_i$的元梯度的近似值。观察到可以将$g_i$作为优化问题的近似解：</p>
+<script type="math/tex; mode=display">
+\min _{\boldsymbol{w}} \boldsymbol{w}^{\top}\left(\boldsymbol{I}+\frac{1}{\lambda} \nabla_{\boldsymbol{\phi}}^{2} \hat{\mathcal{L}}_{i}\left(\boldsymbol{\phi}_{i}\right)\right) \boldsymbol{w}-\boldsymbol{w}^{\top} \nabla_{\phi} \mathcal{L}_{i}\left(\boldsymbol{\phi}_{i}\right)</script><p>共轭梯度（CG）算法由于其出色的迭代复杂性和仅要求$\nabla_\phi^2\hat{\mathcal{L}}_i(\phi_i)$形式的Hessian矢量积的要求而特别适合于此问题。无需显式构造或存储Hessian矩阵即可容易地获得这样的hessian矢量积（如我们在附录C中所述）。这种基于CG的求逆已成功地应用在用于深度学习的Hessian-free或Newton-CG方法[36，44]和强化学习[52，47]中的信任区域方法。算法1提出了完整的实用算法。注意，这些近似值用于开发实用的算法，会在元梯度计算中引入误差。我们将在3.2节中分析这些误差的影响，并证明它们是可控制的。有关iMAML如何推广了基于先验梯度优化的元学习算法，请参阅附录A。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_1.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_2.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -212,7 +252,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-10T13:38:57.602Z" itemprop="dateUpdated">2019-10-10 21:38:57</time>
+    最后更新时间：<time datetime="2019-10-15T11:12:35.192Z" itemprop="dateUpdated">2019-10-15 19:12:35</time>
 </span><br>
 
 
