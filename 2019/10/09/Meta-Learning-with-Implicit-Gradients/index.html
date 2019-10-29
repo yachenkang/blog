@@ -20,9 +20,9 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="meta-learning,MAML">
+    <meta name="keywords" content="MAML,meta-learning">
     <meta name="description" content="摘要智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式">
-<meta name="keywords" content="meta-learning,MAML">
+<meta name="keywords" content="MAML,meta-learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Meta-Learning with Implicit Gradients">
 <meta property="og:url" content="http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/index.html">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/wps_2019-09-29_21-00-20.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_2.png">
-<meta property="og:updated_time" content="2019-10-15T11:12:35.192Z">
+<meta property="og:updated_time" content="2019-10-18T07:43:52.099Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Meta-Learning with Implicit Gradients">
 <meta name="twitter:description" content="摘要智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式">
@@ -143,7 +143,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文笔记/">论文笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文翻译/">论文翻译</a></li></ul>
 
             
         </h5>
@@ -174,7 +174,7 @@
             <time class="post-time" title="2019-10-09 20:26:02" datetime="2019-10-09T12:26:02.000Z"  itemprop="datePublished">2019-10-09</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文笔记/">论文笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文翻译/">论文翻译</a></li></ul>
 
 
 
@@ -187,6 +187,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式MAML算法，该算法仅取决于inner level优化的解，而不取决于inner loop优化器采用的路径。这有效地将元梯度计算与inner loop优化器的选择解耦。因此，我们的方法与inner loop优化器的选择无关，并且可以优雅地处理许多梯度步骤而不会梯度消失或内存限制。从理论上讲，我们证明隐式MAML可以使用不超过计算单个内循环梯度所需的内存占用量来计算准确的元梯度，而不会增加总的计算成本。从实验上，我们证明了隐式MAML的这些好处可转化为在少样本的图像识别benchmarks上的经验收益。</p>
+<p>其他来源：<a href="https://www.inference.vc/notes-on-imaml-meta-learning-without-differentiating-through/" target="_blank" rel="noopener">Notes on iMAML: Meta-Learning with Implicit Gradients</a></p>
 <a id="more"></a>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -252,7 +253,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-15T11:12:35.192Z" itemprop="dateUpdated">2019-10-15 19:12:35</time>
+    最后更新时间：<time datetime="2019-10-18T07:43:52.099Z" itemprop="dateUpdated">2019-10-18 15:43:52</time>
 </span><br>
 
 

@@ -14,20 +14,25 @@
     
     
     
-    <title>Tags: MAML | Hamish的科研blog</title>
+    <title>On First-Order Meta-Learning Algorithms | Hamish的科研blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content>
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hamish的科研blog">
-<meta property="og:url" content="http://yoursite.com/tags/MAML/index.html">
+    <meta name="keywords" content="MAML,meta-learning">
+    <meta name="description" content="摘要本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初始">
+<meta name="keywords" content="MAML,meta-learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="On First-Order Meta-Learning Algorithms">
+<meta property="og:url" content="http://yoursite.com/2019/10/17/On-First-Order-Meta-Learning-Algorithms/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
+<meta property="og:description" content="摘要本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初始">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-18T07:44:32.816Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hamish的科研blog">
+<meta name="twitter:title" content="On First-Order Meta-Learning Algorithms">
+<meta name="twitter:description" content="摘要本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初始">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
@@ -43,7 +48,7 @@
 <body>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
-    <aside id="menu"  >
+    <aside id="menu" class="hide" >
   <div class="inner flex-row-vertical">
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
@@ -69,7 +74,7 @@
               </a>
             </li>
         
-            <li class="waves-block waves-effect active">
+            <li class="waves-block waves-effect">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 标签
@@ -108,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Tags: MAML</div>
+        <div class="flex-col header-title ellipsis">On First-Order Meta-Learning Algorithms</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -123,121 +128,142 @@
         
     </div>
 </header>
-<header class="content-header tags-header">
+<header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Tags: MAML</h1>
+        <h1 class="title">On First-Order Meta-Learning Algorithms</h1>
         <h5 class="subtitle">
+            
+                <time datetime="2019-10-17T02:58:41.000Z" itemprop="datePublished" class="page-time">
+  2019-10-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文翻译/">论文翻译</a></li></ul>
+
             
         </h5>
     </div>
 
     
-<div class="tabs-bar container">
-    <nav class="tags-list">
-        <a href="/tags" style="-webkit-order:-1;order:-1" class="tags-list-item waves-effect waves-button waves-light
-            ">全部</a>
-        
-
-            <a href="/tags/MAML/" style="-webkit-order:0;order:0" class="tags-list-item waves-effect waves-button waves-light active">MAML</a>
-
-        
-
-            <a href="/tags/meta-learning/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light">meta-learning</a>
-
-        
-
-            <a href="/tags/综述/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">综述</a>
-
-        
-    </nav>
-    <!-- PC show more-->
-    <div class="tags-list-more">
-        <a href="javascript:;" onclick="BLOG.tabBar(this)" class="action tags-list-item waves-effect waves-circle waves-light"><i class="icon icon-ellipsis-h"></i></a>
-    </div>
-</div>
-
 
 
 </header>
 
-<div class="container body-wrap fade">
+
+<div class="container body-wrap">
     
-            <div class="waterfall">
-          
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li></ol>
+        </nav>
+    </aside>
 
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-17 10:58:41" datetime="2019-10-17T02:58:41.000Z"  itemprop="datePublished">2019-10-17</time>
 
-      
+<article id="post-On-First-Order-Meta-Learning-Algorithms"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">On First-Order Meta-Learning Algorithms</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-10-17 10:58:41" datetime="2019-10-17T02:58:41.000Z"  itemprop="datePublished">2019-10-17</time>
+
+            
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文翻译/">论文翻译</a></li></ul>
 
 
 
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初始化朝着该任务的训练权重进行工作。我们扩展了Finn等人的结果。说明一阶元学习算法在一些公认的针对少数镜头分类的基准上表现良好，并且我们提供了旨在理解这些算法为何起作用的理论分析。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-10-18T07:44:32.816Z" itemprop="dateUpdated">2019-10-18 15:44:32</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" target="_blank" rel="external">http://yoursite.com/2019/10/17/On-First-Order-Meta-Learning-Algorithms/</a>
+        
     </div>
     
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Kang Yachen">
+            Kang Yachen
+        </a>
+    </footer>
+</blockquote>
 
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/17/On-First-Order-Meta-Learning-Algorithms/">On First-Order Meta-Learning Algorithms</a>
-    </h3>
-  
-
-
-
-    
-    <div class="post-footer">
         
+
+
+        <div class="post-footer">
+            
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAML/">MAML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meta-learning/">meta-learning</a></li></ul>
 
+
+            
+
+
+        </div>
     </div>
+
     
-  </article>
-</div>
-
-        
-
-            <div class="waterfall-item">
-  <article class="article-card archive-article">
-    <div class="post-meta">
-      <time class="post-time" title="2019-10-09 20:26:02" datetime="2019-10-09T12:26:02.000Z"  itemprop="datePublished">2019-10-09</time>
-
-      
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文翻译/">论文翻译</a></li></ul>
-
-
-
-    </div>
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/10/09/Meta-Learning-with-Implicit-Gradients/">Meta-Learning with Implicit Gradients</a>
-    </h3>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
-
-
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAML/">MAML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meta-learning/">meta-learning</a></li></ul>
-
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/10/09/Meta-Learning-A-Survey/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Meta-Learning: A Survey</h4>
+      </a>
     </div>
-    
-  </article>
-</div>
+  
+</nav>
 
-        
-            </div>
-        
-    
-</div>
 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
 
         <footer class="footer">
     <div class="top">
