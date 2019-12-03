@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="摘要少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们">
+    <meta name="description" content="摘要:少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HOW TO TRAIN YOUR MAML">
 <meta property="og:url" content="http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="摘要少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们">
+<meta property="og:description" content="摘要:少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png">
-<meta property="og:updated_time" content="2019-10-09T13:56:40.058Z">
+<meta property="og:updated_time" content="2019-12-03T11:23:23.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HOW TO TRAIN YOUR MAML">
-<meta name="twitter:description" content="摘要少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们">
+<meta name="twitter:description" content="摘要:少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我">
 <meta name="twitter:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
@@ -155,7 +155,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-MAML"><span class="post-toc-number">2.</span> <span class="post-toc-text">3 MAML</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-MAML的问题"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">3.1 MAML的问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-稳定，自动和改进的MAML"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">4 稳定，自动和改进的MAML</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#MAML"><span class="post-toc-number">2.</span> <span class="post-toc-text">MAML</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-1-MAML的问题"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">3.1 MAML的问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#稳定，自动和改进的MAML"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">稳定，自动和改进的MAML</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -179,8 +179,8 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们提出了对MAML的各种修改，这些修改不仅可以稳定系统，而且可以大大提高MAML的泛化性能，收敛速度和计算开销，我们称之为MAML++。</p>
-<h3 id="3-MAML"><a href="#3-MAML" class="headerlink" title="3 MAML"></a>3 MAML</h3><script type="math/tex; mode=display">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们提出了对MAML的各种修改，这些修改不仅可以稳定系统，而且可以大大提高MAML的泛化性能，收敛速度和计算开销，我们称之为MAML++。</p>
+<h3 id="MAML"><a href="#MAML" class="headerlink" title="MAML"></a>MAML</h3><script type="math/tex; mode=display">
 \theta_{0}=\theta_{0}-\beta \nabla_{\theta} \sum_{b=1}^{B} \mathcal{L}_{T_{b}}\left(f_{\theta_{N}^{b}\left(\theta_{0}\right)}\right)</script><h4 id="3-1-MAML的问题"><a href="#3-1-MAML的问题" class="headerlink" title="3.1 MAML的问题"></a>3.1 MAML的问题</h4><p>MAML的简单，优雅和高性能使其成为元学习的非常强大的框架。但是，MAML也有许多问题，使其难以使用。</p>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -195,7 +195,7 @@
 <p><strong>共享（跨step）Batch Normalization偏差</strong>：<br>MAML中的批处理规范化的另一个问题源于以下事实：Batch Normalization偏差未在inner loop中更新；相反，在基础模型的所有迭代中都使用相同的偏差。隐式地执行此操作将假定所有基本模型在整个inner loop更新中都是相同的，因此通过它们传递的特征具有相同的分布。这是一个错误的假设，因为在每次inner loop更新时，都会实例化一个新的基础模型，该基础模型与前一个基础模型的差异足以从偏差估计的角度将其视为新模型。因此，为基本模型的所有迭代学习单个偏差集会限制性能。</p>
 <p><strong>共享的inner loop（跨step和跨参数）学习率</strong>：<br>影响泛化和收敛速度（就训练迭代而言）的一个问题是对所有参数和所有更新步骤使用共享学习率的问题。这样做会带来两个主要问题。具有固定的学习率要求进行多次超参数搜索，以找到特定数据集的正确学习率； 根据搜索的完成方式，此过程可能在计算上非常昂贵。<br>（Li et al。，2017）中的作者建议为网络的每个参数学习学习率并更新方向。这样做解决了手动搜索正确学习率的问题，并且还允许各个参数具有较小或较大的学习率。然而，这种方法带来了自己的问题。由于网络包含40K到50K的参数（取决于数据点的维数），因此学习每个网络参数的学习率意味着要增加计算量并增加内存使用量。</p>
 <p><strong>固定outer loop学习率</strong>：<br>在MAML中，作者使用具有固定学习率的Adam来优化元目标。事实证明，使用阶跃或余弦函数对学习率进行退火对于在多种情况下实现最新的泛化性能至关重要(Loshchilov &amp; Hutter, 2016; He et al., 2016; Larsson et al., 2016; Huang et al., 2017)。因此，我们认为使用静态学习率会降低MAML的泛化性能，这也可能是优化速度较慢的原因。此外，具有固定的学习速率可能意味着必须花费更多（计算）时间来调整学习速率。</p>
-<h4 id="4-稳定，自动和改进的MAML"><a href="#4-稳定，自动和改进的MAML" class="headerlink" title="4 稳定，自动和改进的MAML"></a>4 稳定，自动和改进的MAML</h4><p>在本节中，我们提出了解决MAML框架问题的方法，如第3.1节所述。每个解决方案都有一个与要解决的问题相同的参考。</p>
+<h4 id="稳定，自动和改进的MAML"><a href="#稳定，自动和改进的MAML" class="headerlink" title="稳定，自动和改进的MAML"></a>稳定，自动和改进的MAML</h4><p>在本节中，我们提出了解决MAML框架问题的方法，如第3.1节所述。每个解决方案都有一个与要解决的问题相同的参考。</p>
 <p><strong>梯度不稳定性→多步损失优化（MSL）</strong>：<br>MAML最小化完成对support set任务的<strong>所有</strong>inner-loop更新后的基础网络所计算出的在target set的loss。相反，我们建议最小化完成对support set任务的<strong>每一步</strong>更新的基础网络所计算出的在target set的loss。更具体地说，我们建议最小化的loss是每步support set loss更新后target set loss的加权总和。更正式地：</p>
 <script type="math/tex; mode=display">
 \theta=\theta-\beta \nabla_{\theta} \sum_{b=1}^{B} \sum_{i=0}^{N} v_{i} \mathcal{L}_{T_{b}}\left(f_{\theta_{i}^{b}}\right)</script><p>其中$\beta$是学习率，$L_{T_b}(f_{\theta^b_i})$表示在$i$向最小化support set任务loss更新后的基本网络权重在任务$b$的target set loss，$v_i$表示步骤$i$中target set loss的重要性权重， 用于计算加权和。</p>
@@ -213,7 +213,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-09T13:56:40.058Z" itemprop="dateUpdated">2019-10-09 21:56:40</time>
+    最后更新时间：<time datetime="2019-12-03T11:23:23.223Z" itemprop="dateUpdated">2019-12-03 19:23:23</time>
 </span><br>
 
 

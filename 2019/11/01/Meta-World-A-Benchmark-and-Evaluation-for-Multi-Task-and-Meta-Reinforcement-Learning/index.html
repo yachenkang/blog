@@ -14,25 +14,25 @@
     
     
     
-    <title>On First-Order Meta-Learning Algorithms | Hamish的科研blog</title>
+    <title>Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning | Hamish的科研blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="meta-learning,MAML">
-    <meta name="description" content="摘要:本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初">
-<meta name="keywords" content="meta-learning,MAML">
+    <meta name="keywords" content="meta-learning,综述">
+    <meta name="description" content="摘要:元强化学习算法可以通过利用先前的经验来学习如何学习，从而使机器人更快地掌握新技能。但是，当前有关元强化学习的许多研究都集中在非常狭窄的任务分布上。例如，一个常用的元强化学习基准将模拟机器人的不同的运行速度作为不同的任务。当在这样狭窄的任务分布上进行策略的元训练时，它们可能无法泛化到更快地获取全新的任务。因此，如果这些方法的目的是能够更快地获取全新的行为，则我们必须在足够广泛的任务分布上评估它">
+<meta name="keywords" content="meta-learning,综述">
 <meta property="og:type" content="article">
-<meta property="og:title" content="On First-Order Meta-Learning Algorithms">
-<meta property="og:url" content="http://yoursite.com/2019/10/17/On-First-Order-Meta-Learning-Algorithms/index.html">
+<meta property="og:title" content="Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning">
+<meta property="og:url" content="http://yoursite.com/2019/11/01/Meta-World-A-Benchmark-and-Evaluation-for-Multi-Task-and-Meta-Reinforcement-Learning/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="摘要:本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初">
+<meta property="og:description" content="摘要:元强化学习算法可以通过利用先前的经验来学习如何学习，从而使机器人更快地掌握新技能。但是，当前有关元强化学习的许多研究都集中在非常狭窄的任务分布上。例如，一个常用的元强化学习基准将模拟机器人的不同的运行速度作为不同的任务。当在这样狭窄的任务分布上进行策略的元训练时，它们可能无法泛化到更快地获取全新的任务。因此，如果这些方法的目的是能够更快地获取全新的行为，则我们必须在足够广泛的任务分布上评估它">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-03T11:21:29.393Z">
+<meta property="og:updated_time" content="2019-12-03T11:21:32.625Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="On First-Order Meta-Learning Algorithms">
-<meta name="twitter:description" content="摘要:本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初">
+<meta name="twitter:title" content="Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning">
+<meta name="twitter:description" content="摘要:元强化学习算法可以通过利用先前的经验来学习如何学习，从而使机器人更快地掌握新技能。但是，当前有关元强化学习的许多研究都集中在非常狭窄的任务分布上。例如，一个常用的元强化学习基准将模拟机器人的不同的运行速度作为不同的任务。当在这样狭窄的任务分布上进行策略的元训练时，它们可能无法泛化到更快地获取全新的任务。因此，如果这些方法的目的是能够更快地获取全新的行为，则我们必须在足够广泛的任务分布上评估它">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
@@ -113,7 +113,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">On First-Order Meta-Learning Algorithms</div>
+        <div class="flex-col header-title ellipsis">Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -131,11 +131,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">On First-Order Meta-Learning Algorithms</h1>
+        <h1 class="title">Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-10-17T02:58:41.000Z" itemprop="datePublished" class="page-time">
-  2019-10-17
+                <time datetime="2019-11-01T07:24:27.000Z" itemprop="datePublished" class="page-time">
+  2019-11-01
 </time>
 
 
@@ -161,13 +161,13 @@
     </aside>
 
 
-<article id="post-On-First-Order-Meta-Learning-Algorithms"
+<article id="post-Meta-World-A-Benchmark-and-Evaluation-for-Multi-Task-and-Meta-Reinforcement-Learning"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">On First-Order Meta-Learning Algorithms</h1>
+        <h1 class="post-card-title">Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-10-17 10:58:41" datetime="2019-10-17T02:58:41.000Z"  itemprop="datePublished">2019-10-17</time>
+            <time class="post-time" title="2019-11-01 15:24:27" datetime="2019-11-01T07:24:27.000Z"  itemprop="datePublished">2019-11-01</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文翻译/">论文翻译</a></li></ul>
@@ -182,7 +182,9 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初始化朝着该任务的训练权重进行工作。我们扩展了Finn等人的结果。说明一阶元学习算法在一些公认的针对少数镜头分类的基准上表现良好，并且我们提供了旨在理解这些算法为何起作用的理论分析。</p>
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>元强化学习算法可以通过利用先前的经验来学习如何学习，从而使机器人更快地掌握新技能。但是，当前有关元强化学习的许多研究都集中在非常狭窄的任务分布上。例如，一个常用的元强化学习基准将模拟机器人的不同的运行速度作为不同的任务。当在这样狭窄的任务分布上进行策略的元训练时，它们可能无法泛化到更快地获取全新的任务。因此，如果这些方法的目的是能够更快地获取全新的行为，则我们必须在足够广泛的任务分布上评估它们，以使其能够推广到新的行为。在本文中，我们提出了一种用于元强化学习和多任务学习的开源模拟benchmark，该benchmark包含50个不同的机器人操纵任务。我们的目标是使开发用于加速获取全新的、可执行的任务的算法成为可能。我们针对这些任务评估了6种最新的元强化学习和多任务学习算法。令人惊讶的是，尽管每项任务及其变体（例如，不同的对象位置）都可以合理地成功学习，但是这些算法难以同时学习多个任务，即使只有十个不同的训练任务也是如此。我们的分析和开源环境为将来的多任务学习和元学习研究铺平了道路，这些研究可以实现有意义的泛化，从而释放这些方法的全部潜力。</p>
+<p>benchmark任务的视频在项目页面上：<a href="https://meta-world.github.io" target="_blank" rel="noopener">meta-world.github.io</a>。我们的开源代码可在以下网址获得：<a href="https://github.com/rlworkgroup/metaworld" target="_blank" rel="noopener">https://github.com/rlworkgroup/metaworld</a></p>
+<a id="more"></a>
 
         </div>
 
@@ -191,12 +193,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-03T11:21:29.393Z" itemprop="dateUpdated">2019-12-03 19:21:29</time>
+    最后更新时间：<time datetime="2019-12-03T11:21:32.625Z" itemprop="dateUpdated">2019-12-03 19:21:32</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" target="_blank" rel="external">http://yoursite.com/2019/10/17/On-First-Order-Meta-Learning-Algorithms/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/11/01/Meta-World-A-Benchmark-and-Evaluation-for-Multi-Task-and-Meta-Reinforcement-Learning/" target="_blank" rel="external">http://yoursite.com/2019/11/01/Meta-World-A-Benchmark-and-Evaluation-for-Multi-Task-and-Meta-Reinforcement-Learning/</a>
         
     </div>
     
@@ -213,7 +215,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAML/">MAML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meta-learning/">meta-learning</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meta-learning/">meta-learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/综述/">综述</a></li></ul>
 
 
             
@@ -226,18 +228,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/10/18/iMAML笔记（翻译）/" id="post-prev" class="post-nav-link">
+      <a href="/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">iMAML笔记（翻译）[更新中]</h4>
+        <h4 class="title">Neural Architecture Search with Reinforcement Learning</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/10/09/Meta-Learning-A-Survey/" id="post-next" class="post-nav-link">
+      <a href="/2019/10/18/iMAML笔记（翻译）/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Meta-Learning: A Survey[更新中]</h4>
+        <h4 class="title">iMAML笔记（翻译）[更新中]</h4>
       </a>
     </div>
   

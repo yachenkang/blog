@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+
+    
+
+    
+
+
+
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    
+    
+    
+    
+    <title>Neural Architecture Search with Reinforcement Learning | Hamish的科研blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="NAS,RL,Google Brain">
+    <meta name="description" content="摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们">
+<meta name="keywords" content="NAS,RL,Google Brain">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Neural Architecture Search with Reinforcement Learning">
+<meta property="og:url" content="http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/index.html">
+<meta property="og:site_name" content="Hamish的科研blog">
+<meta property="og:description" content="摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png">
+<meta property="og:updated_time" content="2019-12-03T11:25:08.200Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Neural Architecture Search with Reinforcement Learning">
+<meta name="twitter:description" content="摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Kang Yachen</h5>
+          <a href="mailto:kangyachen@westlake.edu.cn" title="kangyachen@westlake.edu.cn" class="mail">kangyachen@westlake.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sherlockbear" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Neural Architecture Search with Reinforcement Learning</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Neural Architecture Search with Reinforcement Learning</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-12-03T02:26:34.000Z" itemprop="datePublished" class="page-time">
+  2019-12-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文翻译/">论文翻译</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Generate Model Descriptions with a Controller Recurrent Neural Network</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Training-with-REINFORCE"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Training with REINFORCE</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Neural-Architecture-Search-with-Reinforcement-Learning"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Neural Architecture Search with Reinforcement Learning</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-12-03 10:26:34" datetime="2019-12-03T02:26:34.000Z"  itemprop="datePublished">2019-12-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/论文翻译/">论文翻译</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们的CIFAR-10模型的测试错误率为3.65，比以前使用类似架构方案的最新模型高0.09%，快1.05倍。在Penn Treebank数据集上，我们的模型可以组成一个新的递归单元，其性能优于广泛使用的LSTM单元和其他SOTA baseline。我们的单元在Penn Treebank上达到了测试集62.4的困惑度，这比之前的SOTA模型在困惑度上好3.6。该单元还可以转移到PTB上的字符语言建模任务，并达到SOTA的1.214困惑度。</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>在这一节中，我们将首先描述一种使用递归网络生成卷积结构的简单方法。我们将展示如何使用策略梯度方法来训练递归网络，以最大化采样架构的精度的期望。我们将提出几个基于我们核心方法的改进，如形成skip连接，以增加模型的复杂性，以及使用参数服务器方法来加快训练。这一节的最后，我们将着重于生成递归架构，这是本文的另一个重要贡献。</p>
+<h4 id="Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network"><a href="#Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network" class="headerlink" title="Generate Model Descriptions with a Controller Recurrent Neural Network"></a>Generate Model Descriptions with a Controller Recurrent Neural Network</h4><p>在神经网络架构搜索（NAS）中，我们使用控制器生成神经网络的结构超参数。为了灵活，控制器被实现为RNN。假设我们想要预测只有卷积层的前馈神经网络，我们可以使用控制器将它们的超参数作为一系列标记生成：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png" alt="图2：我们的控制器递归神经网络如何采样一个简单的卷积网络。它预测filter高度、filter宽度、stride高度、stride宽度、一层的filters数量并重复。每个预测都由softmax分类器进行，然后作为输入输入到下一个时间步。" title>
+                </div>
+                <div class="image-caption">图2：我们的控制器递归神经网络如何采样一个简单的卷积网络。它预测filter高度、filter宽度、stride高度、stride宽度、一层的filters数量并重复。每个预测都由softmax分类器进行，然后作为输入输入到下一个时间步。</div>
+            </figure>
+<p>在我们的实验中，如果层的数量超过某个值，生成架构的过程就会停止。这个值遵循一个时间表，我们在训练过程中增加它。一旦控制器RNN生成了一个架构，就用这个架构建立并训练一个神经网络。收敛时，将记录持有的验证集上网络的准确性。控制器RNN的参数，$\theta_c$，接着被优化以最大化提出的架构在验证集上预测精度的期望。在下一节中，我们将描述一种策略梯度方法，用于更新参数$\theta_c$，以便控制器RNN随着时间的推移生成更好的架构。</p>
+<h4 id="Training-with-REINFORCE"><a href="#Training-with-REINFORCE" class="headerlink" title="Training with REINFORCE"></a>Training with REINFORCE</h4><p>控制器预测的标记列表可以看作是设计子网络架构的action的列表$a_{1:T}$。在收敛时，该子网络将在持有的数据集上达到精度$R$。我们可以用这个精度$R$作为奖励信号，用强化学习来训练控制器。更具体地说，为了找到最佳的架构，我们要求我们的控制器最大化其预期报酬，以$J(\theta_c)$表示：</p>
+<script type="math/tex; mode=display">
+J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>由于奖励信号$R$是不可微的，我们需要使用策略梯度方法迭代更新$\theta_c$。在这项工作中，我们使用<a href="https://link.springer.com/article/10.1007/BF00992696" target="_blank" rel="noopener">Williams（1992）</a>的REINFORCE规则：</p>
+<script type="math/tex; mode=display">
+\nabla \theta_{c} J\left(\theta_{c}\right)=\sum_{t=1}^{T} E_{P\left(a_{1: T} ; \theta_{c}\right)}\left[\nabla \theta_{c} \log P\left(a_{t} | a_{(t-1): 1} ; \theta_{c}\right) R\right]</script>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-12-03T11:25:08.200Z" itemprop="dateUpdated">2019-12-03 19:25:08</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" target="_blank" rel="external">http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Kang Yachen">
+            Kang Yachen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Google-Brain/">Google Brain</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RL/">RL</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/01/Meta-World-A-Benchmark-and-Evaluation-for-Multi-Task-and-Meta-Reinforcement-Learning/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Kang Yachen &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+</body>
+</html>
