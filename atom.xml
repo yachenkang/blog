@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-05T07:25:36.087Z</updated>
+  <updated>2019-12-05T07:35:33.254Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reading List（持续更新）</title>
+    <link href="http://yoursite.com/2019/12/05/Reading-List%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
+    <id>http://yoursite.com/2019/12/05/Reading-List（持续更新）/</id>
+    <published>2019-12-05T07:31:04.000Z</published>
+    <updated>2019-12-05T07:35:33.254Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>Designing neural networks through neuroevolution，NE方法综述（2019.01）</p><ul><li>NES方法与DQN、A3C相匹敌（但未完全脱离梯度）（2017.09）： <a href="https://openai.com/blog/evolution-strategies/" target="_blank" rel="noopener">https://openai.com/blog/evolution-strategies/</a>， <a href="https://arxiv.org/abs/1703.03864" target="_blank" rel="noopener">https://arxiv.org/abs/1703.03864</a></li><li>gradient-free的NE方法与DQN、A3C相匹敌（2018.04）： <a href="https://arxiv.org/abs/1712.06567" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06567</a></li><li>简化NE方法（RS方法）与RPO、PPO、DDPG相匹敌（2018.04）： <a href="https://arxiv.org/abs/1803.07055" target="_blank" rel="noopener">https://arxiv.org/abs/1803.07055</a></li><li><p>结合基于梯度的方法和神经进化</p><ul><li>保存状态与动作之间的关系库（2018.05）： <a href="https://arxiv.org/abs/1712.06563" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06563</a></li><li>Genetic policy optimization（ICLR 2018.05）： <a href="https://arxiv.org/abs/1711.01012" target="_blank" rel="noopener">https://arxiv.org/abs/1711.01012</a></li><li>Noisy networks for exploration（ICLR 2018）： <a href="https://arxiv.org/abs/1706.10295" target="_blank" rel="noopener">https://arxiv.org/abs/1706.10295</a></li><li>Parameter space noise for exploration（ICLR 2018）： <a href="https://arxiv.org/abs/1706.01905" target="_blank" rel="noopener">https://arxiv.org/abs/1706.01905</a></li></ul></li><li><p>新一代进化算法</p><ul><li>综述：<a href="https://arxiv.org/abs/1803.03453" target="_blank" rel="noopener">https://arxiv.org/abs/1803.03453</a></li><li>（NIPS 2018）： <a href="https://arxiv.org/abs/1712.06560" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06560</a></li><li>（NIPS workshop 2018）： <a href="https://arxiv.org/abs/1806.00553" target="_blank" rel="noopener">https://arxiv.org/abs/1806.00553</a></li></ul></li><li><p>架构进化</p><ul><li><a href="https://arxiv.org/abs/1803.04439" target="_blank" rel="noopener">https://arxiv.org/abs/1803.04439</a></li><li>（AAAI 2019）：<a href="https://arxiv.org/abs/1802.01548" target="_blank" rel="noopener">https://arxiv.org/abs/1802.01548</a></li></ul></li></ul></li><li><p>Meta-Learning of Neural Architectures for Few-Shot Learning，meta与NAS的结合（2019.11）：<a href="https://arxiv.org/abs/1911.11090v1" target="_blank" rel="noopener">https://arxiv.org/abs/1911.11090v1</a></p></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Designing neural networks through neuroevolution，NE方法综述（2019.01）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;NES方法与DQN、A3C相匹敌（但未完全脱离梯度）（2017.09）： &lt;a href=&quot;http
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Neural Architecture Search with Reinforcement Learning</title>
