@@ -30,7 +30,7 @@
 <meta property="og:description" content="摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png">
-<meta property="og:updated_time" content="2019-12-03T11:25:08.200Z">
+<meta property="og:updated_time" content="2019-12-05T07:25:36.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Neural Architecture Search with Reinforcement Learning">
 <meta name="twitter:description" content="摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们">
@@ -158,7 +158,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Generate Model Descriptions with a Controller Recurrent Neural Network</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Training-with-REINFORCE"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Training with REINFORCE</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Generate Model Descriptions with a Controller Recurrent Neural Network</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Training-with-REINFORCE"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Training with REINFORCE</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Increase-Architecture-Complexity-with-Skip-Connections-and-Other-Layer-Types"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Increase Architecture Complexity with Skip Connections and Other Layer Types</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Generate-Recurrent-Cell-Architectures"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Generate Recurrent Cell Architectures</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -199,7 +199,8 @@
 <script type="math/tex; mode=display">
 J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>由于奖励信号$R$是不可微的，我们需要使用策略梯度方法迭代更新$\theta_c$。在这项工作中，我们使用<a href="https://link.springer.com/article/10.1007/BF00992696" target="_blank" rel="noopener">Williams（1992）</a>的REINFORCE规则：</p>
 <script type="math/tex; mode=display">
-\nabla \theta_{c} J\left(\theta_{c}\right)=\sum_{t=1}^{T} E_{P\left(a_{1: T} ; \theta_{c}\right)}\left[\nabla \theta_{c} \log P\left(a_{t} | a_{(t-1): 1} ; \theta_{c}\right) R\right]</script>
+\nabla \theta_{c} J\left(\theta_{c}\right)=\sum_{t=1}^{T} E_{P\left(a_{1: T} ; \theta_{c}\right)}\left[\nabla \theta_{c} \log P\left(a_{t} | a_{(t-1): 1} ; \theta_{c}\right) R\right]</script><p><strong>Accelerate Training with Parallelism and Asynchronous Updates:</strong></p>
+<h4 id="Increase-Architecture-Complexity-with-Skip-Connections-and-Other-Layer-Types"><a href="#Increase-Architecture-Complexity-with-Skip-Connections-and-Other-Layer-Types" class="headerlink" title="Increase Architecture Complexity with Skip Connections and Other Layer Types"></a>Increase Architecture Complexity with Skip Connections and Other Layer Types</h4><h4 id="Generate-Recurrent-Cell-Architectures"><a href="#Generate-Recurrent-Cell-Architectures" class="headerlink" title="Generate Recurrent Cell Architectures"></a>Generate Recurrent Cell Architectures</h4>
         </div>
 
         <blockquote class="post-copyright">
@@ -207,7 +208,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-03T11:25:08.200Z" itemprop="dateUpdated">2019-12-03 19:25:08</time>
+    最后更新时间：<time datetime="2019-12-05T07:25:36.087Z" itemprop="dateUpdated">2019-12-05 15:25:36</time>
 </span><br>
 
 
