@@ -21,17 +21,17 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="NAS [x] Designing neural networks through neuroevolution，NE方法综述（2019.01）  NES方法与DQN、A3C相匹敌（但未完全脱离梯度）（2017.09）： https://openai.com/blog/evolution-strategies/， https://arxiv.org/abs/1703.03864 gradient-">
+    <meta name="description" content="NAS [x] （ICLR2017, google brain）Neural architecture search with reinforcement learning [ ] （2019.11）Meta-Learning of Neural Architectures for Few-Shot Learning，meta与NAS的结合：https://arxiv.org/abs/1911.1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reading List（持续更新）">
 <meta property="og:url" content="http://yoursite.com/2019/12/05/Reading-List（持续更新）/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="NAS [x] Designing neural networks through neuroevolution，NE方法综述（2019.01）  NES方法与DQN、A3C相匹敌（但未完全脱离梯度）（2017.09）： https://openai.com/blog/evolution-strategies/， https://arxiv.org/abs/1703.03864 gradient-">
+<meta property="og:description" content="NAS [x] （ICLR2017, google brain）Neural architecture search with reinforcement learning [ ] （2019.11）Meta-Learning of Neural Architectures for Few-Shot Learning，meta与NAS的结合：https://arxiv.org/abs/1911.1">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-12-05T07:58:37.916Z">
+<meta property="og:updated_time" content="2019-12-11T07:17:42.278Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reading List（持续更新）">
-<meta name="twitter:description" content="NAS [x] Designing neural networks through neuroevolution，NE方法综述（2019.01）  NES方法与DQN、A3C相匹敌（但未完全脱离梯度）（2017.09）： https://openai.com/blog/evolution-strategies/， https://arxiv.org/abs/1703.03864 gradient-">
+<meta name="twitter:description" content="NAS [x] （ICLR2017, google brain）Neural architecture search with reinforcement learning [ ] （2019.11）Meta-Learning of Neural Architectures for Few-Shot Learning，meta与NAS的结合：https://arxiv.org/abs/1911.1">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
@@ -153,7 +153,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#NAS"><span class="post-toc-number">1.</span> <span class="post-toc-text">NAS</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NAS"><span class="post-toc-number">1.</span> <span class="post-toc-text">NAS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结合基于梯度的方法和神经进化"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">结合基于梯度的方法和神经进化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#新一代进化算法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">新一代进化算法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#架构进化"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">架构进化</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -177,33 +177,40 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h3><ul>
-<li><p>[x] Designing neural networks through neuroevolution，NE方法综述（2019.01）</p>
-<ul>
-<li>NES方法与DQN、A3C相匹敌（但未完全脱离梯度）（2017.09）： <a href="https://openai.com/blog/evolution-strategies/" target="_blank" rel="noopener">https://openai.com/blog/evolution-strategies/</a>， <a href="https://arxiv.org/abs/1703.03864" target="_blank" rel="noopener">https://arxiv.org/abs/1703.03864</a></li>
-<li>gradient-free的NE方法与DQN、A3C相匹敌（2018.04）： <a href="https://arxiv.org/abs/1712.06567" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06567</a></li>
-<li>简化NE方法（RS方法）与RPO、PPO、DDPG相匹敌（2018.04）： <a href="https://arxiv.org/abs/1803.07055" target="_blank" rel="noopener">https://arxiv.org/abs/1803.07055</a></li>
-<li>结合基于梯度的方法和神经进化<ul>
-<li>保存状态与动作之间的关系库（2018.05）： <a href="https://arxiv.org/abs/1712.06563" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06563</a></li>
-<li>Genetic policy optimization（ICLR 2018.05）： <a href="https://arxiv.org/abs/1711.01012" target="_blank" rel="noopener">https://arxiv.org/abs/1711.01012</a></li>
-<li>Noisy networks for exploration（ICLR 2018）： <a href="https://arxiv.org/abs/1706.10295" target="_blank" rel="noopener">https://arxiv.org/abs/1706.10295</a></li>
-<li>Parameter space noise for exploration（ICLR 2018）： <a href="https://arxiv.org/abs/1706.01905" target="_blank" rel="noopener">https://arxiv.org/abs/1706.01905</a></li>
-</ul>
+            <h2 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h2><ul>
+<li>[x] （ICLR2017, google brain）Neural architecture search with reinforcement learning</li>
+<li>[ ] （2019.11）Meta-Learning of Neural Architectures for Few-Shot Learning，meta与NAS的结合：<a href="https://arxiv.org/abs/1911.11090v1" target="_blank" rel="noopener">https://arxiv.org/abs/1911.11090v1</a></li>
+<li><p>[x] （2019.01）Designing neural networks through neuroevolution，NE方法综述</p>
 </li>
-<li>新一代进化算法<ul>
-<li>综述：<a href="https://arxiv.org/abs/1803.03453" target="_blank" rel="noopener">https://arxiv.org/abs/1803.03453</a></li>
-<li>（NIPS 2018）： <a href="https://arxiv.org/abs/1712.06560" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06560</a></li>
-<li>（NIPS workshop 2018）： <a href="https://arxiv.org/abs/1806.00553" target="_blank" rel="noopener">https://arxiv.org/abs/1806.00553</a></li>
-</ul>
+<li><p>（2017.09）Evolution Strategies as a Scalable Alternative to Reinforcement Learning <a href="https://openai.com/blog/evolution-strategies/" target="_blank" rel="noopener">https://openai.com/blog/evolution-strategies/</a>， <a href="https://arxiv.org/abs/1703.03864" target="_blank" rel="noopener">https://arxiv.org/abs/1703.03864</a>：NES方法与DQN、A3C相匹敌（但未完全脱离梯度）</p>
 </li>
-<li>架构进化<ul>
-<li><a href="https://arxiv.org/abs/1803.04439" target="_blank" rel="noopener">https://arxiv.org/abs/1803.04439</a></li>
-<li>（AAAI 2019）：<a href="https://arxiv.org/abs/1802.01548" target="_blank" rel="noopener">https://arxiv.org/abs/1802.01548</a></li>
-</ul>
+<li><p>（2018.04）Deep Neuroevolution: Genetic Algorithms Are a Competitive Alternative for Training Deep Neural Networks for Reinforcement Learning <a href="https://arxiv.org/abs/1712.06567" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06567</a>：gradient-free的NE方法与DQN、A3C相匹敌</p>
+</li>
+<li><p>（2018.04）Simple random search provides a competitive approach to reinforcement learning <a href="https://arxiv.org/abs/1803.07055" target="_blank" rel="noopener">https://arxiv.org/abs/1803.07055</a>：简化NE方法（RS方法）与RPO、PPO、DDPG相匹敌</p>
 </li>
 </ul>
+<h3 id="结合基于梯度的方法和神经进化"><a href="#结合基于梯度的方法和神经进化" class="headerlink" title="结合基于梯度的方法和神经进化"></a>结合基于梯度的方法和神经进化</h3><ul>
+<li><p>（2018.05）Safe Mutations for Deep and Recurrent Neural Networks through Output Gradients <a href="https://arxiv.org/abs/1712.06563" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06563</a>：保存状态与动作之间的关系库</p>
 </li>
-<li><p>Meta-Learning of Neural Architectures for Few-Shot Learning，meta与NAS的结合（2019.11）：<a href="https://arxiv.org/abs/1911.11090v1" target="_blank" rel="noopener">https://arxiv.org/abs/1911.11090v1</a></p>
+<li><p>（ICLR 2018.05）Policy Optimization by Genetic Distillation <a href="https://arxiv.org/abs/1711.01012" target="_blank" rel="noopener">https://arxiv.org/abs/1711.01012</a>：Genetic policy optimization</p>
+</li>
+<li><p>（ICLR 2018）Noisy Networks for Exploration <a href="https://arxiv.org/abs/1706.10295" target="_blank" rel="noopener">https://arxiv.org/abs/1706.10295</a></p>
+</li>
+<li><p>（ICLR 2018）Parameter space noise for exploration <a href="https://arxiv.org/abs/1706.01905" target="_blank" rel="noopener">https://arxiv.org/abs/1706.01905</a></p>
+</li>
+</ul>
+<h3 id="新一代进化算法"><a href="#新一代进化算法" class="headerlink" title="新一代进化算法"></a>新一代进化算法</h3><ul>
+<li><p>The Surprising Creativity of Digital Evolution: A Collection of Anecdotes from the Evolutionary Computation and Artificial Life Research Communities <a href="https://arxiv.org/abs/1803.03453" target="_blank" rel="noopener">https://arxiv.org/abs/1803.03453</a> ：综述</p>
+</li>
+<li><p>（NIPS 2018）Improving Exploration in Evolution Strategies for Deep Reinforcement Learning via a Population of Novelty-Seeking Agents <a href="https://arxiv.org/abs/1712.06560" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06560</a></p>
+</li>
+<li><p>（NIPS workshop 2018）Deep Curiosity Search: Intra-Life Exploration Can Improve Performance on Challenging Deep Reinforcement Learning Problems <a href="https://arxiv.org/abs/1806.00553" target="_blank" rel="noopener">https://arxiv.org/abs/1806.00553</a></p>
+</li>
+</ul>
+<h3 id="架构进化"><a href="#架构进化" class="headerlink" title="架构进化"></a>架构进化</h3><ul>
+<li><p>From Nodes to Networks: Evolving Recurrent Neural Networks <a href="https://arxiv.org/abs/1803.04439" target="_blank" rel="noopener">https://arxiv.org/abs/1803.04439</a></p>
+</li>
+<li><p>（AAAI 2019）Regularized Evolution for Image Classifier Architecture Search <a href="https://arxiv.org/abs/1802.01548" target="_blank" rel="noopener">https://arxiv.org/abs/1802.01548</a></p>
 </li>
 </ul>
 
@@ -214,7 +221,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-05T07:58:37.916Z" itemprop="dateUpdated">2019-12-05 15:58:37</time>
+    最后更新时间：<time datetime="2019-12-11T07:17:42.278Z" itemprop="dateUpdated">2019-12-11 15:17:42</time>
 </span><br>
 
 
