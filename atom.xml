@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-11T07:17:42.278Z</updated>
+  <updated>2020-03-03T05:51:51.885Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives</title>
+    <link href="http://yoursite.com/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/"/>
+    <id>http://yoursite.com/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/</id>
+    <published>2020-02-17T03:25:52.000Z</published>
+    <updated>2020-03-03T05:51:51.885Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操作。我们使用信息理论机制来实现此分散决策：每个原语都会选择需要多少有关当前状态的信息以做出决定，请求有关当前状态最多信息的原语被选择与环境交互。对原语进行规范化以使用尽可能少的信息，从而导致自然竞争和特异化。我们通过实验证明，该策略体系结构在泛化方面比平面策略和分层策略都有所改进。</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_CCYGAesAxx.png" alt title>                </div>                <div class="image-caption"></div>            </figure><a id="more"></a><p>尽管分层强化学习通过分解可以使得底层原语可以特异化面对不同状态，并能够被元策略加以组合或选择。然而元策略本身仍然需要处理所有状态空间，从而使得元策略在不同环境中的迁移成为瓶颈。</p><p>该方法包括三个组件：</p><ol><li>一种将特定原语限制在状态空间子集的机制</li><li>原语之间的竞争机制，从而为给定状态选择最有效的原语</li><li>规范化机制，可提高策略整体的泛化性能。</li></ol><h4 id="包含信息瓶颈的原语"><a href="#包含信息瓶颈的原语" class="headerlink" title="包含信息瓶颈的原语"></a>包含信息瓶颈的原语</h4><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_qhtDGoA5UR.png" alt title>                </div>                <div class="image-caption"></div>            </figure><script type="math/tex; mode=display">\pi_{\theta}^{k}(A | S)=\int_{z} p_{\mathrm{enc}}\left(z_{k} | S\right) p_{\mathrm{dec}}\left(A | z_{k}\right) \mathrm{d} z_{k}</script><p>这里作者对每个原语设计一个信息瓶颈，以防止其利用状态中的全部信息（这里我认为是在迫使原语提取主要信息，以增强泛化性）</p><script type="math/tex; mode=display">\mathcal{L}_{k}=\mathrm{D}_{\mathrm{KL}}\left(p_{\mathrm{enc}}\left(Z_{k} | S\right) \| \mathcal{N}(0,1)\right)</script><p>通过Z（隐变量状态空间）的分布与正态分布之间的KL散度作为罚项以期另Z中包含尽可能少的关于S的信息，文中的表述是原语需要通过对$L_k$支付“信息损失”已获得关于当前状态的更多信息。<br>这里的正态分布可被替换为预先学习的先验。</p><p>尽管信息瓶颈使得原语能获得的关于状态的信息尽可能少，然而并没有约束不同原语去关注状态空间中的不同部分，所以进一步提出了竞争机制以鼓励原语的多样性。</p><h4 id="信息约束的竞争原语"><a href="#信息约束的竞争原语" class="headerlink" title="信息约束的竞争原语"></a>信息约束的竞争原语</h4><p>由于原语面对状态s时的$L_k$体现了其对于当前状态的有效性，所以最高$L_k$的原语应当被激活。这里采用softmax计算归一化权重的方法</p><script type="math/tex; mode=display">\alpha_{k}=\exp \left(\mathcal{L}_{k}\right) / \sum_{j} \exp \left(\mathcal{L}_{j}\right)</script><p>选择$\alpha_{k}$最高的或通过构造分布然后采样的方式，决定要激活的原语。</p><p>通过$r_{k}=\alpha_{k} r,$ 其中 $r=\sum_{k} r_{k}$的方式鼓励每个原语从状态中获取更多信息，与信息瓶颈相拮抗，使得每个原语特异化。</p><h4 id="组合表示的正则化"><a href="#组合表示的正则化" class="headerlink" title="组合表示的正则化"></a>组合表示的正则化</h4><p>采用如下的额外正则化项，鼓励多样化的原语设置，以及保证模型不会坍缩到单一原语</p><script type="math/tex; mode=display">\mathcal{L}_{\mathrm{reg}}=\sum_{k} \alpha_{k} \mathcal{L}_{k}</script><p>可以重写为</p><script type="math/tex; mode=display">\mathcal{L}_{\mathrm{reg}}=-H(\alpha)+\operatorname{LSE}\left(\mathcal{L}_{1}, \ldots, \mathcal{L}_{K}\right)</script><p>前项使得$\alpha$熵值增加，进而使得原语选择集合具有多样性。LSE则近似于参数的最大项，$\operatorname{LSE}(x) \approx \max _{j} x_{j}$，因此惩罚了占主导地位的$L_k$项，使他们趋向一致</p><h4 id="目标与算法总结"><a href="#目标与算法总结" class="headerlink" title="目标与算法总结"></a>目标与算法总结</h4><p>总目标函数包含3项：</p><ol><li>来自标准RL目标的期望奖励，$R(\pi)$，根据参与度将其分配给不同原语</li><li>单个瓶颈项导致单个原语专注于状态空间的特定部分，$L_k$，其中$k = 1,\dots,K$</li><li>归一化项应用于组合模型，$L_{reg}$</li></ol><p>对于第k个原语的总目标函数如下：</p><script type="math/tex; mode=display">J_{k}(\theta) \equiv \mathbb{E}_{\pi_{\theta}}\left[r_{k}\right]-\beta_{\mathrm{ind}} \mathcal{L}_{k}-\beta_{\mathrm{reg}} \mathcal{L}_{\mathrm{reg}}</script><h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_5OImexFX2U.png" alt title>                </div>                <div class="image-caption"></div>            </figure><p>如图，每个面板对应于不同的训练设置，其中不同的任务表示为A，B，C，…，具有n个圆圈的矩形对应于由在相应任务上训练的n个原语组成的代理。 第一行：为受过单个任务训练的代理原语的激活。 下面一行：重新训练：在A上训练了两个原语并迁移到B。结果（成功率）表明，多原语模型比baseline（transfer A2C）实质上具有更高的样本效率。 复制和合并：随着时间的推移，更多的原语以即插即用的方式添加到模型中（在A上训练了2个原语；模型通过自己的副本扩展自身；在B上训练了所得的四原语模型。）对比比其他强baseline更有效。零样本泛化：在C上训练一组原语，并评估对A和B的零样本泛化。这些原语学习一种空间分解的形式，这使它们可以在目标任务A和B中处于活动状态。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;摘要&quot;&gt;&lt;a href=&quot;#摘要&quot; class=&quot;headerlink&quot; title=&quot;摘要:&quot;&gt;&lt;/a&gt;&lt;strong&gt;摘要:&lt;/strong&gt;&lt;/h3&gt;&lt;p&gt;在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操作。我们使用信息理论机制来实现此分散决策：每个原语都会选择需要多少有关当前状态的信息以做出决定，请求有关当前状态最多信息的原语被选择与环境交互。对原语进行规范化以使用尽可能少的信息，从而导致自然竞争和特异化。我们通过实验证明，该策略体系结构在泛化方面比平面策略和分层策略都有所改进。&lt;/p&gt;
+&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+                    &lt;div class=&quot;overlay&quot;&gt;&lt;/div&gt;
+                    &lt;img src=&quot;https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_CCYGAesAxx.png&quot; alt title&gt;
+                &lt;/div&gt;
+                &lt;div class=&quot;image-caption&quot;&gt;&lt;/div&gt;
+            &lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="论文笔记" scheme="http://yoursite.com/categories/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="Reinforcement Learning" scheme="http://yoursite.com/tags/Reinforcement-Learning/"/>
+    
+      <category term="Skill Learning" scheme="http://yoursite.com/tags/Skill-Learning/"/>
+    
+  </entry>
   
   <entry>
     <title>Reading List（持续更新）</title>
