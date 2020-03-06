@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-03T05:51:51.885Z</updated>
+  <updated>2020-03-06T01:55:47.998Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Reinforcement Learning Reading List（持续更新）</title>
+    <link href="http://yoursite.com/2020/03/06/Reinforcement-Learning-Reading-List/"/>
+    <id>http://yoursite.com/2020/03/06/Reinforcement-Learning-Reading-List/</id>
+    <published>2020-03-06T01:44:37.000Z</published>
+    <updated>2020-03-06T01:55:47.998Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="ICLR2020"><a href="#ICLR2020" class="headerlink" title="ICLR2020"></a>ICLR2020</h2><h3 id="Oral"><a href="#Oral" class="headerlink" title="Oral"></a>Oral</h3><p>Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives.Goyal, A., Sodhani, S., Binas, J., Peng, X. Bin, Levine, S., &amp; Bengio, Y. (2019).  Retrieved from <a href="http://arxiv.org/abs/1906.10667" target="_blank" rel="noopener">http://arxiv.org/abs/1906.10667</a></p><p><a href="Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives.md">阅读笔记</a></p><p>在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操作。我们使用信息理论机制来实现此分散决策：每个原语都会选择需要多少有关当前状态的信息以做出决定，请求有关当前状态最多信息的原语被选择与环境交互。对原语进行规范化以使用尽可能少的信息，从而导致自然竞争和特异化。我们通过实验证明，该策略体系结构在泛化方面比平面策略和分层策略都有所改进。</p><p>Kipf, T., van der Pol, E., &amp; Welling, M. (2019). Contrastive Learning of Structured World Models. Retrieved from <a href="http://arxiv.org/abs/1911.12247" target="_blank" rel="noopener">http://arxiv.org/abs/1911.12247</a><br>Kirsch, L., Van Steenkiste, S., &amp; Urgen Schmidhuber, J. ¨. (2019). IMPROVING GENERALIZATION IN META REINFORCE-MENT LEARNING USING LEARNED OBJECTIVES. Retrieved from <a href="http://louiskirsch.com/code/metagenrl" target="_blank" rel="noopener">http://louiskirsch.com/code/metagenrl</a><br>Jiang, J., Dun, C., Huang, T., &amp; Lu, Z. (2018). Graph Convolutional Reinforcement Learning. Retrieved from <a href="http://arxiv.org/abs/1810.09202" target="_blank" rel="noopener">http://arxiv.org/abs/1810.09202</a><br>Engstrom, L., Ilyas, A., Santurkar, S., Tsipras, D., Janoos, F., Rudolph, L., &amp; Madry, A. (2019). IMPLEMENTATION MATTERS IN DEEP POLICY GRADIENTS: A CASE STUDY ON PPO AND TRPO. Retrieved from <a href="https://github.com/openai/baselines" target="_blank" rel="noopener">https://github.com/openai/baselines</a><br>Ilyas, A., Engstrom, L., Santurkar, S., Tsipras, D., Janoos, F., Rudolph, L., &amp; Madry, A. (2019). A CLOSER LOOK AT DEEP POLICY GRADIENTS.<br>Fakoor, R., Chaudhari, P., Soatto, S., &amp; Smola, A. J. (2019). Meta-Q-Learning. Retrieved from <a href="http://arxiv.org/abs/1910.00125" target="_blank" rel="noopener">http://arxiv.org/abs/1910.00125</a><br>Zhou, Y., Li, J., &amp; Zhu, J. (2019). POSTERIOR SAMPLING FOR MULTI-AGENT REINFORCE-MENT LEARNING: SOLVING EXTENSIVE GAMES WITH IMPERFECT INFORMATION.<br>Muller, P., Omidshafiei, S., Rowland, M., Tuyls, K., Perolat, J., Liu, S., … Munos, R. (2019). A Generalized Training Approach for Multiagent Learning. Retrieved from <a href="http://arxiv.org/abs/1909.12823" target="_blank" rel="noopener">http://arxiv.org/abs/1909.12823</a><br>Yang, Y., Zhang, G., Xu, Z., &amp; Katabi, D. (2019). Harnessing Structures for Value-Based Planning and Reinforcement Learning. Retrieved from <a href="http://arxiv.org/abs/1909.12255" target="_blank" rel="noopener">http://arxiv.org/abs/1909.12255</a><br>Hansen DeepMind, S., Dabney DeepMind, W., Barreto DeepMind, A., Warde-Farley DeepMind, D., Van de Wiele, T., &amp; Mnih DeepMind, V. (2019). Fast Task Inference with Variational Intrinsic Successor Features.<br>Song, X., Jiang, Y., Tu, S., Du, Y., &amp; Neyshabur, B. (2019). Observational Overfitting in Reinforcement Learning. Retrieved from <a href="http://arxiv.org/abs/1912.02975" target="_blank" rel="noopener">http://arxiv.org/abs/1912.02975</a><br>Sharma, A., Gu, S., Levine, S., Kumar, V., &amp; Hausman, K. (2019). Dynamics-Aware Unsupervised Discovery of Skills. Retrieved from <a href="http://arxiv.org/abs/1907.01657" target="_blank" rel="noopener">http://arxiv.org/abs/1907.01657</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;ICLR2020&quot;&gt;&lt;a href=&quot;#ICLR2020&quot; class=&quot;headerlink&quot; title=&quot;ICLR2020&quot;&gt;&lt;/a&gt;ICLR2020&lt;/h2&gt;&lt;h3 id=&quot;Oral&quot;&gt;&lt;a href=&quot;#Oral&quot; class=&quot;headerlink&quot; 
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives</title>
@@ -49,11 +71,11 @@
   </entry>
   
   <entry>
-    <title>Reading List（持续更新）</title>
+    <title>NAS Reading List</title>
     <link href="http://yoursite.com/2019/12/05/Reading-List%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
     <id>http://yoursite.com/2019/12/05/Reading-List（持续更新）/</id>
     <published>2019-12-05T07:31:04.000Z</published>
-    <updated>2019-12-11T07:17:42.278Z</updated>
+    <updated>2020-03-06T01:46:10.128Z</updated>
     
     <content type="html"><![CDATA[<h2 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h2><ul><li>[x] （ICLR2017, google brain）Neural architecture search with reinforcement learning</li><li>[ ] （2019.11）Meta-Learning of Neural Architectures for Few-Shot Learning，meta与NAS的结合：<a href="https://arxiv.org/abs/1911.11090v1" target="_blank" rel="noopener">https://arxiv.org/abs/1911.11090v1</a></li><li><p>[x] （2019.01）Designing neural networks through neuroevolution，NE方法综述</p></li><li><p>（2017.09）Evolution Strategies as a Scalable Alternative to Reinforcement Learning <a href="https://openai.com/blog/evolution-strategies/" target="_blank" rel="noopener">https://openai.com/blog/evolution-strategies/</a>， <a href="https://arxiv.org/abs/1703.03864" target="_blank" rel="noopener">https://arxiv.org/abs/1703.03864</a>：NES方法与DQN、A3C相匹敌（但未完全脱离梯度）</p></li><li><p>（2018.04）Deep Neuroevolution: Genetic Algorithms Are a Competitive Alternative for Training Deep Neural Networks for Reinforcement Learning <a href="https://arxiv.org/abs/1712.06567" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06567</a>：gradient-free的NE方法与DQN、A3C相匹敌</p></li><li><p>（2018.04）Simple random search provides a competitive approach to reinforcement learning <a href="https://arxiv.org/abs/1803.07055" target="_blank" rel="noopener">https://arxiv.org/abs/1803.07055</a>：简化NE方法（RS方法）与RPO、PPO、DDPG相匹敌</p></li></ul><h3 id="结合基于梯度的方法和神经进化"><a href="#结合基于梯度的方法和神经进化" class="headerlink" title="结合基于梯度的方法和神经进化"></a>结合基于梯度的方法和神经进化</h3><ul><li><p>（2018.05）Safe Mutations for Deep and Recurrent Neural Networks through Output Gradients <a href="https://arxiv.org/abs/1712.06563" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06563</a>：保存状态与动作之间的关系库</p></li><li><p>（ICLR 2018.05）Policy Optimization by Genetic Distillation <a href="https://arxiv.org/abs/1711.01012" target="_blank" rel="noopener">https://arxiv.org/abs/1711.01012</a>：Genetic policy optimization</p></li><li><p>（ICLR 2018）Noisy Networks for Exploration <a href="https://arxiv.org/abs/1706.10295" target="_blank" rel="noopener">https://arxiv.org/abs/1706.10295</a></p></li><li><p>（ICLR 2018）Parameter space noise for exploration <a href="https://arxiv.org/abs/1706.01905" target="_blank" rel="noopener">https://arxiv.org/abs/1706.01905</a></p></li></ul><h3 id="新一代进化算法"><a href="#新一代进化算法" class="headerlink" title="新一代进化算法"></a>新一代进化算法</h3><ul><li><p>The Surprising Creativity of Digital Evolution: A Collection of Anecdotes from the Evolutionary Computation and Artificial Life Research Communities <a href="https://arxiv.org/abs/1803.03453" target="_blank" rel="noopener">https://arxiv.org/abs/1803.03453</a> ：综述</p></li><li><p>（NIPS 2018）Improving Exploration in Evolution Strategies for Deep Reinforcement Learning via a Population of Novelty-Seeking Agents <a href="https://arxiv.org/abs/1712.06560" target="_blank" rel="noopener">https://arxiv.org/abs/1712.06560</a></p></li><li><p>（NIPS workshop 2018）Deep Curiosity Search: Intra-Life Exploration Can Improve Performance on Challenging Deep Reinforcement Learning Problems <a href="https://arxiv.org/abs/1806.00553" target="_blank" rel="noopener">https://arxiv.org/abs/1806.00553</a></p></li></ul><h3 id="架构进化"><a href="#架构进化" class="headerlink" title="架构进化"></a>架构进化</h3><ul><li><p>From Nodes to Networks: Evolving Recurrent Neural Networks <a href="https://arxiv.org/abs/1803.04439" target="_blank" rel="noopener">https://arxiv.org/abs/1803.04439</a></p></li><li><p>（AAAI 2019）Regularized Evolution for Image Classifier Architecture Search <a href="https://arxiv.org/abs/1802.01548" target="_blank" rel="noopener">https://arxiv.org/abs/1802.01548</a></p></li></ul>]]></content>
     
