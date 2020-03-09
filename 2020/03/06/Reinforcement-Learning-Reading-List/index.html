@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="*标注的为值得精读论文 ICLR2020Oral Contrastive Learning of Structured World Models. Kipf, T., van der Pol, E., &amp;amp; Welling, M. (2019). [原文链接]*  从对象，关系和层次结构上对我们的世界进行结构化的理解是人类认知的重要组成部分。从原始的感知数据中学习这种结构化的世界模型仍然是一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-06T06:57:59.056Z">
+<meta property="og:updated_time" content="2020-03-09T12:46:11.422Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reinforcement Learning Reading List（持续更新）">
 <meta name="twitter:description" content="*标注的为值得精读论文 ICLR2020Oral Contrastive Learning of Structured World Models. Kipf, T., van der Pol, E., &amp;amp; Welling, M. (2019). [原文链接]*  从对象，关系和层次结构上对我们的世界进行结构化的理解是人类认知的重要组成部分。从原始的感知数据中学习这种结构化的世界模型仍然是一">
@@ -153,7 +153,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ICLR2020"><span class="post-toc-number">1.</span> <span class="post-toc-text">ICLR2020</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Oral"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Oral</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ICLR2020"><span class="post-toc-number">1.</span> <span class="post-toc-text">ICLR2020</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Oral"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Oral</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#spotlight"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">spotlight</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -191,7 +191,7 @@
 </li>
 <li><p><strong>Graph Convolutional Reinforcement Learning.</strong> Jiang, J., Dun, C., Huang, T., &amp; Lu, Z. (2018). [<a href="http://arxiv.org/abs/1810.09202" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>在多智能体环境中，学习如何合作至关重要。关键是要了解智能体之间的相互影响。但是，多智能体环境是高度动态的，智能体不断移动，其邻居不断改变。这使得学习智能体之间相互作用的抽象表示变得困难。为了解决这些困难，我们提出了图卷积增强学习，其中图卷积适应于多智能体环境潜在图的动态，并且关系内核通过它们的关系表示来捕获智能体之间的相互作用。利用卷积层从逐渐增加的感受野产生的潜在特征来学习协作，并且通过时间关系正则化来进一步改善协作以保持一致性。从经验上讲，我们证明了我们的方法在各种协作方案中都大大优于现有方法。</li>
+<li>在多智能体环境中，学习如何合作至关重要。关键是要了解智能体之间的相互影响。但是，多智能体环境是高度动态的，智能体不断移动，其邻居不断改变。这使得学习智能体之间相互作用的抽象表示变得困难。为了解决这些困难，我们提出了图卷积增强学习，其中图卷积适应于多智能体环境潜在图的动态，并且关系内核通过它们的关系表示来捕获智能体之间的相互作用。利用卷积层从逐渐增加的感受野产生的潜在特征来学习协作，并且通过时间关系正则化来进一步改善协作以保持一致性。从实验结果来看，我们证明了我们的方法在各种协作方案中都大大优于现有方法。</li>
 </ul>
 </li>
 <li><p><strong>IMPLEMENTATION MATTERS IN DEEP POLICY GRADIENTS: A CASE STUDY ON PPO AND TRPO.</strong> Engstrom, L., Ilyas, A., Santurkar, S., Tsipras, D., Janoos, F., Rudolph, L., &amp; Madry, A. (2019). [<a href="https://github.com/openai/baselines" target="_blank" rel="noopener">原文链接</a>]</p>
@@ -201,47 +201,124 @@
 </li>
 <li><p><strong>A CLOSER LOOK AT DEEP POLICY GRADIENTS.</strong> Ilyas, A., Engstrom, L., Santurkar, S., Tsipras, D., Janoos, F., Rudolph, L., &amp; Madry, A. (2019). [<a href="https://openreview.net/forum?id=ryxdEkHtPS" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>我们研究了深度策略梯度算法的行为如何反映激励其发展的概念框架。 为此，我们基于该框架的关键要素（梯度估计，值预测和优化环境）提出了一种最新技术的细粒度分析。 我们的结果表明，深层策略梯度算法的行为通常会偏离其激励框架的预测：替代目标与真实奖励格局不匹配，学习的价值估算器无法满足真实价值函数，并且梯度估算之间的相关性很差 具有“真实”的渐变。 我们发现的预测行为和经验行为之间的不匹配，凸显了我们对当前方法的理解不足，并表明需要超越当前以基准为中心的评估方法。</li>
+<li>我们研究了深度策略梯度算法的行为如何反映激励其发展的概念框架。为此，我们基于该框架的关键要素（梯度估计，值预测和优化环境）提出了一种对SOTA的细粒度分析方法。我们的结果表明，深层策略梯度算法的行为通常会偏离其激励框架的预测：替代目标与真实奖励机制不匹配，学到的值预测器无法匹配真实价值函数，并且梯度预测与“真正”的梯度之间的相关性很差。我们发现的预测行为和经验行为之间的不匹配，凸显了我们对当前方法的理解不足，并表明需要超越当前以benchmark为中心的评估方法。</li>
 </ul>
 </li>
 <li><p><strong>Meta-Q-Learning.</strong> Fakoor, R., Chaudhari, P., Soatto, S., &amp; Smola, A. J. (2019). [<a href="http://arxiv.org/abs/1910.00125" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>本文介绍了Meta-Q-Learning（MQL），这是一种用于元强化学习（meta-RL）的新的非策略算法。  MQL基于三个简单的想法。 首先，我们表明，如果可以访问表示过去轨迹的上下文变量，Q学习将与最新的元RL算法竞争。 其次，使用多任务目标来最大化训练任务的平均奖励是对RL策略进行元训练的有效方法。 第三，可以使用元策略重播缓冲区中的过去数据进行回收，以适应新任务的策略。  MQL借鉴了倾向性评估中的想法，从而扩大了可用于适应的可用数据量。 在标准连续控制基准上进行的实验表明，MQL与最新的meta-RL算法相比具有优势。</li>
+<li>本文介绍了Meta-Q-Learning（MQL），这是一种用于元强化学习（meta-RL）的新的off-policy算法。MQL基于三个简单的想法。首先，我们展示了如果可以访问表示过去轨迹的上下文变量，Q-learning可以匹敌最新的元RL算法。其次，使用多任务目标来最大化训练任务的平均奖励是对RL策略进行元训练的有效方法。第三，元训练replay buffer中的过去数据可以被循环，用于在新任务上使用off-policy更新来适应策略。MQL借鉴了倾向性评估中的想法，从而扩大了可用于适应的数据量。在标准连续控制基准上进行的实验表明，MQL与最新的meta-RL算法相比具有优势。</li>
 </ul>
 </li>
 <li><p><strong>POSTERIOR SAMPLING FOR MULTI-AGENT REINFORCE-MENT LEARNING: SOLVING EXTENSIVE GAMES WITH IMPERFECT INFORMATION.</strong> Zhou, Y., Li, J., &amp; Zhu, J. (2019). [<a href="https://openreview.net/forum?id=Syg-ET4FPS" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>强化学习的后验采样（PSRL）是在未知环境中进行决策的有用框架。  PSRL维护环境的后验分布，然后对从后验分布采样的环境进行规划。 尽管PSRL在单人强化学习问题上表现良好，但如何将PSRL应用于多人强化学习问题仍未探索。 在这项工作中，我们将PSRL扩展到具有不完善信息（TEGI）的两人零和博弈，这是一类多代理系统。 从技术上讲，我们将PSRL与反事实后悔最小化（CFR）相结合，这是已知环境下TEGI的领先算法。 我们的主要贡献是互动策略的新颖设计。 通过我们的交互策略，我们的算法可证明以O（）的速度收敛至Nash均衡。</li>
+<li>强化学习的后验采样（PSRL）是在未知环境中进行决策的有用框架。PSRL维护环境的后验分布，然后在后验分布采样的环境上进行规划。尽管PSRL在单智能体强化学习问题上表现良好，但如何将PSRL应用于多智能体强化学习问题仍待探索。在这项工作中，我们将PSRL扩展到具有不完全信息（TEGI）的双人零和博弈，这是一类多智能体系统。从技术上讲，我们将PSRL与counterfactual regret minimization（CFR，这是对环境已知的TEGI上的领先算法）相结合。我们的主要贡献是互动策略的新设计。通过我们的交互策略，我们的算法可证明以$O(\sqrt{\log T / T})$的速度收敛至Nash均衡。实验结果表明，我们的算法效果很好。</li>
 </ul>
 </li>
 <li><p><strong>A Generalized Training Approach for Multiagent Learning.</strong> Muller, P., Omidshafiei, S., Rowland, M., Tuyls, K., Perolat, J., Liu, S., … Munos, R. (2019). [<a href="http://arxiv.org/abs/1909.12823" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>本文研究了一种基于博弈论的，基于博弈论原理的培训制度，该制度被称为“策略间隔响应Oracle”（PSRO）。  PSRO具有一般意义，因为它（1）包含了众所周知的算法，例如虚拟游戏和特殊情况下的双重预言，并且（2）原则上适用于一般和多玩家游戏。 尽管如此，以前对PSRO的研究都集中在两人零和游戏上，这种系统中纳什均衡是可计算的。 从两人零和游戏转移到更一般的设置时，纳什均衡的计算很快变得不可行。 在这里，我们通过考虑替代解决方案概念α-Rank来扩展PSRO的理论基础，α-Rank是唯一的（因此与Nash不同，因此不存在均衡选择问题），并且易于应用于一般和，多玩家设置。 我们在几个游戏类中建立收敛性保证，并确定纳什均衡与α-Rank之间的联系。 我们证明了基于α-Rank的PSRO与2人游戏Kuhn和Leduc Poker中基于Nash求解器的PSRO的竞争性能。 然后，通过考虑3至5人扑克游戏，我们超越了先前的PSRO应用程序，产生了α-Rank比近似Nash解算器更快的收敛速度的实例，因此将其确立为有利的一般游戏解算器。 我们还对MuJoCo足球进行了初步的经验验证，说明了该方法在另一个复杂领域中的可行性。</li>
+<li>本文研究了一种基于博弈论原理的训练范式，该范式被称为“Policy-Spaced Response Oracles”（PSRO）。PSRO具有一般意义，因为它（1）包含了众所周知的算法，例如虚拟游戏和特殊情况下的双重预言，并且（2）原则上适用于general-sum多玩家游戏。尽管如此，以前对PSRO的研究都集中在双人零和博弈上，这种范式中纳什均衡是可计算的。从双人零和博弈转移到更一般的设置时，纳什均衡的计算很快变得不可行。在这里，我们通过考虑替代的解决方案概念$\alpha$-Rank来扩展PSRO的理论基础，$\alpha$-Rank是唯一的（因此与Nash不同，不存在均衡选择问题），并且易于应用于general-sum多玩家设置。我们在几个游戏类中建立收敛性保证，并确定纳什均衡与$\alpha$-Rank之间的联系。我们证明了在双人游戏Kuhn and Leduc Poker中基于$\alpha$-Rank的PSRO与基于Nash求解器的PSRO相比具有相似性能。然后，通过考虑3至5人扑克游戏，我们超越了先前的PSRO应用，产生了$\alpha$-Rank比近似Nash解算器具有更快收敛速度的实例，因此证明其为良好的一般游戏解算器。我们还对MuJoCo足球进行了初步的实验验证，说明了该方法在另一个复杂领域中的可行性。</li>
 </ul>
 </li>
 <li><p><strong>Harnessing Structures for Value-Based Planning and Reinforcement Learning.</strong> Yang, Y., Zhang, G., Xu, Z., &amp; Katabi, D. (2019). [<a href="http://arxiv.org/abs/1909.12255" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>基于价值的方法构成了计划和深度强化学习（RL）的基本方法。 在本文中，我们建议为计划和深度RL开发状态作用值函数（即Q函数）的基础结构。 特别是，如果潜在的系统动力学导致Q函数的某些全局结构，则应该能够通过利用这种结构更好地推断该函数。 具体来说，我们研究了低秩结构，它在大数据矩阵中广泛存在。 我们在控制和深度RL任务的上下文中凭经验验证了低秩Q函数的存在。 作为我们的主要贡献，通过利用矩阵估计（ME）技术，我们提出了一个通用框架来利用Q函数中的底层低秩结构。 这导致经典控制的计划程序效率更高，此外，可以将简单方案应用于基于值的RL技术，以在“低级”任务上始终获得更好的性能。 关于控制任务和Atari游戏的大量实验证实了我们方法的有效性。</li>
+<li>Value-based方法规划与深度强化学习（RL）的基本方法之一。本文中，我们建议在规划和深度强化学习中利用state-action value函数（即Q函数）的潜在结构。特别是，如果潜在的系统动力学导致Q函数的某些全局结构，则应该能够通过利用这种结构更好地推断该函数。具体来说，我们研究了低秩结构，它在大数据矩阵中广泛存在。我们在控制和深度强化学习任务的环境中通过实验验证了低秩Q函数的存在。作为我们的主要贡献，通过利用矩阵估计（ME）技术，我们提出了一个通用框架来利用Q函数中的底层低秩结构。这使得对经典控制任务的规划程序效率更高，此外，可以将简单方案应用于value-based强化学习技术，以在“低秩”任务上始终获得更好的性能。在控制任务和Atari游戏的大量实验证实了我们方法的有效性。</li>
 </ul>
 </li>
 <li><p><strong>Fast Task Inference with Variational Intrinsic Successor Features.</strong> Hansen DeepMind, S., Dabney DeepMind, W., Barreto DeepMind, A., Warde-Farley DeepMind, D., Van de Wiele, T., &amp; Mnih DeepMind, V. (2019). [<a href="https://openreview.net/forum?id=BJeAHkrYDS" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>已经确定，可以通过奖励与其他政策有区别的政策来训练跨越马尔可夫决策过程可控子空间的各种行为（Gregor等人，2016; Eysenbach等人，2018; Warde-Farley等人。  ，2018）。 但是，这种表述的一个局限性是难以推广到超出明确学习的有限行为集的范围，这在后续任务中可能是必需的。 后继特征（Dayan，1993; Barreto et al。，2017）提供了一个吸引人的解决方案，适用于此泛化问题，但需要在某些基础特征空间中将奖励函数定义为线性。 在本文中，我们展示了可以将这两种技术结合使用，并且每种方法都可以解决另一个主要限制。 为此，我们引入了变种内在后继特征（VISR），这是一种新颖的算法，可学习可控特征，可通过后继特征框架利用可控特征来提供增强的泛化能力和快速的任务推断。 我们以新颖的设置对整个Atari套件上的VISR进行了经验验证，其中的奖励仅是在漫长的无人监督阶段之后才短暂暴露出来的。 我们相信，在12场比赛中达到人类水平的表现并超过所有基准时，我们认为VISR代表了朝着能够从有限的反馈中快速学习的代理商迈出的一步。</li>
+<li>已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。后继特征(Dayan, 1993; Barreto et al., 2017)提供了一个吸引人的解决方案，适用于此泛化问题，但需要在某些基础特征空间中将奖励函数定义为线性。在本文中，我们展示了可以将这两种技术结合使用，并且相互可以解决彼此的主要局限。为此，我们引入了Variational Intrinsic Successor FeatuRes（VISR），这是一种新的算法，能够学习可控特征，可通过后继特征框架利用可控特征来提供增强的泛化能力和快速的任务推断。我们在全部Atari套件上对VISR进行了实验验证，我们使用了新的设置，其中奖励仅是在漫长的无监督阶段之后才短暂显示。在12场比赛中达到人类水平的表现并超过所有baselines，使我们认为VISR代表了朝着能够从有限的反馈中快速学习的智能体迈出的一步。</li>
 </ul>
 </li>
 <li><p><strong>Observational Overfitting in Reinforcement Learning.</strong> Song, X., Jiang, Y., Tu, S., Du, Y., &amp; Neyshabur, B. (2019). [<a href="http://arxiv.org/abs/1912.02975" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>在无模型强化学习（RL）中过度拟合的一个主要组成部分涉及以下情况：代理人可能会根据马尔可夫决策过程（MDP）产生的观察结果错误地将奖励与某些虚假特征相关联。 我们提供了一个用于分析这种情况的通用框架，该框架用于仅通过修改MDP的观察空间来设计多个综合基准。 即使基本MDP动态是固定的，当特工过度拟合到不同的观察空间时，我们也称这种观察过度拟合。 我们的实验揭示了有趣的属性，尤其是在隐式正则化方面，还证实了RL泛化和监督学习（SL）先前工作的结果。</li>
+<li>在无模型强化学习（RL）中过拟合的一个主要组成部分涉及以下情况：智能体可能会根据马尔可夫决策过程（MDP）产生的观察结果错误地将奖励与某些虚假特征相关联。我们提供了一个用于分析这种情况的通用框架，我们将该框架用于仅通过修改MDP的观察空间来设计多个综合benchmarks。当智能体过拟合到不同的观察空间（即使潜在的MDP动态是固定的）时，我们称之为<em>observational overfitting</em>。我们的实验揭示了有趣的属性，尤其是在<em>implicit regularization</em>方面，还证实了先前工作中RL泛化和监督学习（SL）的结果。</li>
 </ul>
 </li>
-<li><p><strong>Dynamics-Aware Unsupervised Discovery of Skills.</strong> Sharma, A., Gu, S., Levine, S., Kumar, V., &amp; Hausman, K. (2019). [<a href="http://arxiv.org/abs/1907.01657" target="_blank" rel="noopener">原文链接</a>]</p>
+<li><p><strong>Dynamics-Aware Unsupervised Discovery of Skills.</strong> Sharma, A., Gu, S., Levine, S., Kumar, V., &amp; Hausman, K. (2019). [<a href="http://arxiv.org/abs/1907.01657" target="_blank" rel="noopener">原文链接</a>]*</p>
 <ul>
-<li>传统上，基于模型的强化学习（MBRL）旨在学习环境动力学的全局模型。 一个好的模型可以潜在地使计划算法生成各种各样的行为并解决各种各样的任务。 但是，要为复杂的动力学系统学习准确的模型仍然很困难，即使那样，该模型也可能无法很好地推广训练状态的分布。 在这项工作中，我们将基于模型的学习与对原语的无模型学习结合在一起，从而使基于模型的计划变得容易。 为此，我们旨在回答这个问题：我们如何发现其结果易于预测的技能？ 我们提出了一种无监督的学习算法，即“动态感知技能发现（DADS）”，它可以同时发现可预测的行为并学习其动态。 从理论上讲，我们的方法可以利用连续的技能空间，即使对于高维状态空间，我们也可以无限学习许多行为。 我们证明，在学习的潜在空间中的零散规划明显优于标准MBRL和无模型的目标条件RL，可以处理稀疏奖励任务，并且在无监督技能发现方面大大优于现有的分层RL方法。 我们在以下网址公开了我们的实现：<a href="https://github.com/google-research/dads" target="_blank" rel="noopener">https://github.com/google-research/dads</a></li>
+<li>传统上，基于模型的强化学习（MBRL）旨在学习环境动态的全局模型。一个好的模型可以潜在地使规划算法生成多样化的行为并解决各种不同的任务。但是，要为复杂的动态系统学习准确的模型仍然很困难，即使成功，该模型也可能无法很好地推广到训练时的状态分布之外。在这项工作中，我们将基于模型的学习与针对原语的无模型学习结合在一起，从而使基于模型的规划变得容易。为此，我们旨在回答这个问题：我们如何发现结果易于预测的技能？我们提出了一种无监督的学习算法，即“Dynamics-Aware Discovery of Skills（DADS）”，它可以同时发现<em>可预测</em>的行为并学习其动态。从理论上讲，我们的方法可以利用连续的技能空间，使我们即使面对高维状态空间也可以不停学习许多行为。我们证明，在学习到的潜在空间中进行<em>zero-shot planning</em>明显优于标准MBRL和model-free goal-conditioned RL，可以处理稀疏奖励任务，并且在无监督技能发现方面大大优于现有的分层RL方法。 我们在以下网址公开了我们的实现：<a href="https://github.com/google-research/dads" target="_blank" rel="noopener">https://github.com/google-research/dads</a></li>
 </ul>
 </li>
-<li><p><strong>Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives.</strong> Goyal, A., Sodhani, S., Binas, J., Peng, X. Bin, Levine, S., &amp; Bengio, Y. (2019). [<a href="http://arxiv.org/abs/1906.10667" target="_blank" rel="noopener">原文链接</a>] [<a href="https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/" target="_blank" rel="noopener">阅读笔记</a>]</p>
+<li><p><strong>Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives.</strong> Goyal, A., Sodhani, S., Binas, J., Peng, X. Bin, Levine, S., &amp; Bengio, Y. (2019). [<a href="http://arxiv.org/abs/1906.10667" target="_blank" rel="noopener">原文链接</a>] [<a href="https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/" target="_blank" rel="noopener">阅读笔记</a>]*</p>
 <ul>
 <li>在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操作。我们使用信息理论机制来实现此分散决策：每个原语都会选择需要多少有关当前状态的信息以做出决定，请求有关当前状态最多信息的原语被选择与环境交互。对原语进行规范化以使用尽可能少的信息，从而导致自然竞争和特异化。我们通过实验证明，该策略体系结构在泛化方面比平面策略和分层策略都有所改进。</li>
+</ul>
+</li>
+</ul>
+<h3 id="spotlight"><a href="#spotlight" class="headerlink" title="spotlight"></a>spotlight</h3><ul>
+<li><p><strong>DOUBLY ROBUST BIAS REDUCTION IN INFINITE HORIZON OFF-POLICY ESTIMATION.</strong> Tang, Z., Feng, Y., Li, L., Research, G., Zhou, D., &amp; Liu, Q. (2019). [<a href="https://arxiv.org/abs/1910.07186" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>由于典型重要性抽样（IS）估计量的方差过大，因此无限期的政策外政策评估是一项极具挑战性的任务。 最近，刘等。  （2018a）提出了一种方法，该方法通过估算固定密度比来显着减少无限期非政策性评估的方差，但以引入密度比估计误差引起的偏差为代价。 在本文中，我们开发了一种减少偏差的方法，可以利用学习值函数来提高精度。 我们的方法具有双重鲁棒性，因为当密度比或值函数估计完美时，偏差消失。 通常，当它们中的任何一个都准确时，也可以减小偏差。 理论和经验结果均表明，我们的方法比以前的方法具有明显的优势。</li>
+</ul>
+</li>
+<li><p><strong>INFLUENCE-BASED MULTI-AGENT EXPLORATION.</strong> Wang, T., Wang, J., Wu, Y., &amp; Zhang, C. (2019). [<a href="https://arxiv.org/abs/1910.05512" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>出于内在动机的强化学习旨在解决稀疏奖励任务的探索挑战。 但是，文献中基本上没有研究依赖于过渡的多主体环境中的探索方法。 我们旨在朝着解决这个问题迈出一步。 我们介绍了两种探索方法：通过利用信息在代理协调行为中的相互作用，通过信息理论影响（EITI）进行探索和通过决策理论影响（EDTI）进行探索。  EITI使用相互信息来捕获代理程序过渡动态之间的相互依存关系。  EDTI使用一种称为交互价值（VoI）的新颖内在奖励来表征和量化一个行为人的行为对其他行为人的预期回报的影响。 通过优化EITI或EDTI目标作为规范化工具，鼓励代理商协调其探索和学习策略以优化团队绩效。 我们展示了如何优化这些正则器，以便它们可以轻松地与策略梯度强化学习集成。 由此产生的更新规则在协调的探索和内在的奖励分配之间建立了联系。 最后，我们通过经验证明了我们的方法在多种多主体场景中的强大优势。</li>
+</ul>
+</li>
+<li><p><strong>MODEL BASED REINFORCEMENT LEARNING FOR ATARI.</strong> Kaiser, Ł., Babaeizadeh, M., Miłos, P., Zej Osí Nski, B., Campbell, R. H., Czechowski, K., … Ai, D. (2019). [<a href="https://goo.gl/itykP8" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>无模型强化学习（RL）可以用于学习复杂任务（例如Atari游戏）的有效策略，甚至可以从图像观察中学习。 但是，这通常需要非常大量的互动-实际上，比人类学习相同游戏所需的互动要多得多。 人们如何能如此迅速地学习？ 答案的部分原因可能是人们可以了解游戏的运作方式并预测哪些动作将导致理想的结果。 在本文中，我们探索视频预测模型如何类似地使代理能够以比无模型方法更少的交互来解决Atari游戏。 我们描述了模拟策略学习（SimPLe），这是一种基于完整模型的基于视频预测模型的深度RL算法，并提供了几种模型体系结构的比较，其中包括一种新颖的体系结构，可以在我们的环境中产生最佳效果。 我们的实验在代理与环境之间进行100k交互的低数据状态下的一系列Atari游戏中评估SimPLe，这相当于两个小时的实时播放。 在大多数游戏中，SimPLe的性能优于最新的无模型算法，在某些游戏中，SimPLe的性能超过一个数量级。</li>
+</ul>
+</li>
+<li><p><strong>Behaviour Suite for Reinforcement Learning.</strong> Osband, I., Doron, Y., Hessel, M., Aslanides, J., Sezener, E., Saraiva, A., … Deepmind, H. (2019). [<a href="https://arxiv.org/abs/1908.03568" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>本文介绍了用于强化学习的行为套件，简称bsuite。  bsuite是经过精心设计的实验的集合，这些实验研究了具有两个目标的强化学习（RL）代理的核心功能。 首先，要收集清晰，信息丰富和可扩展的问题，以捕捉通用和高效学习算法设计中的关键问题。 第二，通过代理在这些共享基准上的表现来研究他们的行为。 为了补充这项工作，我们开源了 github.com/deepmind/bsuite ，它可以自动评估和分析bsuite上的任何代理。 该库有助于对RL中的核心问题进行可重复且易于访问的研究，并最终设计出卓越的学习算法。 我们的代码是Python，易于在现有项目中使用。 我们包括OpenAI Baselines，多巴胺以及新的参考实现的示例。 展望未来，我们希望纳入研究界的更多出色实验，并承诺定期由著名研究人员委员会审查bsuite。</li>
+</ul>
+</li>
+<li><p><strong>EMERGENT TOOL USE FROM MULTI-AGENT AUTOCURRICULA.</strong> Baker, B., Kanitscheider, I., Markov, T., Wu, Y., Powell, G., McGrew, B., … Brain, G. (2019). [<a href="https://arxiv.org/abs/1909.07528" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>通过多主体竞争，捉迷藏的简单目标以及大规模的标准强化学习算法，我们发现主体创建了自我监督的自动课程，引发了多个不同的回合策略，其中许多回合需要复杂的工具 使用和协调。 我们发现在我们的环境中代理策略的六个紧急阶段是显而易见的，每个阶段都会给对立团队带来新的压力。 例如，特工学会使用可移动的盒子来建造多目标掩体，这反过来又导致特工发现他们可以使用坡道克服障碍。 我们进一步提供的证据表明，与其他自我监督的强化学习方法（例如内在动机）相比，多主体竞争可能会随着环境复杂性的提高而更好地扩展，并导致以人类相关技能为中心的行为。 最后，我们提出转移和微调作为定量评估目标能力的一种方法，并且我们在一组特定领域的智力测验中将捉迷藏的代理与内在动机和随机初始化基线进行了比较。</li>
+</ul>
+</li>
+<li><p><strong>Dream to Control: Learning Behaviors by Latent Imagination.</strong> Hafner, D., Lillicrap, T., Ba, J., &amp; Norouzi, M. (2019). [<a href="http://arxiv.org/abs/1912.01603" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>经验丰富的世界模型总结了代理商的经验，以促进学习复杂行为。 虽然通过深度学习从高维感官输入中学习世界模型变得可行，但是有许多潜在的方法可以从中推导行为。 我们介绍了Dreamer，这是一种增强型学习代理，可以完全通过潜在的想象力解决图像中的长时间任务。 我们通过在学习的世界模型的紧凑状态空间中想象的轨迹传播学习状态值的解析梯度来有效地学习行为。 在完成20项具有挑战性的视觉控制任务后，Dreamer在数据效率，计算时间和最终性能方面都超过了现有方法。</li>
+</ul>
+</li>
+<li><p><strong>SIMPLIFIED ACTION DECODER FOR DEEP MULTI-AGENT REINFORCEMENT LEARNING.</strong> Hu, H., &amp; Foerster, J. N. (2019). [<a href="https://github.com/facebookresearch/Hanabi_SAD." target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>近年来，我们在AI的许多基准问题上看到了快速的进步，现代方法在Go，Poker和Dota中达到了近乎或超乎人类的表现。 所有这些挑战的一个共同方面是，它们在设计上是对抗的，或者从技术上来说是零和。 与这些设置相反，在现实世界中，成功通常需要人类在至少部分合作的设置下与他人合作和交流。 去年，纸牌游戏Hanabi被确立为AI的新基准环境，以填补这一空白。 特别是，《哈纳比》对人类很有趣，因为它完全专注于思想理论，即在观察其他行为者时能够有效地推理其他行为者的意图，信念和观点的能力。 强化学习（RL）面临着一个有趣的挑战，即在他人观察时学习提供信息是一个有趣的挑战：强化学习从根本上要求代理商进行探索，以便发现良好的政策。 但是，如果天真地做到这一点，这种随机性将固有地使他们的动作在训练过程中对他人的信息少。 我们提出了一种新的深层多智能体RL方法，即简化动作解码器（SAD），该方法通过集中训练阶段解决了这一矛盾。 在训练过程中，SAD允许其他特工不仅观察所选择的（探索性）行为，而且特工还观察其队友的贪婪行为。 通过将这种简单的直觉与用于多主体学习的最佳实践相结合，SAD建立了一种新的SOTA，用于在Hanabi挑战的自我游戏部分为2-5名玩家提供学习方法。 与最佳实践组件相比，我们的摘录显示了SAD的贡献。 我们所有的代码和受过训练的代理都可以在 <a href="https://github.com/facebookresearch/Hanabi_SAD" target="_blank" rel="noopener">https://github.com/facebookresearch/Hanabi_SAD</a> 上找到。</li>
+</ul>
+</li>
+<li><p><strong>IS A GOOD REPRESENTATION SUFFICIENT FOR SAM-PLE EFFICIENT REINFORCEMENT LEARNING?</strong> Du, S. S., Kakade, S. M., Wang, R., &amp; Yang, L. F. (2019). [<a href="https://arxiv.org/abs/1910.03016" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>现代深度学习方法提供了学习良好表达的有效手段。 但是，良好的表示形式本身是否足以进行样本有效的强化学习？ 在更经典的近似动态规划文献中，仅针对（最坏情况）近似误差研究了该问题。 关于统计观点，这个问题在很大程度上尚待探讨，并且现有文献主要集中在允许样本进行有效强化学习而几乎不了解有效强化学习的必要条件的条件。 这项工作表明，从统计学的角度来看，这种情况比传统的近似观点所暗示的要微妙得多，在传统的近似观点中，对满足样本有效RL的表示的要求更加严格。 我们的主要结果为强化学习方法提供了清晰的门槛，表明在构成良好的函数逼近（就表示的维数而言）方面存在严格的限制，我们专注于与基于价值，基于模型的自然表示条件 ，以及基于政策的学习。 这些下限突显出，除非其近似值的质量超过某些严格的阈值，否则本身具有良好的（基于值，基于模型或基于策略的）表示形式不足以进行有效的强化学习。 此外，我们的下限还意味着样本复杂性之间的指数分离：1）具有完美表示形式的基于价值的学习与具有良好但不是完美表示形式的基于价值的学习； 2）基于价值的学习和基于策略的学习 ，3）基于策略的学习和监督学习，以及4）强化学习和模仿学习。</li>
+</ul>
+</li>
+<li><p><strong>Learning to Plan in High Dimensions via Neural Exploration-Exploitation Trees.</strong> Chen, B., Dai, B., Lin, Q., Ye, G., Liu, H., &amp; Song, L. (2019). [<a href="http://arxiv.org/abs/1903.00070" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>我们提出一种名为神经探索-开发树（NEXT）的元路径规划算法，以从先前的经验中学习，以解决高维连续状态和动作空间中的新路径规划问题。 与更经典的基于采样的方法（如RRT）相比，我们的方法在高维度上可获得更高的采样效率，并且可以从类似环境中的规划经验中受益。 更具体地说，NEXT利用一种新颖的神经体系结构，可以从问题结构中学习有前途的搜索方向。 然后，将学习到的先验知识整合到UCB类型的算法中，以在解决新问题时实现探索与开发之间的在线平衡。 我们进行了彻底的实验，以表明NEXT通过更紧凑的搜索树解决了新的计划问题，并在某些基准上明显优于最新方法。</li>
+</ul>
+</li>
+<li><p><strong>Making Sense of Reinforcement Learning and Probabilistic Inference.</strong> O’Donoghue, B., Osband, I., &amp; Ionescu, C. (2020). [<a href="http://arxiv.org/abs/2001.00805" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>强化学习（RL）将控制问题与统计估计结合在一起：代理不知道系统动态，但可以通过经验来学习。 最近的研究将“ RL作为推论”，并提出了一个特殊的框架将RL问题概括为概率推论。 我们的论文揭示了该方法的主要缺点，并阐明了将RL连贯地转换为推理问题的意义。 特别是，RL代理商必须考虑其行为对未来回报和观察的影响：勘探与开发的权衡。 在除最简单的设置之外的所有条件下，得出的推论在计算上都是棘手的，因此实际的RL算法必须重新近似。 我们证明了流行的“ RL作为推论”近似方法即使在非常基本的问题中也可能表现不佳。 但是，我们表明，只需稍加修改，该框架就可以产生可证明具有良好性能的算法，并且我们表明，所得算法等同于最近提出的K学习，我们还将其与Thompson采样结合在一起。</li>
+</ul>
+</li>
+<li><p><strong>IMPROVING GENERALIZATION IN META REINFORCE-MENT LEARNING USING LEARNED OBJECTIVES.</strong> Kirsch, L., Van Steenkiste, S., &amp; Urgen Schmidhuber, J. ¨. (2019). [<a href="http://louiskirsch.com/code/metagenrl" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>生物进化将许多学习者的经验提炼为人类的通用学习算法。 我们新颖的元强化学习算法MetaGenRL受此过程启发。  MetaGenRL提取了许多复杂代理的经验，以元学习一种低复杂度的神经目标功能，该功能决定了未来个人将如何学习。 与最近的元RL算法不同，MetaGenRL可以推广到与元训练完全不同的新环境。 在某些情况下，它甚至优于人工设计的RL算法。  MetaGenRL在元训练期间使用非策略性二阶梯度，可大大提高其采样效率。</li>
+</ul>
+</li>
+<li><p><strong>Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning.</strong> Scobee, D. R. R., &amp; Sastry, S. S. (2019, September 25). [<a href="https://arxiv.org/abs/1909.05477" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>尽管逆向强化学习（IRL）问题的大多数方法都集中在估计可以最好地解释专家代理人的政策或在控制任务上表现出的行为的奖励功能，但通常情况下，这种行为更简单地由简单奖励来表示 结合一系列严格的约束。 在这种情况下，座席正试图根据这些给定的行为约束来最大化累积奖励。 我们对马尔可夫决策过程（MDP）上的IRL问题进行了重新表述，以便在给定环境的名义模型和名义奖励函数的情况下，我们寻求估计环境，行为和特征约束条件，以激发代理的行为。 我们的方法基于最大熵IRL框架，这使我们能够根据我们对MDP的了解来推断专家代理进行演示的可能性。 使用我们的方法，我们可以推断可以将哪些约束添加到MDP，以最大程度地增加观察这些演示的可能性。 我们提出了一种算法，该算法可迭代地推断最大似然约束以最好地解释观察到的行为，并且我们将使用模拟行为和在障碍物周围航行的人类的记录数据来评估其功效。</li>
+</ul>
+</li>
+<li><p><strong>THE INGREDIENTS OF REAL-WORLD ROBOTIC REINFORCEMENT LEARNING.</strong> Zhu, H., Yu, J., Gupta, A., Shah, D., Hartikainen, K., Singh, A., … Levine, S. (2019). [<a href="https://openreview.net/forum?id=rJe2syrtvS" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>在现实世界中，强化学习的成功仅限于仪器化的实验室场景，通常需要艰苦的人工和监督才能实现持续学习。 在这项工作中，我们讨论了机器人学习系统所需的要素，该系统可以不断地，自主地改善现实世界中收集的数据。 我们使用灵巧操作作为案例研究，提出了这样一个系统的特定实例。 随后，我们研究了在没有仪器的情况下学习时会遇到的许多挑战。 在这种情况下，学习必须是可行的，而无需人工设计的复位，仅使用板载感知器并且没有手工设计的奖励功能。 我们提出了针对这些挑战的简单且可扩展的解决方案，然后证明了我们提出的系统在一组灵巧的机器人操纵任务上的功效，从而提供了与该学习范式相关的挑战的深入分析。 我们证明，我们的完整系统可以在没有任何人工干预的情况下进行学习，并通过真实的三指手获得各种基于视觉的技能。</li>
+</ul>
+</li>
+<li><p><strong>Measuring the Reliability of Reinforcement Learning Algorithms.</strong> Chan, S. C. Y., Fishman, S., Canny, J., Korattikara, A., &amp; Guadarrama, S. (2019). [<a href="http://arxiv.org/abs/1912.05663" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>缺乏可靠性是强化学习（RL）算法的一个众所周知的问题。 近年来，这个问题已引起越来越多的关注，并且为改善它而进行的努力已大大增加。 为了帮助RL研究人员和生产用户评估和提高可靠性，我们提出了一套可定量测量可靠性各个方面的指标。 在这项工作中，我们专注于培训期间和学习后（根据固定政策）的变异性和风险。 我们将这些指标设计为通用的，还设计了补充统计测试以对这些指标进行严格的比较。 在本文中，我们首先描述度量标准及其设计的期望属性，度量标准的可靠性方面以及它们在不同情况下的适用性。 然后，我们描述统计测试并为报告结果提出其他实用建议。 度量标准和随附的统计工具已作为开放源代码库提供。1我们将度量标准应用于一组通用RL算法和环境，进行比较并分析结果。</li>
+</ul>
+</li>
+<li><p><strong>DISAGREEMENT-REGULARIZED IMITATION LEARNING.</strong> Brantley, K., Sun, W., &amp; Henaff, M. (2019). [<a href="https://openreview.net/forum?id=rkgbYyHtwB" target="_blank" rel="noopener">原文链接</a>]</p>
+<ul>
+<li>我们提出了一种简单有效的算法，旨在解决模仿学习中的协变量偏移问题。 它通过在专家演示数据上训练一组策略，然后将其预测的差异用作成本（通过RL与监督的行为克隆成本最小化）来进行操作。 与对抗式模仿方法不同，它使用易于优化的固定奖励函数。 我们证明了该算法的遗憾界限，该算法在时间范围内是线性的，乘以一个系数，对于行为克隆失败的某些问题，该系数显示为低。 我们在多个基于像素的Atari环境和连续控制任务上对算法进行了经验评估，结果表明该算法与行为克隆和生成的对抗模仿学习相匹配或明显胜过。</li>
 </ul>
 </li>
 </ul>
@@ -253,7 +330,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-06T06:57:59.056Z" itemprop="dateUpdated">2020-03-06 14:57:59</time>
+    最后更新时间：<time datetime="2020-03-09T12:46:11.422Z" itemprop="dateUpdated">2020-03-09 20:46:11</time>
 </span><br>
 
 
