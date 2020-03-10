@@ -32,7 +32,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -122,6 +122,10 @@
             </a>
         </div>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -605,9 +609,55 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/categories/paper翻译/&title=Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/categories/paper翻译/&title=Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/categories/paper翻译/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Hamish的科研blog&url=http://yoursite.com/categories/paper翻译/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/categories/paper翻译/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3a0U7DMAwFUP7/p4fEE9JYubYzRJOTp6mUpUdIps71x0e8Hl/r+fOrn35fz3de3//8W8sWBgbGbRmPy1XdPrkzuZ4/GwYGxjmMvMgmD339W9e7Xxf3l9cxMDAwxsVxUtYxMDAwJoykyFY/Y2BgYEya2LVlenIYh4GBcRpjEgy8+/Mf5RsYGBj/mLGq7Sy/xsVlN3oSDAyMrRmTUYkqrxdtFppbDAyMrRkJaR46Jjv2htIwMDDOYfSGwKqHZZNANMJjYGBsxyg3ikG5zKOFXrH+4X4MDIytGZOQYG3L2muVF2QdGBgYt2Lkh2hJCZ6vvKnGwMA4k1EdtnjfyEWzF8fAwNiIMTliy6+vao9f7ouBgXEAIz/kKlfxOArNv/+XU0MMDIxNGUkLWr2nF21W3/QK6QQGBsZtGdUgcE6qRpWFEo+BgbEp490paH4Ylzx61ItjYGBsykgGIKoFcVJq80i1OYmGgYFxW0Z1wKsac/YO5q6LMgYGxgmM6uF+Qk0O6aqhaeFfAgYGxnaMvOBWXxl7YxPVUo6BgXECI//S5HqvaPba2ugvg4GBsQXjUVzJ9vPr5X0xMDC2ZlTDyEnjmnxD/iLYxGBgYNyW0Suyq8LLZQUXAwPjAEZeZJNAsdoGT8YvMDAwMKoP8WitPJb4pSPHwMA4npEPXvTihMlxHgYGxgmMVU1sLwqdDGpgYGCcwOgdls237DW6oyATAwPjfoxPk4vhZ1C1sVkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

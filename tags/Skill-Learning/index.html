@@ -32,7 +32,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -123,6 +123,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header tags-header">
@@ -153,11 +157,11 @@
 
         
 
-            <a href="/tags/benchmark/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">benchmark</a>
+            <a href="/tags/NAS/" style="-webkit-order:5;order:5" class="tags-list-item waves-effect waves-button waves-light">NAS</a>
 
         
 
-            <a href="/tags/NAS/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">NAS</a>
+            <a href="/tags/benchmark/" style="-webkit-order:6;order:6" class="tags-list-item waves-effect waves-button waves-light">benchmark</a>
 
         
 
@@ -214,7 +218,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"meta-learning","max":10},{"name":"MAML","max":10},{"name":"Survey","max":10},{"name":"benchmark","max":10},{"name":"NAS","max":10},{"name":"Reinforcement Learning","max":10},{"name":"Skill Learning","max":10}],
+            indicator: [{"name":"meta-learning","max":10},{"name":"MAML","max":10},{"name":"Survey","max":10},{"name":"NAS","max":10},{"name":"benchmark","max":10},{"name":"Reinforcement Learning","max":10},{"name":"Skill Learning","max":10}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -225,7 +229,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [9,4,1,1,2,3,1],
+                    value : [9,4,1,2,1,3,1],
                     name : 'categoryNumber'
                 }
             ]
@@ -315,9 +319,55 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/tags/Skill-Learning/&title=Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/tags/Skill-Learning/&title=Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/tags/Skill-Learning/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Hamish的科研blog&url=http://yoursite.com/tags/Skill-Learning/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/tags/Skill-Learning/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxUlEQVR42u3aS2rDQBAFQN//0g5kFTCRX3802FBaCdlINZtm5nU/HvH1/L3+3lefvD5//XXtwsXFHXOfl1fy+ev3XP8/N+Di4p7nJsXrmn5dqnL6GxsuLu6Hca8XkHwsXwwuLu53cSfLw8XF/S5u/rp8+1LlLp/VcHFxB9xeYLp7f3u+i4uLu9SVqAapeYul93VcXNwz3Oohp7opqbZao0MRLi7ucW4eeuaN1eQ9heEMXFzcI9yt0atkAzQpnbi4uGe41eIyaZzMsw5cXNyT3Py4Un2SNFcKrRRcXNwj3F5UMRnNTIYtohYLLi7uQW7SWN0NTPNtEy4u7hluEm72ItH8fnRWw8XFvY2bl5X5sSehvylkuLi4R7iTwDQamFgKVnBxcc9w8+Rht687eRsuLu7d3DzayNedl7ZyQwUXF/cIt9oQnRSpah3NF4yLi7vLLUeWxQB0vozCFgcXF3eJ28sc8oGJXgjbPKvh4uKucnuDFL1il0Sua+EILi7umDsPTJsTYdVgBRcX9yO5kzA0b9/++35cXNwP41Y/1js+lWdGcHFxb+Pmh59ks7LVSlk4q+Hi4ra4vcB0MlSRsJbzXVxc3JT7A+5JQ/ojI9HKAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

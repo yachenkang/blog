@@ -39,7 +39,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -130,6 +130,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -190,13 +194,7 @@
 <a id="more"></a>
 <h3 id="MAML"><a href="#MAML" class="headerlink" title="MAML"></a>MAML</h3><script type="math/tex; mode=display">
 \theta_{0}=\theta_{0}-\beta \nabla_{\theta} \sum_{b=1}^{B} \mathcal{L}_{T_{b}}\left(f_{\theta_{N}^{b}\left(\theta_{0}\right)}\right)</script><h4 id="3-1-MAML的问题"><a href="#3-1-MAML的问题" class="headerlink" title="3.1 MAML的问题"></a>3.1 MAML的问题</h4><p>MAML的简单，优雅和高性能使其成为元学习的非常强大的框架。但是，MAML也有许多问题，使其难以使用。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png" alt></p>
 <p><strong>梯度不稳定性</strong>：<br>如上图所示，受到神经网络结构和全局超参数设置的影响，MAML在训练过程中可能非常不稳定。优化outer loop涉及多次穿过由同一网络组成的未展开的inner loop进行导数的反向传播。仅此一项就可能导致梯度问题。但是，模型架构进一步加剧了梯度问题，标准4层卷积网络但没有skip-connections。缺少任何skip-connections意味着每个梯度必须多次通过每个卷积层。实际上，梯度将被多次乘以相同的参数集。经过多次反向传播后，展开网络的深度结构和skip-connections的缺失会分别引起梯度爆炸和梯度消失问题。</p>
 <p><strong>二阶导数成本</strong>：<br>通过梯度更新步骤进行优化需要计算二阶梯度，而二阶梯度的计算成本非常高昂。MAML的作者建议使用一阶近似将处理速度提高三倍，但是使用这些近似可能会对最终的泛化误差产生负面影响。已经在Reptile(Nichol et al., 2018)中尝试了进一步使用一阶方法的尝试，作者在基本模型上应用标准SGD，然后更新其初始化参数向N步更新后的参数方向迈出一步。Reptile的结果变化较大，在某些情况下超过MAML，而在另一些情况下则不如MAML。尚未提出减少计算时间而不牺牲泛化性能的方法。</p>
 <p><strong>缺少Batch Normalization统计量累积</strong>：<br>影响生成性能的另一个问题是原始MAML论文中在实验中使用Batch Normalization的方式。不是累积运行统计信息，而是将当前batch的统计信息用于Batch Normalization。这导致Batch Normalization的效果较差，因为学习的偏差必须适应各种不同的均值和标准差，而不是单个均值和标准差。另一方面，如果Batch Normalization使用累积的运行统计信息，则最终将收敛到某些全局平均值和标准偏差。这样就只剩下一个均值和标准偏差来学习偏差了。使用running统计信息而不是batch统计信息，可以极大地提高收敛速度，稳定性和泛化性能，因为归一化的特征将导致更平滑的优化环境（Santurkar et al.，2018）。</p>
@@ -226,7 +224,7 @@
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" target="_blank" rel="external">http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/</a>
+        本文作者： Kang Yachen 本文链接： <a href="/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" target="_blank" rel="external">http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/</a> 转载请注明出处
         
     </div>
     
@@ -247,6 +245,51 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&title=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&title=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&source=摘要:少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -283,6 +326,23 @@
 
 
 
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'sherlockbear',
+            repo: 'blog_comment',
+            oauth: {
+                client_id: '251252f21eefad502187',
+                client_secret: '202d857bf26c36643db65b0326b43d3f66ee2a76',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
 
 
 
@@ -337,9 +397,55 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&title=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&title=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&source=摘要:少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《HOW TO TRAIN YOUR MAML》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMElEQVR42u3awY7rMAgF0P7/T+dJs62aXCB5Uuzj1ahtHJ9ZIDB8PvE6/tavz7/X91Pf357v9nliYWBgvJZxnK5fv8l36D2V/wYDA2MfxnmQPT9Kb7fkLcluGBgYGMlx7wqpyXsxMDAwqoznUkkMDAyMXljspYznjHP2I7U4BgbGCxnVxsD//PvB/gYGBsZLGEdxVdPHXnuyfCoMDIylGUlaNg++906FFDJcDAyMJRh5eTkJndVyNz8DBgbGPoy7jtVrTyah+SKsY2BgbMOopnG98Yt5yXqR22JgYCzHmIS5XsnaK4DzMQ4MDIy1GcmIQxKO52XwRcma3B1iYGAsx6he00+CZjWhHN0dYmBgLMHojVA8EY6Tt/z8HAMDYwNGbxSslxT2mg0X32JgYCzNmF+Q9a7Jqocuj5FhYGAsxKhe6OfhuJpoJu3Mi2ELDAyMRRlJaMuvyfKiNy+JC8krBgbGBow815qMiD0xeIGBgbEPIwms88ZAr8F5W2qIgYHxQkbUIGyVpr3rtvNyOupvYGBgbMbIi9hew7IaiKMqHAMDYzlG9QWTS7ecmrdaMTAwdmAcxZVc9+fhe7LzJ4/KGBgYL2dM4vRkzOuRxgAGBsbSjHwYq9BtGETCaqMCAwNjH0aydfLK6Co/bnYm/3QMDAyMvBzN2wb5s+dnw8DAwMhTw17DoDp4cXPAxcDAeCEjL2Jz2F2BuDw5goGBsRxj0hiolqPV0bGbr/YwMDDex/gHWV884gLMC3YAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

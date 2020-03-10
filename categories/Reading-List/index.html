@@ -32,7 +32,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -122,6 +122,10 @@
             </a>
         </div>
         
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
         
     </div>
 </header>
@@ -333,9 +337,55 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/categories/Reading-List/&title=Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/categories/Reading-List/&title=Hamish的科研blog&source=" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/categories/Reading-List/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=Hamish的科研blog&url=http://yoursite.com/categories/Reading-List/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/categories/Reading-List/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIElEQVR42u3aS46EMAxF0dr/pmmppi1S99lhgHMzQlQ35DCw/Mnng9f1XXd3LrD4X/5/17YlQ4aM1zLS198x1mx+n7NlyJBxGoM/ev0J7n5Nnxl/DhkyZMjAQbl2TdgyZMiQwRk8LPYLZhkyZMioBVNedq7TR369uRaXIUPGCxmdIPj09YPzDRkyZLyEcZXW+jkkyPImHdqPDBkyRjNIKkZewIcHZKiQDlBlyJAxm8HDX5qV8XYeSQTXJBkyZJzAqIVIjkzvx59GhgwZBzBqR75qRewaUzw0JkOGjNGMWorWTwd5IsgTUBkyZExlpMcdSOLYGVUWhxMyZMg4jLF3SMkL47SRh4aXMmTIGMEgTbS0HK0B0vD9Y8ohQ4aMoQxe0JLwx0NzByxDhoxzGLXX803UStm0hJYhQ8ZURi05e3rA2TozIkOGjHGM2hbTEUKa9qWNPxkyZMxmdIIsYaelbPp8GTJknMNIEzsOIAcmSNqHilgZMmQMZdSaYiRo1saQHaoMGTKmMnigXIM7G0UjyXWIlyFDxmgG3xZp3NfadmTrMmTIOJlxhat2jiNlpO+VIUPGbEYa5vgxMv5f6aGxIkCGDBkvZ6RBlrfbal+UB1wZMmScxuDBlDfFtsV70gqUIUOGjHDcmA41O4NSGTJkyKiR0iMUJAUMzonIkCFjKCMdBvQ7fOnn+5GkypAhYzRj72CAF8D8cFjQdJMhQ8Y0xh+EWzziOPS+BAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>

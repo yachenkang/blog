@@ -43,7 +43,7 @@
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
@@ -134,6 +134,10 @@
         </div>
         
         
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
 </header>
 <header class="content-header post-header">
@@ -218,50 +222,20 @@
 <li>现在最小化SGD最终收敛到的位置也取决于$\theta_0$</li>
 </ul>
 <p>iMAML正是利用了这第二个属性。让我说明一下这种依赖性是什么样的：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165008.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165008.png" alt></p>
 <p>在上图中，假设我们要最小化目标函数$f(\theta)$。这将是元学习算法必须解决的任务之一的训练损失。我们当前的元参数$\theta_0$标记在x轴上，橙色曲线显示了相关的二次惩罚。蓝绿色曲线显示了加上惩罚项的目标。红星表示最小值的位置，这是学习算法发现的位置。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/Notes%20on%20iMAML_%20Meta-Learning%20with%20Implicit%20Gradients.gif" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/Notes%20on%20iMAML_%20Meta-Learning%20with%20Implicit%20Gradients.gif" alt></p>
 <p>现在，让此动画动起来。我将移动锚点$\theta_0$，并重现相同的图。您会看到，随着我们移动$\theta_0$和相应的惩罚项，正则化目标移动的局部（同时也是全局）最小值发生了变化：</p>
 <p>因此很明显，锚点$\theta_0$与局部最小值$\theta^\ast$的位置之间存在非平凡非线性的关系。让我们根据锚点绘制此关系：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165057.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165057.png" alt></p>
 <p>我们可以看到该函数一点也不好处理，当最接近$\theta_0$的局部最小值发生变化时，它具有急剧的跳变，并且在这些跳变之间相对平坦。实际上，你可以观察到最接近$\theta_0$的局部最小值越锐利，则$\theta_0$和$\theta$之间的关系越平坦。这是因为，如果$f$在$\theta_0$附近具有尖锐的局部最小值，则正则化最小值的位置将主要由$f$确定，并且锚点$\theta_0$的位置无关紧要。如果围绕$f$的局部最小值很宽，则最优值会有很大的摆动空间，并且正则化的效果会更大。</p>
 <h3 id="Implicit-Gradients"><a href="#Implicit-Gradients" class="headerlink" title="Implicit Gradients"></a>Implicit Gradients</h3><p>现在，我们讨论iMAML程序的全部内容。实际上，该函数$\theta^\ast(\theta_0)$的梯度可以以封闭形式计算。实际上，它与$f$的曲率或二阶导数有关，在我们找到的最小值附近：</p>
 <script type="math/tex; mode=display">
 \frac{d \theta^{\ast}}{d \theta_{0}}=\frac{1}{1+f^{\prime \prime}\left(\theta^{\ast}\right)}</script><p>为了检查此公式是否有效，我对导数进行了数值计算，并将其与理论预测的结果进行了比较，它们完全匹配：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165818.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165818.png" alt></p>
 <p>当参数空间是高维时，我们有一个类似的公式，其中包含Hessian的逆加单位阵。在高维中，Hessian的求逆甚至计算和存储都不太实际。iMAML论文的主要贡献之一是使用共轭梯度内部优化循环来逼近梯度的实用方法。有关详细信息，请阅读论文。</p>
 <h4 id="Optimizing-the-meta-objective"><a href="#Optimizing-the-meta-objective" class="headerlink" title="Optimizing the meta-objective"></a>Optimizing the meta-objective</h4><p>在元学习设置中优化锚点时，我们感兴趣的不是位置$\theta^\ast$，而是函数$f$在此位置处取的值。（实际上，我们现在将使用验证损失来代替用于梯度下降的训练损失，但为简单起见，我假设这两个损失是重叠的）。$f$在其局部最优处的值绘制如下：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165958.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165958.png" alt></p>
 <p>噢，这个函数不是很漂亮。元目标$f(\theta^\ast(\theta_0))$变成分段连续函数，是相邻盆地之间的连接，边界不光滑。该函数的局部梯度包含很少的有关损失函数的整体结构的信息，它仅告诉你如何到达最接近的局部最小值的位置。所以我不会说这是最好的优化函数。</p>
 <p>值得庆幸的是，该函数不是我们必须优化的。在元学习中，我们有优化的函数上的分布，因此实际的元目标类似于$\sum_i f_i(\theta^\ast_i(\theta_0))$。一堆丑陋的函数的总和很可能会变成平滑而优美的东西。另外，我在此博客文章中使用的一维函数不能代表我们要应用iMAML的神经网络的高维损失函数。以模式连通性的概念为例（参见例如<a href="chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://arxiv.org/pdf/1802.10026.pdf" target="_blank" rel="noopener">Garipov et al, 2018</a>）：似乎SGD使用不同的随机种子发现的模式不仅仅只是孤立的盆地，而是通过训练和测试误差低的光滑的山谷相连。反过来，这可能会使元目标在最小值之间表现得更加平稳。</p>
 <h3 id="What-is-missing-Stochasticity"><a href="#What-is-missing-Stochasticity" class="headerlink" title="What is missing? Stochasticity"></a>What is missing? Stochasticity</h3><p>MAML或iMAML不考虑的重要方面是我们通常使用随机优化算法的事实。SGD不会确定性地找到特定的最小值，而是采样不同的最小值：当使用不同的随机种子运行时，它将发现不同的最小值。</p>
@@ -301,7 +275,7 @@
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/10/18/iMAML笔记（翻译）/" target="_blank" rel="external">http://yoursite.com/2019/10/18/iMAML笔记（翻译）/</a>
+        本文作者： Kang Yachen 本文链接： <a href="/2019/10/18/iMAML笔记（翻译）/" target="_blank" rel="external">http://yoursite.com/2019/10/18/iMAML笔记（翻译）/</a> 转载请注明出处
         
     </div>
     
@@ -322,6 +296,51 @@
 
 
             
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/&title=《iMAML笔记（翻译）[更新中]》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/&title=《iMAML笔记（翻译）[更新中]》 — Hamish的科研blog&source=转载并翻译iMAML的阅读笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《iMAML笔记（翻译）[更新中]》 — Hamish的科研blog&url=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
@@ -358,6 +377,23 @@
 
 
 
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'sherlockbear',
+            repo: 'blog_comment',
+            oauth: {
+                client_id: '251252f21eefad502187',
+                client_secret: '202d857bf26c36643db65b0326b43d3f66ee2a76',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
 
 
 
@@ -412,9 +448,55 @@
 <a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
 
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/&title=《iMAML笔记（翻译）[更新中]》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/&title=《iMAML笔记（翻译）[更新中]》 — Hamish的科研blog&source=转载并翻译iMAML的阅读笔记" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《iMAML笔记（翻译）[更新中]》 — Hamish的科研blog&url=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/18/iMAML笔记（翻译）/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aQVLEIBAF0Ln/pXWrpcP8DxmtwMvKyiDhseiiu3k84udj+Hwd83N88uv4/WUPBgbGbRn5EpP348W1MyRrw8DAOIfxLIKNx4znGc+cB+7kWxgYGBg5oz0gzn0XAwMDYzxdHliT8f8WcDEwMG7ImCul5U9bN3tjLo6BgXFDxtzUf/P3W/obGBgYt2KsB802WK+v4ZevYGBgbM2YK6XlTce2kbBS2sPAwNiVkRTO2kDcNiaTQt6L9xgYGMcwksVF8XshAc4bBt/eYGBgHMBI0tRrr1zkWxNtEAYGxtaM/J+TQ9tVJbb8K492DzAwMLZgtInlGLx+2aItw2FgYOzHyIv7bfJZ7+LCIRIDA2NvxsoUObi9upEE66e/YmBgbMrIE8U81WwbovmRtAi1GBgY2zHyEJkXxfJAvLIdGBgYJzDyylVbgFtJjNsQjIGBsTejLf3PBdC5A2hx2QIDA2NTxlyJv01E2+W2BT4MDIy9GSslsKsuhBWpKQYGBkZ82SvH54fL9orY0xMuBgbG1oyVJkH7Jg+ySQjGwMA4jbEydVsmyw+UFzQGMDAwbsv4KJ/8ktZKOlq3UTEwMLZm5E9+RMvDdLtBxZ0RDAyM7Rhzjck8dK6AiyCLgYFxACMvw7VLz0tyeejHwMDAaI9lbarZjsHAwMB4H2M8vk2MXyTAGBgYBzDmrnkl6W7SZmgbmRgYGKcx2tQxWfRKAG1bCxgYGFszPgHZ2wPxKRZD5AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
 </script>
