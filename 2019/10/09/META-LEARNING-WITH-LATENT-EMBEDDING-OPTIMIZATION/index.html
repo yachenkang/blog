@@ -26,7 +26,7 @@
 <meta name="keywords" content="meta-learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION">
-<meta property="og:url" content="http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/index.html">
+<meta property="og:url" content="https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要:基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作时存在实际困难。我们表明，有可能通过学习到一个模型参数的依赖数据的潜在生成表示，并在此低维潜在空间中执行基于梯度的元学习，从而绕过这些限制。最终的方法，latent embedding optimization（LEO），将基于梯度的自适应过程与模型参数">
 <meta property="og:locale" content="zh-CN">
@@ -196,29 +196,11 @@
 <a id="more"></a>
 <h4 id="2-3-LATENT-EMBEDDING-OPTIMIZATION-FOR-META-LEARNING"><a href="#2-3-LATENT-EMBEDDING-OPTIMIZATION-FOR-META-LEARNING" class="headerlink" title="2.3 LATENT EMBEDDING OPTIMIZATION FOR META-LEARNING"></a>2.3 LATENT EMBEDDING OPTIMIZATION FOR META-LEARNING</h4><p>本文的主要贡献是表明，有可能并且确实有益的是，将基于优化的元学习技术与模型参数的高维空间解耦。我们通过学习具有信息瓶颈的随机潜在空间来实现这一目标，该瓶颈取决于输入数据，并从中生成高维参数。</p>
 <p>我们没有像在MAML中那样显式实例化并维护一组唯一的模型参数θ，而是学习了具有相同目的的模型参数的生成分布。这是一个自然扩展：我们将找到单个最佳$\theta^* \in\Theta$的要求放宽到近似于$\Theta$的数据相关条件概率分布的要求，这可能更具表达性。由编码过程和解码（或参数生成）过程组成的结构的选择，使我们能够在学习到的参数生成模型的低维嵌入空间中执行基于MAML梯度的适应步骤（或”inner loop”）（图1）。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623091/wps_2019-09-28_22-55-47_lrbegy.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623091/wps_2019-09-28_22-55-47_lrbegy.png" alt></p>
 <h5 id="2-3-1-模型概述"><a href="#2-3-1-模型概述" class="headerlink" title="2.3.1 模型概述"></a>2.3.1 模型概述</h5><p>大致的操作如（算法1）所示。首先，给定任务实例$T_i$，将输入$\{x^k_n\}$通过随机编码器以产生潜在边码$z$，然后使用参数生成器将其解码为参数$\theta_i$。给定这些实例化的模型参数，在潜在空间中应用一个或多个适应步骤，通过计算相对于$z$的loss的微分，梯度更新几步获得$z\prime$，解码新的模型参数并获得新的loss。最后，对优化后的编码进行解码以生成最终的适应参数$\theta\prime_i$，该参数可用于执行任务或计算任务特定的meta-loss。通过这种方式，LEO结合了<strong>基于模型</strong>和<strong>基于优化</strong>的元学习的各个方面，产生的参数首先取决于输入数据，然后通过梯度下降进行调整。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623095/wps_2019-09-28_22-54-48_qbjlvg.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623095/wps_2019-09-28_22-54-48_qbjlvg.png" alt></p>
 <p>图2显示了生成的网络的结构。直觉上，解码器类似于生成模型，从低维潜在编码映射到模型参数的分布。编码过程可确保基于梯度的适应之前的初始潜在编码和参数已经与数据相关。该编码过程还利用了一个关系网络，该关系网络允许潜在编码依赖于上下文，考虑到问题实例中所有类之间的成对关系。在以下各节中，我们将更正式地解释LEO的各个步骤。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623092/wps_2019-09-28_22-55-25_jksoke.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623092/wps_2019-09-28_22-55-25_jksoke.png" alt></p>
 <h5 id="2-3-2-INITIALIZATION-GENERATING-PARAMETERS-CONDITIONED-ON-A-FEW-EXAMPLES"><a href="#2-3-2-INITIALIZATION-GENERATING-PARAMETERS-CONDITIONED-ON-A-FEW-EXAMPLES" class="headerlink" title="2.3.2 INITIALIZATION: GENERATING PARAMETERS CONDITIONED ON A FEW EXAMPLES"></a>2.3.2 INITIALIZATION: GENERATING PARAMETERS CONDITIONED ON A FEW EXAMPLES</h5><ul>
 <li><strong>Encoding</strong></li>
 <li><strong>Decoding</strong></li>
@@ -236,12 +218,12 @@
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" target="_blank" rel="external">http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" target="_blank" rel="external">https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://sherlockbear.github.io">
             <img src="/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
@@ -263,7 +245,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&title=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&title=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -273,22 +255,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&title=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&source=摘要:基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作时存在实..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&title=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&source=摘要:基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作时存在实..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -420,7 +402,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&title=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&title=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -430,22 +412,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&title=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&source=摘要:基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作时存在实..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&title=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&source=摘要:基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作时存在实..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/09/META-LEARNING-WITH-LATENT-EMBEDDING-OPTIMIZATION/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -456,7 +438,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrklEQVR42u3bS44CMQwFQO5/aWY70tDwbMfASNWrFp90Kos42OZ2i6/7ryt55e+7z0frvX7swsPDwxtM/WpyV/fV0Xqwq/toQfHw8PDWeFcT3btPFiWZzwsLHh4e3tfwnj+sd9RODvF4eHh4/4uXpCSSSU+O5nh4eHjfw0uGS8DJciSYD+Ra8PDw8GLeZEP/1P1KfQ8PDw9vXFVPgsTzNMRk068GgwdPwcPDw1vgTVoHJp/Pg1CyZC9GwMPDwzvKy4v0SRIhL1xVWwSSpXnwRDw8PLxlXrUhoLetbyR8y/lpPDw8vAHv2A/+QQY1b7TK2Xh4eHh7vHyg8nG22NQ1CVSXn8HDw8Nb41UPr/nWX12Iagb6RdoCDw8Pb5l3NnWbp4OrJbTC+Hh4eHgLvGr6IE8Z9MbsLUpyWMfDw8M7xZscXqvb/STxkYeTY2dzPDw8vNcV/+Yfk3qF/2SZ5qPh4eHhbfPybqW87aDasFV9VjNI4OHh4Y151YGqk06KZ9U0R7OnDA8PD2/Mm6RT83aoKu/WuqLOCDw8PLyjvB6sdyyuVueaKWA8PDy8NV41Y5G/W23kmoSHKDONh4eHd5SXgHvNT3lLVm/RL+eJh4eHt8yrYnr4eatrPh88PDy8Dd7kiDwv/0+KYfm38PDw8LZ51TRrb/uuPjcpoV0uPR4eHt4aLy/wF4r3cWI3CQn5UuLh4eG9h1c9Ip/d1qsFs0I7Ah4eHt5R3r14VTf3SfPBZFHw8PDw9njVlqa8cDXB56Eob1PAw8PDO8vLg0EeHqrBJi+eRUUvPDw8vLfwNrb4agPB6Fhc7YzAw8PDeyMvKd5PXk/29sLvAzw8PLwv4PVKXPl3D4coPDw8vDXeZKPPN/HqEvQaCPDw8PC2efmP/KiHK0bmASZvycLDw8Nb5v0AmA48GJgP9j0AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADNklEQVR42u3awW7bQAwEUP//T7tAroGkIakUFv10ClpX0tsAHS9nX6/4ev9cR3/y++fzvz1/Sv5vf3/+5gsbGxv7Iez36XX0meTByWIldzgHn9/z8P7Y2NjY69jnLz0JlWq83RWWF0ZsbGzsr2TnyHzJkuDsLTE2NjY2dv6K55FTjcYqAxsbGxt7HiS9rUu+fL3NzG2zNGxsbOyPZ1eL3k/++Q/7bWxsbOyPZL8HVz5+mgRkr9C9eCI2Njb2Inb1GM29o6J8+1EdbEXDKWxsbOwV7DwYqodyckayiPNa+jC3sbGxsVewq6/SC6oJaXJw8zDAsLGxsdexq1/0/+dQqVcwH257sLGxsVezz+MkCYnqSKh66LN3DOgiwLCxsbEfzo7+0y9uISbD/WSZRoMwbGxs7EXs3tf6aiBVa+DeJqQ62MLGxsbexL5r83Bv2OSHL1+nFzY2Nvb3sAtf3INStnrUJg+w/BdwMerCxsbGXsSuRlF1CFUd91QrhLxgiFIOGxsb+1Hs/GHJEiRjoGpMJu8w2oRgY2Njr2BPvtznwTbP2MnQ6vDIDjY2NvbD2ZOv/r2Ctvf56kJHmxZsbGzsFezJjZIrj6vqUaFq5RANlbCxsbEfzp4f3+kd8amGYs7DxsbG/gZ2XrVOAiavgXNkHpzRDgwbGxt7Ebt6KCevZnux1NssJVUENjY29j52r+KtPjgpHvJtUl79YmNjY29l52OgvJpNioe83K0uWfSLwcbGxl7Ero6EkuHOZCtSrQ0mCmxsbOwd7Oo2oBdg1aibv8NFJGNjY2N/GTu/afKieRBONjAX4zBsbGzsRexeNTspaHvHfXr1cBK02NjY2E9nT140j4reYcrqshaGTdjY2NiL2JMxUCEVx4E0OR6EjY2NvZv9Ll6T8rXQPBdL3zz8ouTExsbGfhS7FwPJ43uBVz0klBfA2NjY2LvZeck6D7NqSZyTqvUDNjY29j52Mo7plbV5SXzD5mEyRcPGxsb+Gva9S9YbP+X18MVEDRsbG/vL2L3B03wslYdleaiEjY2NvYh971BpUtD2wq/85tjY2NiL2L2it1oP5KTJq//5kR1sbGzsz2L/A2k7/WEA9qB2AAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

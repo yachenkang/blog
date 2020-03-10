@@ -26,7 +26,7 @@
 <meta name="keywords" content="NAS,Reinforcement Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Neural Architecture Search with Reinforcement Learning">
-<meta property="og:url" content="http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/index.html">
+<meta property="og:url" content="https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们">
 <meta property="og:locale" content="zh-CN">
@@ -194,13 +194,7 @@
 <a id="more"></a>
 <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>在这一节中，我们将首先描述一种使用递归网络生成卷积结构的简单方法。我们将展示如何使用策略梯度方法来训练递归网络，以最大化采样架构的精度的期望。我们将提出几个基于我们核心方法的改进，如形成skip连接，以增加模型的复杂性，以及使用参数服务器方法来加快训练。这一节的最后，我们将着重于生成递归架构，这是本文的另一个重要贡献。</p>
 <h4 id="Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network"><a href="#Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network" class="headerlink" title="Generate Model Descriptions with a Controller Recurrent Neural Network"></a>Generate Model Descriptions with a Controller Recurrent Neural Network</h4><p>在神经网络架构搜索（NAS）中，我们使用控制器生成神经网络的结构超参数。为了灵活，控制器被实现为RNN。假设我们想要预测只有卷积层的前馈神经网络，我们可以使用控制器将它们的超参数作为一系列标记生成：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png" alt="图2：我们的控制器递归神经网络如何采样一个简单的卷积网络。它预测filter高度、filter宽度、stride高度、stride宽度、一层的filters数量并重复。每个预测都由softmax分类器进行，然后作为输入输入到下一个时间步。" title>
-                </div>
-                <div class="image-caption">图2：我们的控制器递归神经网络如何采样一个简单的卷积网络。它预测filter高度、filter宽度、stride高度、stride宽度、一层的filters数量并重复。每个预测都由softmax分类器进行，然后作为输入输入到下一个时间步。</div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png" alt="图2：我们的控制器递归神经网络如何采样一个简单的卷积网络。它预测filter高度、filter宽度、stride高度、stride宽度、一层的filters数量并重复。每个预测都由softmax分类器进行，然后作为输入输入到下一个时间步。"></p>
 <p>在我们的实验中，如果层的数量超过某个值，生成架构的过程就会停止。这个值遵循一个时间表，我们在训练过程中增加它。一旦控制器RNN生成了一个架构，就用这个架构建立并训练一个神经网络。收敛时，将记录持有的验证集上网络的准确性。控制器RNN的参数，$\theta_c$，接着被优化以最大化提出的架构在验证集上预测精度的期望。在下一节中，我们将描述一种策略梯度方法，用于更新参数$\theta_c$，以便控制器RNN随着时间的推移生成更好的架构。</p>
 <h4 id="Training-with-REINFORCE"><a href="#Training-with-REINFORCE" class="headerlink" title="Training with REINFORCE"></a>Training with REINFORCE</h4><p>控制器预测的标记列表可以看作是设计子网络架构的action的列表$a_{1:T}$。在收敛时，该子网络将在持有的数据集上达到精度$R$。我们可以用这个精度$R$作为奖励信号，用强化学习来训练控制器。更具体地说，为了找到最佳的架构，我们要求我们的控制器最大化其预期报酬，以$J(\theta_c)$表示：</p>
 <script type="math/tex; mode=display">
@@ -220,12 +214,12 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" target="_blank" rel="external">http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" target="_blank" rel="external">https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://sherlockbear.github.io">
             <img src="/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
@@ -247,7 +241,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -257,22 +251,22 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&source=摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&source=摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&url=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -404,7 +398,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -414,22 +408,22 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&source=摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&source=摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&url=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -440,7 +434,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADMklEQVR42u3aQY4iQQwEQP7/afa60kCTtgsJTPQJMai7opDw2Fm3W3zd/1zJ+89e///Os6f8ff96bbd3XNjY2Nhfwr5fXtefebbcZ0tPtiDBV9f5YGuwsbGx17GvC0O+NTm7WsCqhfOFERsbG/uH2b224UU5iUsUNjY2NvYp9qR5uP5MPkjCxsbGxp63GT1wUvaqW/DGWRo2Njb2x7PzVPTzX78l38bGxsb+YPa9dfXKWPWdapxQWD82Njb2InavVZiEu9ViM/8asLGxsX+B3Vt0NXxN/pof8amW0qjHwsbGxv5Cdv7I/DOnik2+0XlpfNCBYWNjY385u9dsTA7iTAKJwnGc/LnY2NjYi9h5c3KqjPXi295hoAM9GTY2NvZHspPC0Bvu5GOp6y3Lx/3J5r7owLCxsbG/lt1rBvK2JBkkVQdD+Vgqmy1hY2Njb2MfKBKtCHby+UL8jI2Njb2UXQ1K5wOgXrGcD7awsbGxN7Gvf+h7JaeaTvQCg3wLogwEGxsb+8vZ1aMt1YH+qaigF0W8KF3Y2NjYq9l5DJwPdKKhTzG6qJY9bGxs7E3sZMRzaiPyJqfarpS/EmxsbOyl7F4zkA/lk02pbnEeUY+yCGxsbOyPZ1fD13w75q1FbywVtSLY2NjY69h5oZq0Db379GLdqIBhY2NjL2XnY5r8IE714E4eOZRF2NjY2IvYk9HSqZHQAUAQ7j64AzY2NvY6drX9SJZSjXsnrVF167GxsbF3sPPxej6ar4YBvefmg6oH98HGxsZexz616GoZq27EJITGxsbG/k12dIvWMc3epuRF9MXXgI2Njb2InYeshdv1isrbRlfY2NjYu9l5ZNtrPJKR/aQRqobT2NjY2PvYpw5ETh7fGx7d5hc2Njb2CnavYagWvHxTzkbCTzcLGxsbexF78ptfLVHzWX3SupQbEmxsbOwV7GrRyv+rry6l+sReDIyNjY29ld1rA6qHbPIWaH4oJ4oHsLGxsX+MXT00M29FqncurAEbGxv7J9n5gZ7egCkvhJPiio2Njb2VnbQEvRj1VHFKhkr5ZmFjY2NvYudBby9q7bUTOftsQ4WNjY39Vex/q3tFKEfNXD8AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJ0lEQVR42u3aSW4jMRAEQP//0/J1DtPdWVWUIVLRJ8PQwqCByanl5yd+XrfPv6+5etfVb64+//577z9t2YONjY29CXtCuvpN9Qrmv88t2NjY2Keyr/6Fv39N9cvmAXZ/tsSCjY2NjV0tCZLX98DY2NjY2FV2NaKqTZ+8nXR/WdjY2Njfya424ntN/zksD9dlvTRsbGzsj2f3ouUzf37LfBsbGxv7g9mv4rPqiJPh7vzBxsbGPok9Wdmprj/m17dq5PzQWsLGxsY+gj0Z3yYHmizozJeKHnIbGxsb+wj2qrFrPl7tfeZkuQcbGxv7G9jVRs+qiOo1sPIrfngXNjY29hHs/LgJploS9NZxeis7Ua5iY2Njb8ueHKLXHsoLifmlF1Z2sLGxsbdl9waxhe5UsfWfX0HVUpiKYGNjY2/CfsfwdVXRkhczzRjDxsbGPoKdN3pGNzo4enUAHIUrNjY29kHsXlM+j7rk66vxlodo4S+PjY2NvS2795/7+YHmS0K9EMXGxsY+j72qwZS06Xuj38mfp1mWYGNjY2/F/pvFmvziJhVVYf0IGxsb+yB20rjP8XlQ5dddrSPyJR5sbGzsk9h5GygvNlYNG6pnKM9GsLGxsTdnryobqqPfVQtDvVUebGxs7JPYeRkwj5YkonrDifw6yotM2NjY2JuwJ82jyQpOb2TbGydgY2Njn83uLTL2Gv29kcBkTeehyMHGxsbenJ2UH9XGUF4e9K6sOmAubCphY2Njb8sefURwoGqDKS858nz+z44SNjY29hHsZtUyKFTWFi3VQQU2Njb22ez5USZDgvyg1TDDxsbG/gZ2r6iYhFYvzKqh+HDp2NjY2Eezqwsx99fULAyK4Tpa1sHGxsbelv0qPvkgYTJCroZo0gK7XNnBxsbG3pw9iY38y3rUajspb3thY2Njn8eetPjzyKk2j3phWSiBsLGxsY9j5/FTHbtWG0lry4nLd2FjY2N/MTsvG3prN9Vvz1tO2NjY2NhVarV0qV56dRS9rBTBxsbG/kh2LySqrZx5eyiProe0wsbGxj6I/Y5Gz2ShpxdIeQRiY2NjH8T+BV+uxdEJ/T7hAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

@@ -26,7 +26,7 @@
 <meta name="keywords" content="meta-learning,MAML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Meta-Learning with Implicit Gradients">
-<meta property="og:url" content="http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/index.html">
+<meta property="og:url" content="https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要:智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐">
 <meta property="og:locale" content="zh-CN">
@@ -195,13 +195,7 @@
             <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅使用当前任务中的少量数据，即可在outer loop中学习元参数，而在inner-loop中学习特定于任务的模型。扩展这些方法的关键挑战是需要通过inner-loop学习过程计算微分，这可能会带来相当大的计算和内存负担。借助隐式微分，我们开发了隐式MAML算法，该算法仅取决于inner level优化的解，而不取决于inner loop优化器采用的路径。这有效地将元梯度计算与inner loop优化器的选择解耦。因此，我们的方法与inner loop优化器的选择无关，并且可以优雅地处理许多梯度步骤而不会梯度消失或内存限制。从理论上讲，我们证明隐式MAML可以使用不超过计算单个内循环梯度所需的内存占用量来计算准确的元梯度，而不会增加总的计算成本。从实验上，我们证明了隐式MAML的这些好处可转化为在少样本的图像识别benchmarks上的经验收益。</p>
 <p>其他来源：<a href="https://www.inference.vc/notes-on-imaml-meta-learning-without-differentiating-through/" target="_blank" rel="noopener">Notes on iMAML: Meta-Learning with Implicit Gradients</a></p>
 <a id="more"></a>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/wps_2019-09-29_21-00-20.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/wps_2019-09-29_21-00-20.png" alt></p>
 <h3 id="Problem-Formulation-and-Notations"><a href="#Problem-Formulation-and-Notations" class="headerlink" title="Problem Formulation and Notations"></a>Problem Formulation and Notations</h3><p>我们首先在少样本监督学习的背景下提出元学习问题，然后概括该概念以帮助本文的其余论述。</p>
 <h4 id="Review-of-Few-Shot-Supervised-Learning-and-MAML"><a href="#Review-of-Few-Shot-Supervised-Learning-and-MAML" class="headerlink" title="Review of Few-Shot Supervised Learning and MAML"></a>Review of Few-Shot Supervised Learning and MAML</h4><p>在这种设置下，我们从$P(T)$中提取了一系列元训练任务$\{T_i\} ^M_{i = 1}$。每个任务$T_i$与一个数据集$D_i$相关联，我们可以从中采样两个不相交的集合：$D^{tr}_i$和$D^{test}_i$。这些数据集都由$K$个输入输出对组成。令$x\in X$和$y\in Y$分别表示输入和输出。数据集采用$D^{tr}_i = \{(x^k_i，y^k_i)\}^K_{k = 1}$的形式，对于$D^{test}_i$同样。我们对学习 $h_\phi(x): X \to Y $形式的模型感兴趣，由$\phi\in\Phi\equiv\mathbb {R}^{d}$参数化。任务的性能由损失函数指定，例如交叉熵或平方误差损失。我们将损失函数以$L(\phi，D)$的形式写成参数向量和数据集的函数。任务$T_i$的目标是使用$D^{tr}_ i$学习特定于任务的参数$\phi_i$，以便我们可以使任务的总体或测试损失$L(\phi_i，D^{test}_ i)$最小化。</p>
 <p>在一般的双层元学习设置中，我们考虑使用一组元参数$\theta\in\Theta\equiv\mathbb{R}^{d}$和来自任务任务的训练数据集用于计算任务特定参数的算法空间，形式化如$\phi_i= Alg(\theta,D^{tr}_ i)$针对任务$T_i$。元学习的目标是学习适应后产生良好任务特定参数的元参数，如下所示：</p>
@@ -238,20 +232,9 @@
 <p>注意，定义2中的$g_i$是任务$T_i$的元梯度的近似值。观察到可以将$g_i$作为优化问题的近似解：</p>
 <script type="math/tex; mode=display">
 \min _{\boldsymbol{w}} \boldsymbol{w}^{\top}\left(\boldsymbol{I}+\frac{1}{\lambda} \nabla_{\boldsymbol{\phi}}^{2} \hat{\mathcal{L}}_{i}\left(\boldsymbol{\phi}_{i}\right)\right) \boldsymbol{w}-\boldsymbol{w}^{\top} \nabla_{\phi} \mathcal{L}_{i}\left(\boldsymbol{\phi}_{i}\right)</script><p>共轭梯度（CG）算法由于其出色的迭代复杂性和仅要求$\nabla_\phi^2\hat{\mathcal{L}}_i(\phi_i)$形式的Hessian矢量积的要求而特别适合于此问题。无需显式构造或存储Hessian矩阵即可容易地获得这样的hessian矢量积（如我们在附录C中所述）。这种基于CG的求逆已成功地应用在用于深度学习的Hessian-free或Newton-CG方法[36，44]和强化学习[52，47]中的信任区域方法。算法1提出了完整的实用算法。注意，这些近似值用于开发实用的算法，会在元梯度计算中引入误差。我们将在3.2节中分析这些误差的影响，并证明它们是可控制的。有关iMAML如何推广了基于先验梯度优化的元学习算法，请参阅附录A。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_1.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_2.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_1.png" alt></p>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-10-15_Unknown_-_Rajeswaran_et_al._-_Meta-Learning_with_I_2.png" alt></p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -264,12 +247,12 @@
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2019/10/09/Meta-Learning-with-Implicit-Gradients/" target="_blank" rel="external">http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/2019/10/09/Meta-Learning-with-Implicit-Gradients/" target="_blank" rel="external">https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="http://yoursite.com">
+        <a href="https://sherlockbear.github.io">
             <img src="/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
@@ -291,7 +274,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -301,22 +284,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&source=摘要:智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&source=摘要:智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -448,7 +431,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -458,22 +441,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&source=摘要:智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/&title=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&source=摘要:智能系统的一个核心功能是能够通过借鉴先前的经验来快速学习新任务的能力。最近，基于梯度（或优化）的元学习已成为一种有效的少样本学习方法。在此形式中，仅..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/&via=http://yoursite.com" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Implicit Gradients》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Implicit-Gradients/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -484,7 +467,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACq0lEQVR42u3aQWrDQAwF0Nz/0i2ULgrFyZc0crJ4XhWTePRcGCkaPR7x9fVzJXf+3v9/5+q7yeevvnXgwsPDw2uFfnX1FkieeQWuxvPi+Xh4eHhrvOqSeXrIV8kTTP40PDw8vPfyqptyngyeR/I8Hjw8PLzP51UL6CTB9FIFHh4e3nt5SVgbLeC8/bHea8HDw8Or9VELIX7C34vne3h4eHiDY6q8/M235jxJTOL8fQIeHh7eAq96uJUfdCXt3bxZXM0CL/4DeHh4eGNe9cA+H4HKX0SvWZynHzw8PLxTvN7IVP4KCht3K0m8WB0PDw9vgVfd7qujBr2AekNgl3kPDw8Pb4FX3bjnL6I3RhD9Mmj2KvDw8PA6vGq53JtTGI1GFdvHeHh4eBu86qDA5Gjq1BFXkhjw8PDw7uT1ytbJ8NZk6OpFYwIPDw9vgZe3R88GNxlEaNbgeHh4eId4+RZcPcpKkk2v2VEYbsDDw8Nb5p0trM8eXFVTCB4eHt4eL1ksL2pHdf2g7RvNlOHh4eHdyEtapfM2bvUoLkkVeHh4eHu851vwvMEaNQ5a5XUhKjw8PLxDvKQ5m5S2eQOi95z8deDh4eFt86oBbTcvTg2BRV/Aw8PDG3dT83ZD72gquX/qIK0wtIqHh4fX4vU2+mqTIgnl1LgVHh4e3h6vd1iVlL8TzORV4uHh4d3Py5sCk4WrY1V5bwEPDw9vm9cbZiqMOh0tqQ9ceHh4eAuYpLzuMapDAHkRP/rFgIeHh3eyaj2wrfdeTc6ojh3g4eHhneLlyWDSsJgU6/mKeHh4eHfyJuVvL6x5E3k0GYGHh4d3Cy8vkZPBgvx+E4aHh4f3Mbw8oFP3R/Hg4eHhrfEmzYg8xF7LuPoS8fDw8LZ5kyV7h2F5G3feRMbDw8M7yvsGYEHPFJRbH+wAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3awW7rMAwEwP7/T+ddH1A43SWlNofRKXAMmeODRFP8+orH62Hk97+/5/8r3+95+vfYwMPDwzsU+vep2+tJiMkMT/NELx0PDw/vGu9pRU3uacf7p79/BXnMeHh4eJ/De1qgn660c862DTw8PLzP57VLfD5Dm6bj4eHh/RUvn3qW+CbljPZ1H6614OHh4cW8/BTpc35fOd/Dw8PDW5+qzwoBs1LF68LAw8PDu8HLF9w29E2hIXl6cSceHh7eBV4b7r6M2+bAswjx8PDwbvCSUmxStM0Lvm06ns8Tnezh4eHhHeUly25+xNUeU+1T8x++FfDw8PAu8Nq20TbopEEqaRoYntrh4eHhHeLtiw7565g1IhyoteDh4eEd5c3S5TygpDib31NvHnh4eHjXePvGqSToTX119hQ8PDy8G7x9KjwLLt8A8oaDVWECDw8Pr+QlxdZNoHkqnKT4eSEDDw8P7wZvP9EsNc+LIO2cw6MvPDw8vJiXtwjMWqM2TVT5FlKk4Hh4eHiHeG0O3rYX5CHmJYmihIGHh4d3jZcXBdqkvC31zqJ6jBYPDw/vKK89hm//nS3oSdp9rOkKDw8Pb8Fri6Sz0m1eZf2KR1GGwMPDwzvKSw662mOzvI1gU+x4/BcPDw/vAm/z2Z83GWxaAWZtWHh4eHi/ydsUXmeL/uxgrEjZ8fDw8K7x2nS2PfhvF/f3aX1xUIeHh4d3mTf84A+utxtMO/Dw8PB+h/cqx34DyH9v2gvw8PDw7vFmy+7sAS149oIO7Cp4eHh4Aa9d1tsGgk3T1awJbHgAhoeHh1fy9sWINpS8wLFp4cLDw8P7BF5bis2vt+WPIqXGw8PD+1PejUaBs6UKPDw8vN/htWG1G0m7JbTl4B86I/Dw8PCO8toP/jy4fdI8a2XAw8PDu8b7B9VO0HUxqQ8UAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
