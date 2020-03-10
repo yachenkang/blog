@@ -196,11 +196,29 @@
 <a id="more"></a>
 <h4 id="2-3-LATENT-EMBEDDING-OPTIMIZATION-FOR-META-LEARNING"><a href="#2-3-LATENT-EMBEDDING-OPTIMIZATION-FOR-META-LEARNING" class="headerlink" title="2.3 LATENT EMBEDDING OPTIMIZATION FOR META-LEARNING"></a>2.3 LATENT EMBEDDING OPTIMIZATION FOR META-LEARNING</h4><p>本文的主要贡献是表明，有可能并且确实有益的是，将基于优化的元学习技术与模型参数的高维空间解耦。我们通过学习具有信息瓶颈的随机潜在空间来实现这一目标，该瓶颈取决于输入数据，并从中生成高维参数。</p>
 <p>我们没有像在MAML中那样显式实例化并维护一组唯一的模型参数θ，而是学习了具有相同目的的模型参数的生成分布。这是一个自然扩展：我们将找到单个最佳$\theta^* \in\Theta$的要求放宽到近似于$\Theta$的数据相关条件概率分布的要求，这可能更具表达性。由编码过程和解码（或参数生成）过程组成的结构的选择，使我们能够在学习到的参数生成模型的低维嵌入空间中执行基于MAML梯度的适应步骤（或”inner loop”）（图1）。</p>
-<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623091/wps_2019-09-28_22-55-47_lrbegy.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623091/wps_2019-09-28_22-55-47_lrbegy.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h5 id="2-3-1-模型概述"><a href="#2-3-1-模型概述" class="headerlink" title="2.3.1 模型概述"></a>2.3.1 模型概述</h5><p>大致的操作如（算法1）所示。首先，给定任务实例$T_i$，将输入$\{x^k_n\}$通过随机编码器以产生潜在边码$z$，然后使用参数生成器将其解码为参数$\theta_i$。给定这些实例化的模型参数，在潜在空间中应用一个或多个适应步骤，通过计算相对于$z$的loss的微分，梯度更新几步获得$z\prime$，解码新的模型参数并获得新的loss。最后，对优化后的编码进行解码以生成最终的适应参数$\theta\prime_i$，该参数可用于执行任务或计算任务特定的meta-loss。通过这种方式，LEO结合了<strong>基于模型</strong>和<strong>基于优化</strong>的元学习的各个方面，产生的参数首先取决于输入数据，然后通过梯度下降进行调整。</p>
-<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623095/wps_2019-09-28_22-54-48_qbjlvg.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623095/wps_2019-09-28_22-54-48_qbjlvg.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>图2显示了生成的网络的结构。直觉上，解码器类似于生成模型，从低维潜在编码映射到模型参数的分布。编码过程可确保基于梯度的适应之前的初始潜在编码和参数已经与数据相关。该编码过程还利用了一个关系网络，该关系网络允许潜在编码依赖于上下文，考虑到问题实例中所有类之间的成对关系。在以下各节中，我们将更正式地解释LEO的各个步骤。</p>
-<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623092/wps_2019-09-28_22-55-25_jksoke.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623092/wps_2019-09-28_22-55-25_jksoke.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h5 id="2-3-2-INITIALIZATION-GENERATING-PARAMETERS-CONDITIONED-ON-A-FEW-EXAMPLES"><a href="#2-3-2-INITIALIZATION-GENERATING-PARAMETERS-CONDITIONED-ON-A-FEW-EXAMPLES" class="headerlink" title="2.3.2 INITIALIZATION: GENERATING PARAMETERS CONDITIONED ON A FEW EXAMPLES"></a>2.3.2 INITIALIZATION: GENERATING PARAMETERS CONDITIONED ON A FEW EXAMPLES</h5><ul>
 <li><strong>Encoding</strong></li>
 <li><strong>Decoding</strong></li>
@@ -327,7 +345,7 @@
     <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
         var gitment = new Gitment({
-            owner: 'sherlockbear',
+            owner: '20009607',
             repo: 'blog_comment',
             oauth: {
                 client_id: '251252f21eefad502187',

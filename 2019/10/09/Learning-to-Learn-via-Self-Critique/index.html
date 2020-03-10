@@ -196,11 +196,23 @@
 <h3 id="Self-Critique-and-Adapt"><a href="#Self-Critique-and-Adapt" class="headerlink" title="Self-Critique and Adapt"></a>Self-Critique and Adapt</h3><p>为了让模型学习和适应仅输入数据点可用的设置（例如，在给定任务的少样本target-set上），就需要一种无标签损失函数。例如，许多无监督的学习方法试图使生成概率最大化，因此使用负对数似然度（或其bound）作为损失函数。通常，大多数生成模型都与任务无关。在一组特定的任务中，针对损失函数可能会有更恰当和专业的选择。</p>
 <p>手动设计这样的损失函数具有挑战性，通常只能产生可能在一种设置下起作用而在另一种情况下不起作用的损失函数。了解损失函数选择的全部影响并不容易。相反，我们提出了一种Self-Critique and Adapt方法，该方法元学习特定任务集的损失函数。它是通过使用set-to-set少样本学习框架并使用端到端基于梯度的可微元学习作为我们的学习框架来解决问题的。</p>
 <p>SCA与模型无关，可以应用在<strong>任何</strong>使用内环优化过程来获取特定于任务的信息的端到端可微且基于梯度的元学习方法之上。许多这样的方法（Ravi and Larochelle, 2016; Finn et al., 2017; Li et al., 2017; Antoniou et al., 2019; Finn et al., 2018; Qiao et al., 2018; Rusu et al., 2018; Grant et al., 2018）目前正在争夺少样本学习领域中的SOTA。</p>
-<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623088/wps_2019-09-28_22-57-12_eioif3.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623088/wps_2019-09-28_22-57-12_eioif3.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>在上图中总结的Self-Critique and Adapt，采用一个基本模型并使用现有的基于梯度的元学习方法(e.g. MAML (Finn et al., 2017), MAML++ (Antoniou et al., 2019) or LEO (Rusu et al., 2018))，根据support-set更新基本模型，然后推断出对target-set的预测。推断出预测后，将它们与其他基本模型相关的信息（例如模型参数，任务嵌入等）串联在一起，然后传递到可学习的critic loss network，其输出应解释为给定输入的loss值。该critic network计算并返回关于target-set的损失。然后针对该critic loss，使用任何随机梯度优化方法(如SGD)更新基本模型；如有必要，可以多次进行更新。这种inner-loop优化可生成特定于support/target set信息的预测模型。</p>
 <p>内部循环过程在推理时直接用于手头的任务。但是，与其他元学习设置一样，我们使用一系列训练任务来优化inner-loop（这些任务与第7节中所述的测试任务不同）。使用训练任务中的ground truth标签评估inner-loop学习的预测模型的质量。然后，outer loop优化初始参数和critic loss，以最大化inner loop预测的质量。与其他元学习方法一样，整个inner loop的可微性确保可以使用基于梯度的方法来学习此outer loop。</p>
 <p>在本文中，我们使用MAML ++作为基本方法。我们用$f(\cdot,\theta)$表示参数化为神经网络的模型，参数为$\theta$，critic loss $C(\cdot,W)$也是参数为$W$的神经网络。我们想学习好的参数$\theta$和$W$，当优化模型$f$时，针对support set $S_b=\{x_S, y_S\}$上的loss $L$，需要执行$N$步优化，然后再针对critic loss $C$ 另外向target-set $T_b = \{x_T\}$优化$I$步，可以在target-set上实现良好的泛化性能。这里，$b$是一个具体任务在一批任务中的索引。完整算法在下面进行了描述。</p>
-<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570624552/wps_2019-10-09_20-35-27_twt5kl.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570624552/wps_2019-10-09_20-35-27_twt5kl.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>算法框图中的等式2定义了潜在的条件特征集合$F$，这些特征概括了基本模型及其行为。这些特征可以被无监督的critic loss $C$ 用来调整target set 更新。在这些可能的特征中，$f (\theta_N,x_T)$是基本模型$f$的预测，使用参数$\theta_N$（即针对support-set loss的N步更新后的参数），而$g(x_S,x_n)$是任务嵌入，参数化为神经网络，该神经网络以support和target输入数据点为条件。</p>
 
         </div>
@@ -324,7 +336,7 @@
     <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
         var gitment = new Gitment({
-            owner: 'sherlockbear',
+            owner: '20009607',
             repo: 'blog_comment',
             oauth: {
                 client_id: '251252f21eefad502187',
