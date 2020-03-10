@@ -194,13 +194,7 @@
 <a id="more"></a>
 <h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>在这一节中，我们将首先描述一种使用递归网络生成卷积结构的简单方法。我们将展示如何使用策略梯度方法来训练递归网络，以最大化采样架构的精度的期望。我们将提出几个基于我们核心方法的改进，如形成skip连接，以增加模型的复杂性，以及使用参数服务器方法来加快训练。这一节的最后，我们将着重于生成递归架构，这是本文的另一个重要贡献。</p>
 <h4 id="Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network"><a href="#Generate-Model-Descriptions-with-a-Controller-Recurrent-Neural-Network" class="headerlink" title="Generate Model Descriptions with a Controller Recurrent Neural Network"></a>Generate Model Descriptions with a Controller Recurrent Neural Network</h4><p>在神经网络架构搜索（NAS）中，我们使用控制器生成神经网络的结构超参数。为了灵活，控制器被实现为RNN。假设我们想要预测只有卷积层的前馈神经网络，我们可以使用控制器将它们的超参数作为一系列标记生成：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png" alt="图2：我们的控制器递归神经网络如何采样一个简单的卷积网络。它预测filter高度、filter宽度、stride高度、stride宽度、一层的filters数量并重复。每个预测都由softmax分类器进行，然后作为输入输入到下一个时间步。" title>
-                </div>
-                <div class="image-caption">图2：我们的控制器递归神经网络如何采样一个简单的卷积网络。它预测filter高度、filter宽度、stride高度、stride宽度、一层的filters数量并重复。每个预测都由softmax分类器进行，然后作为输入输入到下一个时间步。</div>
-            </figure>
+<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png" alt="图2：我们的控制器递归神经网络如何采样一个简单的卷积网络。它预测filter高度、filter宽度、stride高度、stride宽度、一层的filters数量并重复。每个预测都由softmax分类器进行，然后作为输入输入到下一个时间步。"></p>
 <p>在我们的实验中，如果层的数量超过某个值，生成架构的过程就会停止。这个值遵循一个时间表，我们在训练过程中增加它。一旦控制器RNN生成了一个架构，就用这个架构建立并训练一个神经网络。收敛时，将记录持有的验证集上网络的准确性。控制器RNN的参数，$\theta_c$，接着被优化以最大化提出的架构在验证集上预测精度的期望。在下一节中，我们将描述一种策略梯度方法，用于更新参数$\theta_c$，以便控制器RNN随着时间的推移生成更好的架构。</p>
 <h4 id="Training-with-REINFORCE"><a href="#Training-with-REINFORCE" class="headerlink" title="Training with REINFORCE"></a>Training with REINFORCE</h4><p>控制器预测的标记列表可以看作是设计子网络架构的action的列表$a_{1:T}$。在收敛时，该子网络将在持有的数据集上达到精度$R$。我们可以用这个精度$R$作为奖励信号，用强化学习来训练控制器。更具体地说，为了找到最佳的架构，我们要求我们的控制器最大化其预期报酬，以$J(\theta_c)$表示：</p>
 <script type="math/tex; mode=display">
@@ -342,11 +336,11 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
           id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
         }
         const gitalk = new Gitalk({
-          clientID: '',
-          clientSecret: '',
-          repo: '',
-          owner: '',
-          admin: [''],
+          clientID: 'acc13bb9287721dc399c',
+          clientSecret: '6b291913ac95fa96b3d3d1b23efd53d4bb162c08',
+          repo: 'blogcomment',
+          owner: 'sherlockbear',
+          admin: ['sherlockbear'],
           id: id,      // Ensure uniqueness and length less than 50
           title: document.title.split('|')[0],
           distractionFreeMode: false  // Facebook-like distraction free mode

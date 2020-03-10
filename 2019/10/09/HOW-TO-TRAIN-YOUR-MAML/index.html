@@ -194,13 +194,7 @@
 <a id="more"></a>
 <h3 id="MAML"><a href="#MAML" class="headerlink" title="MAML"></a>MAML</h3><script type="math/tex; mode=display">
 \theta_{0}=\theta_{0}-\beta \nabla_{\theta} \sum_{b=1}^{B} \mathcal{L}_{T_{b}}\left(f_{\theta_{N}^{b}\left(\theta_{0}\right)}\right)</script><h4 id="3-1-MAML的问题"><a href="#3-1-MAML的问题" class="headerlink" title="3.1 MAML的问题"></a>3.1 MAML的问题</h4><p>MAML的简单，优雅和高性能使其成为元学习的非常强大的框架。但是，MAML也有许多问题，使其难以使用。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png" alt></p>
 <p><strong>梯度不稳定性</strong>：<br>如上图所示，受到神经网络结构和全局超参数设置的影响，MAML在训练过程中可能非常不稳定。优化outer loop涉及多次穿过由同一网络组成的未展开的inner loop进行导数的反向传播。仅此一项就可能导致梯度问题。但是，模型架构进一步加剧了梯度问题，标准4层卷积网络但没有skip-connections。缺少任何skip-connections意味着每个梯度必须多次通过每个卷积层。实际上，梯度将被多次乘以相同的参数集。经过多次反向传播后，展开网络的深度结构和skip-connections的缺失会分别引起梯度爆炸和梯度消失问题。</p>
 <p><strong>二阶导数成本</strong>：<br>通过梯度更新步骤进行优化需要计算二阶梯度，而二阶梯度的计算成本非常高昂。MAML的作者建议使用一阶近似将处理速度提高三倍，但是使用这些近似可能会对最终的泛化误差产生负面影响。已经在Reptile(Nichol et al., 2018)中尝试了进一步使用一阶方法的尝试，作者在基本模型上应用标准SGD，然后更新其初始化参数向N步更新后的参数方向迈出一步。Reptile的结果变化较大，在某些情况下超过MAML，而在另一些情况下则不如MAML。尚未提出减少计算时间而不牺牲泛化性能的方法。</p>
 <p><strong>缺少Batch Normalization统计量累积</strong>：<br>影响生成性能的另一个问题是原始MAML论文中在实验中使用Batch Normalization的方式。不是累积运行统计信息，而是将当前batch的统计信息用于Batch Normalization。这导致Batch Normalization的效果较差，因为学习的偏差必须适应各种不同的均值和标准差，而不是单个均值和标准差。另一方面，如果Batch Normalization使用累积的运行统计信息，则最终将收敛到某些全局平均值和标准偏差。这样就只剩下一个均值和标准偏差来学习偏差了。使用running统计信息而不是batch统计信息，可以极大地提高收敛速度，稳定性和泛化性能，因为归一化的特征将导致更平滑的优化环境（Santurkar et al.，2018）。</p>
@@ -352,11 +346,11 @@
           id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
         }
         const gitalk = new Gitalk({
-          clientID: '',
-          clientSecret: '',
-          repo: '',
-          owner: '',
-          admin: [''],
+          clientID: 'acc13bb9287721dc399c',
+          clientSecret: '6b291913ac95fa96b3d3d1b23efd53d4bb162c08',
+          repo: 'blogcomment',
+          owner: 'sherlockbear',
+          admin: ['sherlockbear'],
           id: id,      // Ensure uniqueness and length less than 50
           title: document.title.split('|')[0],
           distractionFreeMode: false  // Facebook-like distraction free mode
