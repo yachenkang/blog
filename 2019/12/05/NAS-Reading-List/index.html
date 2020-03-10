@@ -340,31 +340,38 @@
 
 
 
+
+
+
+
+
+
+
+
+
 <section class="comments" id="comments">
-    <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
     <script>
-        var gitment = new Gitment({
-            owner: 'sherlockbear',
-            repo: 'blogcomment',
-            oauth: {
-                client_id: '6b5173a2476c5c37f7a8',
-                client_secret: 'f180c880a0a5cc51fa1c90338dffe47edc78cb96',
-            },
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: '',
+          clientSecret: '',
+          repo: '',
+          owner: '',
+          admin: [''],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
         })
-        gitment.render('comments')
+
+        gitalk.render('gitalk-container')
     </script>
 </section>
-
-
-
-
-
-
-
-
-
 
 
 
