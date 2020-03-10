@@ -39,6 +39,7 @@
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
+
 </head>
 
 <body>
@@ -144,15 +145,15 @@
 
         
 
-            <a href="/categories/论文笔记/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light">论文笔记</a>
+            <a href="/categories/Reading-List/" style="-webkit-order:1;order:1" class="tags-list-item waves-effect waves-button waves-light">Reading List</a>
 
         
 
-            <a href="/categories/笔记翻译/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">笔记翻译</a>
+            <a href="/categories/论文笔记/" style="-webkit-order:2;order:2" class="tags-list-item waves-effect waves-button waves-light">论文笔记</a>
 
         
 
-            <a href="/categories/Reading-List/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">Reading List</a>
+            <a href="/categories/笔记翻译/" style="-webkit-order:3;order:3" class="tags-list-item waves-effect waves-button waves-light">笔记翻译</a>
 
         
     </nav>
@@ -188,7 +189,7 @@
     let option = {
         title: {
             left: 'center',
-            text: '文章分类雷达图',
+            text: 'Category Radar',
             textStyle: {
                 fontWeight: 500,
                 fontSize: 22
@@ -201,7 +202,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"论文翻译","max":6},{"name":"论文笔记","max":6},{"name":"笔记翻译","max":6},{"name":"Reading List","max":6}],
+            indicator: [{"name":"论文翻译","max":6},{"name":"Reading List","max":6},{"name":"论文笔记","max":6},{"name":"笔记翻译","max":6}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -212,7 +213,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [5,1,1,2],
+                    value : [5,2,1,1],
                     name : 'categoryNumber'
                 }
             ]

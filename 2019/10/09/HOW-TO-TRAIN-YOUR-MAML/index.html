@@ -30,7 +30,7 @@
 <meta property="og:description" content="摘要:少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623097/wps_2019-09-27_16-36-53_jwqoom.png">
-<meta property="og:updated_time" content="2019-12-03T11:23:23.223Z">
+<meta property="og:updated_time" content="2020-03-10T06:54:14.014Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HOW TO TRAIN YOUR MAML">
 <meta name="twitter:description" content="摘要:少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我">
@@ -44,6 +44,7 @@
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
+
 
 </head>
 
@@ -181,6 +182,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>少样本学习领域最近有了长足的进步。这些进步中的大多数来自将少样本学习构建为元学习问题。目前，Model Agnostic Meta Learning或MAML是通过元学习进行少样本学习的最佳方法之一。MAML简单，优雅且功能强大，但是它具有许多问题，例如对神经网络结构非常敏感，通常会导致训练过程中的不稳定，需要艰巨的超参数搜索来稳定训练并实现高泛化，在训练和推理时都非常耗费算力。在本文中，我们提出了对MAML的各种修改，这些修改不仅可以稳定系统，而且可以大大提高MAML的泛化性能，收敛速度和计算开销，我们称之为MAML++。</p>
+<a id="more"></a>
 <h3 id="MAML"><a href="#MAML" class="headerlink" title="MAML"></a>MAML</h3><script type="math/tex; mode=display">
 \theta_{0}=\theta_{0}-\beta \nabla_{\theta} \sum_{b=1}^{B} \mathcal{L}_{T_{b}}\left(f_{\theta_{N}^{b}\left(\theta_{0}\right)}\right)</script><h4 id="3-1-MAML的问题"><a href="#3-1-MAML的问题" class="headerlink" title="3.1 MAML的问题"></a>3.1 MAML的问题</h4><p>MAML的简单，优雅和高性能使其成为元学习的非常强大的框架。但是，MAML也有许多问题，使其难以使用。</p>
 <figure class="image-bubble">
@@ -214,7 +216,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-03T11:23:23.223Z" itemprop="dateUpdated">2019-12-03 19:23:23</time>
+    最后更新时间：<time datetime="2020-03-10T06:54:14.014Z" itemprop="dateUpdated">2020-03-10 14:54:14</time>
 </span><br>
 
 

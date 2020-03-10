@@ -22,23 +22,23 @@
     
     
     <meta name="keywords" content="meta-learning,MAML">
-    <meta name="description" content="作者： inFERENCe 本周，我阅读了这份关于元学习的新文章：基于一些关于正则化优化最优结果的微分的观察，与前一版本相比，它的方法略有不同。  Aravind Rajeswaran, Chelsea Finn, Sham Kakade, Sergey Levine (2019) Meta-Learning with Implicit Gradients  同时发表的另一篇论文也发现了类似的技术">
+    <meta name="description" content="转载并翻译iMAML的阅读笔记">
 <meta name="keywords" content="meta-learning,MAML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iMAML笔记（翻译）[更新中]">
 <meta property="og:url" content="http://yoursite.com/2019/10/18/iMAML笔记（翻译）/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="作者： inFERENCe 本周，我阅读了这份关于元学习的新文章：基于一些关于正则化优化最优结果的微分的观察，与前一版本相比，它的方法略有不同。  Aravind Rajeswaran, Chelsea Finn, Sham Kakade, Sergey Levine (2019) Meta-Learning with Implicit Gradients  同时发表的另一篇论文也发现了类似的技术">
+<meta property="og:description" content="转载并翻译iMAML的阅读笔记">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165008.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/Notes%20on%20iMAML_%20Meta-Learning%20with%20Implicit%20Gradients.gif">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165057.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165818.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165958.png">
-<meta property="og:updated_time" content="2019-12-03T02:29:50.554Z">
+<meta property="og:updated_time" content="2020-03-10T06:56:28.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iMAML笔记（翻译）[更新中]">
-<meta name="twitter:description" content="作者： inFERENCe 本周，我阅读了这份关于元学习的新文章：基于一些关于正则化优化最优结果的微分的观察，与前一版本相比，它的方法略有不同。  Aravind Rajeswaran, Chelsea Finn, Sham Kakade, Sergey Levine (2019) Meta-Learning with Implicit Gradients  同时发表的另一篇论文也发现了类似的技术">
+<meta name="twitter:description" content="转载并翻译iMAML的阅读笔记">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165008.png">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
@@ -49,6 +49,7 @@
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
+
 
 </head>
 
@@ -189,7 +190,9 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p><strong>作者</strong>： <a href="https://www.inference.vc/" target="_blank" rel="noopener">inFERENCe</a></p>
+            <p>转载并翻译iMAML的阅读笔记</p>
+<a id="more"></a>
+<p><strong>作者</strong>： <a href="https://www.inference.vc/" target="_blank" rel="noopener">inFERENCe</a></p>
 <p>本周，我阅读了这份关于元学习的新文章：基于一些关于正则化优化最优结果的微分的观察，与前一版本相比，它的方法略有不同。</p>
 <ul>
 <li>Aravind Rajeswaran, Chelsea Finn, Sham Kakade, Sergey Levine (2019) <a href="https://arxiv.org/abs/1909.04630" target="_blank" rel="noopener">Meta-Learning with Implicit Gradients</a></li>
@@ -293,7 +296,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-03T02:29:50.554Z" itemprop="dateUpdated">2019-12-03 10:29:50</time>
+    最后更新时间：<time datetime="2020-03-10T06:56:28.875Z" itemprop="dateUpdated">2020-03-10 14:56:28</time>
 </span><br>
 
 

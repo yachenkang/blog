@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623088/wps_2019-09-28_22-57-12_eioif3.png">
 <meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570624552/wps_2019-10-09_20-35-27_twt5kl.png">
-<meta property="og:updated_time" content="2019-12-03T11:22:59.224Z">
+<meta property="og:updated_time" content="2020-03-10T06:53:47.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Learning to Learn via Self-Critique">
 <meta name="twitter:description" content="摘要:在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信">
@@ -45,6 +45,7 @@
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
+
 
 </head>
 
@@ -182,6 +183,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信息。通过transductive learning来使用target-set样本需要更先进的方法；at inference time, the target-set contains only unlabelled input data-points, and so discriminative learning cannot be used。在本文中，我们提出了一个名为“Self-Critique and Adapt”或SCA的框架，该框架可以学习无标签损失函数，该函数被参数化为神经网络。基本模型使用现有方法（例如，随机梯度下降与交叉熵损失相结合）在支持集上学习，然后使用学习到的损失函数针对传入的target-task进行更新。学习无标签损失函数，以便target-set-updated模型实现更高的泛化性能。实验表明，与仅适用于支持集的基准相比，SCA可以显着降低错误率，并可以在Mini-ImageNet和Caltech-UCSD Birds 200上获得最先进的基准性能。</p>
+<a id="more"></a>
 <h3 id="Self-Critique-and-Adapt"><a href="#Self-Critique-and-Adapt" class="headerlink" title="Self-Critique and Adapt"></a>Self-Critique and Adapt</h3><p>为了让模型学习和适应仅输入数据点可用的设置（例如，在给定任务的少样本target-set上），就需要一种无标签损失函数。例如，许多无监督的学习方法试图使生成概率最大化，因此使用负对数似然度（或其bound）作为损失函数。通常，大多数生成模型都与任务无关。在一组特定的任务中，针对损失函数可能会有更恰当和专业的选择。</p>
 <p>手动设计这样的损失函数具有挑战性，通常只能产生可能在一种设置下起作用而在另一种情况下不起作用的损失函数。了解损失函数选择的全部影响并不容易。相反，我们提出了一种Self-Critique and Adapt方法，该方法元学习特定任务集的损失函数。它是通过使用set-to-set少样本学习框架并使用端到端基于梯度的可微元学习作为我们的学习框架来解决问题的。</p>
 <p>SCA与模型无关，可以应用在<strong>任何</strong>使用内环优化过程来获取特定于任务的信息的端到端可微且基于梯度的元学习方法之上。许多这样的方法（Ravi and Larochelle, 2016; Finn et al., 2017; Li et al., 2017; Antoniou et al., 2019; Finn et al., 2018; Qiao et al., 2018; Rusu et al., 2018; Grant et al., 2018）目前正在争夺少样本学习领域中的SOTA。</p>
@@ -211,7 +213,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-03T11:22:59.224Z" itemprop="dateUpdated">2019-12-03 19:22:59</time>
+    最后更新时间：<time datetime="2020-03-10T06:53:47.666Z" itemprop="dateUpdated">2020-03-10 14:53:47</time>
 </span><br>
 
 

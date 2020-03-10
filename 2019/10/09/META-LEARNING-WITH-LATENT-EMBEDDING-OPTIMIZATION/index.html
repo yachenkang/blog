@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623091/wps_2019-09-28_22-55-47_lrbegy.png">
 <meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623095/wps_2019-09-28_22-54-48_qbjlvg.png">
 <meta property="og:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623092/wps_2019-09-28_22-55-25_jksoke.png">
-<meta property="og:updated_time" content="2019-12-03T11:21:42.068Z">
+<meta property="og:updated_time" content="2020-03-10T06:54:39.694Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="META-LEARNING WITH LATENT EMBEDDING OPTIMIZATION">
 <meta name="twitter:description" content="摘要:基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作时存在实际困难。我们表明，有可能通过学习到一个模型参数的依赖数据的潜在生成表示，并在此低维潜在空间中执行基于梯度的元学习，从而绕过这些限制。最终的方法，latent embedding optimization（LEO），将基于梯度的自适应过程与模型参数">
@@ -46,6 +46,7 @@
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
+
 
 </head>
 
@@ -183,6 +184,7 @@
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>基于梯度的元学习技术在解决具有挑战性的少样本学习和快速适应问题方面有着广泛的应用和实用价值。然而，它们在极端低数据状态下在高维参数空间上操作时存在实际困难。我们表明，有可能通过学习到一个模型参数的依赖数据的潜在生成表示，并在此低维潜在空间中执行基于梯度的元学习，从而绕过这些限制。最终的方法，latent embedding optimization（LEO），将基于梯度的自适应过程与模型参数的底层高维空间解耦。我们的评估表明，LEO可以在竞争激烈的miniImageNet和tieredImageNet少样本分类任务中达到最先进的性能。进一步的分析表明，LEO能够捕获数据中的不确定性，并能通过在潜在空间中进行优化，更有效地进行适应。</p>
+<a id="more"></a>
 <h4 id="2-3-LATENT-EMBEDDING-OPTIMIZATION-FOR-META-LEARNING"><a href="#2-3-LATENT-EMBEDDING-OPTIMIZATION-FOR-META-LEARNING" class="headerlink" title="2.3 LATENT EMBEDDING OPTIMIZATION FOR META-LEARNING"></a>2.3 LATENT EMBEDDING OPTIMIZATION FOR META-LEARNING</h4><p>本文的主要贡献是表明，有可能并且确实有益的是，将基于优化的元学习技术与模型参数的高维空间解耦。我们通过学习具有信息瓶颈的随机潜在空间来实现这一目标，该瓶颈取决于输入数据，并从中生成高维参数。</p>
 <p>我们没有像在MAML中那样显式实例化并维护一组唯一的模型参数θ，而是学习了具有相同目的的模型参数的生成分布。这是一个自然扩展：我们将找到单个最佳$\theta^* \in\Theta$的要求放宽到近似于$\Theta$的数据相关条件概率分布的要求，这可能更具表达性。由编码过程和解码（或参数生成）过程组成的结构的选择，使我们能够在学习到的参数生成模型的低维嵌入空间中执行基于MAML梯度的适应步骤（或”inner loop”）（图1）。</p>
 <figure class="image-bubble">
@@ -220,7 +222,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-12-03T11:21:42.068Z" itemprop="dateUpdated">2019-12-03 19:21:42</time>
+    最后更新时间：<time datetime="2020-03-10T06:54:39.694Z" itemprop="dateUpdated">2020-03-10 14:54:39</time>
 </span><br>
 
 
