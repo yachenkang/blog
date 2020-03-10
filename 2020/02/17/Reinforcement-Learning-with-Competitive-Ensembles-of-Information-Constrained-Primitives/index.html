@@ -194,7 +194,13 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操作。我们使用信息理论机制来实现此分散决策：每个原语都会选择需要多少有关当前状态的信息以做出决定，请求有关当前状态最多信息的原语被选择与环境交互。对原语进行规范化以使用尽可能少的信息，从而导致自然竞争和特异化。我们通过实验证明，该策略体系结构在泛化方面比平面策略和分层策略都有所改进。</p>
 <a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_CCYGAesAxx.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_CCYGAesAxx.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>尽管分层强化学习通过分解可以使得底层原语可以特异化面对不同状态，并能够被元策略加以组合或选择。然而元策略本身仍然需要处理所有状态空间，从而使得元策略在不同环境中的迁移成为瓶颈。</p>
 <p>该方法包括三个组件：</p>
 <ol>
@@ -202,7 +208,13 @@
 <li>原语之间的竞争机制，从而为给定状态选择最有效的原语</li>
 <li>规范化机制，可提高策略整体的泛化性能。</li>
 </ol>
-<h4 id="包含信息瓶颈的原语"><a href="#包含信息瓶颈的原语" class="headerlink" title="包含信息瓶颈的原语"></a>包含信息瓶颈的原语</h4><p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_qhtDGoA5UR.png" alt></p>
+<h4 id="包含信息瓶颈的原语"><a href="#包含信息瓶颈的原语" class="headerlink" title="包含信息瓶颈的原语"></a>包含信息瓶颈的原语</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_qhtDGoA5UR.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <script type="math/tex; mode=display">
 \pi_{\theta}^{k}(A | S)=\int_{z} p_{\mathrm{enc}}\left(z_{k} | S\right) p_{\mathrm{dec}}\left(A | z_{k}\right) \mathrm{d} z_{k}</script><p>这里作者对每个原语设计一个信息瓶颈，以防止其利用状态中的全部信息（这里我认为是在迫使原语提取主要信息，以增强泛化性）</p>
 <script type="math/tex; mode=display">
@@ -225,7 +237,13 @@
 </ol>
 <p>对于第k个原语的总目标函数如下：</p>
 <script type="math/tex; mode=display">
-J_{k}(\theta) \equiv \mathbb{E}_{\pi_{\theta}}\left[r_{k}\right]-\beta_{\mathrm{ind}} \mathcal{L}_{k}-\beta_{\mathrm{reg}} \mathcal{L}_{\mathrm{reg}}</script><h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_5OImexFX2U.png" alt></p>
+J_{k}(\theta) \equiv \mathbb{E}_{\pi_{\theta}}\left[r_{k}\right]-\beta_{\mathrm{ind}} \mathcal{L}_{k}-\beta_{\mathrm{reg}} \mathcal{L}_{\mathrm{reg}}</script><h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_5OImexFX2U.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>如图，每个面板对应于不同的训练设置，其中不同的任务表示为A，B，C，…，具有n个圆圈的矩形对应于由在相应任务上训练的n个原语组成的代理。 第一行：为受过单个任务训练的代理原语的激活。 下面一行：重新训练：在A上训练了两个原语并迁移到B。结果（成功率）表明，多原语模型比baseline（transfer A2C）实质上具有更高的样本效率。 复制和合并：随着时间的推移，更多的原语以即插即用的方式添加到模型中（在A上训练了2个原语；模型通过自己的副本扩展自身；在B上训练了所得的四原语模型。）对比比其他强baseline更有效。零样本泛化：在C上训练一组原语，并评估对A和B的零样本泛化。这些原语学习一种空间分解的形式，这使它们可以在目标任务A和B中处于活动状态。</p>
 
         </div>
