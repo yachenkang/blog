@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" type="text/css" href="/css/matery.css">
     
 
     
@@ -9,7 +10,7 @@
 
 
 
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta charset="utf-8">
     
     
     
@@ -20,15 +21,16 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content>
+    <meta name="keywords" content="Reinforcement Learning">
     <meta name="description" content="*标注的为值得精读论文 ICLR2020Oral Contrastive Learning of Structured World Models. Kipf, T., van der Pol, E., &amp;amp; Welling, M. (2019). [原文链接]*  从对象，关系和层次结构上对我们的世界进行结构化的理解是人类认知的重要组成部分。从原始的感知数据中学习这种结构化的世界模型仍然是一">
+<meta name="keywords" content="Reinforcement Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reinforcement Learning Reading List（持续更新）">
 <meta property="og:url" content="http://yoursite.com/2020/03/06/Reinforcement-Learning-Reading-List/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="*标注的为值得精读论文 ICLR2020Oral Contrastive Learning of Structured World Models. Kipf, T., van der Pol, E., &amp;amp; Welling, M. (2019). [原文链接]*  从对象，关系和层次结构上对我们的世界进行结构化的理解是人类认知的重要组成部分。从原始的感知数据中学习这种结构化的世界模型仍然是一">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-03-09T12:46:11.422Z">
+<meta property="og:updated_time" content="2020-03-10T06:17:15.025Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reinforcement Learning Reading List（持续更新）">
 <meta name="twitter:description" content="*标注的为值得精读论文 ICLR2020Oral Contrastive Learning of Structured World Models. Kipf, T., van der Pol, E., &amp;amp; Welling, M. (2019). [原文链接]*  从对象，关系和层次结构上对我们的世界进行结构化的理解是人类认知的重要组成部分。从原始的感知数据中学习这种结构化的世界模型仍然是一">
@@ -69,28 +71,28 @@
             <li class="waves-block waves-effect">
               <a href="/"  >
                 <i class="icon icon-lg icon-home"></i>
-                主页
+                Home
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
-                标签
+                Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
-                分类
+                Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
               <a href="/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
-                归档
+                Archives
               </a>
             </li>
         
@@ -138,6 +140,8 @@
 </time>
 
 
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Reading-List/">Reading List</a></li></ul>
+
             
         </h5>
     </div>
@@ -167,6 +171,8 @@
             <time class="post-time" title="2020-03-06 09:44:37" datetime="2020-03-06T01:44:37.000Z"  itemprop="datePublished">2020-03-06</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Reading-List/">Reading List</a></li></ul>
+
 
 
             
@@ -248,12 +254,12 @@
 <h3 id="spotlight"><a href="#spotlight" class="headerlink" title="spotlight"></a>spotlight</h3><ul>
 <li><p><strong>DOUBLY ROBUST BIAS REDUCTION IN INFINITE HORIZON OFF-POLICY ESTIMATION.</strong> Tang, Z., Feng, Y., Li, L., Research, G., Zhou, D., &amp; Liu, Q. (2019). [<a href="https://arxiv.org/abs/1910.07186" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>由于典型重要性抽样（IS）估计量的方差过大，因此无限期的政策外政策评估是一项极具挑战性的任务。 最近，刘等。  （2018a）提出了一种方法，该方法通过估算固定密度比来显着减少无限期非政策性评估的方差，但以引入密度比估计误差引起的偏差为代价。 在本文中，我们开发了一种减少偏差的方法，可以利用学习值函数来提高精度。 我们的方法具有双重鲁棒性，因为当密度比或值函数估计完美时，偏差消失。 通常，当它们中的任何一个都准确时，也可以减小偏差。 理论和经验结果均表明，我们的方法比以前的方法具有明显的优势。</li>
+<li>由于典型importance sampling（IS）估计量的方差过大，因此<em>Infinite horizon</em> off-policy policy的评估是一项极具挑战性的任务。最近，Liu et al. (2018a)提出了一种方法，该方法通过估算固定密度比来显着减少infinite horizon off-policy的评估的方差，但这是以引入密度比估计误差引起的biases为代价的。在本文中，我们开发了一种对他们方法减少bias的改进，可以利用学到的value function来提高精度。我们的方法具有<em>双重鲁棒性</em>，因为当密度比或value function估计完美时，bias消失。通常，当它们中的任何一个准确时，也可以减小bias。理论和实验结果均表明，我们的方法比以前的方法具有明显的优势。</li>
 </ul>
 </li>
 <li><p><strong>INFLUENCE-BASED MULTI-AGENT EXPLORATION.</strong> Wang, T., Wang, J., Wu, Y., &amp; Zhang, C. (2019). [<a href="https://arxiv.org/abs/1910.05512" target="_blank" rel="noopener">原文链接</a>]</p>
 <ul>
-<li>出于内在动机的强化学习旨在解决稀疏奖励任务的探索挑战。 但是，文献中基本上没有研究依赖于过渡的多主体环境中的探索方法。 我们旨在朝着解决这个问题迈出一步。 我们介绍了两种探索方法：通过利用信息在代理协调行为中的相互作用，通过信息理论影响（EITI）进行探索和通过决策理论影响（EDTI）进行探索。  EITI使用相互信息来捕获代理程序过渡动态之间的相互依存关系。  EDTI使用一种称为交互价值（VoI）的新颖内在奖励来表征和量化一个行为人的行为对其他行为人的预期回报的影响。 通过优化EITI或EDTI目标作为规范化工具，鼓励代理商协调其探索和学习策略以优化团队绩效。 我们展示了如何优化这些正则器，以便它们可以轻松地与策略梯度强化学习集成。 由此产生的更新规则在协调的探索和内在的奖励分配之间建立了联系。 最后，我们通过经验证明了我们的方法在多种多主体场景中的强大优势。</li>
+<li>内在驱动的强化学习旨在解决稀疏奖励任务的探索挑战。但是，文献中基本上没有研究transition-dependent的多主体环境中的探索方法。我们旨在朝着解决这个问题迈出一步。我们介绍了两种探索方法：exploration via information-theoretic influenc（EITI）和exploration via decision-theoretic influenc（EDTI），通过利用智能体在协作行为中的交互。EITI使用互信息来获取智能体transition dynamics之间的相互依存关系。EDTI使用一种称为Value of Interaction（VoI）的新的内在奖励来表征和量化一个智能体的行为对其他智能体的return期望的影响。通过优化EITI或EDTI目标作为正则项，鼓励智能体协调其探索和学习策略以优化集体效果。 我们展示了如何优化这些正则器，以便它们可以轻松地与策略梯度强化学习集成。 由此产生的更新规则在协调的探索和内在的奖励分配之间建立了联系。 最后，我们通过经验证明了我们的方法在多种多主体场景中的强大优势。</li>
 </ul>
 </li>
 <li><p><strong>MODEL BASED REINFORCEMENT LEARNING FOR ATARI.</strong> Kaiser, Ł., Babaeizadeh, M., Miłos, P., Zej Osí Nski, B., Campbell, R. H., Czechowski, K., … Ai, D. (2019). [<a href="https://goo.gl/itykP8" target="_blank" rel="noopener">原文链接</a>]</p>
@@ -330,7 +336,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-09T12:46:11.422Z" itemprop="dateUpdated">2020-03-09 20:46:11</time>
+    最后更新时间：<time datetime="2020-03-10T06:17:15.025Z" itemprop="dateUpdated">2020-03-10 14:17:15</time>
 </span><br>
 
 
@@ -352,6 +358,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+
 
             
 
