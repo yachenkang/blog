@@ -222,20 +222,50 @@
 <li>现在最小化SGD最终收敛到的位置也取决于$\theta_0$</li>
 </ul>
 <p>iMAML正是利用了这第二个属性。让我说明一下这种依赖性是什么样的：</p>
-<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165008.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165008.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>在上图中，假设我们要最小化目标函数$f(\theta)$。这将是元学习算法必须解决的任务之一的训练损失。我们当前的元参数$\theta_0$标记在x轴上，橙色曲线显示了相关的二次惩罚。蓝绿色曲线显示了加上惩罚项的目标。红星表示最小值的位置，这是学习算法发现的位置。</p>
-<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/Notes%20on%20iMAML_%20Meta-Learning%20with%20Implicit%20Gradients.gif" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/Notes%20on%20iMAML_%20Meta-Learning%20with%20Implicit%20Gradients.gif" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>现在，让此动画动起来。我将移动锚点$\theta_0$，并重现相同的图。您会看到，随着我们移动$\theta_0$和相应的惩罚项，正则化目标移动的局部（同时也是全局）最小值发生了变化：</p>
 <p>因此很明显，锚点$\theta_0$与局部最小值$\theta^\ast$的位置之间存在非平凡非线性的关系。让我们根据锚点绘制此关系：</p>
-<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165057.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165057.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>我们可以看到该函数一点也不好处理，当最接近$\theta_0$的局部最小值发生变化时，它具有急剧的跳变，并且在这些跳变之间相对平坦。实际上，你可以观察到最接近$\theta_0$的局部最小值越锐利，则$\theta_0$和$\theta$之间的关系越平坦。这是因为，如果$f$在$\theta_0$附近具有尖锐的局部最小值，则正则化最小值的位置将主要由$f$确定，并且锚点$\theta_0$的位置无关紧要。如果围绕$f$的局部最小值很宽，则最优值会有很大的摆动空间，并且正则化的效果会更大。</p>
 <h3 id="Implicit-Gradients"><a href="#Implicit-Gradients" class="headerlink" title="Implicit Gradients"></a>Implicit Gradients</h3><p>现在，我们讨论iMAML程序的全部内容。实际上，该函数$\theta^\ast(\theta_0)$的梯度可以以封闭形式计算。实际上，它与$f$的曲率或二阶导数有关，在我们找到的最小值附近：</p>
 <script type="math/tex; mode=display">
 \frac{d \theta^{\ast}}{d \theta_{0}}=\frac{1}{1+f^{\prime \prime}\left(\theta^{\ast}\right)}</script><p>为了检查此公式是否有效，我对导数进行了数值计算，并将其与理论预测的结果进行了比较，它们完全匹配：</p>
-<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165818.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165818.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>当参数空间是高维时，我们有一个类似的公式，其中包含Hessian的逆加单位阵。在高维中，Hessian的求逆甚至计算和存储都不太实际。iMAML论文的主要贡献之一是使用共轭梯度内部优化循环来逼近梯度的实用方法。有关详细信息，请阅读论文。</p>
 <h4 id="Optimizing-the-meta-objective"><a href="#Optimizing-the-meta-objective" class="headerlink" title="Optimizing the meta-objective"></a>Optimizing the meta-objective</h4><p>在元学习设置中优化锚点时，我们感兴趣的不是位置$\theta^\ast$，而是函数$f$在此位置处取的值。（实际上，我们现在将使用验证损失来代替用于梯度下降的训练损失，但为简单起见，我假设这两个损失是重叠的）。$f$在其局部最优处的值绘制如下：</p>
-<p><img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165958.png" alt></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/20191018165958.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p>噢，这个函数不是很漂亮。元目标$f(\theta^\ast(\theta_0))$变成分段连续函数，是相邻盆地之间的连接，边界不光滑。该函数的局部梯度包含很少的有关损失函数的整体结构的信息，它仅告诉你如何到达最接近的局部最小值的位置。所以我不会说这是最好的优化函数。</p>
 <p>值得庆幸的是，该函数不是我们必须优化的。在元学习中，我们有优化的函数上的分布，因此实际的元目标类似于$\sum_i f_i(\theta^\ast_i(\theta_0))$。一堆丑陋的函数的总和很可能会变成平滑而优美的东西。另外，我在此博客文章中使用的一维函数不能代表我们要应用iMAML的神经网络的高维损失函数。以模式连通性的概念为例（参见例如<a href="chrome-extension://oemmndcbldboiebfnladdacbdfmadadm/https://arxiv.org/pdf/1802.10026.pdf" target="_blank" rel="noopener">Garipov et al, 2018</a>）：似乎SGD使用不同的随机种子发现的模式不仅仅只是孤立的盆地，而是通过训练和测试误差低的光滑的山谷相连。反过来，这可能会使元目标在最小值之间表现得更加平稳。</p>
 <h3 id="What-is-missing-Stochasticity"><a href="#What-is-missing-Stochasticity" class="headerlink" title="What is missing? Stochasticity"></a>What is missing? Stochasticity</h3><p>MAML或iMAML不考虑的重要方面是我们通常使用随机优化算法的事实。SGD不会确定性地找到特定的最小值，而是采样不同的最小值：当使用不同的随机种子运行时，它将发现不同的最小值。</p>
