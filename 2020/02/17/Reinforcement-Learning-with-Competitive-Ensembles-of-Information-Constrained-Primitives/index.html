@@ -22,21 +22,21 @@
     
     
     <meta name="keywords" content="Reinforcement Learning,Skill Learning">
-    <meta name="description" content="摘要:在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操">
+    <meta name="description" content="摘要:在各种复杂环境中运行的强化学习智能体可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行">
 <meta name="keywords" content="Reinforcement Learning,Skill Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives">
 <meta property="og:url" content="https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="摘要:在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操">
+<meta property="og:description" content="摘要:在各种复杂环境中运行的强化学习智能体可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_CCYGAesAxx.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_qhtDGoA5UR.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_5OImexFX2U.png">
-<meta property="og:updated_time" content="2020-03-10T08:14:02.705Z">
+<meta property="og:updated_time" content="2020-03-13T06:25:14.802Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives">
-<meta name="twitter:description" content="摘要:在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操">
+<meta name="twitter:description" content="摘要:在各种复杂环境中运行的强化学习智能体可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/pic-repo/master/img/AcroRd32_CCYGAesAxx.png">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
@@ -192,7 +192,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操作。我们使用信息理论机制来实现此分散决策：每个原语都会选择需要多少有关当前状态的信息以做出决定，请求有关当前状态最多信息的原语被选择与环境交互。对原语进行规范化以使用尽可能少的信息，从而导致自然竞争和特异化。我们通过实验证明，该策略体系结构在泛化方面比平面策略和分层策略都有所改进。</p>
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要:"></a><strong>摘要:</strong></h3><p>在各种复杂环境中运行的强化学习智能体可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操作。我们使用信息论机制来实现此分散决策：每个原语都会选择需要多少有关当前状态的信息以做出决定，请求有关当前状态最多信息的原语被选择与环境交互。对原语进行正则化以使用尽可能少的信息，从而导致自然竞争和特异化。我们通过实验证明，该策略体系结构在泛化方面比平面策略和分层策略都有所改进。</p>
 <a id="more"></a>
 <figure class="image-bubble">
                 <div class="img-lightbox">
@@ -253,7 +253,7 @@ J_{k}(\theta) \equiv \mathbb{E}_{\pi_{\theta}}\left[r_{k}\right]-\beta_{\mathrm{
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-10T08:14:02.705Z" itemprop="dateUpdated">2020-03-10 16:14:02</time>
+    最后更新时间：<time datetime="2020-03-13T06:25:14.802Z" itemprop="dateUpdated">2020-03-13 14:25:14</time>
 </span><br>
 
 
@@ -295,7 +295,7 @@ J_{k}(\theta) \equiv \mathbb{E}_{\pi_{\theta}}\left[r_{k}\right]-\beta_{\mathrm{
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/&title=《Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives》 — Hamish的科研blog&source=摘要:在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/&title=《Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives》 — Hamish的科研blog&source=摘要:在各种复杂环境中运行的强化学习智能体可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -452,7 +452,7 @@ J_{k}(\theta) \equiv \mathbb{E}_{\pi_{\theta}}\left[r_{k}\right]-\beta_{\mathrm{
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/&title=《Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives》 — Hamish的科研blog&source=摘要:在各种复杂环境中运行的强化学习代理可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/&title=《Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives》 — Hamish的科研blog&source=摘要:在各种复杂环境中运行的强化学习智能体可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
