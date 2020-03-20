@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- <link rel="stylesheet" type="text/css" href="/css/matery.css"> -->
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION | Hamish的科研blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="论文信息 作者：Lee, Y., Yang, J., &amp;amp; Lim, J. J. (2019). 出处：ICLR2020 Poster 机构：University of Sout">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION">
+<meta property="og:url" content="https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/index.html">
+<meta property="og:site_name" content="Hamish的科研blog">
+<meta property="og:description" content="论文信息 作者：Lee, Y., Yang, J., &amp;amp; Lim, J. J. (2019). 出处：ICLR2020 Poster 机构：University of Sout">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_58.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_64.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_59.png">
+<meta property="og:updated_time" content="2020-03-20T05:57:01.282Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION">
+<meta name="twitter:description" content="论文信息 作者：Lee, Y., Yang, J., &amp;amp; Lim, J. J. (2019). 出处：ICLR2020 Poster 机构：University of Sout">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_58.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.jpg">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+    
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Kang Yachen</h5>
+          <a href="mailto:kangyachen@westlake.edu.cn" title="kangyachen@westlake.edu.cn" class="mail">kangyachen@westlake.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sherlockbear" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-20T02:18:55.000Z" itemprop="datePublished" class="page-time">
+  2020-03-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#论文信息"><span class="post-toc-number">1.</span> <span class="post-toc-text">论文信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">2.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内容简记"><span class="post-toc-number">3.</span> <span class="post-toc-text">内容简记</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验"><span class="post-toc-number">5.</span> <span class="post-toc-text">实验</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-20 10:18:55" datetime="2020-03-20T02:18:55.000Z"  itemprop="datePublished">2020-03-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <!-- 图片 -->
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_58.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><ul>
+<li>作者：Lee, Y., Yang, J., &amp; Lim, J. J. (2019).</li>
+<li>出处：ICLR2020 Poster</li>
+<li>机构：University of Southern California<!-- * 关键词： --></li>
+<li><a href="https://openreview.net/forum?id=ryxB2lBtvH" target="_blank" rel="noopener">论文链接</a></li>
+<li>开源代码：<ul>
+<li><a href="https://github.com/clvrai/coordination" target="_blank" rel="noopener">https://github.com/clvrai/coordination</a></li>
+</ul>
+</li>
+<li>其他资料：<ul>
+<li><a href="https://clvrai.com/coordination" target="_blank" rel="noopener">主页</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>当完成一个复杂的操纵任务时，人们经常将任务分解为身体各个部分的子技能，独立地练习这些子技能，然后一起执行这些子技能。同样，具有多个末端执行器的机器人可以通过协调每个末端执行器的子技能来执行复杂的任务。<strong>为了实现技能的时间和行为协调，我们提出了一个模块化框架，该框架首先通过skill behavior diversification分别训练每个末端执行器的子技能，然后学习使用技能的多种行为来协调末端执行器</strong>。我们证明了我们提出的框架能够有效地协调技能，以解决具有挑战性的协作控制任务，例如捡起一根长棒，在用两个机械手推动容器的同时在容器内放置一个块以及用两个蚂蚁推动容器。 视频和代码可在上获得。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_64.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_59.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<a id="more"></a>
+<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-03-20T05:57:01.282Z" itemprop="dateUpdated">2020-03-20 13:57:01</time>
+</span><br>
+
+
+        
+        本文作者： Kang Yachen 本文链接： <a href="/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" target="_blank" rel="external">https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/</a> 转载请注明出处
+        
+    </div>
+    
+    <footer>
+        <a href="https://sherlockbear.github.io">
+            <img src="/img/avatar.jpg" alt="Kang Yachen">
+            Kang Yachen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&title=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&title=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&source=
+
+                
+                    
+                    
+                ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&via=https://sherlockbear.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2020/03/20/Discovering-Motor-Programs-By-Recomposing-Demonstrations/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Discovering Motor Programs By Recomposing Demonstrations</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/03/06/Reinforcement-Learning-Reading-List/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Reinforcement Learning Reading List（持续更新）</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'acc13bb9287721dc399c',
+          clientSecret: '6b291913ac95fa96b3d3d1b23efd53d4bb162c08',
+          repo: 'blogcomment',
+          owner: 'sherlockbear',
+          admin: ['sherlockbear'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&title=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&title=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&source=
+
+                
+                    
+                    
+                ..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&via=https://sherlockbear.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD5ElEQVR42u3aW2ojUQwEUO9/0wnk17hdJd2OAzn9NZj4Pk4PyHo8HvHz9fM8f/L85N99tc7159cnfF7hcceDAwcOHDjiha4P92rj5EAJWXulfK/kjjhw4MCB4yxHslkSbluy5Lj50wZdHDhw4MDxWY5ZApanc/knSZqHAwcOHDj+PkcOEW28qNptXicOHDhw4Pgdjjwp2gTRWZicNcBur5XiwIEDB450NqBu8Pz9f98434EDBw4cOBbNnuS7eejdJIGzltib2+HAgQMHjjXHrM3TFu/OlgiTkYXNiAMOHDhw4NhwzELs5qBJcTA/Q/tTIPp/gQMHDhw4FhxtQW2W2rVp2NkGWP1qceDAgQPHgiPfOEFs/34WFPNUrU3wcODAgQPHnqMt7SWp2izla9PLtohZnxYHDhw4cBzlyMcF2sbV7HB50jgbccCBAwcOHKc48tDYFgFPXbstGm5COA4cOHDg2HPMBgva1lEbOM8OxuVFSRw4cODAsefIW0ftkEFSdly9w1Fx8xoUBw4cOHCc4siDax7e2rJjG87bJC1CxIEDBw4cN3AkBcH9OMIsrOanHZYRceDAgQPHmiMvtLXp0CzUzQJ8jhKNXODAgQMHjgVHYXZ0tK5tMrWtptlwBg4cOHDgOMsxaybliVxbwtuE59nYBA4cOHDg2HO042h5kEtKe20zqaVfDUngwIEDB44RRxLqZglVnjgl12ibW+3tcODAgQPHKY62bNdy5E2s/WhCm6pFXTgcOHDgwHGIow3A+XBDfbhD9EUYxoEDBw4cC462XdRuNivbbQJw8jJefgsHDhw4cKw5ZvnLrDVVdMBGTaMWqOjF4cCBAweOEUc++tYOMWy4Nw2kVcMMBw4cOHAsOPb1xbZ4dyrlq39HJK8fBw4cOHAsOJLDzVKmzdjBbAxisw4OHDhw4Libo02Q7hh62Kdt+RmiK+HAgQMHjjPRahjSrv8mLz62q+U/ER73PThw4MDx7zmSxkyLsh99aOFmwf5N2wkHDhw4cJQcbZIzu1IbkvdDCcMCJQ4cOHDgOMQxS8w2BG1xcIaVv1ocOHDgwHGKow1meSqVY51KC/P1o+IgDhw4cOAYcXyVT5sy5Q2hTcuqrYa+vB0OHDhw4FhztAGvLfnNSo151JvtfmDiAwcOHDhwXHLkW7aXTNK/NtmLZjTKQF4kcjhw4MCBowyi7cZ5MW42ypCvkK//hh4HDhw4cPwix6lkbN9qammKFXDgwIEDx4c42pA5O/qGOG81HQi0OHDgwIFj1GdpDzG7/OZlzICGtVIcOHDgwDGaCmsv2XLsA2devsxHMXDgwIEDx4jjG2LWr/IpBvuPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+</body>
+</html>
