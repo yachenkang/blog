@@ -22,20 +22,20 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="论文信息 作者：Tanmay Shankar, Shubham Tulsiani, Lerrel Pinto, Abhinav Gupta 出处：ICLR2020 Poster 机构：">
+    <meta name="description" content="摘要在本文中，我们提出了一种从大规模且多样化的操作演示中来学习可重构motor primitives的方法。当前将演示分解为primitives的方法通常采用手动定义的primitives，而绕开了发现这些primitives的难度。另一方面，用于发现primitives的方法对primitive的复杂性进行了限制性假设，这使得任务的适用性限制在了狭窄的范围。我们的方法试图通过同时学习基础的mot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Discovering Motor Programs By Recomposing Demonstrations">
 <meta property="og:url" content="https://sherlockbear.github.io/2020/03/20/Discovering-Motor-Programs-By-Recomposing-Demonstrations/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="论文信息 作者：Tanmay Shankar, Shubham Tulsiani, Lerrel Pinto, Abhinav Gupta 出处：ICLR2020 Poster 机构：">
+<meta property="og:description" content="摘要在本文中，我们提出了一种从大规模且多样化的操作演示中来学习可重构motor primitives的方法。当前将演示分解为primitives的方法通常采用手动定义的primitives，而绕开了发现这些primitives的难度。另一方面，用于发现primitives的方法对primitive的复杂性进行了限制性假设，这使得任务的适用性限制在了狭窄的范围。我们的方法试图通过同时学习基础的mot">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Discovering-Motor-Programs-by-Recomposing-Demonstr_60.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_discovering_motor_programs_by_recomposing_demonstr_61.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_discovering_motor_programs_by_recomposing_demonstr_63.png">
-<meta property="og:updated_time" content="2020-03-20T05:57:17.112Z">
+<meta property="og:updated_time" content="2020-03-23T07:00:55.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Discovering Motor Programs By Recomposing Demonstrations">
-<meta name="twitter:description" content="论文信息 作者：Tanmay Shankar, Shubham Tulsiani, Lerrel Pinto, Abhinav Gupta 出处：ICLR2020 Poster 机构：">
+<meta name="twitter:description" content="摘要在本文中，我们提出了一种从大规模且多样化的操作演示中来学习可重构motor primitives的方法。当前将演示分解为primitives的方法通常采用手动定义的primitives，而绕开了发现这些primitives的难度。另一方面，用于发现primitives的方法对primitive的复杂性进行了限制性假设，这使得任务的适用性限制在了狭窄的范围。我们的方法试图通过同时学习基础的mot">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Discovering-Motor-Programs-by-Recomposing-Demonstr_60.png">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
@@ -165,7 +165,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#论文信息"><span class="post-toc-number">1.</span> <span class="post-toc-text">论文信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">2.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内容简记"><span class="post-toc-number">3.</span> <span class="post-toc-text">内容简记</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验"><span class="post-toc-number">5.</span> <span class="post-toc-text">实验</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#论文信息"><span class="post-toc-number">2.</span> <span class="post-toc-text">论文信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内容简记"><span class="post-toc-number">3.</span> <span class="post-toc-text">内容简记</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验"><span class="post-toc-number">5.</span> <span class="post-toc-text">实验</span></a></li></ol>
         </nav>
     </aside>
 
@@ -191,15 +191,16 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <!-- 图片 -->
-<figure class="image-bubble">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>在本文中，我们提出了一种从大规模且多样化的操作演示中来学习可重构motor primitives的方法。当前将演示分解为primitives的方法通常采用手动定义的primitives，而绕开了发现这些primitives的难度。另一方面，用于发现primitives的方法对primitive的复杂性进行了限制性假设，这使得任务的适用性限制在了狭窄的范围。<strong>我们的方法试图通过同时学习基础的motor primitives并重组这些primitives以重构原始演示来应对这些挑战</strong>。通过限制primitives分解的简约性和给定primitive的简单性，我们能够学习各种不同的motor primitives，以及它们的连贯潜在表示。我们从定性和定量两个方面证明了我们所学的primitives捕获了演示中语义上有意义的方面。这使我们能够在分层强化学习设置中组合这些primitives，以有效解决机器人操作任务，例如伸手和推手。</p>
+<a id="more"></a>
+<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Discovering-Motor-Programs-by-Recomposing-Demonstr_60.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><ul>
+<ul>
 <li>作者：Tanmay Shankar, Shubham Tulsiani, Lerrel Pinto, Abhinav Gupta</li>
 <li>出处：ICLR2020 Poster</li>
 <li>机构：Facebook, CMU<!-- * 关键词： --></li>
@@ -207,8 +208,7 @@
 <!-- * 其他资料： -->
 </li>
 </ul>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>在本文中，我们提出了一种从大规模且多样化的操作演示中来学习可重构motor primitives的方法。当前将演示分解为primitives的方法通常采用手动定义的primitives，而绕开了发现这些primitives的难度。另一方面，用于发现primitives的方法对primitive的复杂性进行了限制性假设，这使得任务的适用性限制在了狭窄的范围。<strong>我们的方法试图通过同时学习基础的motor primitives并重组这些primitives以重构原始演示来应对这些挑战</strong>。通过限制primitives分解的简约性和给定primitive的简单性，我们能够学习各种不同的motor primitives，以及它们的连贯潜在表示。我们从定性和定量两个方面证明了我们所学的primitives捕获了演示中语义上有意义的方面。这使我们能够在分层强化学习设置中组合这些primitives，以有效解决机器人操作任务，例如伸手和推手。</p>
-<figure class="image-bubble">
+<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_discovering_motor_programs_by_recomposing_demonstr_61.png" alt title>
@@ -222,8 +222,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<a id="more"></a>
-<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
         </div>
 
         <blockquote class="post-copyright">
@@ -231,7 +230,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-20T05:57:17.112Z" itemprop="dateUpdated">2020-03-20 13:57:17</time>
+    最后更新时间：<time datetime="2020-03-23T07:00:55.645Z" itemprop="dateUpdated">2020-03-23 15:00:55</time>
 </span><br>
 
 
@@ -271,12 +270,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Discovering-Motor-Programs-By-Recomposing-Demonstrations/&title=《Discovering Motor Programs By Recomposing Demonstrations》 — Hamish的科研blog&source=
-
-                
-                    
-                    
-                ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Discovering-Motor-Programs-By-Recomposing-Demonstrations/&title=《Discovering Motor Programs By Recomposing Demonstrations》 — Hamish的科研blog&source=摘要在本文中，我们提出了一种从大规模且多样化的操作演示中来学习可重构motor primitives的方法。当前将演示分解为primitives的方法通常..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -433,12 +427,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Discovering-Motor-Programs-By-Recomposing-Demonstrations/&title=《Discovering Motor Programs By Recomposing Demonstrations》 — Hamish的科研blog&source=
-
-                
-                    
-                    
-                ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Discovering-Motor-Programs-By-Recomposing-Demonstrations/&title=《Discovering Motor Programs By Recomposing Demonstrations》 — Hamish的科研blog&source=摘要在本文中，我们提出了一种从大规模且多样化的操作演示中来学习可重构motor primitives的方法。当前将演示分解为primitives的方法通常..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

@@ -22,19 +22,19 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="论文信息 作者：Bagaria, A., &amp;amp; Konidaris, G. 出处：ICLR2020 Poster 机构：Brown University 论文链接 其他资料： 演">
+    <meta name="description" content="摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能。最终的算法，即deep skill chaining，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Option Discovery using Deep Skill Chaining">
 <meta property="og:url" content="https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="论文信息 作者：Bagaria, A., &amp;amp; Konidaris, G. 出处：ICLR2020 Poster 机构：Brown University 论文链接 其他资料： 演">
+<meta property="og:description" content="摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能。最终的算法，即deep skill chaining，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_option_discovery_using_deep_skill_chaining.pdf_-_C_72.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_option_discovery_using_deep_skill_chaining-Origina_71.png">
-<meta property="og:updated_time" content="2020-03-20T06:31:20.938Z">
+<meta property="og:updated_time" content="2020-03-23T07:02:29.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Option Discovery using Deep Skill Chaining">
-<meta name="twitter:description" content="论文信息 作者：Bagaria, A., &amp;amp; Konidaris, G. 出处：ICLR2020 Poster 机构：Brown University 论文链接 其他资料： 演">
+<meta name="twitter:description" content="摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能。最终的算法，即deep skill chaining，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_option_discovery_using_deep_skill_chaining.pdf_-_C_72.png">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
@@ -164,7 +164,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#论文信息"><span class="post-toc-number">1.</span> <span class="post-toc-text">论文信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">2.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内容简记"><span class="post-toc-number">3.</span> <span class="post-toc-text">内容简记</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验"><span class="post-toc-number">5.</span> <span class="post-toc-text">实验</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#论文信息"><span class="post-toc-number">2.</span> <span class="post-toc-text">论文信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内容简记"><span class="post-toc-number">3.</span> <span class="post-toc-text">内容简记</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验"><span class="post-toc-number">5.</span> <span class="post-toc-text">实验</span></a></li></ol>
         </nav>
     </aside>
 
@@ -190,15 +190,16 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <!-- 图片 -->
-<figure class="image-bubble">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能。最终的算法，即<em>deep skill chaining</em>，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables the agent to execute another.） 我们证明，在挑战性的连续控制任务中，<em>deep skill chaining</em>显着优于非分层智能体和其他最新的技能发现技术。</p>
+<a id="more"></a>
+<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_option_discovery_using_deep_skill_chaining.pdf_-_C_72.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><ul>
+<ul>
 <li>作者：Bagaria, A., &amp; Konidaris, G.</li>
 <li>出处：ICLR2020 Poster</li>
 <li>机构：Brown University<!-- * 关键词： --></li>
@@ -208,16 +209,23 @@
 </ul>
 </li>
 </ul>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能。最终的算法，即<em>deep skill chaining</em>，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables the agent to execute another.） 我们证明，在挑战性的连续控制任务中，<em>deep skill chaining</em>显着优于非分层智能体和其他最新的技能发现技术。</p>
-<figure class="image-bubble">
+<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_option_discovery_using_deep_skill_chaining-Origina_71.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<a id="more"></a>
-<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ol>
+<li>收集触发新option $o_k$的终止条件$\beta_{o_k}$的轨迹。</li>
+<li>训练$o_k$的option policy $\pi_{o_k}$。</li>
+<li>学习$o_k$的初始集分类器$\mathcal{I}_{o_k}$。</li>
+<li>将$o_k$添加到智能体的option repertoire中。</li>
+<li>创建一个新的option $o_{k+1}$，使$\beta_{o_{k+1}}=\mathcal{I}_{o_k}$。</li>
+<li>训练option $\pi_\mathcal{O}$的policy。</li>
+</ol>
+<!-- 继续执行步骤1、3、4和5，直到MDP的启动状态在某个选项的启动集中。 无限期地继续执行步骤2和6。 -->
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
         </div>
 
         <blockquote class="post-copyright">
@@ -225,7 +233,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-20T06:31:20.938Z" itemprop="dateUpdated">2020-03-20 14:31:20</time>
+    最后更新时间：<time datetime="2020-03-23T07:02:29.035Z" itemprop="dateUpdated">2020-03-23 15:02:29</time>
 </span><br>
 
 
@@ -265,12 +273,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&source=
-
-                
-                    
-                    
-                ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&source=摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -420,12 +423,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&source=
-
-                
-                    
-                    
-                ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&source=摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>

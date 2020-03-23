@@ -22,22 +22,22 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="论文信息 作者：Hartikainen, K., Geng, X., Haarnoja, T., &amp;amp; Levine, S. 出处：ICLR2020 Poster 机构：Oxfo">
+    <meta name="description" content="摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量。这些动态距离可用于提供well-shaped奖">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery">
 <meta property="og:url" content="https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="论文信息 作者：Hartikainen, K., Geng, X., Haarnoja, T., &amp;amp; Levine, S. 出处：ICLR2020 Poster 机构：Oxfo">
+<meta property="og:description" content="摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量。这些动态距离可用于提供well-shaped奖">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_68.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_69.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_75.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_73.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_74.png">
-<meta property="og:updated_time" content="2020-03-20T07:11:01.673Z">
+<meta property="og:updated_time" content="2020-03-23T07:01:41.225Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery">
-<meta name="twitter:description" content="论文信息 作者：Hartikainen, K., Geng, X., Haarnoja, T., &amp;amp; Levine, S. 出处：ICLR2020 Poster 机构：Oxfo">
+<meta name="twitter:description" content="摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量。这些动态距离可用于提供well-shaped奖">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_68.png">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
@@ -167,7 +167,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#论文信息"><span class="post-toc-number">1.</span> <span class="post-toc-text">论文信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">2.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内容简记"><span class="post-toc-number">3.</span> <span class="post-toc-text">内容简记</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验"><span class="post-toc-number">5.</span> <span class="post-toc-text">实验</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#摘要"><span class="post-toc-number">1.</span> <span class="post-toc-text">摘要</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#论文信息"><span class="post-toc-number">2.</span> <span class="post-toc-text">论文信息</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#内容简记"><span class="post-toc-number">3.</span> <span class="post-toc-text">内容简记</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实验"><span class="post-toc-number">5.</span> <span class="post-toc-text">实验</span></a></li></ol>
         </nav>
     </aside>
 
@@ -193,15 +193,16 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <!-- 图片 -->
-<figure class="image-bubble">
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。<strong>在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量</strong>。这些动态距离可用于提供well-shaped奖励函数，以实现新的目标，从而有可能有效地学习复杂的任务。我们表明动态距离可以被用于半监督，其中无监督与环境的交互用于学习动态距离，而少量的偏好监督用于确定任务目标，而无需任何人工设计的奖励函数或目标示例。我们在真实机器人和仿真中都评估了我们的方法。我们展示了我们的方法可以使用原始的9自由度机械手学习阀门的转动，使用原始图像观察结果和十个偏好标签，而无需任何其他监督。</p>
+<a id="more"></a>
+<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_68.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><ul>
+<ul>
 <li>作者：Hartikainen, K., Geng, X., Haarnoja, T., &amp; Levine, S.</li>
 <li>出处：ICLR2020 Poster</li>
 <li>机构：Oxford, UCB, DeepMind<!-- * 关键词： --></li>
@@ -211,8 +212,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。<strong>在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量</strong>。这些动态距离可用于提供well-shaped奖励函数，以实现新的目标，从而有可能有效地学习复杂的任务。我们表明动态距离可以被用于半监督，其中无监督与环境的交互用于学习动态距离，而少量的偏好监督用于确定任务目标，而无需任何人工设计的奖励函数或目标示例。我们在真实机器人和仿真中都评估了我们的方法。我们展示了我们的方法可以使用原始的9自由度机械手学习阀门的转动，使用原始图像观察结果和十个偏好标签，而无需任何其他监督。</p>
-<figure class="image-bubble">
+<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_69.png" alt title>
@@ -240,8 +240,7 @@
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<a id="more"></a>
-<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
         </div>
 
         <blockquote class="post-copyright">
@@ -249,7 +248,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-20T07:11:01.673Z" itemprop="dateUpdated">2020-03-20 15:11:01</time>
+    最后更新时间：<time datetime="2020-03-23T07:01:41.225Z" itemprop="dateUpdated">2020-03-23 15:01:41</time>
 </span><br>
 
 
@@ -289,12 +288,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&source=
-
-                
-                    
-                    
-                ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&source=摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -451,12 +445,7 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&source=
-
-                
-                    
-                    
-                ..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&source=摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
