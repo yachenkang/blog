@@ -21,8 +21,9 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content>
+    <meta name="keywords" content="Reinforcement Learning,Skill Learning">
     <meta name="description" content="摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量。这些动态距离可用于提供well-shaped奖">
+<meta name="keywords" content="Reinforcement Learning,Skill Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery">
 <meta property="og:url" content="https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/index.html">
@@ -34,7 +35,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_75.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_73.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_74.png">
-<meta property="og:updated_time" content="2020-03-23T07:01:41.225Z">
+<meta property="og:updated_time" content="2020-03-24T09:06:35.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery">
 <meta name="twitter:description" content="摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量。这些动态距离可用于提供well-shaped奖">
@@ -193,7 +194,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。<strong>在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量</strong>。这些动态距离可用于提供well-shaped奖励函数，以实现新的目标，从而有可能有效地学习复杂的任务。我们表明动态距离可以被用于半监督，其中无监督与环境的交互用于学习动态距离，而少量的偏好监督用于确定任务目标，而无需任何人工设计的奖励函数或目标示例。我们在真实机器人和仿真中都评估了我们的方法。我们展示了我们的方法可以使用原始的9自由度机械手学习阀门的转动，使用原始图像观察结果和十个偏好标签，而无需任何其他监督。</p>
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h3><p>强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。<strong>在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量</strong>。这些动态距离可用于提供well-shaped奖励函数，以实现新的目标，从而有可能有效地学习复杂的任务。我们表明动态距离可以被用于半监督，其中无监督与环境的交互用于学习动态距离，而少量的偏好监督用于确定任务目标，而无需任何人工设计的奖励函数或目标示例。我们在真实机器人和仿真中都评估了我们的方法。我们展示了我们的方法可以使用原始的9自由度机械手学习阀门的转动，使用原始图像观察结果和十个偏好标签，而无需任何其他监督。</p>
 <a id="more"></a>
 <h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -248,7 +249,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-23T07:01:41.225Z" itemprop="dateUpdated">2020-03-23 15:01:41</time>
+    最后更新时间：<time datetime="2020-03-24T09:06:35.913Z" itemprop="dateUpdated">2020-03-24 17:06:35</time>
 </span><br>
 
 
@@ -270,6 +271,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Skill-Learning/">Skill Learning</a></li></ul>
+
 
             
 <div class="page-share-wrap">
