@@ -33,8 +33,9 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-24_Mendeley_Desktop_76.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/AcroRd32_CCYGAesAxx.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/AcroRd32_qhtDGoA5UR.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-25_Goyal_et_al._-_2019_-_REINFORCEMENT_LEARNING_WITH__77.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/AcroRd32_5OImexFX2U.png">
-<meta property="og:updated_time" content="2020-03-24T10:13:35.308Z">
+<meta property="og:updated_time" content="2020-03-25T07:05:39.064Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives">
 <meta name="twitter:description" content="摘要在各种复杂环境中运行的强化学习智能体可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操">
@@ -210,6 +211,7 @@
 <li><a href="http://arxiv.org/abs/1906.10667" target="_blank" rel="noopener">论文链接</a><!-- * 开源代码： --></li>
 <li>其他资料：<ul>
 <li><a href="https://xbpeng.github.io/projects/CICP/index.html" target="_blank" rel="noopener">主页</a></li>
+<li><a href="https://blog.csdn.net/weixin_41697507/article/details/93900110" target="_blank" rel="noopener">翻译</a></li>
 </ul>
 </li>
 </ul>
@@ -259,11 +261,18 @@
 J_{k}(\theta) \equiv \mathbb{E}_{\pi_{\theta}}\left[r_{k}\right]-\beta_{\mathrm{ind}} \mathcal{L}_{k}-\beta_{\mathrm{reg}} \mathcal{L}_{\mathrm{reg}}</script><h3 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-25_Goyal_et_al._-_2019_-_REINFORCEMENT_LEARNING_WITH__77.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
                     <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/AcroRd32_5OImexFX2U.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<p>如图，每个面板对应于不同的训练设置，其中不同的任务表示为A，B，C，…，具有n个圆圈的矩形对应于由在相应任务上训练的n个原语组成的代理。 第一行：为受过单个任务训练的代理原语的激活。 下面一行：重新训练：在A上训练了两个原语并迁移到B。结果（成功率）表明，多原语模型比baseline（transfer A2C）实质上具有更高的样本效率。 复制和合并：随着时间的推移，更多的原语以即插即用的方式添加到模型中（在A上训练了2个原语；模型通过自己的副本扩展自身；在B上训练了所得的四原语模型。）对比比其他强baseline更有效。零样本泛化：在C上训练一组原语，并评估对A和B的零样本泛化。这些原语学习一种空间分解的形式，这使它们可以在目标任务A和B中处于活动状态。</p>
+<p>如图，每个面板对应于不同的训练设置，其中不同的任务表示为A，B，C，…，具有n个圆圈的矩形对应于由在相应任务上训练的n个原语组成的代理。 第一行：为受过单个任务训练的代理原语的激活。 下面一行：<strong>重新训练</strong>：在A上训练了两个原语并迁移到B。结果（成功率）表明，多原语模型比baseline（transfer A2C）实质上具有更高的样本效率。 <strong>复制和合并</strong>：随着时间的推移，更多的原语以即插即用的方式添加到模型中（在A上训练了2个原语；模型通过自己的副本扩展自身；在B上训练了所得的四原语模型。）对比比其他强baseline更有效。<strong>零样本泛化</strong>：在C上训练一组原语，并评估对A和B的零样本泛化。这些原语学习一种空间分解的形式，这使它们可以在目标任务A和B中处于活动状态。</p>
 
         </div>
 
@@ -272,7 +281,7 @@ J_{k}(\theta) \equiv \mathbb{E}_{\pi_{\theta}}\left[r_{k}\right]-\beta_{\mathrm{
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-24T10:13:35.308Z" itemprop="dateUpdated">2020-03-24 18:13:35</time>
+    最后更新时间：<time datetime="2020-03-25T07:05:39.064Z" itemprop="dateUpdated">2020-03-25 15:05:39</time>
 </span><br>
 
 
