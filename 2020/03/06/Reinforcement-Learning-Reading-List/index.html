@@ -55,7 +55,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-17_Mendeley_Desktop_52.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-18_Mendeley_Desktop_53.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-18_Mendeley_Desktop_54.png">
-<meta property="og:updated_time" content="2020-04-06T10:14:02.271Z">
+<meta property="og:updated_time" content="2020-04-10T07:05:37.326Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Reinforcement Learning Reading List（持续更新）">
 <meta name="twitter:description" content="2020年初顶会论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
@@ -593,9 +593,6 @@
 <li>在各种复杂环境中运行的强化学习智能体可以从其行为的结构分解中受益。通常，这是在分层强化学习的语境下解决的，往往目标是将策略分解为较低级别的原语或选项，同时较高级别的元策略针对给定情况触发适当的行为。但是，元策略仍必须在所有状态中做出适当的决定。在这项工作中，我们提出了一种策略设计，该策略设计可分解为原语，类似于分层强化学习，但没有高级元策略。相反，每个原语可以自己决定是否希望在当前状态下执行操作。我们使用信息论机制来实现此分散决策：<strong>每个原语都会选择需要多少有关当前状态的信息以做出决定，请求有关当前状态最多信息的原语被选择与环境交互</strong>。对原语进行正则化以使用尽可能少的信息，从而导致自然竞争和特异化。我们通过实验证明，该策略体系结构在泛化方面比平面策略和分层策略都有所改进。</li>
 </ul>
 </li>
-</ul>
-<!-- TODO -->
-<ul>
 <li><p><strong>EXPLORATION IN REINFORCEMENT LEARNING WITH DEEP COVERING OPTIONS.</strong> Jinnai, Y., Park, J. W., Machado, M. C., Brain, G., &amp; Konidaris, G. (2019). [<a href="https://openreview.net/forum?id=SkeIyaVtwB" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
 <li><figure class="image-bubble">
@@ -690,14 +687,14 @@
 <li>在部分可观察（PO）的环境中，深度强化学习（RL）智能体经常会表现出无法令人满意的性能，因为有两个问题需要一起解决：如何从原始观察中提取信息以解决任务，以及如何改进策略。<strong>在这项研究中，我们提出了用于解决PO任务的RL算法。我们的方法包括两部分：用于对环境建模的variational recurrent model（VRM），以及可以访问环境和VRM的RL控制器</strong>。所提出的算法在两种类型的PO机器人控制任务中进行了测试，包括坐标或速度均不可观察到，或者需要长期记忆的任务。我们的实验表明，在无法通过简单方式从原始观测值中推断未观测状态的任务中，所提出的算法比其他替代方法具有更高的数据效率和/或学习了更多的最佳策略。代码可以从这里获取到：<a href="https://github.com/oist-cnru/Variational-Recurrent-Models" target="_blank" rel="noopener">https://github.com/oist-cnru/Variational-Recurrent-Models</a></li>
 </ul>
 </li>
+<li><p><strong>POPULATION-GUIDED PARALLEL POLICY SEARCH FOR REINFORCEMENT LEARNING.</strong> Jung, W., Park, G., &amp; Sung, Y. (2019). [<a href="https://openreview.net/forum?id=rJeINp4KwH" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>在本文中，提出了一种新的population-guided的并行学习方案，以增强off-policy强化学习（RL）的性能。<strong>在提出的方案中，具有相同的value-function和策略的多个相同的学习器共享一个共同的经验replay buffer，并在最佳策略信息的指导下协作搜索一个好的策略</strong>。关键是通过构建用于策略更新的增强损失函数以扩大多个学习器的整体搜索范围，从而以柔和的方式融合最佳策略的信息。先前最佳策略的指导和扩大的范围可以更快，更好地搜索策略。理论上证明了所提方案对预期累积收益的单调改善。通过将提出的方案应用于twin delayed deep deterministic（TD3）策略梯度算法来构造当前算法。数值结果表明，所构造的算法优于大多数当前最新的RL算法，并且在稀疏的奖励环境下，收益非常可观。</li>
+</ul>
+</li>
 </ul>
 <!-- TODO 仍在更新…… -->
 <ul>
-<li><p><strong>POPULATION-GUIDED PARALLEL POLICY SEARCH FOR REINFORCEMENT LEARNING.</strong> Jung, W., Park, G., &amp; Sung, Y. (2019). [<a href="https://openreview.net/forum?id=rJeINp4KwH" target="_blank" rel="noopener">论文链接</a>]</p>
-<ul>
-<li>在本文中，提出了一种新的以人口为导向的并行学习方案，以增强off-policy强化学习（RL）的性能。在提出的方案中，具有相同的value-function和策略的多个相同的学习器共享一个共同的经验replay buffer，并在最佳策略信息的指导下协作搜索一个好的策略。关键是通过构建用于策略更新的增强损失函数以扩大多个学习者的整体搜索范围，从而以柔和的方式融合最佳策略的信息。先前最佳策略和扩大范围的指导可以更快，更好地搜索策略。理论上证明了所提方案对预期累积收益的单调改善。通过将提出的方案应用于双延迟深度确定性（TD3）策略梯度算法来构造工作算法。数值结果表明，所构造的算法优于大多数当前最新的RL算法，并且在稀疏的奖励环境下，收益非常可观。</li>
-</ul>
-</li>
 <li><p><strong>Q-LEARNING WITH UCB EXPLORATION IS SAMPLE EFFICIENT FOR INFINITE-HORIZON MDP.</strong> Dong, K., Wang, Y., Chen, X., &amp; Wang, L. (2019). [<a href>论文链接</a>]</p>
 <ul>
 <li>强化学习中的一个基本问题是，无模型算法是否有效。 最近，Jin等。 （2018）提出了一种基于UCB探索策略的Q学习算法，并证明了它对于有限水平的情节式MDP具有几乎最佳的后悔约束。 在本文中，我们在不访问生成模型的情况下，将具有UCB探索奖金的Q学习应用于具有折扣奖励的无限水平MDP。 我们证明了我们算法探索的样本复杂度受〜O（SAα2（1-γ）7）。 在这种情况下，通过延迟Q学习（Strehl）可以达到〜O（SA？4（1-γ）8）的最佳结果。等（2006年），并根据？匹配下限。 以及S和A直至对数因子。</li>
@@ -705,7 +702,7 @@
 </li>
 <li><p><strong>ACTION SEMANTICS NETWORK: CONSIDERING THE EFFECTS OF ACTIONS IN MULTIAGENT SYSTEMS.</strong> Wang, W., Yang, T., Liu, Y., Hao, J., Hao, X., Hu, Y., … Gao, Y. (2019). [<a href="https://sites.google.com/view/iclrasn" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>在多主体系统（MAS）中，每个主体都做出各自的决定，但是它们全都对系统发展做出了总体贡献。在MAS中学习很困难，因为每个代理商的行动选择必须在其他共同学习代理商在场的情况下进行。此外，环境随机性和不确定性随着代理数量的增加而呈指数增长。先前的工作将各种多主体协调机制借入了深度学习架构，以促进多主体协调。但是，它们都不明确考虑代理之间的动作语义，即不同的动作对其他代理的影响不同。在本文中，我们提出了一种新颖的网络体系结构，称为动作语义网络（ASN），可以明确表示代理之间的这种动作语义。 ASN使用神经网络基于它们之间的动作语义来表征不同动作对其他主体的影响。 ASN可以轻松地与现有的深度强化学习（DRL）算法结合使用，以提高其性能。在StarCraft II微观管理和神经网络MMO上的实验结果表明，与几种网络体系结构相比，ASN可以显着提高最新DRL方法的性能。<br>1个</li>
+<li>在多智能体系统（MASs）中，每个智能体都做出各自的决定，但是它们全都对系统演化做出了全局贡献。在MASs中学习很困难，因为每个智能体的行动选择必须在其他共同学习的智能体在场的情况下进行。此外，环境随机性和不确定性随着智能体数量的增加而呈指数增长。先前的工作将各种多智能体协调机制借鉴到深度学习架构中，以促进多智能体协调。但是，它们都不明确考虑智能体之间动作的语义，即不同的动作对其他智能体的影响不同。在本文中，<strong>我们提出了一种新的网络体系结构，称为动作语义网络（ASN），可以明确表示智能体之间的这种动作语义</strong>。 ASN使用基于它们之间动作语义的神经网络来表征不同动作对其他智能体的影响。ASN可以轻松地与现有的深度强化学习（DRL）算法结合使用，以提高其性能。在StarCraft II micromanagement和Neural MMO上的实验结果表明，与几种网络体系结构相比，ASN可以显着提高最新DRL方法的性能。</li>
 </ul>
 </li>
 <li><p><strong>VID2GAME: CONTROLLABLE CHARACTERS EX-TRACTED FROM REAL-WORLD VIDEOS.</strong> Gafni, O., Wolf, L., &amp; Taigman, Y. (2019). [<a href>论文链接</a>]</p>
@@ -730,7 +727,7 @@
 </li>
 <li><p><strong>Option Discovery using Deep Skill Chaining.</strong> Bagaria, A., &amp; Konidaris, G. (2020). ICLR. [<a href="https://openreview.net/forum?id=B1gqipNYwH" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能。最终的算法，即<em>deep skill chaining</em>，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables the agent to execute another.） 我们证明，在挑战性的连续控制任务中，<em>deep skill chaining</em>显着优于非分层智能体和其他最新的技能发现技术。</li>
+<li>自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。<strong>我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能</strong>。最终的算法，即<em>deep skill chaining</em>，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables the agent to execute another.） 我们证明，在挑战性的连续控制任务中，<em>deep skill chaining</em>显着优于非分层智能体和其他最新的技能发现技术。</li>
 </ul>
 </li>
 <li><p><strong>Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery.</strong> Hartikainen, K., Geng, X., Haarnoja, T., &amp; Levine, S. (2019). [<a href="http://arxiv.org/abs/1907.08225" target="_blank" rel="noopener">论文链接</a>]</p>
@@ -765,7 +762,7 @@
 </li>
 <li><p><strong>Intrinsic Motivation for Encouraging Synergistic Behavior.</strong> Chitnis, R., Tulsiani, S., Gupta, S., &amp; Gupta, A. (2020). [<a href="http://arxiv.org/abs/2002.05189" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>我们研究内在动机在稀疏奖励协同任务中作为强化学习探索偏见的作用，这些任务是多个行动者必须共同努力才能实现他们无法单独实现的目标的任务。我们的关键思想是，协同任务中内在动机的一个良好指导原则是采取以行为方式影响世界的行动，而这些行动者如果单独采取行动，是无法实现的。因此，我们建议激励行动者采取（联合）行动，这些行动的效果无法通过每个单独行动者的预测作用组成来预测。我们研究了这种想法的两种实例，一种基于遇到的真实状态，另一种基于与策略同时训练的动力学模型。尽管前者较为简单，但后者的好处是所采取的措施在分析上可以区分。我们在奖励稀疏的机器人双向操纵和多主体移动任务中验证了我们的方法。我们发现，与以下两种方法相比，我们的方法产生的效率更高：1）仅使用稀疏奖励进行训练； 2）使用基于惊奇的典型内在动机表述，而这种表述并不偏向于协同行为。视频可在项目网页上找到：https：//sites.google.com/view/iclr2020-synergistic。</li>
+<li>我们研究内在驱动在稀疏奖励协同任务中作为强化学习探索bias的作用，这些任务是多个智能体必须共同努力才能实现他们无法单独实现的目标的任务。<strong>我们的核心思想是，协同任务内在驱动的一个好的指导原则是，采取那些如果智能体自己行动，就无法实现的影响世界的行动。因此，我们建议激励智能体采取（联合）行动，这些行动的效果无法通过每个单独智能体的预测组合来预测</strong>。我们研究了这种想法的两种实例，一种基于遇到的真实状态，另一种基于与策略同时训练的动力学模型。尽管前者较为简单，但后者的好处是对采取的动作可微。我们在奖励稀疏的机器人双臂操作和多智能体移动任务中验证了我们的方法。我们发现，与以下两种方法相比，我们的方法产生的效率更高：1）仅使用稀疏奖励进行训练； 2）使用surprise-based的典型内在驱动形式，而这种形式并不偏向于协同行为。视频可在项目网页上找到：<a href="https://sites.google.com/view/iclr2020-synergistic" target="_blank" rel="noopener">https://sites.google.com/view/iclr2020-synergistic</a>。</li>
 </ul>
 </li>
 <li><p><strong>GRAPH CONSTRAINED REINFORCEMENT LEARNING FOR NATURAL LANGUAGE ACTION SPACES.</strong> Ammanabrolu, P., &amp; Hausknecht, M. (2019). [<a href="https://github.com/microsoft/jericho" target="_blank" rel="noopener">论文链接</a>]</p>
@@ -818,9 +815,10 @@
 <li>在许多现实生活中的应用（例如医疗保健和机器人技术）中，对长视距问题的非策略估计很重要，在这些应用中，可能无法使用高保真模拟器，而对策略的评估却非常昂贵或不可能。 最近，刘等。 （2018）提出了一种避免典型的基于重要性抽样的方法遭受地平线诅咒的方法。 尽管显示出令人鼓舞的结果，但这种方法在实践中受到限制，因为它需要从已知行为策略的固定分布中提取数据。 在这项工作中，我们提出了一种消除此类限制的新颖方法。 特别是，我们将问题公式化为解决某个运营商的固定点，并开发了一种新的估算器，该估算器可以计算平稳分布的重要性比，而无需知道如何收集非政策数据。 我们分析其渐近一致性和有限样本推广。 基准测试证明了该方法的有效性。<br>1个</li>
 </ul>
 </li>
-<li><p><strong>MULTI-AGENT INTERACTIONS MODELING WITH COR-RELATED POLICIES.</strong> Liu, M., Zhou, M., Zhang, W., Zhuang, Y., Wang, J., Liu, W., &amp; Yu, Y. (2019). [<a href="https://github.com/apexrl/CoDAIL" target="_blank" rel="noopener">论文链接</a>]</p>
+<li><p><strong>MULTI-AGENT INTERACTIONS MODELING WITH CORRELATED POLICIES.</strong> Liu, M., Zhou, M., Zhang, W., Zhuang, Y., Wang, J., Liu, W., &amp; Yu, Y. (2019). [<a href="https://openreview.net/forum?id=B1gZV1HYvS" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>在多主体系统中，由于主体之间的高关联性，导致了复杂的交互行为。 但是，以前通过演示对多主体交互建模的工作主要是通过假设政策及其奖励结构之间的独立性来进行约束的。 在本文中，我们通过近似对手的策略，将多主体交互建模问题投射到具有相关策略的显式建模的多主体模仿学习框架中，从而可以恢复可以重新生成类似交互的主体策略。 因此，我们开发了具有相关策略的分散式对抗模仿学习算法（CoDAIL），该算法可进行分散式训练和执行。 各种实验表明，CoDAIL可以更好地在演示者附近重新生成复杂的交互，并且胜过最新的多智能体模仿学习方法。 我们的代码可从<a href="https://github.com/apexrl/CoDAIL获得。" target="_blank" rel="noopener">https://github.com/apexrl/CoDAIL获得。</a><br>1个</li>
+<li>上交, 华为</li>
+<li>在多智能体系统中，由于主体之间的高关联性，导致了复杂的交互行为。但是，以前通过演示对多智能体交互建模的工作主要是通过假设策略及其奖励结构之间相互独立来进行约束的。<strong>本文将多智能体交互建模问题转化为一个多智能体模仿学习框架，该框架通过对对手策略的近似，对相关策略进行显式建模，从而恢复出能够重新生成相似交互的智能体策略</strong>。 因此，我们开发了Decentralized Adversarial Imitation Learning algorithm with Correlated policies（CoDAIL），该算法可进行去中心化的训练和执行。 各种实验表明，CoDAIL可以更好地重新生成复杂的与演示者相似的交互，并且胜过最新的多智能体模仿学习方法。 我们的代码可从<a href="https://github.com/apexrl/CoDAIL" target="_blank" rel="noopener">https://github.com/apexrl/CoDAIL</a>获得。</li>
 </ul>
 </li>
 <li><p><strong>THINKING WHILE MOVING: DEEP REINFORCEMENT LEARNING WITH CONCURRENT CONTROL.</strong> Xiao, T., Jang, E., Kalashnikov, D., Levine, S., Ibarz, J., Hausman, K., … Berkeley, U. C. (2019). [<a href="https://sites.google.com/view/thinkingwhilemoving" target="_blank" rel="noopener">论文链接</a>]</p>
@@ -828,9 +826,10 @@
 <li>我们在这样的环境中研究强化学习，即必须在受控系统的时间演变过程中同时从策略中采样一个动作，例如何时机器人必须在决定下一动作的同时仍执行前一个动作。就像人或动物一样，机器人必须同时思考和移动，在上一个动作完成之前决定下一个动作。为了开发用于此类并发控制问题的算法框架，我们从贝尔曼方程的连续时间公式开始，然后以了解系统延迟的方式离散化它们。通过对现有基于值的深度强化学习算法的简单体系结构扩展，我们实例化了此类新的近似动态编程方法。我们在模拟基准任务和大型机器人抓握任务（机器人必须“边走边思考”）上评估我们的方法。可以在<a href="https://sites.google.com/view/thinkingwhilemoving上获得视频。" target="_blank" rel="noopener">https://sites.google.com/view/thinkingwhilemoving上获得视频。</a><br>1个</li>
 </ul>
 </li>
-<li><p><strong>EVOLUTIONARY POPULATION CURRICULUM FOR SCALING MULTI-AGENT REINFORCEMENT LEARNING.</strong> Long, Q., Zhou, Z., Gupta, A., Fang, F., Wu, Y., &amp; Wang, X. (2019). [<a href="https://sites.google.com/view/epciclr2020/" target="_blank" rel="noopener">论文链接</a>]</p>
+<li><p><strong>EVOLUTIONARY POPULATION CURRICULUM FOR SCALING MULTI-AGENT REINFORCEMENT LEARNING.</strong> Long, Q., Zhou, Z., Gupta, A., Fang, F., Wu, Y., &amp; Wang, X. (2019). [<a href="https://openreview.net/forum?id=SJxbHkrKDH" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>在多代理游戏中，环境的复杂性会随着代理数量的增加而呈指数增长，因此，当代理人数众多时，学习良好的策略尤其具有挑战性。在本文中，我们介绍了进化人口课程（EPC），这是一种课程学习范例，它通过逐步增加培训代理商的人数来扩大多主体强化学习（MARL）的规模。此外，EPC使用进化方法来解决整个课程中的客观失调问题：在早期以少量人口成功训练的代理商不一定是适应人口规模较大的后期的最佳人选。具体而言，EPC在每个阶段维护多组代理，对这些组执行混合匹配和微调，并以最佳适应性促进这些代理对下一阶段的推广。我们在流行的MARL算法MADDPG上实现了EPC，并通过经验证明，随着代理数量呈指数增长，我们的方法始终在性能上始终优于基线。可以在<a href="https://sites.google.com/view/epciclr2020/上找到源代码和视频。" target="_blank" rel="noopener">https://sites.google.com/view/epciclr2020/上找到源代码和视频。</a><br>1个</li>
+<li>CMU, 上交</li>
+<li>在多智能体游戏中，环境的复杂性会随着智能体数量的增加而呈指数增长，因此，当智能体数量众多时，学习良好的策略尤其具有挑战性。<strong>在本文中，我们介绍了<em>Evolutionary Population Curriculum</em>（EPC），这是一种课程学习范式，它通过逐步增加训练智能体的数量来扩大多智能体强化学习（MARL）的规模</strong>。此外，EPC使用进化方法来解决整个课程中的objective misalignment问题：在早期以少量成功训练的智能体不一定是适应数量规模较大的后期的最佳人选。具体而言，EPC在每个阶段维护多组智能体，对这些组执行混合匹配和微调，提拔最具适应性的智能体集合到下一阶段。我们在流行的MARL算法MADDPG上实现了EPC，并通过实验证明，随着智能体数量呈指数增长，我们的方法始终在性能上始终优于baselines。可以在<a href="https://sites.google.com/view/epciclr2020" target="_blank" rel="noopener">https://sites.google.com/view/epciclr2020</a>上找到源码和视频。</li>
 </ul>
 </li>
 <li><p><strong>SAMPLE EFFICIENT POLICY GRADIENT METHODS WITH RECURSIVE VARIANCE REDUCTION.</strong> Xu, P., Gao, F., &amp; Gu, Q. (2019). [<a href>论文链接</a>]</p>
@@ -898,12 +897,10 @@
 <li>非政策强化学习算法有望适用于只有固定的环境交互数据集（批次）可用且无法获得新经验的环境。 此属性使这些算法对诸如机器人控制之类的现实世界问题具有吸引力。 但是，实际上，标准的非策略算法在批量设置中无法进行连续控制。 在本文中，我们提出了一个简单的解决方案。 它允许使用由任意行为策略生成的数据，并使用获悉的先验知识-优势加权行为模型（ABM）-将RL策略偏向于先前已执行且可能会成功完成新任务的行为。 我们的方法可以看作是对批处理RL的最新工作的扩展，它可以从冲突的数据源中进行稳定的学习。 我们发现各种RL任务的竞争基准都有改进-包括标准连续控制基准和针对模拟和现实机器人的多任务学习。 可以从以下网址获得视频：https：//sites.google.com/view/behavior-modelling-priors。<br>1个</li>
 </ul>
 </li>
-</ul>
-<!-- TODO -->
+<li><p><strong>META REINFORCEMENT LEARNING WITH AUTONOMOUS INFERENCE OF SUBTASK DEPENDENCIES.</strong> Sohn, S., Woo, H., Choi, J., &amp; Lee, H. (2019). [<a href="https://openreview.net/forum?id=HkgsWxrtPB" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li><p><strong>META REINFORCEMENT LEARNING WITH AUTONOMOUS INFERENCE OF SUBTASK DEPENDENCIES.</strong> Sohn, S., Woo, H., Choi, J., &amp; Lee, H. (2019). [<a href="https://bit.ly/msgi-videos." target="_blank" rel="noopener">论文链接</a>]</p>
-<ul>
-<li>我们提出并解决了一个新颖的快照式RL问题，其中任务以子任务图为特征，该子任务图描述了代理未知的一组子任务及其相关性。 代理需要在适应阶段的几个情节中快速适应任务，以使测试阶段的收益最大化。 我们没有直接学习元策略，而是开发了带有子任务图推理（MSGI）的元学习器，该子学习器通过与环境交互来推断任务的潜在参数，并在给定潜在参数的情况下最大化回报。 为了促进学习，我们采用了固有的奖励，这种奖励是通过鼓励有效探索的上限可信度（UCB）激发的。 我们在两个网格世界域和StarCraft II环境上的实验结果表明，与现有的元RL和分层RL方法相比，该方法能够准确地推断潜在任务参数，并且能够更有效地进行自适应。<br>1个</li>
+<li>Michigan, Google Brain</li>
+<li>我们提出并解决了一个新的小样本RL问题，其中任务以子任务图为特征，该子任务图描述了对于智能体来说未知的一组子任务及相互间的依赖关系。智能体需要在适应阶段的几个循环中快速适应任务，以使测试阶段的收益最大化。<strong>我们没有直接学习元策略，而是开发了Meta-learner with Subtask Graph Inference（MSGI），通过与环境交互来推断任务的潜在参数，并在给定潜在参数的情况下最大化回报</strong>。 为了促进学习，我们采用了内在奖励，这种奖励是受到用于鼓励有效探索的upper confidence bound（UCB）的启发。 我们在两个grid-world domains和StarCraft II环境上的实验结果表明，与现有的元RL和分层RL方法相比，该方法能够准确地推断潜在任务参数，并且能够更有效地进行自适应。<a href="https://bit.ly/msgi-videos" target="_blank" rel="noopener">https://bit.ly/msgi-videos</a>可看到demo视频。</li>
 </ul>
 </li>
 <li><p><strong>Dynamics-aware Embeddings.</strong> Whitney, W., Agarwal, R., Cho, K., &amp; Gupta, A. (2019). [<a href="http://arxiv.org/abs/1908.09357" target="_blank" rel="noopener">论文链接</a>]</p>
@@ -936,17 +933,15 @@
 <li>样本效率一直是深度强化学习的主要挑战之一。已经提出了非参数情景控制，通过快速锁定先前成功的策略来加速参数强化学习。但是，以前的情景强化学习工作忽略了状态之间的关系，只将经验存储为无关的项目。为了提高强化学习的样本效率，我们提出了一种新颖的框架，即带有联想记忆的情节强化学习（ER-LAM），该框架将相关的经验轨迹相关联，以实现推理有效策略。我们基于状态转移在内存中的状态之上构建图形，并开发一种有效的反向轨迹传播策略，以允许值通过图形快速传播。我们使用非参数联想记忆作为参数强化学习模型的早期指导。 Atari游戏的结果表明，我们的框架具有显着更高的采样效率，并且胜过了最新的情节式强化学习模型。<br>1个</li>
 </ul>
 </li>
-</ul>
-<!-- TODO -->
+<li><p><strong>SUB-POLICY ADAPTATION FOR HIERARCHICAL REINFORCEMENT LEARNING.</strong> Li, A. C., Florensa, C., Clavera, I., &amp; Abbeel, P. (2019). [<a href="https://openreview.net/forum?id=ByeWogStDS" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li><p><strong>SUB-POLICY ADAPTATION FOR HIERARCHICAL REINFORCEMENT LEARNING.</strong> Li, A. C., Florensa, C., Clavera, I., &amp; Abbeel, P. (2019). [<a href>论文链接</a>]</p>
-<ul>
-<li>分层强化学习是一种可解决稀疏奖励的长期决策问题的有前途的方法。 不幸的是，大多数方法仍然使较低级别的技能获取过程与控制新任务中的技能的较高级别的培训脱钩。 保持技能固定会导致转移设置中出现明显的次优状态。 在这项工作中，我们提出了一种新颖的算法，可以发现一组技能，即使在接受新任务训练时，也可以随着更高水平不断地适应它们。 我们的主要贡献是双重的。 首先，我们推导了一个新的具有无偏倚的潜在依赖基线的分层策略梯度，并引入了分层近端策略优化（HiPPO），这是一种有效地联合训练分层结构各个级别的基于策略的方法。 其次，我们提出了一种训练时间抽象的方法，该方法提高了所获得技能对环境变化的鲁棒性。 提供代码和视频。 1。<br>1个</li>
+<li>UCB</li>
+<li>分层强化学习是一种可解决具有稀疏奖励的长期决策问题的有效方法。不幸的是，大多数方法仍然使低级技能的获取过程与控制新任务中技能的高级训练分离开来。保持技能固定会导致迁移设置中出现明显的局部最优。<strong>在这项工作中，我们提出了一种新颖的算法，用于发现一组技能，在接受新任务训练时，仍然可以同高级技能一起不断地适应</strong>。 我们的主要贡献是双重的。首先，我们推导了一个新的具有无偏潜在依赖baseline的分层策略梯度，并引入了Hierarchical Proximal Policy Optimization（HiPPO），一种有效地联合训练分层结构各个级别的on-policy方法。 其次，我们提出了一种训练时间抽象的方法，提高了所获得的技能对环境变化的鲁棒性。代码和视频可以从<a href="https://sites.google.com/view/hippo-rl" target="_blank" rel="noopener">https://sites.google.com/view/hippo-rl</a>找到。</li>
 </ul>
 </li>
-<li><p><strong>LEARNING NEARLY DECOMPOSABLE VALUE FUNC-TIONS VIA COMMUNICATION MINIMIZATION.</strong> Wang, T., Wang, J., Zheng, C., &amp; Zhang, C. (2019). [<a href="https://sites.google.com/view/ndq" target="_blank" rel="noopener">论文链接</a>]</p>
+<li><p><strong>LEARNING NEARLY DECOMPOSABLE VALUE FUNC-TIONS VIA COMMUNICATION MINIMIZATION.</strong> Wang, T., Wang, J., Zheng, C., &amp; Zhang, C. (2019). [<a href="https://openreview.net/forum?id=HJx-3grYDB" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>增强学习在多代理设置中遇到了主要挑战，例如可伸缩性和非平稳性。最近，价值函数分解学习已成为解决协作多代理系统中这些挑战的一种有前途的方法。但是，现有方法一直专注于学习完全分散的价值功能，这对于需要通信的任务而言效率不高。为了解决这一局限性，本文提出了一种新颖的框架，用于通过通信最小化学习几乎可分解的Q函数（NDQ），代理人大部分时间都在自己的行动，但偶尔会向其他代理人发送消息以进行有效的协调。该框架通过引入两个信息理论正则化器，将价值函数分解学习和沟通学习混合在一起。这些正则化函数使代理程序的动作选择和通信消息之间的相互信息最大化，同时使代理程序之间的消息熵最小。我们展示了如何以易于与现有的值函数分解方法（例如QMIX）集成的方式来优化这些正则器。最后，我们证明，在《星际争霸》单元的微观管理基准上，我们的框架明显优于基准方法，并允许我们在不牺牲性能的情况下切断了80％以上的通信。有关实验的视频，请访问<a href="https://sites.google.com/view/ndq。" target="_blank" rel="noopener">https://sites.google.com/view/ndq。</a><br>1个</li>
+<li>增强学习在多智能体设置中遇到了主要挑战，例如可伸缩性和非平稳性。最近，value function分解学习已成为解决协作多智能体系统中这些挑战的一种有效的方法。但是，现有方法一直专注于学习完全去中心化的value function，这对于需要通信的任务而言效率不高。<strong>为了解决这一局限性，本文提出了一种新的框架，用于通过通信最小化学习<em>nearly decomposable Q-functions</em>（NDQ），智能体大部分时间都在自己行动，但偶尔会向其他智能体发送消息以进行有效的协调。该框架通过引入两个信息论正则化项，将value function分解学习和通信学习结合在一起</strong>。这些正则化函数使智能体的动作选择和通信消息之间的互信息最大化，同时使智能体之间的消息熵最小。我们展示了如何以易于与现有的value function分解方法（例如QMIX）集成的方式来优化这些正则项。最后，我们证明，在《星际争霸》单位的micromanagement benchmark上，我们的框架明显优于baseline方法，并允许我们在不牺牲性能的情况下切断了80％以上的通信。有关实验的视频，请访问<a href="https://sites.google.com/view/ndq" target="_blank" rel="noopener">https://sites.google.com/view/ndq</a>。</li>
 </ul>
 </li>
 <li><p><strong>LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION.</strong> Lee, Y., Yang, J., &amp; Lim, J. J. (2019). [<a href="https://clvrai.com/coordination" target="_blank" rel="noopener">论文链接</a>]</p>
@@ -963,7 +958,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-06T10:14:02.271Z" itemprop="dateUpdated">2020-04-06 18:14:02</time>
+    最后更新时间：<time datetime="2020-04-10T07:05:37.326Z" itemprop="dateUpdated">2020-04-10 15:05:37</time>
 </span><br>
 
 
