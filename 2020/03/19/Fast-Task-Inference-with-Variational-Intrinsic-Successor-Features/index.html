@@ -15,29 +15,27 @@
     
     
     
-    <title>LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION | Hamish的科研blog</title>
+    <title>Fast Task Inference with Variational Intrinsic Successor Features | Hamish的科研blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="Reinforcement Learning,Skill Learning">
-    <meta name="description" content="摘要当完成一个复杂的操纵任务时，人们经常将任务分解为身体各个部分的子技能，独立地练习这些子技能，然后一起执行这些子技能。同样，具有多个末端执行器的机器人可以通过协调每个末端执行器的子技能来执行复杂的任务。为了实现技能的时间和行为协调，我们提出了一个模块化框架，该框架首先通过skill behavior diversification分别训练每个末端执行器的子技能，然后学习使用技能的多种行为来协调末">
-<meta name="keywords" content="Reinforcement Learning,Skill Learning">
+    <meta name="keywords" content>
+    <meta name="description" content="摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。Successor features(D">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION">
-<meta property="og:url" content="https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/index.html">
+<meta property="og:title" content="Fast Task Inference with Variational Intrinsic Successor Features">
+<meta property="og:url" content="https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="摘要当完成一个复杂的操纵任务时，人们经常将任务分解为身体各个部分的子技能，独立地练习这些子技能，然后一起执行这些子技能。同样，具有多个末端执行器的机器人可以通过协调每个末端执行器的子技能来执行复杂的任务。为了实现技能的时间和行为协调，我们提出了一个模块化框架，该框架首先通过skill behavior diversification分别训练每个末端执行器的子技能，然后学习使用技能的多种行为来协调末">
+<meta property="og:description" content="摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。Successor features(D">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_58.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_64.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_59.png">
-<meta property="og:updated_time" content="2020-03-24T09:06:38.999Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-19_Hansen_DeepMind_et_al._-_2019_-_Fast_Task_Inferenc_56.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-13_Mendeley_Desktop_28.png">
+<meta property="og:updated_time" content="2020-04-11T08:53:07.772Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION">
-<meta name="twitter:description" content="摘要当完成一个复杂的操纵任务时，人们经常将任务分解为身体各个部分的子技能，独立地练习这些子技能，然后一起执行这些子技能。同样，具有多个末端执行器的机器人可以通过协调每个末端执行器的子技能来执行复杂的任务。为了实现技能的时间和行为协调，我们提出了一个模块化框架，该框架首先通过skill behavior diversification分别训练每个末端执行器的子技能，然后学习使用技能的多种行为来协调末">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_58.png">
+<meta name="twitter:title" content="Fast Task Inference with Variational Intrinsic Successor Features">
+<meta name="twitter:description" content="摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。Successor features(D">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-19_Hansen_DeepMind_et_al._-_2019_-_Fast_Task_Inferenc_56.png">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
@@ -119,7 +117,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION</div>
+        <div class="flex-col header-title ellipsis">Fast Task Inference with Variational Intrinsic Successor Features</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -141,11 +139,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION</h1>
+        <h1 class="title">Fast Task Inference with Variational Intrinsic Successor Features</h1>
         <h5 class="subtitle">
             
-                <time datetime="2020-03-20T02:18:55.000Z" itemprop="datePublished" class="page-time">
-  2020-03-20
+                <time datetime="2020-03-19T03:21:00.000Z" itemprop="datePublished" class="page-time">
+  2020-03-19
 </time>
 
 
@@ -171,13 +169,13 @@
     </aside>
 
 
-<article id="post-LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION"
+<article id="post-Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION</h1>
+        <h1 class="post-card-title">Fast Task Inference with Variational Intrinsic Successor Features</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-03-20 10:18:55" datetime="2020-03-20T02:18:55.000Z"  itemprop="datePublished">2020-03-20</time>
+            <time class="post-time" title="2020-03-19 11:21:00" datetime="2020-03-19T03:21:00.000Z"  itemprop="datePublished">2020-03-19</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
@@ -192,44 +190,33 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h3><p>当完成一个复杂的操纵任务时，人们经常将任务分解为身体各个部分的子技能，独立地练习这些子技能，然后一起执行这些子技能。同样，具有多个末端执行器的机器人可以通过协调每个末端执行器的子技能来执行复杂的任务。<strong>为了实现技能的时间和行为协调，我们提出了一个模块化框架，该框架首先通过skill behavior diversification分别训练每个末端执行器的子技能，然后学习使用技能的多种行为来协调末端执行器</strong>。我们证明了我们提出的框架能够有效地协调技能，以解决具有挑战性的协作控制任务，例如捡起一根长棒，在用两个机械手推动容器的同时在容器内放置一个块以及用两个蚂蚁推动容器。 视频和代码可在上获得。</p>
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h3><p>已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。Successor features(Dayan, 1993; Barreto et al., 2017)提供了一个吸引人的解决方案，适用于此泛化问题，但需要在某些基础特征空间中将奖励函数定义为线性。在本文中，我们展示了可以将这两种技术结合使用，并且相互可以解决彼此的主要局限。为此，<strong>我们引入了Variational Intrinsic Successor FeatuRes（VISR），这是一种新的算法，能够学习可控特征，可通过Successor features框架利用可控特征来提供增强的泛化能力和快速的任务推断能力</strong>。我们在全部Atari套件上对VISR进行了实验验证，我们使用了新的设置，其中奖励仅是在漫长的无监督阶段之后才短暂显示。在12场比赛中达到人类水平的表现并超过所有baselines，使我们认为VISR代表了朝着能够从有限的反馈中快速学习的智能体迈出的一步。</p>
 <a id="more"></a>
-<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><figure class="image-bubble">
+<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><!-- 图片 -->
+<figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_58.png" alt title>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-19_Hansen_DeepMind_et_al._-_2019_-_Fast_Task_Inferenc_56.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
 <ul>
-<li>作者：Lee, Y., Yang, J., &amp; Lim, J. J. (2019).</li>
-<li>出处：ICLR2020 Poster</li>
-<li>机构：University of Southern California<!-- * 关键词： --></li>
-<li><a href="https://openreview.net/forum?id=ryxB2lBtvH" target="_blank" rel="noopener">论文链接</a></li>
-<li>开源代码：<ul>
-<li><a href="https://github.com/clvrai/coordination" target="_blank" rel="noopener">https://github.com/clvrai/coordination</a></li>
-</ul>
-</li>
-<li>其他资料：<ul>
-<li><a href="https://clvrai.com/coordination" target="_blank" rel="noopener">主页</a></li>
-</ul>
+<li>作者：Hansen DeepMind, S., Dabney DeepMind, W., Barreto DeepMind, A., Warde-Farley DeepMind, D., Van de Wiele, T., &amp; Mnih DeepMind, V.</li>
+<li>出处：ICLR2020 Oral</li>
+<li>机构：DeepMind</li>
+<li>关键词：diverse behavior，Successor features</li>
+<li><a href="https://openreview.net/forum?id=BJeAHkrYDS" target="_blank" rel="noopener">论文链接</a><!-- * 开源代码： -->
+<!-- * 其他资料： -->
 </li>
 </ul>
-<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><figure class="image-bubble">
+<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_64.png" alt title>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-13_Mendeley_Desktop_28.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Lee%2C_Yang%2C_Lim_-_2019_-_LEARNING_TO_COORDINATE_MAN_59.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
+<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
         </div>
 
         <blockquote class="post-copyright">
@@ -237,12 +224,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-03-24T09:06:38.999Z" itemprop="dateUpdated">2020-03-24 17:06:38</time>
+    最后更新时间：<time datetime="2020-04-11T08:53:07.772Z" itemprop="dateUpdated">2020-04-11 16:53:07</time>
 </span><br>
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" target="_blank" rel="external">https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" target="_blank" rel="external">https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/</a> 转载请注明出处
         
     </div>
     
@@ -259,8 +246,6 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Skill-Learning/">Skill Learning</a></li></ul>
-
 
             
 <div class="page-share-wrap">
@@ -269,7 +254,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&title=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&title=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -279,22 +264,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&title=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&source=摘要当完成一个复杂的操纵任务时，人们经常将任务分解为身体各个部分的子技能，独立地练习这些子技能，然后一起执行这些子技能。同样，具有多个末端执行器的机器人可..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&title=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&source=摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016;..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -317,18 +302,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2020/03/20/Discovering-Motor-Programs-By-Recomposing-Demonstrations/" id="post-prev" class="post-nav-link">
+      <a href="/2020/03/19/Contrastive-Learning-of-Structured-World-Models/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Discovering Motor Programs By Recomposing Demonstrations</h4>
+        <h4 class="title">Contrastive Learning of Structured World Models</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/03/19/Contrastive-Learning-of-Structured-World-Models/" id="post-next" class="post-nav-link">
+      <a href="/2020/03/06/Reinforcement-Learning-Reading-List/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Contrastive Learning of Structured World Models</h4>
+        <h4 class="title">Reinforcement Learning Reading List（持续更新）</h4>
       </a>
     </div>
   
@@ -426,7 +411,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&title=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&title=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -436,22 +421,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&title=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&source=摘要当完成一个复杂的操纵任务时，人们经常将任务分解为身体各个部分的子技能，独立地练习这些子技能，然后一起执行这些子技能。同样，具有多个末端执行器的机器人可..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&title=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&source=摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016;..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《LEARNING TO COORDINATE MANIPULATION SKILLS VIA SKILL BEHAVIOR DIVERSIFICATION》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/20/LEARNING-TO-COORDINATE-MANIPULATION-SKILLS-VIA-SKILL-BEHAVIOR-DIVERSIFICATION/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -462,7 +447,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD5ElEQVR42u3aW2ojUQwEUO9/0wnk17hdJd2OAzn9NZj4Pk4PyHo8HvHz9fM8f/L85N99tc7159cnfF7hcceDAwcOHDjiha4P92rj5EAJWXulfK/kjjhw4MCB4yxHslkSbluy5Lj50wZdHDhw4MDxWY5ZApanc/knSZqHAwcOHDj+PkcOEW28qNptXicOHDhw4Pgdjjwp2gTRWZicNcBur5XiwIEDB450NqBu8Pz9f98434EDBw4cOBbNnuS7eejdJIGzltib2+HAgQMHjjXHrM3TFu/OlgiTkYXNiAMOHDhw4NhwzELs5qBJcTA/Q/tTIPp/gQMHDhw4FhxtQW2W2rVp2NkGWP1qceDAgQPHgiPfOEFs/34WFPNUrU3wcODAgQPHnqMt7SWp2izla9PLtohZnxYHDhw4cBzlyMcF2sbV7HB50jgbccCBAwcOHKc48tDYFgFPXbstGm5COA4cOHDg2HPMBgva1lEbOM8OxuVFSRw4cODAsefIW0ftkEFSdly9w1Fx8xoUBw4cOHCc4siDax7e2rJjG87bJC1CxIEDBw4cN3AkBcH9OMIsrOanHZYRceDAgQPHmiMvtLXp0CzUzQJ8jhKNXODAgQMHjgVHYXZ0tK5tMrWtptlwBg4cOHDgOMsxaybliVxbwtuE59nYBA4cOHDg2HO042h5kEtKe20zqaVfDUngwIEDB44RRxLqZglVnjgl12ibW+3tcODAgQPHKY62bNdy5E2s/WhCm6pFXTgcOHDgwHGIow3A+XBDfbhD9EUYxoEDBw4cC462XdRuNivbbQJw8jJefgsHDhw4cKw5ZvnLrDVVdMBGTaMWqOjF4cCBAweOEUc++tYOMWy4Nw2kVcMMBw4cOHAsOPb1xbZ4dyrlq39HJK8fBw4cOHAsOJLDzVKmzdjBbAxisw4OHDhw4Libo02Q7hh62Kdt+RmiK+HAgQMHjjPRahjSrv8mLz62q+U/ER73PThw4MDx7zmSxkyLsh99aOFmwf5N2wkHDhw4cJQcbZIzu1IbkvdDCcMCJQ4cOHDgOMQxS8w2BG1xcIaVv1ocOHDgwHGKow1meSqVY51KC/P1o+IgDhw4cOAYcXyVT5sy5Q2hTcuqrYa+vB0OHDhw4FhztAGvLfnNSo151JvtfmDiAwcOHDhwXHLkW7aXTNK/NtmLZjTKQF4kcjhw4MCBowyi7cZ5MW42ypCvkK//hh4HDhw4cPwix6lkbN9qammKFXDgwIEDx4c42pA5O/qGOG81HQi0OHDgwIFj1GdpDzG7/OZlzICGtVIcOHDgwDGaCmsv2XLsA2devsxHMXDgwIEDx4jjG2LWr/IpBvuPAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD40lEQVR42u3aSW7jQBAEQP3/056rgTGpzKqmFyB4EgSx2R08lGp5veLr49P1+Zvk89W9V9f/6+x3ePjCgQMHDhzxQskBcoL7X+Z7u1r5/ontC8CBAwcOHGc5kq3c33X/zf0x8mPP4JIz4sCBAweOn+VoE6p2nSS1uw+ZOHDgwIHjr3AkYewJiBwdBw4cOHD8Bo68CTTbRFKwy9dJgu7jtVIcOHDgwPE+chXtn7/1+ZH5Dhw4cODAESRLeUBKwlUb/PIAnCeNxelw4MCBA8eaIw9I7Rb3xcEWtC0sXuLiwIEDB44FR1s+a0uEeesoD8/t8EQ+NocDBw4cOM5y5FjJiMAsQOZAmxGHy6fjwIEDB45DHO3m8jG7WRDNC4L7sbk3tVIcOHDgwLHgOFUc3KRt7S/zJC0J9jhw4MCB4wmOWaq2GSxo0dskMw/AOHDgwIFjz9He1o6vzYYbknRrA/cmTcWBAwcOHEc52gJfmzJtAvy+ZBldOHDgwIFjzTErw7UjC6dCaVscnIVqHDhw4MCx4XhiYG4/jnCq0dXuFgcOHDhwbDiKZky86TwNa9OtdvyifWE4cODAgeMUxyYZ24fVtoE0Szhx4MCBA8f3cGzCUlKM23d8TiVyReKKAwcOHDgWHPmQQT5eMGtNtSN6yV+BmgkHDhw4cBzlyANwO+i2GWtoifP1v3gWDhw4cOA4xNEGqtldZ0t4OUEdaHHgwIEDxyGO1/q6p6nHC4Id7ttjOHDgwIHjOY598S6HPhWG2yGMN68HBw4cOHCsOfKeS5u8JfErLzK2BcEZEw4cOHDgeI4jGSPItzIL4XmLaxP+L1fDgQMHDhwjjjb1yktyyQDB2XGE5AXU/zVw4MCBA0fJ0Ya0PKFqC3P5s/brR2EeBw4cOHCMODZDAPl2c6w2bZutc3kuHDhw4MDxAEd+sFlRLw/tbeI3+2b4XwMHDhw4cIzKfPs06WyDalYczEcfcODAgQPHnmM2EjcbbkjuzXHzBK8tMuLAgQMHjg1HW+A7VUZMNj1rHW2eiwMHDhw4TnHkBb7NNdtoEuDzfUZtJxw4cODAseCYjQtsDtCG6nblzV8BHDhw4MCx5/gor2RQYJ9itSNuRZKWh1gcOHDgwHGmW3Qg7LWHSYJ68sR8/U14xoEDBw4cCcdmDmIziLYZepgNNAzfPA4cOHDgGHG0gSpPvWbFwVNJWntqHDhw4MDxsxxtE6gNqG0Jsn3iF0/HgQMHDhy/gKP9Jm9xtaF93wzDgQMHDhynOJIbko3ODpMHy+T3efhftZ1w4MCBA8d6oCEZJkgKgrNhhdlLSnaFAwcOHDgOcfwDx7oBkxFX3I4AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
