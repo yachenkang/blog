@@ -15,27 +15,26 @@
     
     
     
-    <title>Fast Task Inference with Variational Intrinsic Successor Features | Hamish的科研blog</title>
+    <title>SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS | Hamish的科研blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
-    <meta name="description" content="摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。Successor features(D">
+    <meta name="description" content="摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方法存在分布偏移的问题：因为智能体贪婪地模仿演示的动作，它可能会由于误差累积而偏离演示的状态。近来基于强化学习（RL）的方法，例如逆强化学习（inverse RL）和生成对抗式模仿学习（GAIL），通过训练RL智能体去匹配长时程的演示来克服这个问题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fast Task Inference with Variational Intrinsic Successor Features">
-<meta property="og:url" content="https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/index.html">
+<meta property="og:title" content="SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS">
+<meta property="og:url" content="https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。Successor features(D">
+<meta property="og:description" content="摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方法存在分布偏移的问题：因为智能体贪婪地模仿演示的动作，它可能会由于误差累积而偏离演示的状态。近来基于强化学习（RL）的方法，例如逆强化学习（inverse RL）和生成对抗式模仿学习（GAIL），通过训练RL智能体去匹配长时程的演示来克服这个问题">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-19_Hansen_DeepMind_et_al._-_2019_-_Fast_Task_Inferenc_56.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-13_Mendeley_Desktop_28.png">
-<meta property="og:updated_time" content="2020-04-11T08:53:07.772Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-17_Mendeley_Desktop_41.png">
+<meta property="og:updated_time" content="2020-05-31T22:01:49.458Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fast Task Inference with Variational Intrinsic Successor Features">
-<meta name="twitter:description" content="摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。Successor features(D">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-19_Hansen_DeepMind_et_al._-_2019_-_Fast_Task_Inferenc_56.png">
+<meta name="twitter:title" content="SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS">
+<meta name="twitter:description" content="摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方法存在分布偏移的问题：因为智能体贪婪地模仿演示的动作，它可能会由于误差累积而偏离演示的状态。近来基于强化学习（RL）的方法，例如逆强化学习（inverse RL）和生成对抗式模仿学习（GAIL），通过训练RL智能体去匹配长时程的演示来克服这个问题">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-17_Mendeley_Desktop_41.png">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
     
@@ -117,7 +116,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Fast Task Inference with Variational Intrinsic Successor Features</div>
+        <div class="flex-col header-title ellipsis">SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -139,11 +138,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Fast Task Inference with Variational Intrinsic Successor Features</h1>
+        <h1 class="title">SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS</h1>
         <h5 class="subtitle">
             
-                <time datetime="2020-03-19T03:21:00.000Z" itemprop="datePublished" class="page-time">
-  2020-03-19
+                <time datetime="2020-05-31T21:16:39.000Z" itemprop="datePublished" class="page-time">
+  2020-06-01
 </time>
 
 
@@ -169,13 +168,13 @@
     </aside>
 
 
-<article id="post-Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features"
+<article id="post-SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Fast Task Inference with Variational Intrinsic Successor Features</h1>
+        <h1 class="post-card-title">SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-03-19 11:21:00" datetime="2020-03-19T03:21:00.000Z"  itemprop="datePublished">2020-03-19</time>
+            <time class="post-time" title="2020-06-01 05:16:39" datetime="2020-05-31T21:16:39.000Z"  itemprop="datePublished">2020-06-01</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
@@ -190,29 +189,21 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h3><p>已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016; Eysenbach et al., 2018; Warde-Farley et al., 2018)。但是，这种方法的一个局限性是难以推广到超出可明确学习的有限行为集的范围，而这在后续任务中可能是必需的。Successor features(Dayan, 1993; Barreto et al., 2017)提供了一个吸引人的解决方案，适用于此泛化问题，但需要在某些基础特征空间中将奖励函数定义为线性。在本文中，我们展示了可以将这两种技术结合使用，并且相互可以解决彼此的主要局限。为此，<strong>我们引入了Variational Intrinsic Successor FeatuRes（VISR），这是一种新的算法，能够学习可控特征，可通过Successor features框架利用可控特征来提供增强的泛化能力和快速的任务推断能力</strong>。我们在全部Atari套件上对VISR进行了实验验证，我们使用了新的设置，其中奖励仅是在漫长的无监督阶段之后才短暂显示。在12场比赛中达到人类水平的表现并超过所有baselines，使我们认为VISR代表了朝着能够从有限的反馈中快速学习的智能体迈出的一步。</p>
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h3><p>学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方法存在分布偏移的问题：因为智能体贪婪地模仿演示的动作，它可能会由于误差累积而偏离演示的状态。近来基于强化学习（RL）的方法，例如逆强化学习（inverse RL）和生成对抗式模仿学习（GAIL），通过训练RL智能体去匹配长时程的演示来克服这个问题。由于该任务的真正奖励函数是未知的，因此这些方法通常通过使用复杂且脆弱的近似技术来参与对抗训练，从演示中学习奖励函数。我们提出了一个简单的替代方法，该替代方法仍然使用RL，但不需要学习奖励函数。关键思想是通过鼓励智能体在遇到新的、分布之外的状态时返回到演示状态，从而激励他们在很长的时间内匹配演示。为此，我们为智能体提供了在演示状态下匹配演示操作的$r=+1$的恒定奖励，以及对所有其他行为的$r=0$的恒定奖励。我们的方法，我们称为soft Q imitation learning（SQIL），可以通过对任何标准Q-learning或off-policy actor-critic算法进行少量的修改来实现。从理论上讲，我们表明SQIL可以解释为BC利用稀疏先验来鼓励长时程模仿的正则化变体。实验上，我们在Box2D，Atari和MuJoCo中的各种基于图像的以及低维的任务上，SQIL的性能优于BC，与GAIL相比也取得了相近的结果。本文证明了基于RL且具有固定奖励的简单模仿方法与使用学到奖励的更复杂方法一样有效。</p>
 <a id="more"></a>
-<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><!-- 图片 -->
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-19_Hansen_DeepMind_et_al._-_2019_-_Fast_Task_Inferenc_56.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<ul>
-<li>作者：Hansen DeepMind, S., Dabney DeepMind, W., Barreto DeepMind, A., Warde-Farley DeepMind, D., Van de Wiele, T., &amp; Mnih DeepMind, V.</li>
-<li>出处：ICLR2020 Oral</li>
-<li>机构：DeepMind</li>
-<li>关键词：diverse behavior，Successor features</li>
-<li><a href="https://openreview.net/forum?id=BJeAHkrYDS" target="_blank" rel="noopener">论文链接</a><!-- * 开源代码： -->
-<!-- * 其他资料： -->
-</li>
+<h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><ul>
+<li>作者：Reddy, S., Dragan, A. D., &amp; Levine, S.</li>
+<li>出处：ICLR2020(poster)</li>
+<li>机构：UCB</li>
+<li>关键词：IMITATION LEARNING, RL, SPARSE REWARDS</li>
+<li><a href="https://arxiv.org/abs/1905.11108" target="_blank" rel="noopener">论文链接</a></li>
 </ul>
+<!-- * 开源代码：
+* 其他资料： -->
 <h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-13_Mendeley_Desktop_28.png" alt title>
+                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-17_Mendeley_Desktop_41.png" alt title>
                 </div>
                 <div class="image-caption"></div>
             </figure>
@@ -224,12 +215,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-04-11T08:53:07.772Z" itemprop="dateUpdated">2020-04-11 16:53:07</time>
+    最后更新时间：<time datetime="2020-05-31T22:01:49.458Z" itemprop="dateUpdated">2020-06-01 06:01:49</time>
 </span><br>
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" target="_blank" rel="external">https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" target="_blank" rel="external">https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/</a> 转载请注明出处
         
     </div>
     
@@ -254,7 +245,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&title=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&title=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -264,22 +255,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&title=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&source=摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016;..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&title=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&source=摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -302,18 +293,18 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2020/03/19/Contrastive-Learning-of-Structured-World-Models/" id="post-prev" class="post-nav-link">
+      <a href="/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Contrastive Learning of Structured World Models</h4>
+        <h4 class="title">NIPS2019 Reinforcement Learning Reading List</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" id="post-next" class="post-nav-link">
+      <a href="/2020/04/10/Reinforcement-Learning-and-Control-as-Probabilistic-Inference-Tutorial-and-Review/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">ICLR2020 Reinforcement Learning Reading List（持续更新）</h4>
+        <h4 class="title">Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review</h4>
       </a>
     </div>
   
@@ -411,7 +402,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&title=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&title=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -421,22 +412,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&title=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&source=摘要已经确定，张成马尔可夫决策过程可控子空间的多样性行为可以通过奖励与其他policy有区别的policy来训练(Gregor et al., 2016;..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&title=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&source=摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Fast Task Inference with Variational Intrinsic Successor Features》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&via=https://sherlockbear.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -447,7 +438,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD40lEQVR42u3aSW7jQBAEQP3/056rgTGpzKqmFyB4EgSx2R08lGp5veLr49P1+Zvk89W9V9f/6+x3ePjCgQMHDhzxQskBcoL7X+Z7u1r5/ontC8CBAwcOHGc5kq3c33X/zf0x8mPP4JIz4sCBAweOn+VoE6p2nSS1uw+ZOHDgwIHjr3AkYewJiBwdBw4cOHD8Bo68CTTbRFKwy9dJgu7jtVIcOHDgwPE+chXtn7/1+ZH5Dhw4cODAESRLeUBKwlUb/PIAnCeNxelw4MCBA8eaIw9I7Rb3xcEWtC0sXuLiwIEDB44FR1s+a0uEeesoD8/t8EQ+NocDBw4cOM5y5FjJiMAsQOZAmxGHy6fjwIEDB45DHO3m8jG7WRDNC4L7sbk3tVIcOHDgwLHgOFUc3KRt7S/zJC0J9jhw4MCB4wmOWaq2GSxo0dskMw/AOHDgwIFjz9He1o6vzYYbknRrA/cmTcWBAwcOHEc52gJfmzJtAvy+ZBldOHDgwIFjzTErw7UjC6dCaVscnIVqHDhw4MCx4XhiYG4/jnCq0dXuFgcOHDhwbDiKZky86TwNa9OtdvyifWE4cODAgeMUxyYZ24fVtoE0Szhx4MCBA8f3cGzCUlKM23d8TiVyReKKAwcOHDgWHPmQQT5eMGtNtSN6yV+BmgkHDhw4cBzlyANwO+i2GWtoifP1v3gWDhw4cOA4xNEGqtldZ0t4OUEdaHHgwIEDxyGO1/q6p6nHC4Id7ttjOHDgwIHjOY598S6HPhWG2yGMN68HBw4cOHCsOfKeS5u8JfErLzK2BcEZEw4cOHDgeI4jGSPItzIL4XmLaxP+L1fDgQMHDhwjjjb1yktyyQDB2XGE5AXU/zVw4MCBA0fJ0Ya0PKFqC3P5s/brR2EeBw4cOHCMODZDAPl2c6w2bZutc3kuHDhw4MDxAEd+sFlRLw/tbeI3+2b4XwMHDhw4cIzKfPs06WyDalYczEcfcODAgQPHnmM2EjcbbkjuzXHzBK8tMuLAgQMHjg1HW+A7VUZMNj1rHW2eiwMHDhw4TnHkBb7NNdtoEuDzfUZtJxw4cODAseCYjQtsDtCG6nblzV8BHDhw4MCx5/gor2RQYJ9itSNuRZKWh1gcOHDgwHGmW3Qg7LWHSYJ68sR8/U14xoEDBw4cCcdmDmIziLYZepgNNAzfPA4cOHDgGHG0gSpPvWbFwVNJWntqHDhw4MDxsxxtE6gNqG0Jsn3iF0/HgQMHDhy/gKP9Jm9xtaF93wzDgQMHDhynOJIbko3ODpMHy+T3efhftZ1w4MCBA8d6oCEZJkgKgrNhhdlLSnaFAwcOHDgOcfwDx7oBkxFX3I4AAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD4ElEQVR42u3ay07jQBAFUP7/p0FiM4sQ596qdhCa41UUm3b7GKlSj4+P+Pj8Ph4/P15zfeXj2eSb/d8ePnDgwIEDR/Coz47kmnZbCej1mskLy/ePAwcOHDju4MiDax5oZ+tc7y3fbb5nHDhw4MDxWxzXAa89O9t0josDBw4cOP4KR/5NdPtFUbJN6nDgwIEDxzs5kpJfnlwlQTq5V1Lg25zFgQMHDhx3cGwC3l/5/Kb5Dhw4cOD47zk+10fbLmoD8H07/+HuOHDgwIHj0LPk7aV9CpRfP+ObFTSH3TYcOHDgwBHspw2Qs9LhpjR5/aral1q/PRw4cODAccnRLpEwtdAz4tlre4GCAwcOHDgOceyDXPvwSdhrxxrylzGsleLAgQMHjpKjDaJtka4N27NhhYTp6Q5x4MCBA8eaI9ncHcMNydbbwL/ZLQ4cOHDgOMtR96bKEYQ8rdpck6ej0Q5x4MCBA8eIox0OmI3TbQp8s4dsk8Aoo8WBAwcOHDFH8jCbQDsbPjj7GqKmFw4cOHDgOMSxGSbIKWfhPN/D7DMOHDhw4LiDYzYSl48sbFbbhNs2FcSBAwcOHHuOtnWUJ2NtiG1H6NqEs10ZBw4cOHCc4piVApOW0n7lnHhT0MSBAwcOHBuOWRhLbpyX8zYNp32yV/yr4MCBAweOMhLNkrd8TKFd/+yadRjGgQMHDhwjjrwwlzeW8hSuTdWS9Q/87sCBAwcOHEc58vSsHZvblAjPVjef7g0HDhw4cKw57kiT3jP0kP8sqH8E4MCBAweOBUe+iQRuRpA3n/bELwYjcODAgQPHmiMPRbMS3gZxU/7blBRx4MCBA8eGYx+oNkE0T9ja0b2Wo/iVgQMHDhw4gr5PniZtBg5mQHkZMW+GFWMNOHDgwIGj5JiNBcySulmTqd3V6nocOHDgwHGIIynk5YMFs3bUZqhiU6DEgQMHDhxnOdq2UHt2E4w3xcHbwy0OHDhw4Ig58kDYAm1Ke/kwxOxnRDTfgQMHDhw4gm/aTWyC7qmzm7D64rlw4MCBA8chjqS9tBk1OBss81JgnhDiwIEDB45THLNbJjfLA2r+Mk6t/+JKHDhw4MCx4NgMTLclvFnZMQnYednxBSIOHDhw4FhzbBr/CUQ73Da7ewt34MCBAwcOHHGylATXNkyeCoR5kyxfHwcOHDhw3Mcxa9LMyoVtpGtTx1kkxYEDBw4cv8sxGyA49QLagYlolAEHDhw4cLydYxYINwnbJmTOBgFx4MCBA8cpjrY4mBcB8yRw38qaFSWLKQ8cOHDgwBFwtAMNeTL2niRwNmx3bFQOBw4cOHD8+/4L8uNtJxh+WP8AAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- <link rel="stylesheet" type="text/css" href="/css/matery.css"> -->
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>NIPS2019 Reinforcement Learning Reading List | Hamish的科研blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Reinforcement Learning">
+    <meta name="description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
+<meta name="keywords" content="Reinforcement Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NIPS2019 Reinforcement Learning Reading List">
+<meta property="og:url" content="https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/index.html">
+<meta property="og:site_name" content="Hamish的科研blog">
+<meta property="og:description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-06-18T09:23:15.015Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NIPS2019 Reinforcement Learning Reading List">
+<meta name="twitter:description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/avatar.jpg">
+    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+    
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Kang Yachen</h5>
+          <a href="mailto:kangyachen@westlake.edu.cn" title="kangyachen@westlake.edu.cn" class="mail">kangyachen@westlake.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sherlockbear" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">NIPS2019 Reinforcement Learning Reading List</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">NIPS2019 Reinforcement Learning Reading List</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-06-15T02:20:40.000Z" itemprop="datePublished" class="page-time">
+  2020-06-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Reading-List/">Reading List</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Oral"><span class="post-toc-number">1.</span> <span class="post-toc-text">Oral</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Poster"><span class="post-toc-number">2.</span> <span class="post-toc-text">Poster</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-NIPS2019-Reinforcement-Learning-Reading-List"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">NIPS2019 Reinforcement Learning Reading List</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-06-15 10:20:40" datetime="2020-06-15T02:20:40.000Z"  itemprop="datePublished">2020-06-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Reading-List/">Reading List</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。</p>
+<a id="more"></a>
+<p>*标注的为值得精读论文</p>
+<h2 id="Oral"><a href="#Oral" class="headerlink" title="Oral"></a>Oral</h2><ul>
+<li><p><strong>A neurally plausible model learns successor representations in partially observable environments.</strong> Vértes, E., &amp; Sahani, M. (2019).</p>
+<ul>
+<li>动物需要根据传入的嘈杂的感官观察，在与环境互动时设计出最大化returns的策略。与任务相关的状态，例如环境中智能体的位置或掠食者的存在，通常不能直接观察到，而必须使用可用的感官信息来推断。已经提出的successor representations（SR）处在model-based和model-free的强化学习策略的中间，可以快速进行价值计算并快速适应奖励函数或目标位置的变化。实际上，最近的研究表明神经反应的特征与SR框架一致。但是，尚不清楚如何在部分观察到的嘈杂环境中学习和计算此类表示。在这里，我们介绍了一个使用<strong>distribution successor features</strong>的神经上合理的模型，该模型建立在分布式分布代码上，用于表示和计算不确定性，并允许通过successor representation在部分可观测的环境中进行有效的值函数计算。我们表明，分布式successor features可以在嘈杂的环境中支持强化学习，而在这种环境中，直接学习成功的策略是不可行的。</li>
+</ul>
+</li>
+<li><p>Gao, Z., Han, Y., Ren, Z., &amp; Zhou, Z. (2019). Batched Multi-armed Bandits Problem.</p>
+</li>
+<li><p>Van Seijen, H., Fatemi, M., &amp; Tavakoli, A. (2019). Using a Logarithmic Mapping to Enable Lower Discount Factors in Reinforcement Learning.</p>
+</li>
+</ul>
+<h2 id="Poster"><a href="#Poster" class="headerlink" title="Poster"></a>Poster</h2><ul>
+<li><p><strong>Control What You Can: Intrinsically Motivated Task-Planning Agent.</strong> Blaes, S., Vlastelica, M., Poganči´c, P., Zhu, J.-J., &amp; Martius, G. (2019). [<a href="https://s-bl.github.io/cwyc/" target="_blank" rel="noopener">论文链接</a></p>
+<ul>
+<li>我们提出了一种新型的内在驱动力智能体，通过优化学习过程来学习如何以样本有效的方式来控制环境，即通过尽可能少的环境交互来控制环境。它使用surprise-based动机来学习哪些东西是可以控制的，如何分配时间和注意力以及对象之间的关系。与内在驱动力，非分层以及最新的分层baseline相比，我们方法的有效性在合成和机器人操作环境中得到了证明，可显着提高性能，并减少样本的复杂性。简而言之，我们的工作结合了多种任务级计划智能体结构（在任务图上回溯搜索，概率路线图，搜索工作分配）以及从头开始学习的内在驱动力。</li>
+</ul>
+</li>
+<li><p><strong>Distributional Reward Decomposition for Reinforcement Learning.</strong> Lin, Z., Zhao, L., Yang, D., Qin, T., Yang, G., &amp; Liu, Y. (2019).</p>
+<ul>
+<li>许多强化学习（RL）任务具有特定的属性，可以利用这些属性来修改现有的RL算法以适应这些任务并进一步提高性能，此类属性的一般类别是多重奖励渠道。 在那些环境中，可以将全部奖励分解为从不同渠道获得的子奖励。 现有的关于奖励分解的工作或者需要先验环境知识才能分解全部奖励，或者在没有先验知识但性能降低的情况下分解奖励。 在本文中，我们提出了强化学习的分布式奖励分解（DRDRL），这是一种新颖的奖励分解算法，可以捕获分布设置下的多个奖励渠道结构。 根据经验，我们的方法捕获了多通道结构并发现了有意义的奖励分解，而无需任何先验知识。 因此，在具有多个奖励渠道的环境中，我们的代理比现有方法具有更好的性能。</li>
+</ul>
+</li>
+<li><p><strong>Generalization of Reinforcement Learners with Working and Episodic Memory.</strong> Fortunato, M., Tan, M., Faulkner, R., Hansen, S., Adrià, ?, Badia, P., … Deepmind, C. B. (2019). Retrieved from <a href="https://github.com/deepmind/dm_memorytasks" target="_blank" rel="noopener">https://github.com/deepmind/dm_memorytasks</a>.</p>
+</li>
+<li><p><strong>Learning Reward Machines for Partially Observable Reinforcement Learning.</strong> Toro Icarte, R., Waldie, E., Klassen, T. Q., Valenzano, R., Castro, M. P., &amp; McIlraith, S. A. (2019). Retrieved from <a href="https://bitbucket.org/RToroIcarte/lrm" target="_blank" rel="noopener">https://bitbucket.org/RToroIcarte/lrm</a>.</p>
+</li>
+<li><p><strong>Learning to Control Self-Assembling Morphologies: A Study of Generalization via Modularity.</strong> Pathak, D., Lu, C., Darrell, T., Isola, P., &amp; Efros, A. A. (2019). Retrieved from <a href="https://pathak22.github.io/modular-assemblies/" target="_blank" rel="noopener">https://pathak22.github.io/modular-assemblies/</a></p>
+</li>
+<li><p><strong>Learning to Predict Without Looking Ahead: World Models Without Forward Prediction.</strong> Freeman, C. D., Metz, L., &amp; Google Brain, D. H. (2019). Retrieved from <a href="https://learningtopredict.github.io/" target="_blank" rel="noopener">https://learningtopredict.github.io/</a></p>
+</li>
+<li><p><strong>LIIR: Learning Individual Intrinsic Reward in Multi-Agent Reinforcement Learning.</strong> Du, Y., Han, L., Fang, M., Dai, T., Liu, J., &amp; Tao, D. (2019). </p>
+</li>
+<li><p><strong>RUDDER: Return Decomposition for Delayed Rewards.</strong> Arjona-Medina, J. A., Gillhofer, M., Widrich, M., Unterthiner, T., Brandstetter, J., &amp; Hochreiter, S. (2019). Retrieved from <a href="https://goo.gl/EQerZV" target="_blank" rel="noopener">https://goo.gl/EQerZV</a>.</p>
+</li>
+<li><p><strong>Third-Person Visual Imitation Learning via Decoupled Hierarchical Controller.</strong> Sharma, P., Pathak, D., &amp; Gupta, A. (2019). Retrieved from <a href="https://pathak22.github.io/hierarchical-imitation/" target="_blank" rel="noopener">https://pathak22.github.io/hierarchical-imitation/</a>.</p>
+</li>
+<li><p>Jothimurugan, K., Alur, R., &amp; Bastani, O. (2019). A Composable Specification Language for Reinforcement Learning Tasks.</p>
+</li>
+<li><p>Lu, Y., Squillante, M. S., &amp; Wah Wu, C. (2019). A Family of Robust Stochastic Operators for Reinforcement Learning.</p>
+</li>
+<li><p>Yang, R., Sun, X., &amp; Narasimhan, K. (2019). A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation. Retrieved from <a href="https://github.com/RunzheYang/MORL" target="_blank" rel="noopener">https://github.com/RunzheYang/MORL</a></p>
+</li>
+<li><p>Bellemare, M. G., Dabney, W., Dadashi, R., Taiga, A. A., Castro, P. S., Le Roux, N., … Lyle, C. (2019). A Geometric Perspective on Optimal Representations for Reinforcement Learning.</p>
+</li>
+<li><p>Feng, Y., Li, L., Research, G., &amp; Liu, Q. (2019). A Kernel Loss for Solving the Bellman Equation.</p>
+</li>
+<li><p>Garcia, F. M., &amp; Thomas, P. S. (2019). A Meta-MDP Approach to Exploration for Lifelong Reinforcement Learning. Retrieved from <a href="https://github.com/fmaxgarcia/Meta-MDP" target="_blank" rel="noopener">https://github.com/fmaxgarcia/Meta-MDP</a></p>
+</li>
+<li><p>Li, X., Yang, W., &amp; Zhang, Z. (2019). A Regularized Approach to Sparse Optimal Policy in Reinforcement Learning.</p>
+</li>
+<li><p>Carion Facebook, N., Lamsade, P., Paris Dauphine, U., Synnaeve Facebook, G., Lazaric Facebook, A., &amp; Usunier Facebook, N. (2019). A Structured Prediction Approach for Generalization in Cooperative Multi-Agent Reinforcement Learning.</p>
+</li>
+<li><p>Leibfried, F., Pascual-Díaz, S., &amp; Grau-Moya, J. (2019). A Unified Bellman Optimality Principle Combining Reward Maximization and Empowerment.</p>
+</li>
+<li><p>Lin, X., Singh Baweja, H., Kantor, G., &amp; Held, D. (2019). Adaptive Auxiliary Task Weighting for Reinforcement Learning.</p>
+</li>
+<li><p>Penedones, H., Deepmind, ⇤, Riquelme, C., Google, ⇤, Damien, B., Google, V., … Neu, B. G. (2019). Adaptive Temporal-Difference Learning for Policy Evaluation with Per-State Uncertainty Estimates.</p>
+</li>
+<li><p>Zanette, A., Kochenderfer, M. J., &amp; Brunskill, E. (2019). Almost Horizon-Free Structure-Aware Best Policy Identification with a Generative Model.</p>
+</li>
+<li><p>Ciosek, K., Vuong, Q., Loftin, R., &amp; Hofmann, K. (2019). Better Exploration with Optimistic Actor-Critic.</p>
+</li>
+<li><p>Eccles, T., Bachrach, Y., Lever, G., &amp; Lazaridou, A. (2019). Biases for Emergent Communication in Multi-agent Reinforcement Learning.</p>
+</li>
+<li><p>Carrara, N., Leurent, E., Laroche, R., Urvoy, T., &amp; Pietquin, O. (2019). Budgeted Reinforcement Learning in Continuous State Space. Retrieved from <a href="https://budgeted-rl.github.io/" target="_blank" rel="noopener">https://budgeted-rl.github.io/</a>.</p>
+</li>
+<li><p>De Haan, P., Jayaraman, D., &amp; Levine, S. (2019). Causal Confusion in Imitation Learning.</p>
+</li>
+<li><p>Paternain, S., O Chamon, L. F., Calvo-Fullana, M., &amp; Ribeiro, A. (2019). Constrained Reinforcement Learning Has Zero Duality Gap.</p>
+</li>
+<li><p>Yu, M., Yang, Z., Kolar, M., &amp; Wang, Z. (2019). Convergent Policy Optimization for Safe Reinforcement Learning.</p>
+</li>
+<li><p>Alt, B., Adrian, ⇤, Šoši´c, Š., &amp; Koeppl, H. (2019). Correlation Priors for Reinforcement Learning. Retrieved from <a href="https://git.rwth-aachen.de/bcs/correlation_priors_for_rl" target="_blank" rel="noopener">https://git.rwth-aachen.de/bcs/correlation_priors_for_rl</a></p>
+</li>
+<li><p>Fang, M., Zhou, T., Du, Y., Han, L., Zhang, Z., Robotics, T., &amp; Allen, P. G. (2019). Curriculum-guided Hindsight Experience Replay. Retrieved from <a href="https://github.com/mengf1/CHER" target="_blank" rel="noopener">https://github.com/mengf1/CHER</a>.</p>
+</li>
+<li><p>Zhang, S., &amp; Whiteson, S. (2019). DAC: The Double Actor-Critic Architecture for Learning Options.</p>
+</li>
+<li><p>Veeriah, V., Hessel, M., Xu, Z., Lewis, R., Rajendran, J., Oh, J., … Singh, S. (2016). Discovery of Useful Questions as Auxiliary Tasks.</p>
+</li>
+<li><p>Tessler, C., Tennenholtz, G., &amp; Mannor, S. (2019). Distributional Policy Optimization: An Alternative Approach for Continuous Control.</p>
+</li>
+<li><p>Wang, Q., Li, Y., Xiong, J., &amp; Zhang, T. (2019). Divergence-Augmented Policy Optimization.</p>
+</li>
+<li><p>Zhang, S. Q., Zhang, Q., &amp; Lin, J. (2019). Efficient Communication in Multi-Agent Reinforcement Learning via Variance Based Control. Retrieved from <a href="https://github.com/saizhang0218/VBC" target="_blank" rel="noopener">https://github.com/saizhang0218/VBC</a>.</p>
+</li>
+<li><p>Rolnick, D., Ahuja, A., Schwarz, J., Lillicrap, T. P., &amp; Wayne, G. (2019). Experience Replay for Continual Learning.</p>
+</li>
+<li><p>Henaff, M. (2019). Explicit Explore-Exploit Algorithms in Continuous State Spaces.</p>
+</li>
+<li><p>Zhang, L., Tang, K., &amp; Yao, X. (2019). Explicit Planning for Efficient Exploration in Reinforcement Learning.</p>
+</li>
+<li><p>Ren, Z., Dong, K., Zhou, Y., Liu, Q., &amp; Peng, J. (2019). Exploration via Hindsight Goal Generation.</p>
+</li>
+<li><p>Paul, S., Kurin, V., &amp; Whiteson, S. (2019). Fast Efficient Hyperparameter Tuning for Policy Gradient Methods.</p>
+</li>
+<li><p>Serrino, J., Kleiman-Weiner, M., Harvard, ⇤, Parkes, D. C., &amp; Tenenbaum, J. B. (2019). Finding Friend and Foe in Multi-Agent Games. Retrieved from <a href="https://github.com/Detry322/DeepRole" target="_blank" rel="noopener">https://github.com/Detry322/DeepRole</a>.</p>
+</li>
+<li><p>Gupta ECE, H., Srikant ECE, R., &amp; Ying, L. (2019). Finite-Time Performance Bounds and Adaptive Learning Rate Selection for Two Time-Scale Reinforcement Learning.</p>
+</li>
+<li><p>Yang, D., Zhao, L., Lin, Z., Qin, T., Bian, J., &amp; Liu, T. (2019). Fully Parameterized Quantile Function for Distributional Reinforcement Learning.</p>
+</li>
+<li><p>Igl, M., Ciosek, K., Research, M., Li, Y., Tschiatschek, S., Zhang, C., … Hofmann, K. (2019). Generalization in Reinforcement Learning with Selective Noise Injection and Information Bottleneck.</p>
+</li>
+<li><p>Zhang, S., Boehmer, W., &amp; Whiteson, S. (2019). Generalized Off-Policy Actor-Critic.</p>
+</li>
+<li><p>Ding, Y., Florensa, C., Phielipp, M., &amp; Abbeel, P. (2019). Goal-conditioned Imitation Learning. Retrieved from <a href="https://sites.google.com/view/goalconditioned-il/" target="_blank" rel="noopener">https://sites.google.com/view/goalconditioned-il/</a></p>
+</li>
+<li><p>Assran, M., Romoff, J., Ballas, N., Pineau, J., &amp; Rabbat, M. (2019). Gossip-based Actor-Learner Architectures for Deep Reinforcement Learning. Retrieved from <a href="https://github.com/facebookresearch/gala" target="_blank" rel="noopener">https://github.com/facebookresearch/gala</a>.</p>
+</li>
+<li><p>Mendonca, R., Gupta, A., Kralev, R., Abbeel, P., Levine, S., &amp; Finn, C. (2019). Guided Meta-Policy Search.</p>
+</li>
+<li><p>Hu, H., Yarats, D., Gong, Q., Tian, Y., &amp; Lewis, M. (2019). Hierarchical Decision Making by Generating and Following Natural Language Instructions. Retrieved from www.minirts.net</p>
+</li>
+<li><p>Li, S., Wang, R., Tang, M., &amp; Zhang, C. (2019). Hierarchical Reinforcement Learning with Advantage-Based Auxiliary Rewards. Retrieved from <a href="http://bit.ly/2JxA0eN" target="_blank" rel="noopener">http://bit.ly/2JxA0eN</a></p>
+</li>
+<li><p>Yang, C., Ma, X., Huang, W., Sun, F., Liu, H., Huang, J., &amp; Gan, C. (2019). Imitation Learning from Observations by Minimizing Inverse Dynamics Disagreement.</p>
+</li>
+<li><p>Verma, A., Le, H. M., Caltech, Y. Y., &amp; Chaudhuri, S. (2019). Imitation-Projected Programmatic Reinforcement Learning.</p>
+</li>
+<li><p>Schlegel, M., Chung, W., Graves Huawei, D., Qian, J., &amp; White, M. (2019). Importance Resampling for Off-policy Prediction.</p>
+</li>
+<li><p>Lu, X., &amp; Roy, B. Van. (2019). Information-Theoretic Confidence Bounds for Reinforcement Learning.</p>
+</li>
+<li><p>Deverett DeepMind, B., Faulkner DeepMind, R., Fortunato DeepMind, M., Wayne DeepMind, G., &amp; Leibo DeepMind, J. Z. (2019). Interval timing in deep reinforcement learning agents.</p>
+</li>
+<li><p>Kallus, N., &amp; Uehara, M. (2019). Intrinsically Efficient, Stable, and Bounded Off-Policy Evaluation for Reinforcement Learning.</p>
+</li>
+<li><p>Trott, A., Research, S., Zheng, S., Xiong, C., &amp; Socher, R. (2019). Keeping Your Distance: Solving Sparse Reward Tasks Using Self-Balancing Shaped Rewards.</p>
+</li>
+<li><p>Jiang, Y., Gu, S., Murphy, K., Finn, C., &amp; Research, G. (2019). Language as an Abstraction for Hierarchical Deep Reinforcement Learning. Retrieved from <a href="https://sites.google.com/view/hal-demo" target="_blank" rel="noopener">https://sites.google.com/view/hal-demo</a></p>
+</li>
+<li><p>Rivera Cardoso, A., Wang, H., &amp; Xu, H. (2019). Large Scale Markov Decision Processes with Changing Rewards.</p>
+</li>
+<li><p>Tschiatschek, S., Ghosh, A., Haug, L., Zurich, E., Devidze, R., &amp; Singla, A. (2019). Learner-aware Teaching: Inverse Reinforcement Learning with Preferences and Constraints.</p>
+</li>
+<li><p>Jiang, J., &amp; Lu, Z. (2019). Learning Fairness in Multi-Agent Systems.</p>
+</li>
+<li><p>Paul, S., Van Baar, J., &amp; Roy-Chowdhury, A. K. (2019). Learning from Trajectories via Subgoal Discovery.</p>
+</li>
+<li><p>Hiraoka, T., Imagawa, T., Mori, T., Onishi, T., &amp; Tsuruoka, Y. (2019). Learning Robust Options by Conditional Value at Risk Optimization.</p>
+</li>
+<li><p>Farquhar, G., Whiteson, S., &amp; Foerster, J. (2019). Loaded DiCE: Trading off Bias and Variance in Any-Order Score Function Estimators for Reinforcement Learning.</p>
+</li>
+<li><p>Huang, Z., Liu, F., &amp; Su, H. (2019). Mapping State Space using Landmarks for Universal Goal Reaching.</p>
+</li>
+<li><p>Mahajan, A., Rashid, T., Samvelyan, M., &amp; Whiteson, S. (2019). MAVEN: Multi-Agent Variational Exploration.</p>
+</li>
+<li><p>Peng, X. Bin, Chang, M., Zhang, G., Abbeel, P., &amp; Levine, S. (2019). MCP: Learning Composable Hierarchical Control with Multiplicative Compositional Policies.</p>
+</li>
+<li><p>Yu, L., Yu, T., Finn, C., &amp; Ermon, S. (2019). Meta-Inverse Reinforcement Learning with Probabilistic Context Variables.</p>
+</li>
+<li><p>Ainsworth, S., Barnes, M., &amp; Srinivasa, S. (2019). Mo 0 States Mo 0 Problems: Emergency Stop Mechanisms from Observation.</p>
+</li>
+<li><p>Hu, S., Leung, C.-W., &amp; Leung, H.-F. (2019). Modelling the Dynamics of Multiagent Q-Learning in Repeated Symmetric Games: a Mean Field Theoretic Approach.</p>
+</li>
+<li><p>Schroeder de Witt, C. A., Foerster, J. N., Farquhar, G., S Torr, P. H., Böhmer, W., &amp; Whiteson, S. (2019). Multi-Agent Common Knowledge Reinforcement Learning.</p>
+</li>
+<li><p>Rowland, M., Omidshafiei, S., Tuyls, K., Pérolat, J., Valko, M., Piliouras, G., &amp; Munos, R. (2019). Multiagent Evaluation under Incomplete Information.</p>
+</li>
+<li><p>Li, M., Wu, L., Bou Ammar, H., &amp; Wang, J. (2019). Multi-View Reinforcement Learning.</p>
+</li>
+<li><p>Zhang, J., &amp; Bareinboim, E. (2019). Near-Optimal Reinforcement Learning in Dynamic Treatment Regimes.</p>
+</li>
+<li><p>Liu, B., Cai, Q., Yang, Z., &amp; Wang, Z. (2019). Neural Proximal/Trust Region Policy Optimization Attains Globally Optimal Policy.</p>
+</li>
+<li><p>Paquette, P., Lu, Y., Bocco, S., Smith, M. O., Ortiz-Gagné, S., Kummerfeld, J. K., … Courville, A. (2019). No Press Diplomacy: Modeling Multi-Agent Gameplay. Retrieved from <a href="https://github.com/diplomacy/research" target="_blank" rel="noopener">https://github.com/diplomacy/research</a></p>
+</li>
+<li><p>Simchowitz, M., &amp; Jamieson, K. (2019). Non-Asymptotic Gap-Dependent Regret Bounds for Tabular MDPs.</p>
+</li>
+<li><p>Zhang, X., Zhang, K., Tamer, E. M., &amp; Bas¸ar, B. (2019). Non-Cooperative Inverse Reinforcement Learning.</p>
+</li>
+<li><p>Lecarpentier, E., &amp; Rachelson, E. (2019). Non-Stationary Markov Decision Processes a Worst-Case Approach using Model-Based Reinforcement Learning.</p>
+</li>
+<li><p>Sessa, P. G., Zürich, E., Bogunovic, I., Kamgarpour, M., &amp; Krause, A. (2019). No-Regret Learning in Unknown Games with Correlated Payoffs.</p>
+</li>
+<li><p>Irpan, A., Rao, K., Bousmalis, K., Harris, C., Ibarz, J., &amp; Levine, S. (2019). Off-Policy Evaluation via Off-Policy Classification.</p>
+</li>
+<li><p>Komanduru, A., &amp; Honorio, J. (2019). On the Correctness and Sample Complexity of Inverse Reinforcement Learning.</p>
+</li>
+<li><p>Nasiriany, S., Pong, V. H., Lin, S., &amp; Levine, S. (2019). Planning with Goal-Conditioned Policies.</p>
+</li>
+<li><p>Ma, Y., Zhang, X., Sun, W., &amp; Zhu, X. (2019). Policy Poisoning in Batch Reinforcement Learning and Control.</p>
+</li>
+<li><p>Wang, B., Hegde, N., &amp; Ai, B. (2019). Privacy-preserving Q-Learning with Functional Noise in Continuous Spaces.</p>
+</li>
+<li><p>Metelli, A. M., Likmeta, A., &amp; Restelli, M. (2019). Propagating Uncertainty in Reinforcement Learning via Wasserstein Barycenters. Retrieved from <a href="https://github.com/albertometelli/wql" target="_blank" rel="noopener">https://github.com/albertometelli/wql</a>.</p>
+</li>
+<li><p>Bai, Y., Xie, T., Jiang, N., Wang, Y.-X., &amp; Barbara, S. (2019). Provably Efficient Q-Learning with Low Switching Cost.</p>
+</li>
+<li><p>Yang, Z., Chen, Y., Hong, M., &amp; Wang, Z. (2019). Provably Global Convergence of Actor-Critic: A Case for Linear Quadratic Regulator with Ergodic Cost.</p>
+</li>
+<li><p>Ramstedt Mila, S., &amp; Pal, C. (2019). Real-Time Reinforcement Learning.</p>
+</li>
+<li><p>Daley, B., &amp; Amato, C. (2019). Reconciling λ-Returns with Experience Replay.</p>
+</li>
+<li><p>Ortner, R., Pirotta, M., Fruit, R., Lazaric, A., &amp; Maillard, O.-A. (2019). Regret Bounds for Learning State Representations in Reinforcement Learning.</p>
+</li>
+<li><p>Zhang, Z., &amp; Ji, X. (2019). Regret Minimization for Reinforcement Learning by Evaluating the Optimal Bias Function.</p>
+</li>
+<li><p>Chi Cheung, W. (2019). Regret Minimization for Reinforcement Learning with Vectorial Feedback and Complex Objectives.</p>
+</li>
+<li><p>Shi, W., Song, S., Wu, H., Hsu, Y.-C., Wu, C., &amp; Huang, G. (2019). Regularized Anderson Acceleration for Off-Policy Deep Reinforcement Learning. Retrieved from <a href="https://github.com/shiwj16/raa-drl" target="_blank" rel="noopener">https://github.com/shiwj16/raa-drl</a>.</p>
+</li>
+<li><p>Miryoosefi, S., Brantley, K., Iii, H. D., Dudík, M., &amp; Schapire, R. E. (2019). Reinforcement Learning with Convex Constraints.</p>
+</li>
+<li><p>Umenberger, J., Ferizbegovic, M., Schön, T. B., &amp; Hjalmarsson, H. (2019). Robust exploration in linear quadratic reinforcement learning.</p>
+</li>
+<li><p>Peysakhovich, A., Kroer, C., &amp; Lerer, A. (2019). Robust Multi-agent Counterfactual Prediction.</p>
+</li>
+<li><p>Lee, S. Y., Choi, S., &amp; Chung, S.-Y. (2019). Sample-Efficient Deep Reinforcement Learning via Episodic Backward Update.</p>
+</li>
+<li><p>Eysenbach, B., Salakhutdinov, R., Levine Φψ Θ Cmu, S., &amp; Brain, G. (2019). Search on the Replay Buffer: Bridging Planning and Reinforcement Learning. Retrieved from <a href="http://bit.ly/rl_search" target="_blank" rel="noopener">http://bit.ly/rl_search</a></p>
+</li>
+<li><p>Demirer, M., Syrgkanis, V., Lewis, G., &amp; Chernozhukov, V. (2019). Semi-Parametric Efficient Policy Learning with Continuous Actions.</p>
+</li>
+<li><p>Gregor, K., Rezende, D. J., Besse, F., Wu, Y., &amp; Merzic, H. (2019). Shaping Belief States with Generative Environment Models for RL.</p>
+</li>
+<li><p>Kumar, A., Fu, J., Google Brain, G. T., &amp; Levine, S. (2019). Stabilizing Off-Policy Q-Learning via Bootstrapping Error Reduction.</p>
+</li>
+<li><p>Barreto, A., Borsa, D., Hou, S., Comanici, G., Aygün, E., Hamel, P., … Precup, D. (2019). The Option Keyboard Combining Skills in Reinforcement Learning.</p>
+</li>
+<li><p>Efroni, Y., Merlis, N., Ghavamzadeh, M., &amp; Mannor, S. (2019). Tight Regret Bounds for Model-Based Reinforcement Learning with Greedy Policies.</p>
+</li>
+<li><p>Mott, A., Zoran, D., Chrzanowski, M., Wierstra, D., &amp; Rezende, D. J. (2019). Towards Interpretable Reinforcement Learning Using Attention Augmented Agents.</p>
+</li>
+<li><p>Xie, T., Ma, Y., &amp; Wang, Y.-X. (2019). Towards Optimal Off-Policy Evaluation for Reinforcement Learning with Marginalized Importance Sampling.</p>
+</li>
+<li><p>Wang, Y., He, H., Tan, X., &amp; Gan, Y. (2019). Trust Region-Guided Proximal Policy Optimization. Retrieved from <a href="https://github.com/wangyuhuix/TRGPPO" target="_blank" rel="noopener">https://github.com/wangyuhuix/TRGPPO</a>.</p>
+</li>
+<li><p>Xu, T., Zou, S., &amp; Liang, Y. (2019). Two Time-scale Off-Policy TD Learning: Non-asymptotic Analysis over Markovian Samples.</p>
+</li>
+<li><p>Jabri, A., Hsu, K., Eysenbach, B., Gupta, A., Levine, S., &amp; Finn, C. (2019). Unsupervised Curricula for Visual Meta-Reinforcement Learning.</p>
+</li>
+<li><p>Qu, C., Mannor, S., Xu, H., Qi, Y., Song, L., &amp; Xiong, J. (2019). Value Propagation for Decentralized Networked Deep Multi-agent Reinforcement Learning.</p>
+</li>
+<li><p>Wai, H.-T., Hong, M., Yang, Z., Wang, Z., &amp; Tang, K. (2019). Variance Reduced Policy Evaluation with Smooth Function Approximation.</p>
+</li>
+<li><p>Fellows, M., Mahajan, A., Rudner, T. G. J., &amp; Whiteson, S. (2019). VIREL: A Variational Inference Framework for Reinforcement Learning.</p>
+</li>
+<li><p>Janner, M., Fu, J., Zhang, M., &amp; Levine, S. (2019). When to Trust Your Model: Model-Based Policy Optimization.</p>
+</li>
+<li><p>Van Hasselt, H., London, D., Hessel, M., &amp; Aslanides, J. (2019). When to use parametric models in reinforcement learning?</p>
+</li>
+<li><p>Russo, D. (2019). Worst-Case Regret Bounds for Exploration via Randomized Value Functions.</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-06-18T09:23:15.015Z" itemprop="dateUpdated">2020-06-18 17:23:15</time>
+</span><br>
+
+
+        
+        本文作者： Kang Yachen 本文链接： <a href="/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/" target="_blank" rel="external">https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/</a> 转载请注明出处
+        
+    </div>
+    
+    <footer>
+        <a href="https://sherlockbear.github.io">
+            <img src="/img/avatar.jpg" alt="Kang Yachen">
+            Kang Yachen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/&title=《NIPS2019 Reinforcement Learning Reading List》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/&title=《NIPS2019 Reinforcement Learning Reading List》 — Hamish的科研blog&source=NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NIPS2019 Reinforcement Learning Reading List》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/&via=https://sherlockbear.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'acc13bb9287721dc399c',
+          clientSecret: '6b291913ac95fa96b3d3d1b23efd53d4bb162c08',
+          repo: 'blogcomment',
+          owner: 'sherlockbear',
+          admin: ['sherlockbear'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/&title=《NIPS2019 Reinforcement Learning Reading List》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/&title=《NIPS2019 Reinforcement Learning Reading List》 — Hamish的科研blog&source=NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NIPS2019 Reinforcement Learning Reading List》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/&via=https://sherlockbear.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADI0lEQVR42u3awVLrQAwEwPz/T/POVGEzkpZXsdI+pYDY2+vDsJJer/j6ur3u/z6589Xnq99e3eHwhY2Njf0QdkKq/k2+Eac2qPx6sLGxsdex88fkiVANtvsn3m93OeSwsbGxsQP8fagkx4/79YyOK9jY2NgfzE4OIfdhlhxIeocfbGxs7E9m5zGTF+iT4k5eVMqPJYdradjY2Nhvz84f8/6f/6S/jY2Njf3G7K/i1Qu8pGxUbQxMLmxsbOxN7EkTNzlaJJjqUad6TLrcbmxsbOwV7Dw2kviZF3GOFYPutwMbGxt7KTtvxJ76bTUUe1v/w6vFxsbGXsS+v2l1XCZZaG/jThWkykvExsbGfiC7NyJTrmMVY2++qmO1NGxsbOy3ZE8GdPKfVAOs+twDU0vY2NjYj2VXo+JUwah65Dj7SrCxsbF3sP/PYaBaiqquJG8nYGNjY+9m54WeXpkpP5ZMQit6YdjY2Njr2L2Seq/pm296Ek7N+hk2Njb2OnYvrqpF/zxyqu2B8pZhY2Njfxi713bN2wOTMaBqgak8K4SNjY39EPacmh9Rqs2GU8/9IcCwsbGx17Hzsn4POTmE9IZ7mrU0bGxs7Eexq+FRXej8PvNo/KWpjI2Njf1w9gRwqiXci73q3b59FxsbG3sRO0q24u2qm5iXmfL7RM/CxsbGXsFO2qJ5bJQjJC42TcYuC41ebGxs7BXsvOyex14+0FmNsWbIYWNjYy9lVwMm75km3zq1NdGasbGxsRexo3/cW93jaqjc86qNh/KhBRsbG/vh7F5LoFf0yRu6SeMhv/+r9yaxsbGxH8vuNXEnZf1e4OXHksv+NjY2NvZqdhIJ1eCZLDQqD2FjY2Njx2M3pw4h8ymaKh4bGxt7E/tUyX7UZG1tzYHGADY2NvYKdnVBfzFqmUdUdaio9xRsbGzsJ7KT0Ko2g88Cek2LqKiEjY2NvYg9WUQ+mtkrP803FxsbGxu7N+aYt36rIzu9hjQ2NjY29rzklAfSPMZ+iU9sbGzsdexkWb0xnWoI9Tob1YY0NjY29ib22WGaecO4d4c8ArGxsbEXsf8BGTVKFQhs7NAAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+</body>
+</html>
