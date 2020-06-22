@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-22T08:20:50.572Z">
+<meta property="og:updated_time" content="2020-06-22T09:15:23.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NIPS2019 Reinforcement Learning Reading List">
 <meta name="twitter:description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
@@ -192,7 +192,7 @@
 <a id="more"></a>
 <p>*标注的为值得精读论文</p>
 <h2 id="Oral"><a href="#Oral" class="headerlink" title="Oral"></a>Oral</h2><ul>
-<li><p><strong>A neurally plausible model learns successor representations in partially observable environments.</strong> Vértes, E., &amp; Sahani, M. (2019).</p>
+<li><p><strong>A neurally plausible model learns successor representations in partially observable environments.</strong> Vértes, E., &amp; Sahani, M. (2019). [<a href="https://papers.nips.cc/paper/9522-a-neurally-plausible-model-learns-successor-representations-in-partially-observable-environments" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
 <li>动物需要根据传入的嘈杂的感官观察，在与环境互动时设计出最大化returns的策略。与任务相关的状态，例如环境中智能体的位置或掠食者的存在，通常不能直接观察到，而必须使用可用的感官信息来推断。已经提出的successor representations（SR）处在model-based和model-free的强化学习策略的中间，可以快速进行价值计算并快速适应奖励函数或目标位置的变化。实际上，最近的研究表明神经反应的特征与SR框架一致。但是，尚不清楚如何在部分观察到的嘈杂环境中学习和计算此类表示。在这里，我们介绍了一个使用<strong>distribution successor features</strong>的神经上合理的模型，该模型建立在分布式分布代码上，用于表示和计算不确定性，并允许通过successor representation在部分可观测的环境中进行有效的值函数计算。我们表明，分布式successor features可以在嘈杂的环境中支持强化学习，而在这种环境中，直接学习成功的策略是不可行的。</li>
 </ul>
@@ -238,9 +238,9 @@
 <li>合作分布式多智能体强化学习（MARL）的一项巨大挑战是，当仅获得团队奖励时，每个个体都会产生多样化的行为。先前的研究在奖励shaping或设计可以区别对待智能体的中心化critic方面付出了很多努力。在本文中，我们建议合并两个方向，并向每个智能体学习内在的奖励函数，该函数在每个时间步均会刺激智能体。具体而言，特定智能体的内在奖励将涉及为智能体计算不同的智能体critic，以指导其个体政策的更新。同时，将对参数化的内在奖励函数进行更新，以最大程度地提高环境中的预期累积团队奖励，从而使目标与原始MARL问题相符。所提出的方法被称为MARL中的learning individual intrinsic reward（LIIR）。我们将LIIR与星际争霸II战斗游戏中的许多最先进的MARL方法进行了比较。结果证明了LIIR的有效性，并且我们证明LIIR可以在每个时间步长上为每个个体分配有洞察力的内在奖励。</li>
 </ul>
 </li>
-<li><p><strong>RUDDER: Return Decomposition for Delayed Rewards.</strong> Arjona-Medina, J. A., Gillhofer, M., Widrich, M., Unterthiner, T., Brandstetter, J., &amp; Hochreiter, S. (2019). [<a href="https://goo.gl/EQerZV" target="_blank" rel="noopener">论文链接</a>]</p>
+<li><p><strong>RUDDER: Return Decomposition for Delayed Rewards.</strong> Arjona-Medina, J. A., Gillhofer, M., Widrich, M., Unterthiner, T., Brandstetter, J., &amp; Hochreiter, S. (2019). [<a href="https://papers.nips.cc/paper/9509-rudder-return-decomposition-for-delayed-rewards" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>我们提出了RUDDER，这是一种新颖的强化学习方法，用于有限马尔科夫决策过程（MDP）中的延迟奖励。在MDP中，Q值等于预期的即时奖励加上预期的未来奖励。后者与时差（TD）学习中的偏差问题以及蒙特卡洛（MC）学习中的高方差问题有关。当奖励延迟时，这两个问题都更加严重。 RUDDER旨在使预期的未来回报为零，从而简化了Q值估算，以计算即时奖励的均值。我们提出以下两个新概念，以将预期的未来奖励推向零。（i）奖励重新分配，它导致具有与最优策略相同的等价收益决策过程，并且在最优时，预期的未来回报为零。（ii）通过贡献分析进行收益分解，将强化学习任务转换为深度学习擅长的回归任务。在具有延迟奖励的人工任务上，RUDDER比MC快得多，并且比蒙特卡洛树搜索（MCTS），TD（λ）和奖励shaping方法快得多。在Atari游戏中，位于Proximal Policy Optimization（PPO）baseline之上的RUDDER可以提高得分，这在具有延迟奖励的游戏中最为突出。</li>
+<li>我们提出了RUDDER，这是一种新颖的强化学习方法，用于有限马尔科夫决策过程（MDP）中的延迟奖励。在MDP中，Q值等于预期的即时奖励加上预期的未来奖励。后者与时差（TD）学习中的偏差问题以及蒙特卡洛（MC）学习中的高方差问题有关。当奖励延迟时，这两个问题都更加严重。 RUDDER旨在使预期的未来回报为零，从而简化了Q值估算，以计算即时奖励的均值。我们提出以下两个新概念，以将预期的未来奖励推向零。（i）奖励重新分配，它导致具有与最优策略相同的等价收益决策过程，并且在最优时，预期的未来回报为零。（ii）通过贡献分析进行收益分解，将强化学习任务转换为深度学习擅长的回归任务。在具有延迟奖励的人工任务上，RUDDER比MC快得多，并且比蒙特卡洛树搜索（MCTS），TD（λ）和奖励shaping方法快得多。在Atari游戏中，位于Proximal Policy Optimization（PPO）baseline之上的RUDDER可以提高得分，这在具有延迟奖励的游戏中最为突出。视频链接如下<a href="https://goo.gl/EQerZV" target="_blank" rel="noopener">https://goo.gl/EQerZV</a></li>
 </ul>
 </li>
 <li><p><strong>Third-Person Visual Imitation Learning via Decoupled Hierarchical Controller.</strong> Sharma, P., Pathak, D., &amp; Gupta, A. (2019). [<a href="https://papers.nips.cc/paper/8528-third-person-visual-imitation-learning-via-decoupled-hierarchical-controller" target="_blank" rel="noopener">论文链接</a>]</p>
@@ -467,7 +467,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-22T08:20:50.572Z" itemprop="dateUpdated">2020-06-22 16:20:50</time>
+    最后更新时间：<time datetime="2020-06-22T09:15:23.819Z" itemprop="dateUpdated">2020-06-22 17:15:23</time>
 </span><br>
 
 
