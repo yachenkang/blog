@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-18T09:23:15.015Z">
+<meta property="og:updated_time" content="2020-06-22T08:20:50.572Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NIPS2019 Reinforcement Learning Reading List">
 <meta name="twitter:description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
@@ -203,29 +203,50 @@
 </li>
 </ul>
 <h2 id="Poster"><a href="#Poster" class="headerlink" title="Poster"></a>Poster</h2><ul>
-<li><p><strong>Control What You Can: Intrinsically Motivated Task-Planning Agent.</strong> Blaes, S., Vlastelica, M., Poganči´c, P., Zhu, J.-J., &amp; Martius, G. (2019). [<a href="https://s-bl.github.io/cwyc/" target="_blank" rel="noopener">论文链接</a></p>
+<li><p><strong>Control What You Can: Intrinsically Motivated Task-Planning Agent.</strong> Blaes, S., Vlastelica, M., Poganči´c, P., Zhu, J.-J., &amp; Martius, G. (2019). [<a href="https://s-bl.github.io/cwyc/" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
 <li>我们提出了一种新型的内在驱动力智能体，通过优化学习过程来学习如何以样本有效的方式来控制环境，即通过尽可能少的环境交互来控制环境。它使用surprise-based动机来学习哪些东西是可以控制的，如何分配时间和注意力以及对象之间的关系。与内在驱动力，非分层以及最新的分层baseline相比，我们方法的有效性在合成和机器人操作环境中得到了证明，可显着提高性能，并减少样本的复杂性。简而言之，我们的工作结合了多种任务级计划智能体结构（在任务图上回溯搜索，概率路线图，搜索工作分配）以及从头开始学习的内在驱动力。</li>
 </ul>
 </li>
-<li><p><strong>Distributional Reward Decomposition for Reinforcement Learning.</strong> Lin, Z., Zhao, L., Yang, D., Qin, T., Yang, G., &amp; Liu, Y. (2019).</p>
+<li><p><strong>Distributional Reward Decomposition for Reinforcement Learning.</strong> Lin, Z., Zhao, L., Yang, D., Qin, T., Yang, G., &amp; Liu, Y. (2019). [<a href="https://papers.nips.cc/paper/8852-distributional-reward-decomposition-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>许多强化学习（RL）任务具有特定的属性，可以利用这些属性来修改现有的RL算法以适应这些任务并进一步提高性能，此类属性的一般类别是多重奖励渠道。 在那些环境中，可以将全部奖励分解为从不同渠道获得的子奖励。 现有的关于奖励分解的工作或者需要先验环境知识才能分解全部奖励，或者在没有先验知识但性能降低的情况下分解奖励。 在本文中，我们提出了强化学习的分布式奖励分解（DRDRL），这是一种新颖的奖励分解算法，可以捕获分布设置下的多个奖励渠道结构。 根据经验，我们的方法捕获了多通道结构并发现了有意义的奖励分解，而无需任何先验知识。 因此，在具有多个奖励渠道的环境中，我们的代理比现有方法具有更好的性能。</li>
+<li>许多强化学习（RL）任务具有特定的属性，可以利用这些属性来修改现有的RL算法以适应这些任务并进一步提高性能，此类属性的一般类别是多重奖励channel。在那些环境中，可以将全部奖励分解为从不同channel获得的子奖励。现有的关于奖励分解的工作或者需要环境先验知识才能分解全部奖励，或者在没有先验知识的情况下分解奖励但会降低算法性能。在本文中，我们提出了Distributional Reward Decomposition for Reinforcement Learning（DRDRL），这是一种新颖的奖励分解算法，可以捕获分布式设置下的多个奖励channel结构。根据经验，我们的方法捕获了多通道结构并发现了有意义的奖励分解，而无需任何先验知识。因此，在具有多个奖励渠道的环境中，我们的代理比现有方法具有更好的性能。</li>
 </ul>
 </li>
-<li><p><strong>Generalization of Reinforcement Learners with Working and Episodic Memory.</strong> Fortunato, M., Tan, M., Faulkner, R., Hansen, S., Adrià, ?, Badia, P., … Deepmind, C. B. (2019). Retrieved from <a href="https://github.com/deepmind/dm_memorytasks" target="_blank" rel="noopener">https://github.com/deepmind/dm_memorytasks</a>.</p>
+<li><p><strong>Generalization of Reinforcement Learners with Working and Episodic Memory.</strong> Fortunato, M., Tan, M., Faulkner, R., Hansen, S., Adrià, ?, Badia, P., … Deepmind, C. B. (2019). [<a href="https://papers.nips.cc/paper/9411-generalization-of-reinforcement-learners-with-working-and-episodic-memory" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>记忆是智能的重要方面，并在许多深度强化学习模型中发挥作用。但是，在了解特定的记忆系统何时比其他系统更有用以及它们的泛化性如何方面进展甚微。该领域还没有一种普遍的，一致且严格的方法来评估智能体在保留数据上的性能。在本文中，我们旨在开发一种全面的方法来测试智能体中不同类型的记忆，并评估智能体可以如何将其在训练中学到的东西应用到与训练集在我们建议的相关维度上不同的集合上，用于评估特定于记忆的泛化。为此，我们首先构建了一组多样化的记忆任务，这些任务使我们能够评估多个维度上的测试时泛化。其次，我们在结合了多个记忆系统的智能体架构上开发并执行多种消融，观察其baseline模型，并针对任务套件调查其性能。</li>
+</ul>
 </li>
-<li><p><strong>Learning Reward Machines for Partially Observable Reinforcement Learning.</strong> Toro Icarte, R., Waldie, E., Klassen, T. Q., Valenzano, R., Castro, M. P., &amp; McIlraith, S. A. (2019). Retrieved from <a href="https://bitbucket.org/RToroIcarte/lrm" target="_blank" rel="noopener">https://bitbucket.org/RToroIcarte/lrm</a>.</p>
+<li><p><strong>Learning Reward Machines for Partially Observable Reinforcement Learning.</strong> Toro Icarte, R., Waldie, E., Klassen, T. Q., Valenzano, R., Castro, M. P., &amp; McIlraith, S. A. (2019). [<a href="https://papers.nips.cc/paper/9685-learning-reward-machines-for-partially-observable-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>最初用于指定强化学习（RL）中的问题的奖励机（RMs）提供了一种基于自动机的奖励函数的结构化表示，该表示使智能体可以将问题分解为子问题，可以使用off-policy学习有效地学习这些问题。这里，我们表明RMs可以从经验中学习，而不是由用户指定，并且所产生的问题分解可以用于有效解决部分可观察RL问题。我们将学习RMs的任务定位为离散的优化问题，其目标是找到将问题分解为一组子问题的RM，以使其最优无记忆策略的组合成为原始问题的最优策略。 我们在三个部分可观察domain上展示该方法的有效性（显着胜于A3C，PPO和ACER），并讨论其优势，局限性和广阔的潜力。</li>
+</ul>
 </li>
-<li><p><strong>Learning to Control Self-Assembling Morphologies: A Study of Generalization via Modularity.</strong> Pathak, D., Lu, C., Darrell, T., Isola, P., &amp; Efros, A. A. (2019). Retrieved from <a href="https://pathak22.github.io/modular-assemblies/" target="_blank" rel="noopener">https://pathak22.github.io/modular-assemblies/</a></p>
+<li><p><strong>Learning to Control Self-Assembling Morphologies: A Study of Generalization via Modularity.</strong> Pathak, D., Lu, C., Darrell, T., Isola, P., &amp; Efros, A. A. (2019). [<a href="https://pathak22.github.io/modular-assemblies/" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>当前的感觉运动学习方法通​​常从他们学习控制的现有复杂主体（例如，机械臂）开始。相比之下，本文研究了一种模块化的协同进化策略：一组原语智能体学习动态地自我组装成复合机体，同时学习协调其行为以控制这些机体。每个原语智能体都包括一个肢体，一端附有一个电机。肢体可以选择连接起来以形成集体。当一个肢体启动链接动作并且附近有另一个肢体时，后者与“父母”肢体的电机磁连接。这形成了新的单体智能体，可以进一步与其他智能体链接。这样，可以通过策略控制复杂的形态，这种策略的架构与形态显式对应。我们评估这些动态和模块化智能体在模拟环境中的性能。与静态基线和单体baseline相比，我们展示了其对环境以及智能体结构的测试时变化有更好的泛化性。补充材料中提供了项目视频和源代码。</li>
+</ul>
 </li>
-<li><p><strong>Learning to Predict Without Looking Ahead: World Models Without Forward Prediction.</strong> Freeman, C. D., Metz, L., &amp; Google Brain, D. H. (2019). Retrieved from <a href="https://learningtopredict.github.io/" target="_blank" rel="noopener">https://learningtopredict.github.io/</a></p>
+<li><p><strong>Learning to Predict Without Looking Ahead: World Models Without Forward Prediction.</strong> Freeman, C. D., Metz, L., &amp; Google Brain, D. H. (2019). [<a href="https://papers.nips.cc/paper/8778-learning-to-predict-without-looking-ahead-world-models-without-forward-prediction" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>许多基于模型的强化学习涉及学习智能体世界的模型，并训练智能体以利用该模型更有效地执行任务。尽管这些模型对智能体非常有用，但我们知道的每个自然存在的模型（例如大脑）都是由竞争性生存进化压力产生的副产品，而不是通过梯度下降最小化有监督的前向预测loss而产生的。有用的模型可能来自混乱而缓慢的演化优化过程，这表明前向预测建模可以作为在适当情况下优化的副作用而出现。至关重要的是，此优化过程不必明确是前向预测loss。在这项工作中，我们对传统的强化学习进行了改进，我们将其称为observational dropout，限制了智能体在每个时间步观察真实环境的能力。这样做，我们可以强迫智能体学习一种世界模型，以填补强化学习过程中的观察gap。我们表明，这样产生的世界模型虽然未经过显式训练以预测未来，但可以帮助智能体学习在其环境中表现良好所需的关键技能。我们的结果视频可在<a href="https://learningtopredict.github.io/" target="_blank" rel="noopener">https://learningtopredict.github.io/</a>获得</li>
+</ul>
 </li>
-<li><p><strong>LIIR: Learning Individual Intrinsic Reward in Multi-Agent Reinforcement Learning.</strong> Du, Y., Han, L., Fang, M., Dai, T., Liu, J., &amp; Tao, D. (2019). </p>
+<li><p><strong>LIIR: Learning Individual Intrinsic Reward in Multi-Agent Reinforcement Learning.</strong> Du, Y., Han, L., Fang, M., Dai, T., Liu, J., &amp; Tao, D. (2019). [<a href="https://papers.nips.cc/paper/8691-liir-learning-individual-intrinsic-reward-in-multi-agent-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>合作分布式多智能体强化学习（MARL）的一项巨大挑战是，当仅获得团队奖励时，每个个体都会产生多样化的行为。先前的研究在奖励shaping或设计可以区别对待智能体的中心化critic方面付出了很多努力。在本文中，我们建议合并两个方向，并向每个智能体学习内在的奖励函数，该函数在每个时间步均会刺激智能体。具体而言，特定智能体的内在奖励将涉及为智能体计算不同的智能体critic，以指导其个体政策的更新。同时，将对参数化的内在奖励函数进行更新，以最大程度地提高环境中的预期累积团队奖励，从而使目标与原始MARL问题相符。所提出的方法被称为MARL中的learning individual intrinsic reward（LIIR）。我们将LIIR与星际争霸II战斗游戏中的许多最先进的MARL方法进行了比较。结果证明了LIIR的有效性，并且我们证明LIIR可以在每个时间步长上为每个个体分配有洞察力的内在奖励。</li>
+</ul>
 </li>
-<li><p><strong>RUDDER: Return Decomposition for Delayed Rewards.</strong> Arjona-Medina, J. A., Gillhofer, M., Widrich, M., Unterthiner, T., Brandstetter, J., &amp; Hochreiter, S. (2019). Retrieved from <a href="https://goo.gl/EQerZV" target="_blank" rel="noopener">https://goo.gl/EQerZV</a>.</p>
+<li><p><strong>RUDDER: Return Decomposition for Delayed Rewards.</strong> Arjona-Medina, J. A., Gillhofer, M., Widrich, M., Unterthiner, T., Brandstetter, J., &amp; Hochreiter, S. (2019). [<a href="https://goo.gl/EQerZV" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们提出了RUDDER，这是一种新颖的强化学习方法，用于有限马尔科夫决策过程（MDP）中的延迟奖励。在MDP中，Q值等于预期的即时奖励加上预期的未来奖励。后者与时差（TD）学习中的偏差问题以及蒙特卡洛（MC）学习中的高方差问题有关。当奖励延迟时，这两个问题都更加严重。 RUDDER旨在使预期的未来回报为零，从而简化了Q值估算，以计算即时奖励的均值。我们提出以下两个新概念，以将预期的未来奖励推向零。（i）奖励重新分配，它导致具有与最优策略相同的等价收益决策过程，并且在最优时，预期的未来回报为零。（ii）通过贡献分析进行收益分解，将强化学习任务转换为深度学习擅长的回归任务。在具有延迟奖励的人工任务上，RUDDER比MC快得多，并且比蒙特卡洛树搜索（MCTS），TD（λ）和奖励shaping方法快得多。在Atari游戏中，位于Proximal Policy Optimization（PPO）baseline之上的RUDDER可以提高得分，这在具有延迟奖励的游戏中最为突出。</li>
+</ul>
 </li>
-<li><p><strong>Third-Person Visual Imitation Learning via Decoupled Hierarchical Controller.</strong> Sharma, P., Pathak, D., &amp; Gupta, A. (2019). Retrieved from <a href="https://pathak22.github.io/hierarchical-imitation/" target="_blank" rel="noopener">https://pathak22.github.io/hierarchical-imitation/</a>.</p>
+<li><p><strong>Third-Person Visual Imitation Learning via Decoupled Hierarchical Controller.</strong> Sharma, P., Pathak, D., &amp; Gupta, A. (2019). [<a href="https://papers.nips.cc/paper/8528-third-person-visual-imitation-learning-via-decoupled-hierarchical-controller" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们研究了一种通用的设置，用于从演示中学习，以构建一个智能体，该智能体可以通过仅从第三人称视角观看人类演示的单个视频来在看不见的场景中操纵新对象。为了实现此目标，我们的智能体不仅应学会了解所展示的第三人称视频在上下文中的意图，而且应在其环境配置中执行预期的任务。我们的主要见解是在学习过程中明确地实施这种结构，通过将要达成的目标（预期任务）与如何达到目标（控制器）分离开来。我们提出了一种分层设置，其中高级模块学习以第三人称视频演示为条件的一系列第一人称子目标，而底层控制器则预测实现这些子目标的动作。我们的智能体根据原始图像观察结果进行操作，而无需访问完整的状态信息。我们在使用Baxter的真实机器人平台上展示结果，完成将对象倒入以及放入盒子中的操作任务。 可在<a href="https://pathak22.github.io/hierarchical-imitation/" target="_blank" rel="noopener">https://pathak22.github.io/hierarchical-imitation/</a>上找到项目视频。</li>
+</ul>
 </li>
 <li><p>Jothimurugan, K., Alur, R., &amp; Bastani, O. (2019). A Composable Specification Language for Reinforcement Learning Tasks.</p>
 </li>
@@ -446,7 +467,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-18T09:23:15.015Z" itemprop="dateUpdated">2020-06-18 17:23:15</time>
+    最后更新时间：<time datetime="2020-06-22T08:20:50.572Z" itemprop="dateUpdated">2020-06-22 16:20:50</time>
 </span><br>
 
 
