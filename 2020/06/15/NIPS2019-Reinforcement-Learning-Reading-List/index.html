@@ -30,7 +30,7 @@
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-22T09:15:23.819Z">
+<meta property="og:updated_time" content="2020-06-23T12:14:01.524Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NIPS2019 Reinforcement Learning Reading List">
 <meta name="twitter:description" content="NIPS2019论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
@@ -162,7 +162,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Oral"><span class="post-toc-number">1.</span> <span class="post-toc-text">Oral</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Poster"><span class="post-toc-number">2.</span> <span class="post-toc-text">Poster</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Oral"><span class="post-toc-number">1.</span> <span class="post-toc-text">Oral</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Poster"><span class="post-toc-number">2.</span> <span class="post-toc-text">Poster</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#reward分解"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">reward分解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#model-based方法"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">model-based方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#imitation-learning"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">imitation learning</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">其他</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -197,40 +197,26 @@
 <li>动物需要根据传入的嘈杂的感官观察，在与环境互动时设计出最大化returns的策略。与任务相关的状态，例如环境中智能体的位置或掠食者的存在，通常不能直接观察到，而必须使用可用的感官信息来推断。已经提出的successor representations（SR）处在model-based和model-free的强化学习策略的中间，可以快速进行价值计算并快速适应奖励函数或目标位置的变化。实际上，最近的研究表明神经反应的特征与SR框架一致。但是，尚不清楚如何在部分观察到的嘈杂环境中学习和计算此类表示。在这里，我们介绍了一个使用<strong>distribution successor features</strong>的神经上合理的模型，该模型建立在分布式分布代码上，用于表示和计算不确定性，并允许通过successor representation在部分可观测的环境中进行有效的值函数计算。我们表明，分布式successor features可以在嘈杂的环境中支持强化学习，而在这种环境中，直接学习成功的策略是不可行的。</li>
 </ul>
 </li>
-<li><p>Gao, Z., Han, Y., Ren, Z., &amp; Zhou, Z. (2019). Batched Multi-armed Bandits Problem.</p>
-</li>
-<li><p>Van Seijen, H., Fatemi, M., &amp; Tavakoli, A. (2019). Using a Logarithmic Mapping to Enable Lower Discount Factors in Reinforcement Learning.</p>
-</li>
-</ul>
-<h2 id="Poster"><a href="#Poster" class="headerlink" title="Poster"></a>Poster</h2><ul>
-<li><p><strong>Control What You Can: Intrinsically Motivated Task-Planning Agent.</strong> Blaes, S., Vlastelica, M., Poganči´c, P., Zhu, J.-J., &amp; Martius, G. (2019). [<a href="https://s-bl.github.io/cwyc/" target="_blank" rel="noopener">论文链接</a>]</p>
+<li><p><strong>Batched Multi-armed Bandits Problem.</strong> Gao, Z., Han, Y., Ren, Z., &amp; Zhou, Z. (2019). [<a href="https://papers.nips.cc/paper/8341-batched-multi-armed-bandits-problem" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>我们提出了一种新型的内在驱动力智能体，通过优化学习过程来学习如何以样本有效的方式来控制环境，即通过尽可能少的环境交互来控制环境。它使用surprise-based动机来学习哪些东西是可以控制的，如何分配时间和注意力以及对象之间的关系。与内在驱动力，非分层以及最新的分层baseline相比，我们方法的有效性在合成和机器人操作环境中得到了证明，可显着提高性能，并减少样本的复杂性。简而言之，我们的工作结合了多种任务级计划智能体结构（在任务图上回溯搜索，概率路线图，搜索工作分配）以及从头开始学习的内在驱动力。</li>
+<li>在本文中，我们研究了分批设置的多武装匪徒问题，在这种情况下，所采用的策略必须将数据分成少量批处理。 虽然\ cite {perchet2016batched}已完全体现了对两臂随机土匪的最小最大遗憾，但对于多臂案件来说，武器数量对后悔的影响仍未解决。 此外，是否自适应选择批次大小是否有助于减少后悔的问题也仍未得到探讨。 在本文中，我们提出了BaSE（分批逐次淘汰）策略，以实现批处理多臂匪的速率最优后悔（在对数因子之内），即使以自适应方式确定批大小，其下界也匹配。</li>
 </ul>
 </li>
+<li><p><strong>Using a Logarithmic Mapping to Enable Lower Discount Factors in Reinforcement Learning.</strong> Van Seijen, H., Fatemi, M., &amp; Tavakoli, A. (2019). [<a href="https://papers.nips.cc/paper/9560-using-a-logarithmic-mapping-to-enable-lower-discount-factors-in-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>为了更好地理解折现因子影响强化学习中优化过程的不同方式，我们设计了一组实验来单独研究每种效果。 我们的分析表明，普遍的看法是，低折扣因素的不良表现是由（过小的）行动间隙引起的。 我们提出了另一种假设，该假设将跨越状态空间的行动差距的大小差异确定为主要原因。 然后，我们引入一种新方法，该方法通过将值估计值映射到对数空间来实现更均一的动作间隙。 我们在标准假设下证明了该方法的收敛性，并通过经验证明了它确实为近似的强化学习方法提供了较低的折现因子。 反过来，这可以解决一类强化学习问题，这些问题是传统方法难以解决的。</li>
+</ul>
+</li>
+</ul>
+<h2 id="Poster"><a href="#Poster" class="headerlink" title="Poster"></a>Poster</h2><h3 id="reward分解"><a href="#reward分解" class="headerlink" title="reward分解"></a>reward分解</h3><ul>
 <li><p><strong>Distributional Reward Decomposition for Reinforcement Learning.</strong> Lin, Z., Zhao, L., Yang, D., Qin, T., Yang, G., &amp; Liu, Y. (2019). [<a href="https://papers.nips.cc/paper/8852-distributional-reward-decomposition-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
 <li>许多强化学习（RL）任务具有特定的属性，可以利用这些属性来修改现有的RL算法以适应这些任务并进一步提高性能，此类属性的一般类别是多重奖励channel。在那些环境中，可以将全部奖励分解为从不同channel获得的子奖励。现有的关于奖励分解的工作或者需要环境先验知识才能分解全部奖励，或者在没有先验知识的情况下分解奖励但会降低算法性能。在本文中，我们提出了Distributional Reward Decomposition for Reinforcement Learning（DRDRL），这是一种新颖的奖励分解算法，可以捕获分布式设置下的多个奖励channel结构。根据经验，我们的方法捕获了多通道结构并发现了有意义的奖励分解，而无需任何先验知识。因此，在具有多个奖励渠道的环境中，我们的代理比现有方法具有更好的性能。</li>
 </ul>
 </li>
-<li><p><strong>Generalization of Reinforcement Learners with Working and Episodic Memory.</strong> Fortunato, M., Tan, M., Faulkner, R., Hansen, S., Adrià, ?, Badia, P., … Deepmind, C. B. (2019). [<a href="https://papers.nips.cc/paper/9411-generalization-of-reinforcement-learners-with-working-and-episodic-memory" target="_blank" rel="noopener">论文链接</a>]</p>
-<ul>
-<li>记忆是智能的重要方面，并在许多深度强化学习模型中发挥作用。但是，在了解特定的记忆系统何时比其他系统更有用以及它们的泛化性如何方面进展甚微。该领域还没有一种普遍的，一致且严格的方法来评估智能体在保留数据上的性能。在本文中，我们旨在开发一种全面的方法来测试智能体中不同类型的记忆，并评估智能体可以如何将其在训练中学到的东西应用到与训练集在我们建议的相关维度上不同的集合上，用于评估特定于记忆的泛化。为此，我们首先构建了一组多样化的记忆任务，这些任务使我们能够评估多个维度上的测试时泛化。其次，我们在结合了多个记忆系统的智能体架构上开发并执行多种消融，观察其baseline模型，并针对任务套件调查其性能。</li>
-</ul>
-</li>
 <li><p><strong>Learning Reward Machines for Partially Observable Reinforcement Learning.</strong> Toro Icarte, R., Waldie, E., Klassen, T. Q., Valenzano, R., Castro, M. P., &amp; McIlraith, S. A. (2019). [<a href="https://papers.nips.cc/paper/9685-learning-reward-machines-for-partially-observable-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
 <li>最初用于指定强化学习（RL）中的问题的奖励机（RMs）提供了一种基于自动机的奖励函数的结构化表示，该表示使智能体可以将问题分解为子问题，可以使用off-policy学习有效地学习这些问题。这里，我们表明RMs可以从经验中学习，而不是由用户指定，并且所产生的问题分解可以用于有效解决部分可观察RL问题。我们将学习RMs的任务定位为离散的优化问题，其目标是找到将问题分解为一组子问题的RM，以使其最优无记忆策略的组合成为原始问题的最优策略。 我们在三个部分可观察domain上展示该方法的有效性（显着胜于A3C，PPO和ACER），并讨论其优势，局限性和广阔的潜力。</li>
-</ul>
-</li>
-<li><p><strong>Learning to Control Self-Assembling Morphologies: A Study of Generalization via Modularity.</strong> Pathak, D., Lu, C., Darrell, T., Isola, P., &amp; Efros, A. A. (2019). [<a href="https://pathak22.github.io/modular-assemblies/" target="_blank" rel="noopener">论文链接</a>]</p>
-<ul>
-<li>当前的感觉运动学习方法通​​常从他们学习控制的现有复杂主体（例如，机械臂）开始。相比之下，本文研究了一种模块化的协同进化策略：一组原语智能体学习动态地自我组装成复合机体，同时学习协调其行为以控制这些机体。每个原语智能体都包括一个肢体，一端附有一个电机。肢体可以选择连接起来以形成集体。当一个肢体启动链接动作并且附近有另一个肢体时，后者与“父母”肢体的电机磁连接。这形成了新的单体智能体，可以进一步与其他智能体链接。这样，可以通过策略控制复杂的形态，这种策略的架构与形态显式对应。我们评估这些动态和模块化智能体在模拟环境中的性能。与静态基线和单体baseline相比，我们展示了其对环境以及智能体结构的测试时变化有更好的泛化性。补充材料中提供了项目视频和源代码。</li>
-</ul>
-</li>
-<li><p><strong>Learning to Predict Without Looking Ahead: World Models Without Forward Prediction.</strong> Freeman, C. D., Metz, L., &amp; Google Brain, D. H. (2019). [<a href="https://papers.nips.cc/paper/8778-learning-to-predict-without-looking-ahead-world-models-without-forward-prediction" target="_blank" rel="noopener">论文链接</a>]</p>
-<ul>
-<li>许多基于模型的强化学习涉及学习智能体世界的模型，并训练智能体以利用该模型更有效地执行任务。尽管这些模型对智能体非常有用，但我们知道的每个自然存在的模型（例如大脑）都是由竞争性生存进化压力产生的副产品，而不是通过梯度下降最小化有监督的前向预测loss而产生的。有用的模型可能来自混乱而缓慢的演化优化过程，这表明前向预测建模可以作为在适当情况下优化的副作用而出现。至关重要的是，此优化过程不必明确是前向预测loss。在这项工作中，我们对传统的强化学习进行了改进，我们将其称为observational dropout，限制了智能体在每个时间步观察真实环境的能力。这样做，我们可以强迫智能体学习一种世界模型，以填补强化学习过程中的观察gap。我们表明，这样产生的世界模型虽然未经过显式训练以预测未来，但可以帮助智能体学习在其环境中表现良好所需的关键技能。我们的结果视频可在<a href="https://learningtopredict.github.io/" target="_blank" rel="noopener">https://learningtopredict.github.io/</a>获得</li>
 </ul>
 </li>
 <li><p><strong>LIIR: Learning Individual Intrinsic Reward in Multi-Agent Reinforcement Learning.</strong> Du, Y., Han, L., Fang, M., Dai, T., Liu, J., &amp; Tao, D. (2019). [<a href="https://papers.nips.cc/paper/8691-liir-learning-individual-intrinsic-reward-in-multi-agent-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
@@ -243,220 +229,559 @@
 <li>我们提出了RUDDER，这是一种新颖的强化学习方法，用于有限马尔科夫决策过程（MDP）中的延迟奖励。在MDP中，Q值等于预期的即时奖励加上预期的未来奖励。后者与时差（TD）学习中的偏差问题以及蒙特卡洛（MC）学习中的高方差问题有关。当奖励延迟时，这两个问题都更加严重。 RUDDER旨在使预期的未来回报为零，从而简化了Q值估算，以计算即时奖励的均值。我们提出以下两个新概念，以将预期的未来奖励推向零。（i）奖励重新分配，它导致具有与最优策略相同的等价收益决策过程，并且在最优时，预期的未来回报为零。（ii）通过贡献分析进行收益分解，将强化学习任务转换为深度学习擅长的回归任务。在具有延迟奖励的人工任务上，RUDDER比MC快得多，并且比蒙特卡洛树搜索（MCTS），TD（λ）和奖励shaping方法快得多。在Atari游戏中，位于Proximal Policy Optimization（PPO）baseline之上的RUDDER可以提高得分，这在具有延迟奖励的游戏中最为突出。视频链接如下<a href="https://goo.gl/EQerZV" target="_blank" rel="noopener">https://goo.gl/EQerZV</a></li>
 </ul>
 </li>
-<li><p><strong>Third-Person Visual Imitation Learning via Decoupled Hierarchical Controller.</strong> Sharma, P., Pathak, D., &amp; Gupta, A. (2019). [<a href="https://papers.nips.cc/paper/8528-third-person-visual-imitation-learning-via-decoupled-hierarchical-controller" target="_blank" rel="noopener">论文链接</a>]</p>
-<ul>
+</ul>
+<h3 id="model-based方法"><a href="#model-based方法" class="headerlink" title="model-based方法"></a>model-based方法</h3><ul>
+<li><strong>Learning to Predict Without Looking Ahead: World Models Without Forward Prediction.</strong> Freeman, C. D., Metz, L., &amp; Google Brain, D. H. (2019). [<a href="https://papers.nips.cc/paper/8778-learning-to-predict-without-looking-ahead-world-models-without-forward-prediction" target="_blank" rel="noopener">论文链接</a>]<ul>
+<li>许多基于模型的强化学习涉及学习智能体世界的模型，并训练智能体以利用该模型更有效地执行任务。尽管这些模型对智能体非常有用，但我们知道的每个自然存在的模型（例如大脑）都是由竞争性生存进化压力产生的副产品，而不是通过梯度下降最小化有监督的前向预测loss而产生的。有用的模型可能来自混乱而缓慢的演化优化过程，这表明前向预测建模可以作为在适当情况下优化的副作用而出现。至关重要的是，此优化过程不必明确是前向预测loss。在这项工作中，我们对传统的强化学习进行了改进，我们将其称为observational dropout，限制了智能体在每个时间步观察真实环境的能力。这样做，我们可以强迫智能体学习一种世界模型，以填补强化学习过程中的观察gap。我们表明，这样产生的世界模型虽然未经过显式训练以预测未来，但可以帮助智能体学习在其环境中表现良好所需的关键技能。我们的结果视频可在<a href="https://learningtopredict.github.io/" target="_blank" rel="noopener">https://learningtopredict.github.io/</a>获得</li>
+</ul>
+</li>
+</ul>
+<h3 id="imitation-learning"><a href="#imitation-learning" class="headerlink" title="imitation learning"></a>imitation learning</h3><ul>
+<li><strong>Third-Person Visual Imitation Learning via Decoupled Hierarchical Controller.</strong> Sharma, P., Pathak, D., &amp; Gupta, A. (2019). [<a href="https://papers.nips.cc/paper/8528-third-person-visual-imitation-learning-via-decoupled-hierarchical-controller" target="_blank" rel="noopener">论文链接</a>]<ul>
 <li>我们研究了一种通用的设置，用于从演示中学习，以构建一个智能体，该智能体可以通过仅从第三人称视角观看人类演示的单个视频来在看不见的场景中操纵新对象。为了实现此目标，我们的智能体不仅应学会了解所展示的第三人称视频在上下文中的意图，而且应在其环境配置中执行预期的任务。我们的主要见解是在学习过程中明确地实施这种结构，通过将要达成的目标（预期任务）与如何达到目标（控制器）分离开来。我们提出了一种分层设置，其中高级模块学习以第三人称视频演示为条件的一系列第一人称子目标，而底层控制器则预测实现这些子目标的动作。我们的智能体根据原始图像观察结果进行操作，而无需访问完整的状态信息。我们在使用Baxter的真实机器人平台上展示结果，完成将对象倒入以及放入盒子中的操作任务。 可在<a href="https://pathak22.github.io/hierarchical-imitation/" target="_blank" rel="noopener">https://pathak22.github.io/hierarchical-imitation/</a>上找到项目视频。</li>
 </ul>
 </li>
-<li><p>Jothimurugan, K., Alur, R., &amp; Bastani, O. (2019). A Composable Specification Language for Reinforcement Learning Tasks.</p>
-</li>
-<li><p>Lu, Y., Squillante, M. S., &amp; Wah Wu, C. (2019). A Family of Robust Stochastic Operators for Reinforcement Learning.</p>
-</li>
-<li><p>Yang, R., Sun, X., &amp; Narasimhan, K. (2019). A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation. Retrieved from <a href="https://github.com/RunzheYang/MORL" target="_blank" rel="noopener">https://github.com/RunzheYang/MORL</a></p>
-</li>
-<li><p>Bellemare, M. G., Dabney, W., Dadashi, R., Taiga, A. A., Castro, P. S., Le Roux, N., … Lyle, C. (2019). A Geometric Perspective on Optimal Representations for Reinforcement Learning.</p>
-</li>
-<li><p>Feng, Y., Li, L., Research, G., &amp; Liu, Q. (2019). A Kernel Loss for Solving the Bellman Equation.</p>
-</li>
-<li><p>Garcia, F. M., &amp; Thomas, P. S. (2019). A Meta-MDP Approach to Exploration for Lifelong Reinforcement Learning. Retrieved from <a href="https://github.com/fmaxgarcia/Meta-MDP" target="_blank" rel="noopener">https://github.com/fmaxgarcia/Meta-MDP</a></p>
-</li>
-<li><p>Li, X., Yang, W., &amp; Zhang, Z. (2019). A Regularized Approach to Sparse Optimal Policy in Reinforcement Learning.</p>
-</li>
-<li><p>Carion Facebook, N., Lamsade, P., Paris Dauphine, U., Synnaeve Facebook, G., Lazaric Facebook, A., &amp; Usunier Facebook, N. (2019). A Structured Prediction Approach for Generalization in Cooperative Multi-Agent Reinforcement Learning.</p>
-</li>
-<li><p>Leibfried, F., Pascual-Díaz, S., &amp; Grau-Moya, J. (2019). A Unified Bellman Optimality Principle Combining Reward Maximization and Empowerment.</p>
-</li>
-<li><p>Lin, X., Singh Baweja, H., Kantor, G., &amp; Held, D. (2019). Adaptive Auxiliary Task Weighting for Reinforcement Learning.</p>
-</li>
-<li><p>Penedones, H., Deepmind, ⇤, Riquelme, C., Google, ⇤, Damien, B., Google, V., … Neu, B. G. (2019). Adaptive Temporal-Difference Learning for Policy Evaluation with Per-State Uncertainty Estimates.</p>
-</li>
-<li><p>Zanette, A., Kochenderfer, M. J., &amp; Brunskill, E. (2019). Almost Horizon-Free Structure-Aware Best Policy Identification with a Generative Model.</p>
-</li>
-<li><p>Ciosek, K., Vuong, Q., Loftin, R., &amp; Hofmann, K. (2019). Better Exploration with Optimistic Actor-Critic.</p>
-</li>
-<li><p>Eccles, T., Bachrach, Y., Lever, G., &amp; Lazaridou, A. (2019). Biases for Emergent Communication in Multi-agent Reinforcement Learning.</p>
-</li>
-<li><p>Carrara, N., Leurent, E., Laroche, R., Urvoy, T., &amp; Pietquin, O. (2019). Budgeted Reinforcement Learning in Continuous State Space. Retrieved from <a href="https://budgeted-rl.github.io/" target="_blank" rel="noopener">https://budgeted-rl.github.io/</a>.</p>
-</li>
-<li><p>De Haan, P., Jayaraman, D., &amp; Levine, S. (2019). Causal Confusion in Imitation Learning.</p>
-</li>
-<li><p>Paternain, S., O Chamon, L. F., Calvo-Fullana, M., &amp; Ribeiro, A. (2019). Constrained Reinforcement Learning Has Zero Duality Gap.</p>
-</li>
-<li><p>Yu, M., Yang, Z., Kolar, M., &amp; Wang, Z. (2019). Convergent Policy Optimization for Safe Reinforcement Learning.</p>
-</li>
-<li><p>Alt, B., Adrian, ⇤, Šoši´c, Š., &amp; Koeppl, H. (2019). Correlation Priors for Reinforcement Learning. Retrieved from <a href="https://git.rwth-aachen.de/bcs/correlation_priors_for_rl" target="_blank" rel="noopener">https://git.rwth-aachen.de/bcs/correlation_priors_for_rl</a></p>
-</li>
-<li><p>Fang, M., Zhou, T., Du, Y., Han, L., Zhang, Z., Robotics, T., &amp; Allen, P. G. (2019). Curriculum-guided Hindsight Experience Replay. Retrieved from <a href="https://github.com/mengf1/CHER" target="_blank" rel="noopener">https://github.com/mengf1/CHER</a>.</p>
-</li>
-<li><p>Zhang, S., &amp; Whiteson, S. (2019). DAC: The Double Actor-Critic Architecture for Learning Options.</p>
-</li>
-<li><p>Veeriah, V., Hessel, M., Xu, Z., Lewis, R., Rajendran, J., Oh, J., … Singh, S. (2016). Discovery of Useful Questions as Auxiliary Tasks.</p>
-</li>
-<li><p>Tessler, C., Tennenholtz, G., &amp; Mannor, S. (2019). Distributional Policy Optimization: An Alternative Approach for Continuous Control.</p>
-</li>
-<li><p>Wang, Q., Li, Y., Xiong, J., &amp; Zhang, T. (2019). Divergence-Augmented Policy Optimization.</p>
-</li>
-<li><p>Zhang, S. Q., Zhang, Q., &amp; Lin, J. (2019). Efficient Communication in Multi-Agent Reinforcement Learning via Variance Based Control. Retrieved from <a href="https://github.com/saizhang0218/VBC" target="_blank" rel="noopener">https://github.com/saizhang0218/VBC</a>.</p>
-</li>
-<li><p>Rolnick, D., Ahuja, A., Schwarz, J., Lillicrap, T. P., &amp; Wayne, G. (2019). Experience Replay for Continual Learning.</p>
-</li>
-<li><p>Henaff, M. (2019). Explicit Explore-Exploit Algorithms in Continuous State Spaces.</p>
-</li>
-<li><p>Zhang, L., Tang, K., &amp; Yao, X. (2019). Explicit Planning for Efficient Exploration in Reinforcement Learning.</p>
-</li>
-<li><p>Ren, Z., Dong, K., Zhou, Y., Liu, Q., &amp; Peng, J. (2019). Exploration via Hindsight Goal Generation.</p>
-</li>
-<li><p>Paul, S., Kurin, V., &amp; Whiteson, S. (2019). Fast Efficient Hyperparameter Tuning for Policy Gradient Methods.</p>
-</li>
-<li><p>Serrino, J., Kleiman-Weiner, M., Harvard, ⇤, Parkes, D. C., &amp; Tenenbaum, J. B. (2019). Finding Friend and Foe in Multi-Agent Games. Retrieved from <a href="https://github.com/Detry322/DeepRole" target="_blank" rel="noopener">https://github.com/Detry322/DeepRole</a>.</p>
-</li>
-<li><p>Gupta ECE, H., Srikant ECE, R., &amp; Ying, L. (2019). Finite-Time Performance Bounds and Adaptive Learning Rate Selection for Two Time-Scale Reinforcement Learning.</p>
-</li>
-<li><p>Yang, D., Zhao, L., Lin, Z., Qin, T., Bian, J., &amp; Liu, T. (2019). Fully Parameterized Quantile Function for Distributional Reinforcement Learning.</p>
-</li>
-<li><p>Igl, M., Ciosek, K., Research, M., Li, Y., Tschiatschek, S., Zhang, C., … Hofmann, K. (2019). Generalization in Reinforcement Learning with Selective Noise Injection and Information Bottleneck.</p>
-</li>
-<li><p>Zhang, S., Boehmer, W., &amp; Whiteson, S. (2019). Generalized Off-Policy Actor-Critic.</p>
-</li>
-<li><p>Ding, Y., Florensa, C., Phielipp, M., &amp; Abbeel, P. (2019). Goal-conditioned Imitation Learning. Retrieved from <a href="https://sites.google.com/view/goalconditioned-il/" target="_blank" rel="noopener">https://sites.google.com/view/goalconditioned-il/</a></p>
-</li>
-<li><p>Assran, M., Romoff, J., Ballas, N., Pineau, J., &amp; Rabbat, M. (2019). Gossip-based Actor-Learner Architectures for Deep Reinforcement Learning. Retrieved from <a href="https://github.com/facebookresearch/gala" target="_blank" rel="noopener">https://github.com/facebookresearch/gala</a>.</p>
-</li>
-<li><p>Mendonca, R., Gupta, A., Kralev, R., Abbeel, P., Levine, S., &amp; Finn, C. (2019). Guided Meta-Policy Search.</p>
-</li>
-<li><p>Hu, H., Yarats, D., Gong, Q., Tian, Y., &amp; Lewis, M. (2019). Hierarchical Decision Making by Generating and Following Natural Language Instructions. Retrieved from www.minirts.net</p>
-</li>
-<li><p>Li, S., Wang, R., Tang, M., &amp; Zhang, C. (2019). Hierarchical Reinforcement Learning with Advantage-Based Auxiliary Rewards. Retrieved from <a href="http://bit.ly/2JxA0eN" target="_blank" rel="noopener">http://bit.ly/2JxA0eN</a></p>
-</li>
-<li><p>Yang, C., Ma, X., Huang, W., Sun, F., Liu, H., Huang, J., &amp; Gan, C. (2019). Imitation Learning from Observations by Minimizing Inverse Dynamics Disagreement.</p>
-</li>
-<li><p>Verma, A., Le, H. M., Caltech, Y. Y., &amp; Chaudhuri, S. (2019). Imitation-Projected Programmatic Reinforcement Learning.</p>
-</li>
-<li><p>Schlegel, M., Chung, W., Graves Huawei, D., Qian, J., &amp; White, M. (2019). Importance Resampling for Off-policy Prediction.</p>
-</li>
-<li><p>Lu, X., &amp; Roy, B. Van. (2019). Information-Theoretic Confidence Bounds for Reinforcement Learning.</p>
-</li>
-<li><p>Deverett DeepMind, B., Faulkner DeepMind, R., Fortunato DeepMind, M., Wayne DeepMind, G., &amp; Leibo DeepMind, J. Z. (2019). Interval timing in deep reinforcement learning agents.</p>
-</li>
-<li><p>Kallus, N., &amp; Uehara, M. (2019). Intrinsically Efficient, Stable, and Bounded Off-Policy Evaluation for Reinforcement Learning.</p>
-</li>
-<li><p>Trott, A., Research, S., Zheng, S., Xiong, C., &amp; Socher, R. (2019). Keeping Your Distance: Solving Sparse Reward Tasks Using Self-Balancing Shaped Rewards.</p>
-</li>
-<li><p>Jiang, Y., Gu, S., Murphy, K., Finn, C., &amp; Research, G. (2019). Language as an Abstraction for Hierarchical Deep Reinforcement Learning. Retrieved from <a href="https://sites.google.com/view/hal-demo" target="_blank" rel="noopener">https://sites.google.com/view/hal-demo</a></p>
-</li>
-<li><p>Rivera Cardoso, A., Wang, H., &amp; Xu, H. (2019). Large Scale Markov Decision Processes with Changing Rewards.</p>
-</li>
-<li><p>Tschiatschek, S., Ghosh, A., Haug, L., Zurich, E., Devidze, R., &amp; Singla, A. (2019). Learner-aware Teaching: Inverse Reinforcement Learning with Preferences and Constraints.</p>
-</li>
-<li><p>Jiang, J., &amp; Lu, Z. (2019). Learning Fairness in Multi-Agent Systems.</p>
-</li>
-<li><p>Paul, S., Van Baar, J., &amp; Roy-Chowdhury, A. K. (2019). Learning from Trajectories via Subgoal Discovery.</p>
-</li>
-<li><p>Hiraoka, T., Imagawa, T., Mori, T., Onishi, T., &amp; Tsuruoka, Y. (2019). Learning Robust Options by Conditional Value at Risk Optimization.</p>
-</li>
-<li><p>Farquhar, G., Whiteson, S., &amp; Foerster, J. (2019). Loaded DiCE: Trading off Bias and Variance in Any-Order Score Function Estimators for Reinforcement Learning.</p>
-</li>
-<li><p>Huang, Z., Liu, F., &amp; Su, H. (2019). Mapping State Space using Landmarks for Universal Goal Reaching.</p>
-</li>
-<li><p>Mahajan, A., Rashid, T., Samvelyan, M., &amp; Whiteson, S. (2019). MAVEN: Multi-Agent Variational Exploration.</p>
-</li>
-<li><p>Peng, X. Bin, Chang, M., Zhang, G., Abbeel, P., &amp; Levine, S. (2019). MCP: Learning Composable Hierarchical Control with Multiplicative Compositional Policies.</p>
-</li>
-<li><p>Yu, L., Yu, T., Finn, C., &amp; Ermon, S. (2019). Meta-Inverse Reinforcement Learning with Probabilistic Context Variables.</p>
-</li>
-<li><p>Ainsworth, S., Barnes, M., &amp; Srinivasa, S. (2019). Mo 0 States Mo 0 Problems: Emergency Stop Mechanisms from Observation.</p>
-</li>
-<li><p>Hu, S., Leung, C.-W., &amp; Leung, H.-F. (2019). Modelling the Dynamics of Multiagent Q-Learning in Repeated Symmetric Games: a Mean Field Theoretic Approach.</p>
-</li>
-<li><p>Schroeder de Witt, C. A., Foerster, J. N., Farquhar, G., S Torr, P. H., Böhmer, W., &amp; Whiteson, S. (2019). Multi-Agent Common Knowledge Reinforcement Learning.</p>
-</li>
-<li><p>Rowland, M., Omidshafiei, S., Tuyls, K., Pérolat, J., Valko, M., Piliouras, G., &amp; Munos, R. (2019). Multiagent Evaluation under Incomplete Information.</p>
-</li>
-<li><p>Li, M., Wu, L., Bou Ammar, H., &amp; Wang, J. (2019). Multi-View Reinforcement Learning.</p>
-</li>
-<li><p>Zhang, J., &amp; Bareinboim, E. (2019). Near-Optimal Reinforcement Learning in Dynamic Treatment Regimes.</p>
-</li>
-<li><p>Liu, B., Cai, Q., Yang, Z., &amp; Wang, Z. (2019). Neural Proximal/Trust Region Policy Optimization Attains Globally Optimal Policy.</p>
-</li>
-<li><p>Paquette, P., Lu, Y., Bocco, S., Smith, M. O., Ortiz-Gagné, S., Kummerfeld, J. K., … Courville, A. (2019). No Press Diplomacy: Modeling Multi-Agent Gameplay. Retrieved from <a href="https://github.com/diplomacy/research" target="_blank" rel="noopener">https://github.com/diplomacy/research</a></p>
-</li>
-<li><p>Simchowitz, M., &amp; Jamieson, K. (2019). Non-Asymptotic Gap-Dependent Regret Bounds for Tabular MDPs.</p>
-</li>
-<li><p>Zhang, X., Zhang, K., Tamer, E. M., &amp; Bas¸ar, B. (2019). Non-Cooperative Inverse Reinforcement Learning.</p>
-</li>
-<li><p>Lecarpentier, E., &amp; Rachelson, E. (2019). Non-Stationary Markov Decision Processes a Worst-Case Approach using Model-Based Reinforcement Learning.</p>
-</li>
-<li><p>Sessa, P. G., Zürich, E., Bogunovic, I., Kamgarpour, M., &amp; Krause, A. (2019). No-Regret Learning in Unknown Games with Correlated Payoffs.</p>
-</li>
-<li><p>Irpan, A., Rao, K., Bousmalis, K., Harris, C., Ibarz, J., &amp; Levine, S. (2019). Off-Policy Evaluation via Off-Policy Classification.</p>
-</li>
-<li><p>Komanduru, A., &amp; Honorio, J. (2019). On the Correctness and Sample Complexity of Inverse Reinforcement Learning.</p>
-</li>
-<li><p>Nasiriany, S., Pong, V. H., Lin, S., &amp; Levine, S. (2019). Planning with Goal-Conditioned Policies.</p>
-</li>
-<li><p>Ma, Y., Zhang, X., Sun, W., &amp; Zhu, X. (2019). Policy Poisoning in Batch Reinforcement Learning and Control.</p>
-</li>
-<li><p>Wang, B., Hegde, N., &amp; Ai, B. (2019). Privacy-preserving Q-Learning with Functional Noise in Continuous Spaces.</p>
-</li>
-<li><p>Metelli, A. M., Likmeta, A., &amp; Restelli, M. (2019). Propagating Uncertainty in Reinforcement Learning via Wasserstein Barycenters. Retrieved from <a href="https://github.com/albertometelli/wql" target="_blank" rel="noopener">https://github.com/albertometelli/wql</a>.</p>
-</li>
-<li><p>Bai, Y., Xie, T., Jiang, N., Wang, Y.-X., &amp; Barbara, S. (2019). Provably Efficient Q-Learning with Low Switching Cost.</p>
-</li>
-<li><p>Yang, Z., Chen, Y., Hong, M., &amp; Wang, Z. (2019). Provably Global Convergence of Actor-Critic: A Case for Linear Quadratic Regulator with Ergodic Cost.</p>
-</li>
-<li><p>Ramstedt Mila, S., &amp; Pal, C. (2019). Real-Time Reinforcement Learning.</p>
-</li>
-<li><p>Daley, B., &amp; Amato, C. (2019). Reconciling λ-Returns with Experience Replay.</p>
-</li>
-<li><p>Ortner, R., Pirotta, M., Fruit, R., Lazaric, A., &amp; Maillard, O.-A. (2019). Regret Bounds for Learning State Representations in Reinforcement Learning.</p>
-</li>
-<li><p>Zhang, Z., &amp; Ji, X. (2019). Regret Minimization for Reinforcement Learning by Evaluating the Optimal Bias Function.</p>
-</li>
-<li><p>Chi Cheung, W. (2019). Regret Minimization for Reinforcement Learning with Vectorial Feedback and Complex Objectives.</p>
-</li>
-<li><p>Shi, W., Song, S., Wu, H., Hsu, Y.-C., Wu, C., &amp; Huang, G. (2019). Regularized Anderson Acceleration for Off-Policy Deep Reinforcement Learning. Retrieved from <a href="https://github.com/shiwj16/raa-drl" target="_blank" rel="noopener">https://github.com/shiwj16/raa-drl</a>.</p>
-</li>
-<li><p>Miryoosefi, S., Brantley, K., Iii, H. D., Dudík, M., &amp; Schapire, R. E. (2019). Reinforcement Learning with Convex Constraints.</p>
-</li>
-<li><p>Umenberger, J., Ferizbegovic, M., Schön, T. B., &amp; Hjalmarsson, H. (2019). Robust exploration in linear quadratic reinforcement learning.</p>
-</li>
-<li><p>Peysakhovich, A., Kroer, C., &amp; Lerer, A. (2019). Robust Multi-agent Counterfactual Prediction.</p>
-</li>
-<li><p>Lee, S. Y., Choi, S., &amp; Chung, S.-Y. (2019). Sample-Efficient Deep Reinforcement Learning via Episodic Backward Update.</p>
-</li>
-<li><p>Eysenbach, B., Salakhutdinov, R., Levine Φψ Θ Cmu, S., &amp; Brain, G. (2019). Search on the Replay Buffer: Bridging Planning and Reinforcement Learning. Retrieved from <a href="http://bit.ly/rl_search" target="_blank" rel="noopener">http://bit.ly/rl_search</a></p>
-</li>
-<li><p>Demirer, M., Syrgkanis, V., Lewis, G., &amp; Chernozhukov, V. (2019). Semi-Parametric Efficient Policy Learning with Continuous Actions.</p>
-</li>
-<li><p>Gregor, K., Rezende, D. J., Besse, F., Wu, Y., &amp; Merzic, H. (2019). Shaping Belief States with Generative Environment Models for RL.</p>
-</li>
-<li><p>Kumar, A., Fu, J., Google Brain, G. T., &amp; Levine, S. (2019). Stabilizing Off-Policy Q-Learning via Bootstrapping Error Reduction.</p>
-</li>
-<li><p>Barreto, A., Borsa, D., Hou, S., Comanici, G., Aygün, E., Hamel, P., … Precup, D. (2019). The Option Keyboard Combining Skills in Reinforcement Learning.</p>
-</li>
-<li><p>Efroni, Y., Merlis, N., Ghavamzadeh, M., &amp; Mannor, S. (2019). Tight Regret Bounds for Model-Based Reinforcement Learning with Greedy Policies.</p>
-</li>
-<li><p>Mott, A., Zoran, D., Chrzanowski, M., Wierstra, D., &amp; Rezende, D. J. (2019). Towards Interpretable Reinforcement Learning Using Attention Augmented Agents.</p>
-</li>
-<li><p>Xie, T., Ma, Y., &amp; Wang, Y.-X. (2019). Towards Optimal Off-Policy Evaluation for Reinforcement Learning with Marginalized Importance Sampling.</p>
-</li>
-<li><p>Wang, Y., He, H., Tan, X., &amp; Gan, Y. (2019). Trust Region-Guided Proximal Policy Optimization. Retrieved from <a href="https://github.com/wangyuhuix/TRGPPO" target="_blank" rel="noopener">https://github.com/wangyuhuix/TRGPPO</a>.</p>
-</li>
-<li><p>Xu, T., Zou, S., &amp; Liang, Y. (2019). Two Time-scale Off-Policy TD Learning: Non-asymptotic Analysis over Markovian Samples.</p>
-</li>
-<li><p>Jabri, A., Hsu, K., Eysenbach, B., Gupta, A., Levine, S., &amp; Finn, C. (2019). Unsupervised Curricula for Visual Meta-Reinforcement Learning.</p>
-</li>
-<li><p>Qu, C., Mannor, S., Xu, H., Qi, Y., Song, L., &amp; Xiong, J. (2019). Value Propagation for Decentralized Networked Deep Multi-agent Reinforcement Learning.</p>
-</li>
-<li><p>Wai, H.-T., Hong, M., Yang, Z., Wang, Z., &amp; Tang, K. (2019). Variance Reduced Policy Evaluation with Smooth Function Approximation.</p>
-</li>
-<li><p>Fellows, M., Mahajan, A., Rudner, T. G. J., &amp; Whiteson, S. (2019). VIREL: A Variational Inference Framework for Reinforcement Learning.</p>
-</li>
-<li><p>Janner, M., Fu, J., Zhang, M., &amp; Levine, S. (2019). When to Trust Your Model: Model-Based Policy Optimization.</p>
-</li>
-<li><p>Van Hasselt, H., London, D., Hessel, M., &amp; Aslanides, J. (2019). When to use parametric models in reinforcement learning?</p>
-</li>
-<li><p>Russo, D. (2019). Worst-Case Regret Bounds for Exploration via Randomized Value Functions.</p>
+</ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><p><strong>Control What You Can: Intrinsically Motivated Task-Planning Agent.</strong> Blaes, S., Vlastelica, M., Poganči´c, P., Zhu, J.-J., &amp; Martius, G. (2019). [<a href="https://s-bl.github.io/cwyc/" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们提出了一种新型的内在驱动力智能体，通过优化学习过程来学习如何以样本有效的方式来控制环境，即通过尽可能少的环境交互来控制环境。它使用surprise-based动机来学习哪些东西是可以控制的，如何分配时间和注意力以及对象之间的关系。与内在驱动力，非分层以及最新的分层baseline相比，我们方法的有效性在合成和机器人操作环境中得到了证明，可显着提高性能，并减少样本的复杂性。简而言之，我们的工作结合了多种任务级计划智能体结构（在任务图上回溯搜索，概率路线图，搜索工作分配）以及从头开始学习的内在驱动力。</li>
+</ul>
+</li>
+<li><p><strong>Generalization of Reinforcement Learners with Working and Episodic Memory.</strong> Fortunato, M., Tan, M., Faulkner, R., Hansen, S., Adrià, ?, Badia, P., … Deepmind, C. B. (2019). [<a href="https://papers.nips.cc/paper/9411-generalization-of-reinforcement-learners-with-working-and-episodic-memory" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>记忆是智能的重要方面，并在许多深度强化学习模型中发挥作用。但是，在了解特定的记忆系统何时比其他系统更有用以及它们的泛化性如何方面进展甚微。该领域还没有一种普遍的，一致且严格的方法来评估智能体在保留数据上的性能。在本文中，我们旨在开发一种全面的方法来测试智能体中不同类型的记忆，并评估智能体可以如何将其在训练中学到的东西应用到与训练集在我们建议的相关维度上不同的集合上，用于评估特定于记忆的泛化。为此，我们首先构建了一组多样化的记忆任务，这些任务使我们能够评估多个维度上的测试时泛化。其次，我们在结合了多个记忆系统的智能体架构上开发并执行多种消融，观察其baseline模型，并针对任务套件调查其性能。</li>
+</ul>
+</li>
+<li><p><strong>Learning to Control Self-Assembling Morphologies: A Study of Generalization via Modularity.</strong> Pathak, D., Lu, C., Darrell, T., Isola, P., &amp; Efros, A. A. (2019). [<a href="https://pathak22.github.io/modular-assemblies/" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>当前的感觉运动学习方法通​​常从他们学习控制的现有复杂主体（例如，机械臂）开始。相比之下，本文研究了一种模块化的协同进化策略：一组原语智能体学习动态地自我组装成复合机体，同时学习协调其行为以控制这些机体。每个原语智能体都包括一个肢体，一端附有一个电机。肢体可以选择连接起来以形成集体。当一个肢体启动链接动作并且附近有另一个肢体时，后者与“父母”肢体的电机磁连接。这形成了新的单体智能体，可以进一步与其他智能体链接。这样，可以通过策略控制复杂的形态，这种策略的架构与形态显式对应。我们评估这些动态和模块化智能体在模拟环境中的性能。与静态基线和单体baseline相比，我们展示了其对环境以及智能体结构的测试时变化有更好的泛化性。补充材料中提供了项目视频和源代码。</li>
+</ul>
+</li>
+<li><p><strong>A Composable Specification Language for Reinforcement Learning Tasks.</strong> Jothimurugan, K., Alur, R., &amp; Bastani, O. (2019). [<a href="https://papers.nips.cc/paper/9462-a-composable-specification-language-for-reinforcement-learning-tasks" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>强化学习是一种学习机器人任务控制策略的有前途的方法。 然而，指定复杂的任务（例如，具有多个目标和安全约束）可能是具有挑战性的，因为用户必须设计对整个任务进行编码的奖励函数。 此外，用户经常需要手动调整奖励以确保学习算法的收敛。 我们提出了一种用于指定复杂控制任务的语言，以及一种将我们的语言规范编译为奖励功能并自动执行奖励整形的算法。 我们在一个名为SPECTRL的工具中实现了我们的方法，并表明它优于几个最新的基准。</li>
+</ul>
+</li>
+<li><p><strong>A Family of Robust Stochastic Operators for Reinforcement Learning.</strong> Lu, Y., Squillante, M. S., &amp; Wah Wu, C. (2019). [<a href="https://papers.nips.cc/paper/9696-a-family-of-robust-stochastic-operators-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们考虑了一个新的随机算子家族，用于强化学习，其目的是减轻负面影响，并变得对近似误差或估计误差更加稳健。 建立了各种理论结果，包括表明我们的操作员家族在随机意义上保留了最优性并增加了行动差距。 我们的经验结果说明了我们强大的随机算子的强大优势，其性能明显优于传统的Bellman算子和最近提出的算子。</li>
+</ul>
+</li>
+<li><p><strong>A Generalized Algorithm for Multi-Objective Reinforcement Learning and Policy Adaptation.</strong> Yang, R., Sun, X., &amp; Narasimhan, K. (2019). Retrieved from <a href="https://github.com/RunzheYang/MORL" target="_blank" rel="noopener">https://github.com/RunzheYang/MORL</a></p>
+<ul>
+<li>我们引入了一种具有线性偏好的多目标强化学习（MORL）的新算法，其目标是能够对新任务进行少量调整。 在MORL中，目的是学习多个竞争目标的策略，这些目标的相对重要性（首选项）对于代理人是未知的。 虽然这减轻了对标量奖励设计的依赖，但是策略的预期收益会随着偏好的变化而发生显着变化，这使得学习单一模型以在不同的偏好条件下产生最优策略具有挑战性。 我们提出Bellman方程的广义形式，以学习在所有可能的偏好范围内获得最优政策的单个参数表示。 在初始学习阶段之后，我们的代理可以在任何给定的首选项下执行最佳策略，或者自动根据很少的样本来推断基本的首选项。 在四个不同领域的实验证明了我们方法的有效性。</li>
+</ul>
+</li>
+<li><p><strong>A Geometric Perspective on Optimal Representations for Reinforcement Learning.</strong> Bellemare, M. G., Dabney, W., Dadashi, R., Taiga, A. A., Castro, P. S., Le Roux, N., … Lyle, C. (2019). [<a href="https://papers.nips.cc/paper/8687-a-geometric-perspective-on-optimal-representations-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们提出了一种基于价值函数空间的几何特性的强化学习中表示学习的新视角。 从那里，我们提供了关于价值函数在强化学习中作为辅助任务的有用性的正式证据。 我们的公式考虑对表示进行调整，以使给定环境中所有固定政策的价值函数的（线性）近似最小化。 我们表明，这种优化简化为对一类特殊的价值函数（称为对抗性价值函数（AVF））做出准确的预测。 我们证明使用价值函数作为辅助任务对应于我们公式的预期误差松弛，AVF是自然的候选者，并确定与原型价值函数的密切关系（Mahadevan，2005）。 我们在四房域的一系列实验中重点介绍了AVF的特性及其作为辅助任务的有用性。</li>
+</ul>
+</li>
+<li><p><strong>A Kernel Loss for Solving the Bellman Equation.</strong> Feng, Y., Li, L., Research, G., &amp; Liu, Q. (2019). [<a href="https://papers.nips.cc/paper/9679-a-kernel-loss-for-solving-the-bellman-equation" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>值函数学习在许多最新的强化学习算法中发挥着核心作用。 许多流行的算法（例如Q学习）并没有优化任何目标函数，而是Bellman运算符某些变体的定点迭代，不一定是收缩。 结果，如在实践中所观察到的，它们可能容易失去收敛保证。 在本文中，我们提出了一种新颖的损失函数，可以使用基于梯度的标准方法来保证收敛性，从而对其进行优化。 关键优势在于，可以使用采样的跃迁轻松估算其梯度，而无需像残留梯度之类的现有算法需要双重采样。 我们的方法可以使用策略内数据或策略外数据与通用功能类（例如神经网络）结合使用，并且在几种基准中被证明可以可靠，有效地工作，其中包括已知标准算法存在差异的经典问题。</li>
+</ul>
+</li>
+<li><p><strong>A Meta-MDP Approach to Exploration for Lifelong Reinforcement Learning.</strong> Garcia, F. M., &amp; Thomas, P. S. (2019). Retrieved from <a href="https://github.com/fmaxgarcia/Meta-MDP" target="_blank" rel="noopener">https://github.com/fmaxgarcia/Meta-MDP</a></p>
+<ul>
+<li>在本文中，我们考虑一个问题，即负责解决一系列强化学习问题（一系列马尔科夫决策过程）的强化学习代理如何利用生命周期早期获得的知识来提高其解决新问题的能力。 我们认为，以前有类似问题的经验可以为代理商提供有关在面对新的但相关的问题时应如何探索的信息。 我们表明，寻找最佳探索策略的过程可以被公式化为强化学习问题本身，并证明这种策略可以利用在相关问题的结构中发现的模式。 我们以实验结束，这些实验显示了使用我们提出的框架优化勘探策略的好处。</li>
+</ul>
+</li>
+<li><p><strong>A Regularized Approach to Sparse Optimal Policy in Reinforcement Learning.</strong> Li, X., Yang, W., &amp; Zhang, Z. (2019). [<a href="https://papers.nips.cc/paper/8828-a-regularized-approach-to-sparse-optimal-policy-in-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们提出并研究了常规Markov决策过程（MDP）的通用框架，该框架的目标是找到使预期折扣总奖励加政策正则项最大化的最优政策。 可以将现存的熵规范化MDP转换为我们的框架。 此外，在我们的框架下，许多正则化术语会带来多种模式和稀疏性，这在强化学习中可能很有用。 特别是，我们提出了诱导稀疏最优政策的充分和必要条件。 我们还对建议的正则化MDP进行了完整的数学分析，包括最优性条件，性能误差和稀疏控制。 我们提供了一种通用方法来设计正则化形式，并在复杂的环境设置中提出非政策参与者评论家算法。 我们根据经验分析最优策略的数值属性，并比较离散和连续环境中不同稀疏正则化形式的性能。</li>
+</ul>
+</li>
+<li><p><strong>A Structured Prediction Approach for Generalization in Cooperative Multi-Agent Reinforcement Learning.</strong> Carion Facebook, N., Lamsade, P., Paris Dauphine, U., Synnaeve Facebook, G., Lazaric Facebook, A., &amp; Usunier Facebook, N. (2019). [<a href="https://papers.nips.cc/paper/9024-a-structured-prediction-approach-for-generalization-in-cooperative-multi-agent-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>有效的协调对于解决多代理协作（MAC）问题至关重要。 尽管集中式强化学习方法可以最佳地解决小型MAC实例，但它们无法解决较大的问题，并且无法推广到与培训期间所看到的场景不同的场景。 在本文中，我们考虑了具有一些固有的局部性（例如地理邻近性）概念的MAC问题，从而使代理与任务之间的交互受到局部限制。 通过利用此属性，我们引入了一种新颖的结构化预测方法来将代理分配给任务。 在每个步骤中，通过解决集中式优化问题（推理过程）来获得分配，该问题的目标函数由学习的评分模型进行参数化。 我们提出了推理过程和评分模型的不同组合，它们能够代表日益复杂的协调模式。 可以在小问题实例上有效地学习生成的分配策略，并可以在具有更多代理和任务的问题中轻松重用所得到的分配策略（即零击概括）。 我们报告了有关玩具搜索和救援问题以及《星际争霸：巢穴之战》中几个目标选择场景的实验结果，在这些案例中，我们的模型在具有比代理商训练期间看到的代理和任务多5倍的实例和任务的实例上，大大优于基于规则的强大基准。</li>
+</ul>
+</li>
+<li><p><strong>A Unified Bellman Optimality Principle Combining Reward Maximization and Empowerment.</strong> Leibfried, F., Pascual-Díaz, S., &amp; Grau-Moya, J. (2019). [<a href="https://papers.nips.cc/paper/9001-a-unified-bellman-optimality-principle-combining-reward-maximization-and-empowerment" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>授权是一种信息理论方法，可用于内在地激励学习代理。 它尝试通过鼓励访问具有大量可到达的下一个州的州来最大化代理对环境的控制。 研究表明，授权学习可以导致复杂的行为，而无需明确的奖励信号。 在本文中，我们研究了在外部奖励信号存在下授权的使用。 我们假设授权可以通过鼓励高度授权的国家来引导强化学习（RL）代理找到良好的早期行为解决方案。 我们提出了统一的Bellman最优性原则，以实现授权的奖励最大化。 我们授权的报酬最大化方法概括了Bellman的最优性原则以及最近对其进行的信息理论扩展。 我们证明了赋权价值的独特性，并表明了向最佳解决方案的融合。 然后，我们将这个想法应用到开发非政策参与者批评RL算法，并在高维连续机器人领域（MuJoCo）中进行验证。 与无模型的最新技术相比，我们的方法证明了改进的初始和竞争性最终性能。</li>
+</ul>
+</li>
+<li><p><strong>Adaptive Auxiliary Task Weighting for Reinforcement Learning.</strong> Lin, X., Singh Baweja, H., Kantor, G., &amp; Held, D. (2019). [<a href="https://papers.nips.cc/paper/8724-adaptive-auxiliary-task-weighting-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>众所周知，强化学习的样本效率很低，因此无法将其应用于许多实际问题，尤其是在像图像这样的高维度观察中。 从其他辅助任务中转移知识是提高学习效率的强大工具。 但是，由于难以选择和组合不同的辅助任务，到目前为止，辅助任务的使用受到限制。 在这项工作中，我们提出了一种有原则的在线学习算法，该算法动态地组合了不同的辅助任务，以加快强化学习的训练速度。 我们的方法基于以下想法：辅助任务应提供渐变方向，从长远来看，这有助于减少主要任务的损失。 与以前的适应辅助任务权重的启发式方法相比，我们在各种环境中证明了我们的算法可以有效地组合各种不同的辅助任务并实现显着的加速。</li>
+</ul>
+</li>
+<li><p><strong>Adaptive Temporal-Difference Learning for Policy Evaluation with Per-State Uncertainty Estimates.</strong> Penedones, H., Deepmind, ⇤, Riquelme, C., Google, ⇤, Damien, B., Google, V., … Neu, B. G. (2019). [<a href="https://papers.nips.cc/paper/9359-adaptive-temporal-difference-learning-for-policy-evaluation-with-per-state-uncertainty-estimates" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们从一批轨迹数据中考虑了基于策略价值函数逼近的核心强化学习问题，并将重点放在时间差异（TD）学习和蒙特卡洛（MC）政策评估的各种问题上。 已知这两种方法可实现互补的偏差-方差权衡特性，而TD往往会实现较小的方差，但有可能实现较高的偏差。 在本文中，我们认为TD的较大偏差可能是局部逼近误差放大的结果。 我们通过提出一种在每种状态下在TD和MC之间自适应切换的算法来解决此问题，从而减轻错误的传播。 我们的方法基于检测到TD估计值偏差的学习置信区间。 我们在各种策略评估任务中证明了这种简单的自适应算法在事后观察中具有最佳方法的竞争能力，这表明学习的置信区间是一种强大的技术，可通过数据驱动的方式使策略评估适应使用TD或MC收益。</li>
+</ul>
+</li>
+<li><p><strong>Almost Horizon-Free Structure-Aware Best Policy Identification with a Generative Model.</strong> Zanette, A., Kochenderfer, M. J., &amp; Brunskill, E. (2019). [<a href="https://papers.nips.cc/paper/8800-almost-horizon-free-structure-aware-best-policy-identification-with-a-generative-model" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>本文关注的是在折扣马尔可夫决策过程（MDP）中计算\最优策略的问题，前提是我们可以通过生成模型访问奖励和转移函数。 我们提出了一种算法，该算法最初与MDP无关，但可以利用特定的MDP结构，以奖励和下一状态值函数的方差以及最佳操作值函数的差异表示，以减少所需的样本复杂性 找到一个好的政策，恰好突出了每个状态对对最终样本复杂度的贡献。 我们分析的一个关键特征是，它消除了次优操作的样本复杂性中的所有视域依赖性，除了价值函数的内在标度和恒定的加性项之外。</li>
+</ul>
+</li>
+<li><p><strong>Better Exploration with Optimistic Actor-Critic.</strong> Ciosek, K., Vuong, Q., Loftin, R., &amp; Hofmann, K. (2019). [<a href="https://papers.nips.cc/paper/8455-better-exploration-with-optimistic-actor-critic" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>演员批评方法是一种无模型的强化学习方法，已成功应用于连续控制中的挑战性任务，通常可以实现最先进的性能。 但是，由于采样效率低，很难在现实世界中广泛采用这些方法。 我们在理论上和经验上都解决了这个问题。 从理论上讲，我们确定了两种现象，这些现象阻碍了诸如Soft Actor Critic之类的现有最新算法的有效探索。 首先，将贪婪的演员更新与批评家的悲观估计结合起来，可以避免主体不知道的行动，这种现象我们称为悲观的探索不足。 其次，当前算法是无方向的，从当前平均值开始以相反的概率对动作进行采样。 这很浪费，因为我们通常需要沿着某些方向采取的行动比其他方向多得多。 为了解决这两种现象，我们引入了一种新算法Optimistic Actor Critic，该算法近似估计状态作用值函数的上下置信度边界。 这使我们能够在不确定性的情况下应用乐观原则，以上限进行定向探索，同时仍然使用下限以避免高估。 我们在一些挑战性的连续控制任务中评估OAC，以实现最先进的样品效率。</li>
+</ul>
+</li>
+<li><p><strong>Biases for Emergent Communication in Multi-agent Reinforcement Learning.</strong> Eccles, T., Bachrach, Y., Lever, G., &amp; Lazaridou, A. (2019). [<a href="https://papers.nips.cc/paper/9470-biases-for-emergent-communication-in-multi-agent-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们研究紧急交流的问题，其中出现语言是因为说话者和听众必须交流信息才能解决任务。 在时间扩展的强化学习领域，事实证明，如果没有集中的代理培训，很难学习这种交流，部分原因是联合勘探存在困难。 我们为积极的信号传递和积极的倾听引入归纳偏置，从而缓解了这一问题。 在一个简单的一步式环境中，我们演示了这些偏见如何缓解学习问题。 我们还将我们的方法应用于更扩展的环境，这表明具有这些归纳偏差的代理可以实现更好的性能，并分析由此产生的通信协议。</li>
+</ul>
+</li>
+<li><p><strong>Budgeted Reinforcement Learning in Continuous State Space.</strong> Carrara, N., Leurent, E., Laroche, R., Urvoy, T., &amp; Pietquin, O. (2019). Retrieved from <a href="https://budgeted-rl.github.io/" target="_blank" rel="noopener">https://budgeted-rl.github.io/</a>.</p>
+<ul>
+<li>预算马尔可夫决策过程（BMDP）是马尔可夫决策过程对要求安全性约束的关键应用程序的扩展。 它依赖于在约束违例信号上以上限形式实施的风险概念，重要的是可以实时修改。 到目前为止，只有在具有已知动力学的有限状态空间的情况下才能求解BMDP。 这项工作将最新技术扩展到连续空间环境和未知的动力学。 我们表明，BMDP的解决方案是新颖的Budgeted Bellman最优性算子的不动点。 这一观察结果使我们能够引入深度强化学习算法的自然扩展，以解决大规模BMDP问题。 我们在两个模拟应用程序上验证了我们的方法：语音对话和自动驾驶。</li>
+</ul>
+</li>
+<li><p><strong>Causal Confusion in Imitation Learning.</strong> De Haan, P., Jayaraman, D., &amp; Levine, S. (2019). [<a href="https://papers.nips.cc/paper/9343-causal-confusion-in-imitation-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>行为克隆通过训练判别模型来预测观察到的专家行为，从而将策略学习从监督学习减少为监督学习。 这种判别模型不是因果关系的：培训过程并不了解专家与环境之间相互作用的因果结构。 我们指出，由于模仿学习中的分布变化，忽略因果关系尤其有害。 特别是，这会导致违反直觉的“因果识别错误”现象：访问更多信息可能会导致性能下降。 我们调查了此问题的产生方式，并提出了一种解决方案，可通过有针对性的干预措施（环境互动或专家查询）来解决，以确定正确的因果模型。 我们证明了因果错误识别会在几个基准控制域以及实际驾驶设置中发生，并针对DAgger和其他基准线和烧蚀验证我们的解决方案。</li>
+</ul>
+</li>
+<li><p><strong>Constrained Reinforcement Learning Has Zero Duality Gap.</strong> Paternain, S., O Chamon, L. F., Calvo-Fullana, M., &amp; Ribeiro, A. (2019). [<a href="https://papers.nips.cc/paper/8973-constrained-reinforcement-learning-has-zero-duality-gap" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>自治代理必须经常处理相互矛盾的要求，例如使用最少的时间/精力完成任务，学习多个任务或与多个对手打交道。 在强化学习（RL）的背景下，这些问题可以通过（i）设计同时描述所有需求的奖励函数或（ii）组合分别对它们进行编码的模块化值函数来解决。 尽管有效，但是这些方法具有严重的缺点。 设计平衡不同目标的良好奖励功能非常具有挑战性，尤其是随着目标数量的增长。 此外，目标之间的隐式干扰可能会导致绩效陷入停滞，因为它们在争夺资源时尤其是在进行政策培训时。 类似地，考虑到参数值对整体政策的影响并不直接，选择用于组合值函数的参数至少与设计全面的奖励一样困难。 通常通过将冲突的需求公式化为受约束的RL问题来解决后者，并使用Primal-Dual方法解决。 由于问题不是凸的，因此通常不能保证这些算法收敛到最优解。 通过确定该问题尽管不具有凸性，但仍具有零对偶间隙，即可以在凸的对偶域中精确地解决该问题，因此为这些方法提供了理论支持。 最后，我们证明了如果通过良好的参数化描述（例如，神经网络）描述了该策略，则该结果基本上成立，并将该结果与文献中存在的原始对偶算法联系起来，并建立了对最优解的收敛性。</li>
+</ul>
+</li>
+<li><p><strong>Convergent Policy Optimization for Safe Reinforcement Learning.</strong> Yu, M., Yang, Z., Kolar, M., &amp; Wang, Z. (2019). [<a href="https://papers.nips.cc/paper/8576-convergent-policy-optimization-for-safe-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们研究了具有非线性函数逼近的安全加固学习问题，其中将策略优化公式化为约束优化问题，其目标和约束均为非凸函数。 对于此类问题，我们通过用从策略梯度估计器获得的凸二次函数来局部替换非凸函数，从而构造了一系列替代凸约束优化问题。 我们证明了这些替代问题的解决方案收敛到原始非凸问题的固定点。 此外，为了扩展我们的理论结果，我们将我们的算法应用于具有安全约束的最优控制和多主体强化学习的示例。</li>
+</ul>
+</li>
+<li><p><strong>Correlation Priors for Reinforcement Learning.</strong> Alt, B., Adrian, ⇤, Šoši´c, Š., &amp; Koeppl, H. (2019). Retrieved from <a href="https://git.rwth-aachen.de/bcs/correlation_priors_for_rl" target="_blank" rel="noopener">https://git.rwth-aachen.de/bcs/correlation_priors_for_rl</a></p>
+<ul>
+<li>许多决策问题自然会展现出继承自底层环境特征的明显结构。 例如，在马尔可夫决策过程模型中，两个不同的状态可以具有固有相关的语义或对类似于物理状态配置的编码。 这通常意味着状态之间局部相关的过渡动态。 为了在这样的环境中完成某些任务，操作代理通常需要执行一系列在时间和空间上相关的动作。 尽管存在各种各样的方法来捕获连续状态作用域中的这些相关性，但是缺少用于离散环境的原则性解决方案。 在这项工作中，我们提出了一种基于Pólya-Gamma增强的贝叶斯学习框架，该框架在这种情况下可以进行类似的推理。 我们演示了许多与决策相关的常见问题的框架，例如模仿学习，子目标提取，系统识别和贝叶斯强化学习。 通过对这些问题的潜在相关结构进行显式建模，与相关不可知模型相比，即使在规模较小的数据集上进行训练时，所提出的方法也能提供优于预测的性能。</li>
+</ul>
+</li>
+<li><p><strong>Curriculum-guided Hindsight Experience Replay.</strong> Fang, M., Zhou, T., Du, Y., Han, L., Zhang, Z., Robotics, T., &amp; Allen, P. G. (2019). Retrieved from <a href="https://github.com/mengf1/CHER" target="_blank" rel="noopener">https://github.com/mengf1/CHER</a>.</p>
+<ul>
+<li>在非政策性深度强化学习中，通常很难收集到足够的成功经验以及稀疏的奖励以供学习。 后验经验重播（HER）使代理能够通过将失败经验的实现状态视为伪目标来从失败中学习。 但是，并非所有失败的经历对于不同的学习阶段都同样有用，因此重播所有失败或统一样本的效率不高。 在本文中，我们建议（1）根据与真实目标的接近程度和对各种伪目标的探索好奇心，自适应地选择失败的重播经验，以及2）逐渐改变目标临近度和多样性的比例， 选择标准中的好奇心：我们采用类似于人的学习策略，在早期阶段会提高好奇心，而在后来又转向更大目标。 这种以目标和好奇心为导向的课程学习’’引出了课程指导的HER（CHER）’’，该课程在学习过程中通过事后视察经验选择来自适应，动态地控制探索与开发之间的权衡。 我们证明，在具有挑战性的机器人环境中，CHER可以改善现有技术。</li>
+</ul>
+</li>
+<li><p><strong>DAC: The Double Actor-Critic Architecture for Learning Options.</strong> Zhang, S., &amp; Whiteson, S. (2019). [<a href="https://papers.nips.cc/paper/8475-dac-the-double-actor-critic-architecture-for-learning-options" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们将期权框架重新制定为两个并行的增强型MDP。 在这种新颖的表述下，所有现成的策略优化算法都可用于学习期权内策略，期权终止条件以及期权的主策略。 我们在每个增强的MDP上应用一个actor-critic算法，从而产生Double Actor-Critic（DAC）体系结构。 此外，我们表明，当将状态值函数用作批注者时，一个批注者可以用另一种来表示，因此仅需要一个批注者。 我们对具有挑战性的机器人仿真任务进行了实证研究。 在转移学习设置中，DAC的性能优于无层次的对应方法和以前的基于梯度的选项学习算法。</li>
+</ul>
+</li>
+<li><p><strong>Discovery of Useful Questions as Auxiliary Tasks.</strong> Veeriah, V., Hessel, M., Xu, Z., Lewis, R., Rajendran, J., Oh, J., … Singh, S. (2016). [<a href="https://papers.nips.cc/paper/9129-discovery-of-useful-questions-as-auxiliary-tasks" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>可以说，聪明的代理人应该能够发现自己的问题，以便在为他们学习答案时学习出乎意料的有用知识和技能。 这与许多机器学习的重点不同，代理人学习的是外部定义的问题的答案。 我们提出一种用于强化学习（RL）代理的新颖方法，以发现公式化为一般价值函数或GVF（一种相当丰富的知识表示形式）的问题。 具体来说，我们的方法使用非近视元梯度来学习GVF问题，以便学习对它们的答案作为辅助任务，可以为RL代理面临的主要任务提供有用的表示。 我们证明，基于发现的GVF的辅助任务本身足以构建支持主要任务学习的表示形式，并且它们比文献中流行的手工设计辅助任务要好。 此外，我们展示了在Atari2600电子游戏的背景下，与主任务一起元学习的辅助任务如何提高演员批评代理的数据效率。</li>
+</ul>
+</li>
+<li><p><strong>Distributional Policy Optimization: An Alternative Approach for Continuous Control.</strong> Tessler, C., Tennenholtz, G., &amp; Mannor, S. (2019). [<a href="https://papers.nips.cc/paper/8416-distributional-policy-optimization-an-alternative-approach-for-continuous-control" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们在连续控制中基于策略梯度的方法中确定了一个基本问题。 由于策略梯度方法需要代理的基础概率分布，因此将策略表示限制为参数分布类。 我们表明，对此类集合进行优化会导致动作空间中的局部运动，从而收敛到次优解决方案。 我们建议一种新颖的分布框架，该框架能够表示连续动作空间上的任意分布函数。 使用此框架，我们构建了一种生成方案，并使用非策略性行为者批评范式进行了训练，我们称其为“生成行为者评论家”（GAC）。 与策略梯度方法相比，GAC不需要了解潜在的概率分布，从而克服了这些限制。 实证评估表明，我们的方法具有可比性，并且经常在连续领域中超过当前的最新基准。</li>
+</ul>
+</li>
+<li><p><strong>Divergence-Augmented Policy Optimization.</strong> Wang, Q., Li, Y., Xiong, J., &amp; Zhang, T. (2019). [<a href="https://papers.nips.cc/paper/8842-divergence-augmented-policy-optimization" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>在深度强化学习中，策略优化方法需要处理诸如函数逼近和非策略数据重用之类的问题。 标准策略梯度方法不能很好地处理非策略数据，从而导致过早收敛和不稳定。 本文介绍了一种在重用非策略数据时稳定策略优化的方法。 想法是在生成数据的行为策略与当前策略之间包括Bregman分歧，以确保使用策略外的数据进行小而安全的策略更新。  Bregman差异是在两个策略的状态分布之间计算的，而不是仅根据动作概率来计算，从而导致差异增大的公式。  Atari游戏的经验实验表明，在数据稀缺的情况下，需要重用非策略数据，我们的方法可以比其他最新的深度强化学习算法获得更好的性能。</li>
+</ul>
+</li>
+<li><p><strong>Efficient Communication in Multi-Agent Reinforcement Learning via Variance Based Control.</strong> Zhang, S. Q., Zhang, Q., &amp; Lin, J. (2019). Retrieved from <a href="https://github.com/saizhang0218/VBC" target="_blank" rel="noopener">https://github.com/saizhang0218/VBC</a>.</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Experience Replay for Continual Learning.</strong> Rolnick, D., Ahuja, A., Schwarz, J., Lillicrap, T. P., &amp; Wayne, G. (2019). [<a href="https://papers.nips.cc/paper/8327-experience-replay-for-continual-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>与复杂世界互动需要不断学习，其中任务和数据分布会随着时间而变化。 持续学习系统应同时展示可塑性（获取新知识）和稳定性（保留旧知识）。 灾难性的遗忘是稳定性的失败，其中新的经验会覆盖以前的经验。 在大脑中，人们普遍认为重播过去的经验可以减少遗忘，但是在深度强化学习中，遗忘作为解决遗忘的一种方法在很大程度上被忽视了。 在这里，我们介绍CLEAR，这是一种基于重播的方法，可以大大减少多任务强化学习中的灾难性遗忘。  CLEAR利用脱离重播的非策略学习和行为克隆来增强稳定性，以及基于策略的学习以保持可塑性。 我们显示，CLEAR在缓解遗忘方面比最新的深度学习技术要好，尽管复杂程度大大降低，并且不需要了解所学习的各个任务。</li>
+</ul>
+</li>
+<li><p><strong>Explicit Explore-Exploit Algorithms in Continuous State Spaces.</strong> Henaff, M. (2019). [<a href="https://papers.nips.cc/paper/9135-explicit-explore-exploit-algorithms-in-continuous-state-spaces" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们提出了一种新的基于模型的强化学习（RL）算法，该算法包括显式探索和开发阶段，适用于大型或无限状态空间。 该算法维护了一组与当前经验相符的动力学模型，并通过找到在其状态预测之间引起高度不一致的策略进行了探索。 然后，它使用在探索过程中收集的完善的模型集或经验进行开发。 我们表明，在可实现性和最佳计划假设下，我们的算法可证明找到了具有多个样本的近似最优策略，该样本在结构复杂性测度中是多项式的，在某些自然环境中我们发现该策略较低。 然后，我们使用神经网络进行实际逼近，并在实践中证明其性能和样品效率。</li>
+</ul>
+</li>
+<li><p><strong>Explicit Planning for Efficient Exploration in Reinforcement Learning.</strong> Zhang, L., Tang, K., &amp; Yao, X. (2019). [<a href="https://papers.nips.cc/paper/8967-explicit-planning-for-efficient-exploration-in-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>有效的探索对于在强化学习中取得良好的表现至关重要。 尽管从理论上有希望，但现有的系统探索策略（R-MAX，MBIE，UCRL等）本质上是遵循某些预定义启发式方法的贪婪策略。 当启发式方法与Markov决策过程（MDP）的动态性不完全匹配时，在经过已探索状态的过程中会浪费大量时间，从而降低了整体效率。 我们认为明确的勘探计划可以帮助缓解这一问题，并提出了勘探成本价值迭代（VIEC）算法，该算法通过求解增强型MDP来计算最佳勘探方案。 然后，我们对一些流行策略的勘探行为进行详细分析，显示这些策略如何失败并花费O（n ^ 2 md）或O（n ^ 2 m + nmd）步骤来收集一些塔状的足够数据 MDP虽然可以通过VIEC获得最佳的探索方案，但只需要O（nmd），其中n，m是状态和动作的数量，d是数据需求。 该分析不仅指出了现有基于启发式策略的弱点，而且还暗示了在明确的勘探计划中的巨大潜力。</li>
+</ul>
+</li>
+<li><p><strong>Exploration via Hindsight Goal Generation.</strong> Ren, Z., Dong, K., Zhou, Y., Liu, Q., &amp; Peng, J. (2019). [<a href="https://papers.nips.cc/paper/9502-exploration-via-hindsight-goal-generation" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>面向目标的强化学习最近已成为机器人操纵任务的实用框架，在该框架中，要求代理程序达到由状态空间上的功能定义的某个目标。 然而，这种奖励定义的稀疏性使得传统的强化学习算法非常低效。  Hindsight Experience Replay（HER）是最近的一项进步，它极大地提高了样品效率，并大大提高了此类问题的实用性。 它通过以一种简单的启发式方式构造假想目标来利用以前的重放，就像隐式课程一样，以减轻稀疏奖励信号的挑战。 在本文中，我们介绍了Hindsight目标生成（HGG），这是一种新颖的算法框架，可生成有价值的事后观察目标，这些目标很容易使代理在短期内实现，并且也有可能指导代理长期实现实际目标 术语。 我们已经在许多机器人操纵任务上广泛评估了目标生成算法，并在采样效率方面证明了与原始HER相比的实质性改进。</li>
+</ul>
+</li>
+<li><p><strong>Fast Efficient Hyperparameter Tuning for Policy Gradient Methods.</strong> Paul, S., Kurin, V., &amp; Whiteson, S. (2019). [<a href="https://papers.nips.cc/paper/8710-fast-efficient-hyperparameter-tuning-for-policy-gradient-methods" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>策略渐变方法的性能对必须针对任何新应用程序进行调整的超参数设置敏感。 用于调整超参数的广泛使用的网格搜索方法效率低下，并且计算量大。 学习基于超参数而不是固定设置的最佳计划的基于人口的训练等更高级的方法可以产生更好的结果，但是样本效率低下，计算量大。 在本文中，我们提出了动态超参数优化（HOOF），这是一种无梯度算法，只需要进行一次训练即可自动适应通过梯度直接影响策略更新的超参数。 主要思想是使用通过策略梯度方法采样的现有轨迹来优化单步改进目标，从而产生易于实现的示例和计算有效的算法。 我们在多个领域和算法上的实验结果表明，使用HOOF来学习这些超参数进度表可以更快地学习并提高性能。</li>
+</ul>
+</li>
+<li><p><strong>Finding Friend and Foe in Multi-Agent Games.</strong> Serrino, J., Kleiman-Weiner, M., Harvard, ⇤, Parkes, D. C., &amp; Tenenbaum, J. B. (2019). Retrieved from <a href="https://github.com/Detry322/DeepRole" target="_blank" rel="noopener">https://github.com/Detry322/DeepRole</a>.</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Finite-Time Performance Bounds and Adaptive Learning Rate Selection for Two Time-Scale Reinforcement Learning.</strong> Gupta ECE, H., Srikant ECE, R., &amp; Ying, L. (2019). [<a href="https://papers.nips.cc/paper/8718-finite-time-performance-bounds-and-adaptive-learning-rate-selection-for-two-time-scale-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们研究了两种时标线性随机逼近算法，可用于对诸如GTD，GTD2和TDC等著名的强化学习算法进行建模。 对于学习率固定的情况，我们给出了有限时间的性能范围。 获得这些边界的关键思想是对线性微分方程使用奇异摄动理论的Lyapunov函数。 我们使用边界设计了一种自适应学习速率方案，该方案在我们的实验中大大提高了已知最优多项式衰减规则的收敛速率，并且可用于潜在地提高任何其他在学习前更改学习速率的时间表的性能。 确定的时刻。</li>
+</ul>
+</li>
+<li><p><strong>Fully Parameterized Quantile Function for Distributional Reinforcement Learning.</strong> Yang, D., Zhao, L., Lin, Z., Qin, T., Bian, J., &amp; Liu, T. (2019). [<a href="https://papers.nips.cc/paper/8850-fully-parameterized-quantile-function-for-distributional-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>分布强化学习（RL）与传统RL的不同之处在于，它可以估计分布并获得Atari Games的最新性能，而不是期望总回报。 实际的分布式RL算法的关键挑战在于如何对估计的分布进行参数化处理，以便更好地逼近真实的连续分布。 现有的分布RL算法可对分布函数的概率侧或返回值侧进行参数化，而另一侧如C51，QR-DQN中那样统一固定，或如IQN中那样随机采样。 在本文中，我们提出了完全参数化的分位数功能，该功能可以对分布RL的分位数分数轴（即x轴）和值轴（即y轴）进行参数化。 我们的算法包含一个分数提案网络，该提议网络生成一个离散的分位数分数集合，以及一个分数值网络，该网络给出相应的分位数。 共同训练这两个网络以找到真实分布的最佳近似值。 在55个Atari Games上进行的实验表明，我们的算法明显优于现有的分布式RL算法，并为非分布式代理的Atari学习环境创造了新记录。</li>
+</ul>
+</li>
+<li><p><strong>Generalization in Reinforcement Learning with Selective Noise Injection and Information Bottleneck.</strong> Igl, M., Ciosek, K., Research, M., Li, Y., Tschiatschek, S., Zhang, C., … Hofmann, K. (2019). [<a href="https://papers.nips.cc/paper/9546-generalization-in-reinforcement-learning-with-selective-noise-injection-and-information-bottleneck" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>策略能够推广到新环境的能力是RL代理广泛应用的关键。 防止座席政策过分适应有限的培训环境的一种有前途的方法是应用最初为监督学习而开发的正则化技术。 但是，监督学习和RL之间存在明显差异。 我们讨论了这些差异，并提出了对现有正则化技术的修改，以使其更好地适应RL。 特别是，我们专注于依靠将噪声注入学习函数的正则化技术，该函数包括一些最广泛使用的方法，例如Dropout和Batch Normalization。 为了使它们适应RL，我们提出了选择性噪声注入（SNI），它可以保持注入噪声的正则化效果，同时减轻其对梯度质量的不利影响。 此外，我们证明了信息瓶颈（IB）是特别适合RL的正则化技术，因为它在早期训练RL代理时遇到的低数据情况下很有效。 将IB与SNI结合使用，我们的性能明显优于当前的最新结果，包括最近提出的通用基准Coinrun。</li>
+</ul>
+</li>
+<li><p><strong>Generalized Off-Policy Actor-Critic.</strong> Zhang, S., Boehmer, W., &amp; Whiteson, S. (2019). [<a href="https://papers.nips.cc/paper/8474-generalized-off-policy-actor-critic" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们提出了一个新的目标，即反事实目标，在持续强化学习（RL）设置中统一了非政策性政策梯度算法的现有目标。 与通常使用的游览目标可能会误导目标策略在部署时的性能相比，我们的新目标可以更好地预测这种性能。 我们证明了广义非策略策略梯度定理来计算反事实目标的策略梯度，并使用强调方法从该策略梯度中获得无偏样本，从而产生了广义非策略参与者关键算法（Geoff-PAC）算法。 我们证明了Geoff-PAC在Mujoco机器人仿真任务中优于现有算法的优点，这是在深层RL基准测试中，强调算法的第一个经验性成功。</li>
+</ul>
+</li>
+<li><p><strong>Goal-conditioned Imitation Learning.</strong> Ding, Y., Florensa, C., Phielipp, M., &amp; Abbeel, P. (2019). Retrieved from <a href="https://sites.google.com/view/goalconditioned-il/" target="_blank" rel="noopener">https://sites.google.com/view/goalconditioned-il/</a></p>
+<ul>
+<li>设计强化学习（RL）的奖励是具有挑战性的，因为它需要传达所需的任务，有效地进行优化并易于计算。 当将RL应用于机器人技术时，后者尤其成问题，因为要检测是否达到所需的配置可能需要大量的监督和检测。 此外，我们通常对能够实现多种配置感兴趣，因此每次设置不同的奖励可能都不切实际。 像Hindsight Experience Replay（HER）之类的方法最近显示出可以学习无需达成奖励即可实现许多目标的策略的承诺。 不幸的是，如果没有诸如沿轨迹重置点之类的技巧，HER可能需要很长时间才能发现如何到达状态空间的某些区域。 在这项工作中，我们研究了结合演示的各种方法，以大幅度加快向能够实现任何目标的策略的收敛速度，也超越了使用其他模仿学习算法训练的代理的性能。 此外，当只有没有专家动作的轨迹可用时，可以使用我们的方法，这可以利用运动学或第三人称演示。</li>
+</ul>
+</li>
+<li><p><strong>Gossip-based Actor-Learner Architectures for Deep Reinforcement Learning.</strong> Assran, M., Romoff, J., Ballas, N., Pineau, J., &amp; Rabbat, M. (2019). Retrieved from <a href="https://github.com/facebookresearch/gala" target="_blank" rel="noopener">https://github.com/facebookresearch/gala</a>.</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Guided Meta-Policy Search.</strong> Mendonca, R., Gupta, A., Kralev, R., Abbeel, P., Levine, S., &amp; Finn, C. (2019). [<a href="https://papers.nips.cc/paper/9160-guided-meta-policy-search" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>强化学习（RL）算法在复杂任务上显示出令人鼓舞的结果，但由于需要从头开始学习，因此经常需要不切实际的样本数量。  Meta-RL旨在通过利用先前任务的经验来应对这一挑战，从而更快地解决新任务。 但是，实际上，这些算法通常在\ emph {meta-training}过程中也需要大量的策略经验，这使得它们在许多问题中不切实际。 为此，我们建议以联合方式学习强化学习程序，其中，个别非政策学习者可以解决个别元训练任务，然后将这些解决方案合并为一个元学习者。 由于中央元学习者是通过模仿单个任务的解决方案来学习的，因此它可以适应标准的meta-RL问题设置，也可以容纳其中提供了部分或全部任务并带有示例演示的混合设置。 前者导致一种方法，该方法可以利用在元训练期间不需要大量策略数据的情况下就先前任务学习的策略，而后者在人员易于提供演示的情况下特别有用。 在许多连续控制的meta-RL问题中，我们证明了与以前的工作相比，meta-RL样本效率有了显着提高，并且可以通过视觉观察扩展到域。</li>
+</ul>
+</li>
+<li><p><strong>Hierarchical Decision Making by Generating and Following Natural Language Instructions.</strong> Hu, H., Yarats, D., Gong, Q., Tian, Y., &amp; Lewis, M. (2019). Retrieved from www.minirts.net</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Hierarchical Reinforcement Learning with Advantage-Based Auxiliary Rewards.</strong> Li, S., Wang, R., Tang, M., &amp; Zhang, C. (2019). Retrieved from <a href="http://bit.ly/2JxA0eN" target="_blank" rel="noopener">http://bit.ly/2JxA0eN</a></p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Imitation Learning from Observations by Minimizing Inverse Dynamics Disagreement.</strong> Yang, C., Ma, X., Huang, W., Sun, F., Liu, H., Huang, J., &amp; Gan, C. (2019). [<a href="https://papers.nips.cc/paper/8317-imitation-learning-from-observations-by-minimizing-inverse-dynamics-disagreement" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>本文研究了从观察中学习（LfO）的模仿学习，并可以访问仅州示范。 与涉及行动和国家监督的示威学习（LfD）相比，LfO在利用以前不适用的资源（例如视频）方面更为实用，但由于专家指导不完整，因此更具挑战性。 在本文中，我们从理论和实践角度研究LfO及其与LfD​​的区别。 我们首先证明，如果遵循GAIL的建模方法，则LfD和LfO之间的差距实际上在于模仿者和专家之间的逆动力学模型不一致。 更重要的是，该间隙的上限由负因果熵揭示，该因果熵可以以无模型的方式最小化。 我们称我们的方法为逆动态最小化（IDDM），它通过进一步缩小与LfD的差距来增强传统的LfO方法。 具有挑战性的基准的大量经验结果表明，与其他LfO同行相比，我们的方法获得了持续的改进。</li>
+</ul>
+</li>
+<li><p><strong>Imitation-Projected Programmatic Reinforcement Learning.</strong> Verma, A., Le, H. M., Caltech, Y. Y., &amp; Chaudhuri, S. (2019). [<a href="https://papers.nips.cc/paper/9705-imitation-projected-programmatic-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Importance Resampling for Off-policy Prediction.</strong> Schlegel, M., Chung, W., Graves Huawei, D., Qian, J., &amp; White, M. (2019). [<a href="https://papers.nips.cc/paper/8456-importance-resampling-for-off-policy-prediction" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们研究程序强化学习的问题，其中策略以符号语言表示为短期程序。 程序性策略比神经性策略更易于解释，推广和接受形式验证。 但是，为此类政策设计严格的学习方法仍然是一个挑战。 我们针对这一挑战的方法-一种称为PROPEL的元算法-基于三种见解。 首先，我们将学习任务视为策略空间中的优化，对所需策略具有程序表示形式的约束进行模运算，并使用镜像下降的形式来解决此优化问题，该方法采取梯度步骤进入不受约束的策略空间，然后进行投影 进入受限的空间。 其次，我们将不受约束的策略空间视为混合了神经表示形式和程序表示形式，从而可以采用最新的深度策略梯度方法。 第三，我们通过模仿学习将投影步骤投射为程序综合，并针对该任务利用当代的组合方法。 我们介绍了PROPEL的理论收敛结果，并在三个连续的控制域中对方法进行了经验评估。 实验表明，PROPEL可以大大优于学习编程政策的最新方法。</li>
+</ul>
+</li>
+<li><p><strong>Information-Theoretic Confidence Bounds for Reinforcement Learning.</strong> Lu, X., &amp; Roy, B. Van. (2019). [<a href="https://papers.nips.cc/paper/8516-information-theoretic-confidence-bounds-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们将信息理论概念整合到乐观算法和汤普森采样的设计和分析中。 通过在信息理论量和置信区间之间建立联系，我们获得了将代理的定期性能与其有关环境的信息收益相关联的结果，从而明确表征了勘探与开发的权衡。 由此产生的累积后悔界限取决于代理商在整个环境中的不确定性，并量化先验信息的价值。 我们展示了这种方法在几种环境中的适用性，包括线性强盗，表格MDP和分解MDP。 这些示例说明了用于增强学习算法的设计和分析的通用信息理论方法的潜力。</li>
+</ul>
+</li>
+<li><p><strong>Interval timing in deep reinforcement learning agents.</strong> Deverett DeepMind, B., Faulkner DeepMind, R., Fortunato DeepMind, M., Wayne DeepMind, G., &amp; Leibo DeepMind, J. Z. (2019). [<a href="https://papers.nips.cc/paper/8894-interval-timing-in-deep-reinforcement-learning-agents" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>时间的测量对于智能行为至关重要。 我们知道动物和人工代理都可以成功地使用时间依赖性来选择动作。 在人工代理中，很少有工作直接解决（1）成功开发此功能所需的架构组件；（2）如何在代理的单元和动作中表示此计时功能；以及（3） 系统产生的行为收敛于类似于生物学的解决方案。 在这里，我们研究了深度强化学习代理中的间隔计时能力，这些技巧是在间隔再现范式上进行端到端训练的，间隔再现范式受时序机制实验文献的启发。 我们描述了由递归和前馈因子开发的策略的特征，这两种策略都可以使用独特的机制在时间复制上成功，其中一些机制与生物系统具有特定而有趣的相似性。 这些发现提高了我们对特工如何代表时间的理解，并突出了实验启发性方法表征特工能力的价值。</li>
+</ul>
+</li>
+<li><p><strong>Intrinsically Efficient, Stable, and Bounded Off-Policy Evaluation for Reinforcement Learning.</strong> Kallus, N., &amp; Uehara, M. (2019). [<a href="https://papers.nips.cc/paper/8594-intrinsically-efficient-stable-and-bounded-off-policy-evaluation-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>上下文强盗和强化学习中的非政策评估（OPE）使得人们无需进行探索就可以评估新颖的决策政策，而探索通常是昂贵的或不可行的。 该问题的重要性吸引了许多提议的解决方案，包括重要性抽样（IS），自归一化IS（SNIS）和双稳健（DR）估计。 如果对Q函数进行了明确规定，则DR及其变体可确保半参数局部效率，但如果不是，则它们可能比IS和SNIS都差。 它还不享受SNIS固有的稳定性和局限性。 我们根据经验可能性为OPE提出新的估算器，这些估算器总是比IS，SNIS和DR更有效，并且满足与SNIS相同的稳定性和有界性。 在此过程中，我们对各种属性进行分类，并根据它们对现有估计量进行分类。 除了理论上的保证外，实证研究还表明，新的估计量具有优势。</li>
+</ul>
+</li>
+<li><p><strong>Keeping Your Distance: Solving Sparse Reward Tasks Using Self-Balancing Shaped Rewards.</strong> Trott, A., Research, S., Zheng, S., Xiong, C., &amp; Socher, R. (2019). [<a href="https://papers.nips.cc/paper/9225-keeping-your-distance-solving-sparse-reward-tasks-using-self-balancing-shaped-rewards" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>尽管在解决稀疏奖励任务时使用定形奖励可能会有所帮助，但成功地应用它们通常需要仔细的工程，并且要针对具体问题。 例如，在代理必须达到某个目标状态的任务中，简单的目标距离奖励成形通常会失败，因为它使学习容易受到局部最优的影响。 我们引入一种简单有效的无模型方法，以学习对成功取决于达到目标状态的任务所形成的目标距离奖励。 我们的方法引入了基于成对的辅助基于距离的奖励，以鼓励多样化的探索。 这种方法有效地防止了学习动态因幼稚的距离目标奖励塑造而稳定在局部最优值附近，并使策略能够有效解决稀疏的奖励任务。 随着代理商学习解决任务，我们的增强目标不需要任何额外的奖励工程或领域专业知识即可实施并收敛到原始稀疏目标。 我们证明了我们的方法成功解决了各种艰苦的探索任务（包括在Minecraft环境中进行迷宫导航和3D构造），其中基于天真的距离的奖励塑造否则会失败，并且固有的好奇心和奖励重新标记策略表现不佳。</li>
+</ul>
+</li>
+<li><p><strong>Language as an Abstraction for Hierarchical Deep Reinforcement Learning.</strong> Jiang, Y., Gu, S., Murphy, K., Finn, C., &amp; Research, G. (2019). Retrieved from <a href="https://sites.google.com/view/hal-demo" target="_blank" rel="noopener">https://sites.google.com/view/hal-demo</a></p>
+<ul>
+<li>分层强化学习为跨越很长一段时间的学习策略提供了一个有希望的框架，但是设计高级策略和低级策略之间的抽象是一项挑战。 语言是一种人类可以解释和灵活的组成表示形式，使其适合于编码各种行为。<br>我们建议使用语言作为高级策略和低级策略之间的抽象，并证明所产生的策略可以成功地解决带有稀疏奖励的长期任务，并且即使在挑战性高维度时也可以使用语言的组合性很好地概括 观察和行动空间。 首先，我们通过各种消融和与不同HRL方法的比较来证明我们的方法在低维观测空间中的优势，然后将我们的方法扩展到挑战基线无法取得进展的像素观测空间。</li>
+</ul>
+</li>
+<li><p><strong>Large Scale Markov Decision Processes with Changing Rewards.</strong> Rivera Cardoso, A., Wang, H., &amp; Xu, H. (2019). [<a href="https://papers.nips.cc/paper/8505-large-scale-markov-decision-processes-with-changing-rewards" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>-我们考虑马尔可夫决策过程（MDP），其奖励是未知的，并且可能以对抗性方式改变。 我们提供了一种算法，可以实现O（\ sqrt {\ tau（\ ln | S | + \ ln | A |）T} \ ln（T））的后悔界限，其中S是状态空间，A是动作 \ tau是MDP的混合时间，T是周期数。 该算法的计算复杂度是| S |的多项式。 和| A |。 然后，我们考虑实际中经常遇到的设置，其中MDP的状态空间太大，无法提供精确的解决方案。 通过用维数为d \ ll | S |的线性体系近似状态动作占用度量，我们提出了一种改进的算法，该算法具有d的计算复杂度多项式，并且与| S |无关。 我们还证明了这种修改后的算法的遗憾，据我们所知，这是大规模MDP设置中第一个\ tilde {O}（\ sqrt {T}）遗憾，其对抗性不断变化。</li>
+</ul>
+</li>
+<li><p><strong>Learner-aware Teaching: Inverse Reinforcement Learning with Preferences and Constraints.</strong> Tschiatschek, S., Ghosh, A., Haug, L., Zurich, E., Devidze, R., &amp; Singla, A. (2019). [<a href="https://papers.nips.cc/paper/8668-learner-aware-teaching-inverse-reinforcement-learning-with-preferences-and-constraints" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>逆向强化学习（IRL）使代理可以通过观察（接近）最佳策略中的演示来学习复杂的行为。 通常的假设是，学习者的目标是与老师表现出的行为相匹配。 在本文中，我们考虑了学习者有其自身偏好的设置，另外还考虑了这种设置。 这些偏好可以例如捕获行为偏见，不匹配的世界观或身体限制。 我们研究了两种教学方法：与学习者无关的教学（教师在其中提供了一种忽略学习者偏好的最佳策略的演示）和对学习者的了解的教学（教师在其中考虑了学习者的偏好）。 我们设计了学习者感知的教学算法，并表明与学习者无关的教学可以显着提高性能。</li>
+</ul>
+</li>
+<li><p><strong>Learning Fairness in Multi-Agent Systems.</strong> Jiang, J., &amp; Lu, Z. (2019). [<a href="https://papers.nips.cc/paper/9537-learning-fairness-in-multi-agent-systems" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>公平对人类社会至关重要，有助于稳定和提高生产力。 同样，公平也是许多多主体系统的关键。 公平对待多主体学习可以帮助多主体系统变得高效和稳定。 但是，学习效率和公平性同时是一个复杂的，多目标的联合政策优化。 为了解决这些困难，我们提出了FEN，这是一种新颖的分层强化学习模型。 我们首先分解每个代理商的公平性，然后提出公平有效的回报，让每个代理商学习自己的优化策略。 为避免多目标冲突，我们设计了一个由控制器和几个子策略组成的层次结构，其中控制器通过在提供不同行为以与环境交互的子策略之间进行切换来最大化公平效益回报。  FEN可以通过完全分散的方式进行培训，从而易于在实际应用中进行部署。 从经验上讲，我们表明FEN可以轻松学习公平性和效率，并且在各种多主体场景中均明显优于基准。</li>
+</ul>
+</li>
+<li><p><strong>Learning from Trajectories via Subgoal Discovery.</strong> Paul, S., Van Baar, J., &amp; Roy-Chowdhury, A. K. (2019). [<a href="https://papers.nips.cc/paper/9049-learning-from-trajectories-via-subgoal-discovery" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>学会用稀疏的仅终端奖励来解决复杂的，面向目标的任务通常需要大量样本。 在这种情况下，使用一组专家轨迹可能有助于更快地学习。 但是，通过对这些轨迹进行有监督的预训练进行的模仿学习（IL）可能效果不佳，并且通常需要使用“环路专家”进行额外的微调。 在本文中，我们提出一种使用专家轨迹的方法，并学习将复杂的主要任务分解为较小的子目标。 我们学习了一个将状态空间划分为子目标的函数，然后可以将其用于设计外部奖励函数。 我们遵循的策略是，代理首先使用IL从轨迹中学习，然后使用已识别的子目标切换到强化学习（RL），以减轻IL步骤中的错误。 为了处理由轨迹集表示的状态，我们还学习了一种功能来调节子目标的预测。 我们证明了我们的方法能够解决面向目标的复杂任务，而其他RL，IL或它们在文献中的组合则无法解决。</li>
+</ul>
+</li>
+<li><p><strong>Learning Robust Options by Conditional Value at Risk Optimization.</strong> Hiraoka, T., Imagawa, T., Mori, T., Onishi, T., &amp; Tsuruoka, Y. (2019). [<a href="https://papers.nips.cc/paper/8530-learning-robust-options-by-conditional-value-at-risk-optimization" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>通常通过使用不准确的环境模型（或模拟器）来学习选项，该模型包含不确定的模型参数。 尽管有几种学习选项的方法可以抵抗模型参数的不确定性，但是这些方法仅考虑学习选项的最坏情况或平均情况。 对案例的这种有限考虑通常会产生在未考虑的案例中效果不佳的选择。 在本文中，我们提出了一种基于条件风险值（CVaR）的方法，以学习在平均情况和最坏情况下均能正常工作的选择。 我们扩展了Chow和Ghavamzadeh（2014）提出的基于CVaR的策略梯度方法，以处理鲁棒的马尔可夫决策过程，然后将扩展的方法应用于学习鲁棒选项。 我们进行实验以评估我们在多关节机器人控制任务（HopperIceBlock，Half-Cheetah和Walker2D）中的方法。 实验结果表明，我们的方法产生的选择具有以下优势：1）比仅使平均损失最小化而学习的选项具有更好的最坏情况性能； 2）与仅使最坏情况减少至最小的选择所带来的更好的平均情况性能 失利。</li>
+</ul>
+</li>
+<li><p><strong>Loaded DiCE: Trading off Bias and Variance in Any-Order Score Function Estimators for Reinforcement Learning.</strong> Farquhar, G., Whiteson, S., &amp; Foerster, J. (2019). [<a href="https://papers.nips.cc/paper/9026-loaded-dice-trading-off-bias-and-variance-in-any-order-score-function-gradient-estimators-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>在具有未知或棘手动态的随机环境中优化目标的基于梯度的方法，需要估算导数。 我们得出一个目标，即在自动微分下，以任意阶数产生低方差的无偏导数估计量。 我们的目标与任意优势估计量兼容，后者在使用函数逼近时允许控制任意阶导数的偏差和方差。 此外，我们提出了一种通过折衷更远的因果相关性的影响来权衡高阶导数的偏差和方差的方法。 我们证明了我们的估算器在易于分析的MDP和用于连续控制的元强化学习中的正确性和实用性。</li>
+</ul>
+</li>
+<li><p><strong>Mapping State Space using Landmarks for Universal Goal Reaching.</strong> Huang, Z., Liu, F., &amp; Su, H. (2019). [<a href="https://papers.nips.cc/paper/8469-mapping-state-space-using-landmarks-for-universal-goal-reaching" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>充分了解环境的代理商应能够将其技能应用于任何给定的目标，从而导致学习通用价值函数近似器（UVFA）的根本问题。  UVFA学会预测所有州与目标之间的累积奖励。 但是，从经验上讲，长期目标的价值函数始终很难估算，因此可能导致政策失败。 这给学习过程和神经网络的能力提出了挑战。 我们提出了一种在奖励稀疏的大型MDP中解决此问题的方法，其中跨远程状态的探索和路由都极具挑战性。 我们的方法使用分层的方式显式地对环境进行建模，其中包括基于高层动态地标的地图，该地图抽象了访问的状态空间，而基于底层的价值网络则可以得出精确的本地决策。 我们使用最远点采样从过去的经验中选择地标状态，与简单的统一采样相比，它改善了探索性。 实验表明，我们的方法使代理能够在早期训练阶段达到远距离目标，并且在许多挑战性任务中比标准RL算法具有更好的性能。</li>
+</ul>
+</li>
+<li><p><strong>MAVEN: Multi-Agent Variational Exploration.</strong> Mahajan, A., Rashid, T., Samvelyan, M., &amp; Whiteson, S. (2019). [<a href="https://papers.nips.cc/paper/8978-maven-multi-agent-variational-exploration" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>由于执行过程中的通信限制和训练中的计算可处理性，具有分散执行力的集中式训练是协作深度多主体强化学习的重要设置。 在本文中，我们将分析基于值的方法，这些方法在复杂的环境中具有出色的性能。 我们特别专注于QMIX，这是该领域的最新技术。 我们表明，对QMIX和类似方法引入的联合操作值的表示约束导致可证明的较差的探索和次优性。 此外，我们提出了一种称为MAVEN的新方法，该方法通过引入用于分层控制的潜在空间来混合基于价值和基于策略的方法。 基于值的代理根据分层策略控制的共享潜在变量来限制其行为。 这使MAVEN可以实现有针对性的，时间扩展的探索，这对于解决复杂的多主体任务至关重要。 我们的实验结果表明，MAVEN在具有挑战性的SMAC域上实现了显着的性能提升。</li>
+</ul>
+</li>
+<li><p><strong>MCP: Learning Composable Hierarchical Control with Multiplicative Compositional Policies.</strong> Peng, X. Bin, Chang, M., Zhang, G., Abbeel, P., &amp; Levine, S. (2019). [<a href="https://papers.nips.cc/paper/8626-mcp-learning-composable-hierarchical-control-with-multiplicative-compositional-policies" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>人类可以利用从先前的经验中学到的技能来执行各种复杂的任务。 为了使自治代理具备此功能，他们必须能够从过去的经验中提取可重用的技能，并以新的方式将其重新组合以用于后续任务。 此外，在控制复杂的高维形态（例如人形物体）时，任务通常需要同时协调多种技能。 快速学习每种技能组合的离散原语变得令人望而却步。 可以重组以创建多种行为的可组合基元可能更适合于对该组合爆炸建模。 在这项工作中，我们提出了乘法合成策略（MCP），这是一种学习可重复使用的运动技能的方法，可以用来产生一系列复杂的行为。 我们的方法将代理的技能分解为一组原始元素，其中可以通过乘法合成同时激活多个原始元素。 这种灵活性使原语可以被转移和重组，以引发新任务所必需的新行为。 我们证明了MCP能够从预训练任务（例如动作模仿）中提取高度复杂的模拟角色的组合技能，然后再利用这些技能来解决具有挑战性的连续控制任务，例如将足球运到球门并进行接球 放置物体并将其运输到目标位置。</li>
+</ul>
+</li>
+<li><p><strong>Meta-Inverse Reinforcement Learning with Probabilistic Context Variables.</strong> Yu, L., Yu, T., Finn, C., &amp; Ermon, S. (2019). [<a href="https://papers.nips.cc/paper/9348-meta-inverse-reinforcement-learning-with-probabilistic-context-variables" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>强化学习需要奖励功能，这在现实应用中通常很难提供或设计。 逆向强化学习（IRL）有望从示威中自动学习奖励功能，但仍存在一些主要挑战。 首先，现有的IRL方法从零开始学习奖励功能，需要大量的演示才能正确推断代理可能需要执行的每个任务的奖励。 其次，更微妙的是，现有方法通常假设一个孤立的行为或任务的演示，而在实践中，提供异类行为的数据集则更加自然和可扩展。 为此，我们提出了一个深层的潜在变量模型，该模型能够从非结构化的多任务演示数据中学习奖励，并且至关重要的是，可以利用这一经验从单个演示中推断出对新的，结构相似的任务的可靠奖励。 与多项最新的模仿和逆强化学习方法相比，我们在多个连续控制任务上的实验证明了我们方法的有效性。</li>
+</ul>
+</li>
+<li><p><strong>Mo’ States Mo’ Problems: Emergency Stop Mechanisms from Observation.</strong> Ainsworth, S., Barnes, M., &amp; Srinivasa, S. (2019). [<a href="https://papers.nips.cc/paper/9654-mo-states-mo-problems-emergency-stop-mechanisms-from-observation" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>在许多环境中，只需要完成状态空间的一个相对较小的子集即可完成给定任务。 我们开发了一种使用紧急停车（e-stop）的简单技术来利用这种现象。 使用e-stops可以减少所需探索的次数，从而显着提高了样本的复杂性，同时保留了一个性能边界，可以以较小的渐近次优差距有效地折衷收敛速度。 我们分析了紧急停车的遗憾行为，并在离散和连续设置中提供了经验结果，表明我们的重置机制可以在现有强化学习方法的基础上提供数量级的加速。</li>
+</ul>
+</li>
+<li><p><strong>Modelling the Dynamics of Multiagent Q-Learning in Repeated Symmetric Games: a Mean Field Theoretic Approach.</strong> Hu, S., Leung, C.-W., &amp; Leung, H.-F. (2019). [<a href="https://papers.nips.cc/paper/9380-modelling-the-dynamics-of-multiagent-q-learning-in-repeated-symmetric-games-a-mean-field-theoretic-approach" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>长期以来，对多主体学习的动力学进行建模一直是重要的研究课题，但是所有先前的工作都集中在两主体设置上，并且大多使用进化博弈论方法。 在本文中，我们研究了一个n趋于无穷大的n-agent设置，这样，agent与其他一些agent一起通过重复的对称双矩阵博弈同时学习其策略。 使用平均场理论，我们通过平均效应近似其他代理对单个代理的影响。 得出了一个Fokker-Planck方程，该方程描述了Agent群体中Q值的概率分布的演变。 据我们所知，这是第一次显示仅由三个方程组成的系统即可描述n代理设置下的Q学习动力学。 我们通过与典型的对称双矩阵博弈和不同的Q值初始设置下基于代理的仿真进行比较来验证模型。</li>
+</ul>
+</li>
+<li><p><strong>Multi-Agent Common Knowledge Reinforcement Learning.</strong> Schroeder de Witt, C. A., Foerster, J. N., Farquhar, G., S Torr, P. H., Böhmer, W., &amp; Whiteson, S. (2019). [<a href="https://papers.nips.cc/paper/9184-multi-agent-common-knowledge-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Multiagent Evaluation under Incomplete Information.</strong> Rowland, M., Omidshafiei, S., Tuyls, K., Pérolat, J., Valko, M., Piliouras, G., &amp; Munos, R. (2019). [<a href="https://papers.nips.cc/paper/9395-multiagent-evaluation-under-incomplete-information" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>协作式多主体强化学习通常需要分散的政策，这严重限制了主体协调其行为的能力。 在本文中，我们表明代理之间的常识允许复杂的分散式协调。 在许多分散的合作多主体任务中，例如，当主体可以重构彼此观察的一部分时，常识自然就会产生。 由于代理可以独立地就他们的常识达成共识，因此他们可以执行复杂的协调策略，以完全分散的方式对此知识加以限制。 我们提出了多智能体共同知识强化学习（MACKRL），这是一种新颖的随机行为者评论算法，用于学习分层策略树。 层次结构中的较高级别通过以代理的常识为条件来协调代理的组，或委托具有较小子组但可能具有更丰富的常识的较低代理。 整个策略树可以以完全分散的方式执行。 由于最低的策略树级别由每个代理的独立策略组成，因此，MACKRL简化为独立学习的分散策略，这是特例。 我们证明了我们的方法可以利用公知知识在复杂的分散式协调任务（包括随机矩阵博弈和《星际争霸II》单元微管理中的挑战性问题）上表现出色。</li>
+</ul>
+</li>
+<li><p><strong>Multi-View Reinforcement Learning.</strong> Li, M., Wu, L., Bou Ammar, H., &amp; Wang, J. (2019). [<a href="https://papers.nips.cc/paper/8422-multi-view-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>本文涉及多视图强化学习（MVRL），当代理共享共同的动力学但遵循不同的观察模型时，它可以进行决策。 我们通过扩展部分可观察的马尔可夫决策过程（POMDP）以支持不止一种观察模型来定义MVRL框架，并通过观察增强和交叉视图策略转移提出两种解决方法。 我们根据经验评估我们的方法，并证明其在各种环境中的有效性。 具体而言，我们显示出减少了获取用于处理多视图环境的策略的样本复杂度和计算时间。</li>
+</ul>
+</li>
+<li><p><strong>Near-Optimal Reinforcement Learning in Dynamic Treatment Regimes.</strong> Zhang, J., &amp; Bareinboim, E. (2019). [<a href="https://papers.nips.cc/paper/9496-near-optimal-reinforcement-learning-in-dynamic-treatment-regimes" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>动态治疗方案（DTR）由一系列决策规则组成，每个干预阶段一个决策规则，指示如何根据不断发展的治疗方法和协变量历史确定如何为患者分配治疗方案。 这些制度对于控制慢性疾病特别有效，并且可以说是朝着更加个性化的决策方向发展的关键方面之一。 在本文中，我们将调查在线强化学习（RL）问题，以选择最佳的DTR，前提是可以提供观测数据。 我们开发了第一个自适应算法，该算法在在线设置下无需任何历史数据访问即可在DTR中实现近乎最佳的遗憾。 我们进一步从混杂的观测数据中得出有关DTR的系统动力学的信息范围。 最后，我们结合这些结果并开发出一种新颖的RL算法，该算法可有效利用最佳的DTR，同时利用大量但不完善的混杂观测值。</li>
+</ul>
+</li>
+<li><p><strong>Neural Proximal/Trust Region Policy Optimization Attains Globally Optimal Policy.</strong> Liu, B., Cai, Q., Yang, Z., &amp; Wang, Z. (2019). [<a href="https://papers.nips.cc/paper/9242-neural-trust-regionproximal-policy-optimization-attains-globally-optimal-policy" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>通过神经网络对参与者和评论者进行参数化设置的近距离策略优化和信任区域策略优化（PPO和TRPO）在深度强化学习中取得了重大的经验成功。 但是，由于不凸性，PPO和TRPO的全局收敛性仍然鲜为人知，这使理论与实践脱节。 在本文中，我们证明了带有超参数化神经网络的PPO和TRPO的变体以亚线性速率收敛于全局最优策略。 我们分析的关键是在单点单调性概念下无穷维镜下降的全局收敛性，其中梯度和迭代由神经网络实例化。 特别地，由这种神经网络的过度参数化引起的期望表示能力和最优化几何形状使它们能够精确地逼近无限维梯度并进行迭代。</li>
+</ul>
+</li>
+<li><p><strong>No-Press Diplomacy: Modeling Multi-Agent Gameplay.</strong> Paquette, P., Lu, Y., Bocco, S., Smith, M. O., Ortiz-Gagné, S., Kummerfeld, J. K., … Courville, A. (2019). Retrieved from <a href="https://github.com/diplomacy/research" target="_blank" rel="noopener">https://github.com/diplomacy/research</a></p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Non-Asymptotic Gap-Dependent Regret Bounds for Tabular MDPs.</strong> Simchowitz, M., &amp; Jamieson, K. (2019). [<a href="https://papers.nips.cc/paper/8399-non-asymptotic-gap-dependent-regret-bounds-for-tabular-mdps" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>本文建立了乐观算法获得了间歇式MDP的间隙依赖和非渐近对数后悔。 与先前的工作相比，我们的边界不依赖于直径样的数量或遍历，而是在依赖于间隙的对数后悔和\ widetilde {\ mathcal {O}}（\ sqrt {HSAT}）之间平滑地插值 -minimax率。 我们分析中的关键技术是一种新颖的剪裁后悔分解法，该分解法适用于一系列最新的情节式MDP乐观算法。</li>
+</ul>
+</li>
+<li><p><strong>Non-Cooperative Inverse Reinforcement Learning.</strong> Zhang, X., Zhang, K., Tamer, E. M., &amp; Bas¸ar, B. (2019). [<a href="https://papers.nips.cc/paper/9145-non-cooperative-inverse-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>在有战略对手的情况下做出决定时，需要考虑到对手主动掩盖其预期目标的能力。 为了描述这种战略情况，我们介绍了非合作逆向强化学习（N-CIRL）形式主义。  N-CIRL形式主义由两个目标完全错位的主体组成，其中只有一个主体知道真正的目标功能。 形式上，我们将N-CIRL形式主义建模为具有单面不完整信息的零和马尔可夫博弈。 通过与知识渊博的玩家互动，知识渊博的玩家会尝试推断和优化真实目标功能。 由于单方面信息不完整，可以将多阶段博弈分解为由递归公式表示的一系列单阶段博弈。 解决此递归公式可产生N-CIRL博弈的价值以及更明智的玩家的均衡策略。 通过形成辅助游戏而构造的另一种递归公式，称为对偶游戏，产生了知情程度较低的玩家策略。 在这两个递归公式的基础上，我们开发了一种易于计算的算法来近似求解平衡策略。 最后，我们通过在新型网络安全环境中进行广泛的数值模拟，证明了N-CIRL形式主义优于现有的多代理IRL形式主义的好处。</li>
+</ul>
+</li>
+<li><p><strong>Non-Stationary Markov Decision Processes a Worst-Case Approach using Model-Based Reinforcement Learning.</strong> Lecarpentier, E., &amp; Rachelson, E. (2019). [<a href="https://papers.nips.cc/paper/8942-non-stationary-markov-decision-processes-a-worst-case-approach-using-model-based-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>这项工作解决了非平稳随机环境中健壮的零击计划的问题。 我们研究随着时间发展的马尔可夫决策过程（MDP），并在这种情况下考虑基于模型的强化学习算法。 我们有两个假设：1）环境以有限的演化速率连续演化；  2）在每个决策时期都知道当前模型，但不知道其演变过程。 我们的贡献可以分为四个方面。  1）我们定义一类特定的MDP，我们称其为非平稳MDP（NSMDP）。 我们通过对过渡和奖励函数w.r.t做出Lipschitz-Continuity的假设来介绍正则演化的概念。 时间;  2）我们考虑使用当前环境模型但不了解其未来发展的规划代理。 这导致我们考虑一种最坏情况的方法，即将环境视为对抗性媒介。  3）遵循这种方法，我们提出了风险厌恶树搜索（RATS）算法，这是一种类似于Minimax搜索的基于零触发的基于模型的方法；  4）我们从经验上说明了RATS带来的好处，并将其性能与参考基于模型的算法进行了比较。</li>
+</ul>
+</li>
+<li><p><strong>No-Regret Learning in Unknown Games with Correlated Payoffs.</strong> Sessa, P. G., Zürich, E., Bogunovic, I., Kamgarpour, M., &amp; Krause, A. (2019). [<a href="https://papers.nips.cc/paper/9514-no-regret-learning-in-unknown-games-with-correlated-payoffs" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们考虑学习玩具有未知奖励功能的重复多主体游戏的问题。 当提供完整的信息反馈时，单人在线学习算法会遇到很大的遗憾，但不幸的是，在许多现实情况下，这是不可用的。 单独的强盗反馈，即仅观察所选择动作的结果，会导致性能大大降低。 在本文中，我们考虑一个自然模型，在该模型中，除了对获得的奖励进行嘈杂的测量外，玩家还可以观察对手的行为。 这种反馈模型，加上对奖励函数的规律性假设，使我们能够利用高斯过程（GP）来利用不同游戏结果之间的相关性。 我们提出了一种基于置信度的新型强盗算法GP-MW，该算法利用GP模型获得奖励功能并运行乘权（MW）方法。 我们获得了新颖的依赖于内核的后悔界限，可以与完整信息环境中的已知界限相提并论，同时大大改善了现有的强盗结果。 我们通过实验证明了GP-MW在随机矩阵游戏中的有效性，以及现实世界中的交通路线和电影推荐问题。 在我们的实验中，GP-MW始终优于几个基准，而其性能通常可与可获取全部信息反馈的方法相媲美。</li>
+</ul>
+</li>
+<li><p><strong>Off-Policy Evaluation via Off-Policy Classification.</strong> Irpan, A., Rao, K., Bousmalis, K., Harris, C., Ibarz, J., &amp; Levine, S. (2019). [<a href="https://papers.nips.cc/paper/8783-off-policy-evaluation-via-off-policy-classification" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>在这项工作中，我们考虑了在现实环境中用于深度强化学习（RL）的模型选择问题。 通常，深度RL算法的性能是通过与目标环境的策略上交互来评估的。 但是，为了尽早停止或进行超参数调整而在实际环境中比较模型的成本很高，而且通常实际上是不可行的。 这使我们在这种情况下研究了非政策性政策评估（OPE）。 我们专注于基于价值的方法的OPE，这在诸如机器人技术之类的深度RL中特别受关注，其中基于Q函数估计的非策略算法通常可以比直接策略优化获得更好的样本复杂性。 此外，现有的OPE度量标准要么依赖于环境模型，要么依赖于重要性采样（IS）来纠正不符合政策要求的数据。 但是，对于高维度的观测（例如图像），环境模型可能难以拟合，基于价值的方法可能会使IS难以使用，甚至变得条件恶劣，尤其是在处理连续动作空间时。 在本文中，我们关注具有连续动作空间和稀疏二进制奖励的MDP的特殊情况，它代表了许多重要的实际应用。 通过将OPE定义为正无标签（PU）分类问题，我们提出了一种既不依赖模型也不依赖IS的替代度量。 我们通过实验表明，该指标在许多任务上均优于基线。 最重要的是，它可以在多种泛化方案中可靠地预测不同策略的相对性能，包括将针对基于图像的机器人操纵任务进行模拟训练的策略转移到现实世界中。</li>
+</ul>
+</li>
+<li><p><strong>On the Correctness and Sample Complexity of Inverse Reinforcement Learning.</strong> Komanduru, A., &amp; Honorio, J. (2019). [<a href="https://papers.nips.cc/paper/8933-on-the-correctness-and-sample-complexity-of-inverse-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>逆向强化学习（IRL）是找到奖励函数的问题，该奖励函数针对给定的马尔可夫决策过程生成给定的最佳策略。 本文着眼于具有有限状态和作用的IRL问题的算法无关的几何分析。 然后考虑到逆强化问题的基本目标，提出了由几何分析引起的IRL问题的L1正则化支持向量机公式：找到产生指定最优策略的奖励函数。 本文进一步分析了提出的具有n个状态和k个动作的逆强化学习的公式，并给出了每行最多d个非零的转移概率矩阵的O（d ^ 2 \ log（nk））的样本复杂度， 恢复奖励函数，该奖励函数生成的策略在真实转移概率方面满足Bellman的最优性条件。</li>
+</ul>
+</li>
+<li><p><strong>Planning with Goal-Conditioned Policies.</strong> Nasiriany, S., Pong, V. H., Lin, S., &amp; Levine, S. (2019). [<a href="https://papers.nips.cc/paper/9623-planning-with-goal-conditioned-policies" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>计划方法可以通过构成简单行为来解决临时扩展的顺序决策问题。 但是，规划需要对状态和转换进行适当的抽象，而这些抽象通常需要手动设计。 相比之下，强化学习（RL）可以直接从低级输入中获取行为，但在时间扩展任务上却遇到困难。 我们是否可以利用强化学习来自动形成计划所需的抽象，从而获得两种方法中的最佳方法？ 我们表明，通过RL学习的目标条件策略可以纳入计划中，以便计划者可以专注于要达到的状态，而不是如何达到这些状态。 但是，对于复杂的状态观察（例如图像），并非所有输入都代表有效状态。 因此，我们还建议使用潜在变量模型来紧凑地表示计划者的有效状态集，以便策略提供动作的抽象，而潜在变量模型提供状态的抽象。 我们将我们的方法与基于计划的方法和无模型的方法进行了比较，发现在对需要非贪婪，多阶段行为的基于图像的任务进行评估时，我们的方法明显优于先前的工作。</li>
+</ul>
+</li>
+<li><p><strong>Policy Poisoning in Batch Reinforcement Learning and Control.</strong> Ma, Y., Zhang, X., Sun, W., &amp; Zhu, X. (2019). [<a href="https://papers.nips.cc/paper/9599-policy-poisoning-in-batch-reinforcement-learning-and-control" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们研究了对批量强化学习和控制的安全威胁，攻击者旨在毒化已学习的策略。 受害者是一名强化学习者/控制者，他首先从批处理数据集中估算动力和报酬，然后针对估算估算最佳策略。 攻击者可以在学习发生之前稍稍修改数据集，并希望迫使学习者学习攻击者选择的目标策略。 我们提供了一个解决批处理策略中毒攻击的统一框架，并实例化了对两个标准受害者的攻击：强化学习中的表格确定性等效学习器和控制中的线性二次调节器。 我们表明，这两种实例化都导致凸优化问题，在该问题上可以保证全局最优，并提供了攻击可行性和攻击成本的分析。 实验证明了策略中毒攻击的有效性。</li>
+</ul>
+</li>
+<li><p><strong>Privacy-preserving Q-Learning with Functional Noise in Continuous Spaces.</strong> Wang, B., Hegde, N., &amp; Ai, B. (2019). [<a href="https://papers.nips.cc/paper/9310-privacy-preserving-q-learning-with-functional-noise-in-continuous-spaces" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们考虑了在连续空间中进行强化学习的差分专用算法，因此相邻的奖励函数无法区分。 这可以防止奖励信息被逆强化学习之类的方法利用。 现有的保证差异隐私的研究无法扩展到无限状态空间，因为确保隐私的噪声水平将相应地扩展到无穷大。 我们的目的是保护值函数逼近器，而不必考虑对该函数查询的状态数。 通过在训练中反复将功能噪声添加到值函数中来实现。 通过对噪声空间的内核，此类噪声样本的概率范围以及迭代过程的组成进行一系列分析，我们显示出严格的隐私保证。 通过证明状态空间为离散状态时算法的近似最优性，我们可以深入了解效用分析。 实验证实了我们的理论发现，并显示了对现有方法的改进。</li>
+</ul>
+</li>
+<li><p><strong>Propagating Uncertainty in Reinforcement Learning via Wasserstein Barycenters.</strong> Metelli, A. M., Likmeta, A., &amp; Restelli, M. (2019). Retrieved from <a href="https://github.com/albertometelli/wql" target="_blank" rel="noopener">https://github.com/albertometelli/wql</a>.</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Provably Efficient Q-Learning with Low Switching Cost.</strong> Bai, Y., Xie, T., Jiang, N., Wang, Y.-X., &amp; Barbara, S. (2019). [<a href="https://papers.nips.cc/paper/9013-provably-efficient-q-learning-with-low-switching-cost" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们采取初始步骤来研究适应性有限的PAC-MDP算法，即在后悔最小化期间​​尽可能不频繁更改其探索策略的算法。 这是由于在现实世界的应用程序（例如医学领域）中运行完全自适应算法的困难而引起的，我们建议使用\ emph {local switch cost}概念来量化自适应性。 我们的主要贡献（Q学习与UCB2探索）是一种用于H步情节MDP的无模型算法，该算法可实现亚线性遗憾，其在K个情节中的局部切换成本为O（H ^ 3SA \ log K），我们提供了一个较低的 对于任何无悔算法，\ Omega（HSA）都会限制本地交换成本。 我们的算法可以自然地适应并发设置\ citep {guo2015concurrent}，该设置会产生不平凡的结果，在某些方面，这些结果会比以前的工作有所改善。</li>
+</ul>
+</li>
+<li><p><strong>Provably Global Convergence of Actor-Critic: A Case for Linear Quadratic Regulator with Ergodic Cost.</strong> Yang, Z., Chen, Y., Hong, M., &amp; Wang, Z. (2019). [<a href="https://papers.nips.cc/paper/9044-provably-global-convergence-of-actor-critic-a-case-for-linear-quadratic-regulator-with-ergodic-cost" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>尽管actor-critic算法在经验上取得了成功，但其理论理解仍然落后。 在更广泛的范围内，参与者批评者可以被视为用于双级优化的在线交替更新算法，已知其收敛是脆弱的。 为了了解行为批评家的不稳定性，我们将重点放在线性二次调节器上，这是强化学习的一种简单而基本的设置。 我们在这种情况下建立了演员评论家的非渐近收敛分析。 特别是，我们证明了行为批评者以线性收敛速度找到了行为者（政策）和批评者（行动价值函数）的全局最优对。 我们的分析可能是迈向具有非凸子问题的双级优化的完整理论理解的第一步，这在最坏的情况下是NP-困难的，通常使用启发式方法解决。</li>
+</ul>
+</li>
+<li><p><strong>Real-Time Reinforcement Learning.</strong> Ramstedt Mila, S., &amp; Pal, C. (2019). [<a href="https://papers.nips.cc/paper/8571-real-time-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>Markov决策过程（MDP）是强化学习（RL）中大多数算法的基础数学框架，通常以错误地假设代理人的环境状态在选择操作过程中不会改变的方式使用。 随着基于MDP的RL系统开始在现实世界中的安全关键情况下找到应用，传统MDP所基于的假设与实时计算的现实之间的这种不匹配可能导致不良结果。 在本文中，我们介绍了一个新的框架，其中状态和动作同时演化，并显示了它与经典MDP公式的关系。 我们在新的实时公式下分析了现有算法，并说明了为什么在实时使用时它们不是最优的。 然后，我们利用这些洞察力来创建新的实时演员评论员（RTAC）算法，该算法在实时和非实时设置方面均优于现有的最新连续控制算法“软件演员批评家”。</li>
+</ul>
+</li>
+<li><p><strong>Reconciling λ-Returns with Experience Replay.</strong> Daley, B., &amp; Amato, C. (2019). [<a href="https://papers.nips.cc/paper/8397-reconciling-returns-with-experience-replay" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>现代的深度强化学习方法已经脱离了资格跟踪所需的增量学习，这使得在这种情况下难以实现λ返回。 特别是，利用经验重播的非政策方法仍然存在问题，因为它们对小批产品的随机抽样不利于λ回报的有效计算。 然而，基于重播的方法通常是最有效的采样方法，将λ-returns纳入其中是实现新的最新性能的可行方法。 为此，我们提出了第一种方法，可以在不依赖于其他形式的去相关（例如异步梯度更新）的情况下，在基于任意重放的方法中实际使用λ返回。 通过将过去过渡的短序列提升为重播内存中的小缓存，可以通过共享Q值来有效地预先计算相邻的λ返回。 计算不会浪费在从未采样过的经验上，并且存储的λ返回值表现为替代目标网络的稳定的时差（TD）目标。 此外，我们的方法赋予了在采样之前观察TD错误的独特能力； 第一次，可以根据转换的真实重要性而不是通过代理对其进行优先级转换。 此外，我们提出了TD误差的新颖用法，以动态选择有助于更快学习的λ值。 我们证明，即使在部分可观察性的前提下，这些创新也可以在玩Atari 2600游戏时提高DQN的性能。 虽然我们的工作专门针对λ返回，但这些思想适用于任何多步返回估计。</li>
+</ul>
+</li>
+<li><p><strong>Regret Bounds for Learning State Representations in Reinforcement Learning.</strong> Ortner, R., Pirotta, M., Fruit, R., Lazaric, A., &amp; Maillard, O.-A. (2019). [<a href="https://papers.nips.cc/paper/9435-regret-bounds-for-learning-state-representations-in-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>当学习者可以使用几种状态表示形式（将历史映射到离散状态空间）时，我们考虑在线强化学习的问题。 假定这些表示中的至少一个诱发了马尔可夫决策过程（MDP），并且根据针对该MDP表示中给出最高平均奖励的最优策略的累积后悔来衡量代理的绩效。 我们提出了一种在通信马尔可夫决策过程中具有O（sqrt（T））后悔的算法（UCB-MS）。 后悔的界限表明，UCB-MS自动适应了马尔可夫模型。 这优于文献中目前已知的最佳结果，后者给出了O（T ^（2/3））阶的遗憾界限。</li>
+</ul>
+</li>
+<li><p><strong>Regret Minimization for Reinforcement Learning by Evaluating the Optimal Bias Function.</strong> Zhang, Z., &amp; Ji, X. (2019). [<a href="https://papers.nips.cc/paper/8549-regret-minimization-for-reinforcement-learning-by-evaluating-the-optimal-bias-function" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们提出一种基于\ emph {不确定性中的乐观主义}（OFU）原理的算法，该算法能够有效地学习具有有限状态作用空间的Markov决策过程（MDP）建模的强化学习（RL）。 通过评估最佳偏置函数h ^ {<em>}的状态对差异，该算法实现了\ tilde {O}（\ sqrt {SATH}）\ footnote {后缀\ tilde {O}表示O 忽略对数因子。  }对于具有S状态和A动作的MDP，在h ^ {</em>}跨度的上限H，即sp（h ^ {*}）已知的情况下。 此结果优于\ tilde {O}（HS \ sqrt {AT}）\ cite {bartlett2009regal}的最佳后悔范围，是\ sqrt {SH}的一个因素。 此外，此后悔界限与\ Omega（\ sqrt {SATH}）\ cite {jaksch2010near}的下限匹配为对数因子。 结果，我们证明，对于具有有限直径D的MDP，与\ Omega（\ sqrt {DSAT}）\ cite的下限相比，存在\ tilde {O}（\ sqrt {DSAT}）的接近最佳后悔边界 {jaksch2010near}。</li>
+</ul>
+</li>
+<li><p><strong>Regret Minimization for Reinforcement Learning with Vectorial Feedback and Complex Objectives.</strong> Chi Cheung, W. (2019). [<a href="https://papers.nips.cc/paper/8361-regret-minimization-for-reinforcement-learning-with-vectorial-feedback-and-complex-objectives" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们考虑一个参与在线马尔可夫决策过程的代理商，并且每轮都会收到结果向量。 该代理旨在同时优化与多维结果相关的多个目标。 由于状态转换，为实现接近最佳状态而平衡矢量结果具有挑战性。 特别是，与单一目标情况相反，固定政策通常不是最优的。 我们提出了一种基于Frank-Wolfe算法（Frank和Wolfe 1956），UCRL2（Jaksch等人2010）以及一种至关重要的新颖梯度阈值程序的无悔算法。 该过程涉及仔细延迟梯度更新，并返回非平稳策略，该策略会使结果多样化以优化目标。</li>
+</ul>
+</li>
+<li><p><strong>Regularized Anderson Acceleration for Off-Policy Deep Reinforcement Learning.</strong> Shi, W., Song, S., Wu, H., Hsu, Y.-C., Wu, C., &amp; Huang, G. (2019). Retrieved from <a href="https://github.com/shiwj16/raa-drl" target="_blank" rel="noopener">https://github.com/shiwj16/raa-drl</a>.</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Reinforcement Learning with Convex Constraints.</strong> Miryoosefi, S., Brantley, K., Iii, H. D., Dudík, M., &amp; Schapire, R. E. (2019). [<a href="https://papers.nips.cc/paper/9556-reinforcement-learning-with-convex-constraints" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>在标准强化学习（RL）中，学习代理会寻求优化总体奖励。 但是，期望行为的许多关键方面更自然地表示为约束。 例如，设计人员可能希望限制不安全动作的使用，增加轨迹的多样性以进行探索，或者在奖励稀少时近似专家轨迹。 在本文中，我们提出了一种算法方案，可以处理RL任务中的多种约束：具体而言，任何需要某些向量测量值（例如使用动作）的期望值的约束都位于凸集中。 这捕获了先前研究过的约束（例如安全性和与专家的接近度），但也启用了新的约束类别（例如多样性）。 我们的方法具有严格的理论保证，并且仅依赖于大约解决标准RL任务的能力。 因此，它可以轻松适应任何无模型或基于模型的RL。 在我们的实验中，我们证明它与以前的通过约束强制执行安全性的算法相匹配，但是还可以强制执行这些算法未包含的新属性，例如多样性。</li>
+</ul>
+</li>
+<li><p><strong>Robust exploration in linear quadratic reinforcement learning.</strong> Umenberger, J., Ferizbegovic, M., Schön, T. B., &amp; Hjalmarsson, H. (2019). [<a href="https://papers.nips.cc/paper/9668-robust-exploration-in-linear-quadratic-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>学会在不确定和动态的环境中进行决策是许多领域的基本绩效任务。 本文涉及一个未知线性动力学系统的学习控制策略问题，以最小化二次成本函数。 我们提出了一种基于凸优化的方法，该方法可以“稳健”地完成此任务，即，考虑到给定的观测数据，将考虑系统不确定性的最坏情况下的成本降至最低。 该方法平衡了开发和探索之间的联系，从而以一种使系统兴奋的方式减少了最坏情况下的成本最敏感的模型参数的不确定性。 数值模拟和在硬件在环伺服机构中的应用被用来演示这种方法，与在这两种方法中都观察到的替代方法相比，它具有明显的性能和鲁棒性。</li>
+</ul>
+</li>
+<li><p><strong>Robust Multi-agent Counterfactual Prediction.</strong> Peysakhovich, A., Kroer, C., &amp; Lerer, A. (2019). [<a href="https://papers.nips.cc/paper/8572-robust-multi-agent-counterfactual-prediction" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们考虑了使用记录的数据做出预测的问题，如果我们在多代理系统中更改“游戏规则”会发生什么。 这项任务很困难，因为在许多情况下，我们观察到的是个人所采取的行动，而不是个人信息或充分的奖励职能。 此外，代理商具有战略意义，因此，当规则更改时，他们也将更改其行动。 现有方法（例如，结构估计，逆强化学习）假设代理的行为来自优化某种效用或系统处于平衡状态。 他们通过使用观察到的动作来学习潜在的效用函数（也称为类型），然后求解反事实环境的平衡，从而做出反事实预测。 这种方法强加了严格的假设，例如观察到的代理商的合理性以及环境和代理商的效用函数的正确模型。 我们提出了一种方法来分析反事实结论对违反这些假设的敏感性，我们称其为健壮的多主体反事实预测（RMAC）。 我们提供了一种用于计算RMAC范围的一阶方法。 我们将RMAC应用于市场设计中的经典环境：拍卖，学校选择和社会选择。</li>
+</ul>
+</li>
+<li><p><strong>Sample-Efficient Deep Reinforcement Learning via Episodic Backward Update.</strong> Lee, S. Y., Choi, S., &amp; Chung, S.-Y. (2019). [<a href="https://papers.nips.cc/paper/8484-sample-efficient-deep-reinforcement-learning-via-episodic-backward-update" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们提出了情节向后更新（EBU）–一种具有直接值传播的新颖的深度强化学习算法。 与常规使用统一随机抽样的经验重播相比，我们的代理对整个情节进行抽样，并将状态值连续传播到其先前状态。 我们的计算有效的递归算法允许稀疏和延迟的奖励直接在采样情节的所有过渡中传播。 我们从理论上证明了EBU方法的收敛性，并通过实验证明了其在确定性和随机环境中的性能。 尤其是在Atari 2600域的49个游戏中，EBU分别仅使用5％和10％的样本即可达到DQN的均值和中值人类标准化性能。</li>
+</ul>
+</li>
+<li><p><strong>Search on the Replay Buffer: Bridging Planning and Reinforcement Learning.</strong> Eysenbach, B., Salakhutdinov, R., Levine Φψ Θ Cmu, S., &amp; Brain, G. (2019). Retrieved from <a href="http://bit.ly/rl_search" target="_blank" rel="noopener">http://bit.ly/rl_search</a></p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Semi-Parametric Efficient Policy Learning with Continuous Actions.</strong> Demirer, M., Syrgkanis, V., Lewis, G., &amp; Chernozhukov, V. (2019). [<a href="https://papers.nips.cc/paper/9643-semi-parametric-efficient-policy-learning-with-continuous-actions" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们考虑具有连续动作空间的非策略评估和优化。 我们专注于观测数据，其中数据收集策略未知，需要根据数据进行估算。 我们采用半参数方法，其中值函数在处理中采用已知的参数形式，但我们对它如何依赖于所观察的上下文是不可知的。 我们为此设置提出了双重鲁棒的非策略估计，并表明基于该双重鲁棒的估计的非策略优化对于估计策略函数或回归模型的误差具有鲁棒性。 我们还表明，我们的非政策估算的方差达到了半参数效率界限。 如果模型不满足我们的半参数形式，而是根据真实值函数对该函数空间的最佳投影来衡量遗憾，则我们的结果也适用。 我们的工作从仅考虑离散操作的观察数据扩展了策略优化的先前方法。 我们在以最佳个性化定价为动力的综合数据示例中对我们的方法进行了实验评估。</li>
+</ul>
+</li>
+<li><p><strong>Shaping Belief States with Generative Environment Models for RL.</strong> Gregor, K., Rezende, D. J., Besse, F., Wu, Y., &amp; Merzic, H. (2019). [<a href="https://papers.nips.cc/paper/9503-shaping-belief-states-with-generative-environment-models-for-rl" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>当代理与复杂的环境交互时，他们必须形成并保持对那个环境相关方面的信念。 我们提出了一种在复杂环境中有效训练表达生成模型的方法。 我们表明，具有表达生成模型的预测算法可以在视觉丰富和动态3D环境中形成稳定的置信状态。 更准确地说，我们表明，学习的表示形式可以捕获环境的布局以及代理的位置和方向。 我们的实验表明，与强大的无模型基准代理相比，该模型大大提高了许多强化学习（RL）任务的数据效率。 我们发现，预测未来的多个步骤（超调），再结合具有表现力的生成模型，对于稳定表示形式的出现至关重要。 在实践中，在RL中使用表达生成模型在计算上是昂贵的，我们提出了一种减轻这种计算负担的方案，使我们能够构建与无模型基线竞争的代理。</li>
+</ul>
+</li>
+<li><p><strong>Stabilizing Off-Policy Q-Learning via Bootstrapping Error Reduction.</strong> Kumar, A., Fu, J., Google Brain, G. T., &amp; Levine, S. (2019). [<a href="https://papers.nips.cc/paper/9349-stabilizing-off-policy-q-learning-via-bootstrapping-error-reduction" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>非政策强化学习旨在利用从先前政策中收集到的经验进行高效样本学习。 但是，在实践中，基于Q学习和参与者批评方法的常用的非策略近似动态编程方法对数据分布高度敏感，并且在不收集其他策略上数据的情况下只能取得有限的进展。 作为朝着更强大的政策外算法迈出的一步，我们研究了政策外经验是固定的且与环境没有进一步交互的环境。 我们将\ emph {bootstrapping error}确定为当前方法中不稳定的关键来源。 引导错误是由于来自训练数据分发之外的动作导致的引导错误，并且通过Bellman备份操作员进行累积。 我们从理论上分析引导错误，并演示了如何在备份中严格限制操作选择可以减轻这种错误。 根据我们的分析，我们提出了一种实用的算法，即引导误差累积减少（BEAR）。 我们证明，BEAR能够从一系列不连续的控制任务中，从不同的非政策性分布（包括随机数据和次优演示）中稳健地学习。</li>
+</ul>
+</li>
+<li><p><strong>The Option Keyboard Combining Skills in Reinforcement Learning.</strong> Barreto, A., Borsa, D., Hou, S., Comanici, G., Aygün, E., Hamel, P., … Precup, D. (2019). [<a href="https://papers.nips.cc/paper/9463-the-option-keyboard-combining-skills-in-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>结合已知技能以创建新技能的能力对于解决复杂的强化学习问题（可能会持续很长时间）至关重要。 我们认为，一种强大的技能组合方式是在伪奖励（或“累积量”）的空间中定义和操纵它们。 在此前提下，我们提出了使用期权的形式主义来结合技能的框架。 我们表明，每个确定性选项都可以明确表示为扩展域中定义的累积量。 在此见解和先前对转移学习的结果的基础上，我们将展示如何近似其累积量是已知期权累积量的线性组合的期权。 这意味着，一旦我们学习了与一组累积量相关的选项，我们就可以立即合成由它们的任何线性组合引起的选项，而无需进行任何学习。 我们描述了此框架如何为环境提供层次结构接口，该环境的抽象操作对应于基本技能的组合。 我们在资源管理问题和涉及四足机器人的导航任务中展示了我们方法的实际好处。</li>
+</ul>
+</li>
+<li><p><strong>Tight Regret Bounds for Model-Based Reinforcement Learning with Greedy Policies.</strong> Efroni, Y., Merlis, N., Ghavamzadeh, M., &amp; Mannor, S. (2019). [<a href="https://papers.nips.cc/paper/9389-tight-regret-bounds-for-model-based-reinforcement-learning-with-greedy-policies" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>最先进的基于模型的高效强化学习（RL）算法通常通过迭代求解经验模型来发挥作用，即对收集的经验建立的马尔可夫决策过程（MDP）进行全面规划。 在本文中，我们将重点放在有限状态有限水平MDP设置中的基于模型的RL上，并建立以贪婪策略进行探索-通过一步计划进行操作-可以在遗憾，O（  \ sqrt {HSAT}）。 因此，可以完全避免基于模型的RL的全面规划而不会导致任何性能下降，并且这样做可以使计算复杂度降低S倍。结果基于对实时动态规划的新颖分析， 然后扩展到基于模型的RL。 具体来说，我们将执行全面计划的现有算法归纳为一步计划。 对于这些概括，我们证明了遗憾的界限与它们的全面规划的比率相同。</li>
+</ul>
+</li>
+<li><p><strong>Towards Interpretable Reinforcement Learning Using Attention Augmented Agents.</strong> Mott, A., Zoran, D., Chrzanowski, M., Wierstra, D., &amp; Rezende, D. J. (2019). [<a href="https://papers.nips.cc/paper/9400-towards-interpretable-reinforcement-learning-using-attention-augmented-agents" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>受近期用于图像字幕和问答的注意力模型工作的启发，我们提出了针对强化学习领域的软注意力模型。 该模型通过一种柔软的，自上而下的注意力机制来阻塞代理的视图，从而通过顺序查询其环境视图来迫使代理专注于与任务相关的信息。 注意机制的输出允许直接观察代理程序用来选择其动作的信息，从而比传统模型更容易解释该模型。 我们分析了代理商学习的不同策略，并发现少数策略在不同游戏中反复出现。 我们还表明，该模型学会了分别查询空间和内容（在“哪里”与“什么”）。 我们证明，使用此机制的代理可以在ATARI任务上与最新模型竞争，同时仍可解释。</li>
+</ul>
+</li>
+<li><p><strong>Towards Optimal Off-Policy Evaluation for Reinforcement Learning with Marginalized Importance Sampling.</strong> Xie, T., Ma, Y., &amp; Wang, Y.-X. (2019). [<a href="https://papers.nips.cc/paper/9161-towards-optimal-off-policy-evaluation-for-reinforcement-learning-with-marginalized-importance-sampling" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>出于现实世界中需要安全策略迭代的强化学习（RL）的许多应用的考虑，我们考虑了非策略评估（OPE）的问题—-使用通过不同方法获得的历史数据来评估新策略的问题 行为策略—-具有较长的视野和较大的动作空间的非平稳间歇性马尔可夫决策过程（MDP）模型。 现有的重要性抽样（IS）方法通常遭受较大的方差，而该方差与RL范围H呈指数关系。为解决此问题，我们考虑采用边际重要性抽样（MIS）估算器，该估算器递归地估算目标政策在每个步骤的状态边际分布 。  MIS实现\ frac {1} {n} \ sum_ {t = 1} ^ H \ mathbb {E} _ {\ mu} \ left [\ frac {d_t ^ \ pi（s_t）^ 2）的均方误差 } {d_t ^ \ mu（s_t）^ 2} \ Var _ {\ mu} \ left [\ frac {\ pi_t（a_t | s_t）} {\ mu_t（a_t | s_t）} \ big（V_ {t + 1}  ^ \ pi（s_ {t + 1}）+ r_t \ big）\中间|  s_t \ right] \ right] + \ tilde {O}（n ^ {-1.5}）其中\ mu和\ pi是日志记录和目标策略，d_t ^ {\ mu}（s_t）和d_t ^ {\ pi}  （s_t）是第t步状态的边际分布，H是水平，n是样本大小，V_ {t + 1} ^ \ pi是\ pi下MDP的值函数。 结果与[Jiang and Li，2016]中的Cramer-Rao下界匹配为H的乘数。据我们所知，这是第一个与H多项式相关的OPE估计误差。除了理论， 我们展示了我们的方法在时变，部分可观察和长期水平的RL环境中的经验优势。</li>
+</ul>
+</li>
+<li><p><strong>Trust Region-Guided Proximal Policy Optimization.</strong> Wang, Y., He, H., Tan, X., &amp; Gan, Y. (2019). Retrieved from <a href="https://github.com/wangyuhuix/TRGPPO" target="_blank" rel="noopener">https://github.com/wangyuhuix/TRGPPO</a>.</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p><strong>Two Time-scale Off-Policy TD Learning: Non-asymptotic Analysis over Markovian Samples.</strong> Xu, T., Zou, S., &amp; Liang, Y. (2019). [<a href="https://papers.nips.cc/paper/9248-two-time-scale-off-policy-td-learning-non-asymptotic-analysis-over-markovian-samples" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>基于梯度的时差（GTD）算法广泛用于非政策学习场景。 其中，已证明具有梯度校正（TDC）算法的两个时标TD具有卓越的性能。 与以前的研究仅以相同且独立分布的（iid）数据样本为特征的TDC的非渐近收敛速度相反，我们提供了在非iid \ Markovian样本下两个时间尺度TDC的第一个非渐近收敛分析。 路径和线性函数近似。 我们证明了两个时标TDC在递减步长下收敛速度可以与O（log t / t ^（2/3））一样快，并且在恒定步距下可以指数快收敛，但代价是不消失 。 我们进一步提出了一种逐步减小步长的TDC算法，并证明了它以逐段线性收敛速率渐近收敛并具有任意小的误差。 我们的实验表明，在恒定步长的情况下，这种算法的收敛速度与TDC一样快，而在逐渐减小的步长下，仍具有与TDC相当的精度。</li>
+</ul>
+</li>
+<li><p><strong>Unsupervised Curricula for Visual Meta-Reinforcement Learning.</strong> Jabri, A., Hsu, K., Eysenbach, B., Gupta, A., Levine, S., &amp; Finn, C. (2019). [<a href="https://papers.nips.cc/paper/9238-unsupervised-curricula-for-visual-meta-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>原则上，元强化学习算法利用许多任务的经验来学习快速有效的强化学习（RL）策略。 但是，当前的meta-RL方法依赖于手动定义的训练任务分布，而手工制作这些任务分布可能具有挑战性且耗时。 是否可以无人监督的方式发现有用的’’培训前任务’’？ 我们通过在可视化环境中对无监督的交互进行建模，开发了一种无监督的算法来诱导自适应元训练任务分布，即自动课程。 任务分布由元学习者的轨迹分布的参数密度模型来支撑。 我们将无监督的meta-RL公式化为潜在任务变量和元学习者的数据分布之间的信息最大化，并描述了一种实用的实例化方法，它在将最新经验集成到任务分布和更新任务的元学习之间进行切换。 重复此过程将导致迭代重组，以使课程随着元学习者数据分布的变化而适应。 此外，我们展示了用于视觉表示的判别性聚类框架如何通过像素观测来支持轨迹级任务在领域中的获取和探索，从而避免了替代方案的陷阱。 在基于视觉的导航和操纵域的实验中，我们表明该算法允许无监督的元学习，既可以转移到手工制作的奖励函数指定的下游任务，又可以作为预训练，以更有效地进行测试任务的元学习 分布。</li>
+</ul>
+</li>
+<li><p><strong>Value Propagation for Decentralized Networked Deep Multi-agent Reinforcement Learning.</strong> Qu, C., Mannor, S., Xu, H., Qi, Y., Song, L., &amp; Xiong, J. (2019). [<a href="https://papers.nips.cc/paper/8402-value-propagation-for-decentralized-networked-deep-multi-agent-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们在完全分散的环境中考虑网络化多主体强化学习（MARL）问题，在该环境中，主体学习协调以取得共同成功。 在交通控制，分布式控制和智能电网等许多领域中普遍遇到此问题。 我们假设每个代理都位于通信网络的节点上，并且只能与其邻居交换信息。 使用softmax时间一致性，我们推导了原始对偶分散优化方法，并获得了一种原理性且数据有效的迭代算法，称为{\ em值传播}。 利用非线性函数逼近，证明了\ mathcal {O}（1 / T）的非渐近收敛速度。 据我们所知，它是第一个在控制，非策略，非线性函数逼近，完全分散设置中具有收敛性保证的MARL算法。</li>
+</ul>
+</li>
+<li><p><strong>Variance Reduced Policy Evaluation with Smooth Function Approximation.</strong> Wai, H.-T., Hong, M., Yang, Z., Wang, Z., &amp; Tang, K. (2019). [<a href="https://papers.nips.cc/paper/8814-variance-reduced-policy-evaluation-with-smooth-function-approximation" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>具有平滑和非线性函数逼近的策略评估显示了增强学习的巨大潜力。 与线性函数逼近相比，它允许使用更丰富的逼近函数，例如神经网络。 传统算法基于两个时间尺度随机逼近，其收敛速度通常很慢。 本文着重于离线环境，其中观察到m个状态-动作对的轨迹。 我们将策略评估问题表述为一个非凸的原始对偶有限和优化问题，该问题的原始子问题是非凸的，而对偶子问题是强凹的。 我们建议使用方差减少的单时标原始对偶梯度算法，并证明它使用O（m / \ epsilon）调用（期望）到梯度预言子收敛到\ epsilon平稳点。</li>
+</ul>
+</li>
+<li><p><strong>VIREL: A Variational Inference Framework for Reinforcement Learning.</strong> Fellows, M., Mahajan, A., Rudner, T. G. J., &amp; Whiteson, S. (2019). [<a href="https://papers.nips.cc/paper/8934-virel-a-variational-inference-framework-for-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>将概率模型应用于强化学习（RL）可以使用功能强大的优化工具，例如RL中的变异推理。 然而，现有的推理框架及其算法对学习最佳策略构成了重大挑战，例如，在伪似然方法中缺少模式捕获行为，在基于最大熵RL的方法中难以学习确定性策略，以及在使用函数逼近器时缺乏分析能力 用过的。 我们提出VIREL，这是RL的理论基础概率推断框架，该框架利用参数化的动作值函数来总结潜在MDP的未来动态，从而归纳现有方法。  VIREL还受益于KL散度的一种模式寻求形式，从推理中自然学习确定性最优策略的能力以及在单独的迭代步骤中优化价值功能和政策的能力。 因此，在将变异期望最大化应用于VIREL时，我们证明了行动者批评算法可以简化为期望最大化，其策略改进等效于E步，策略评估等同于M步。 然后，我们从VIREL派生出一系列演员批评方法，包括一种自适应探索方案。 最后，我们证明了该家族的演员批评算法在几个领域中都优于基于软值函数的最新方法。</li>
+</ul>
+</li>
+<li><p><strong>When to Trust Your Model: Model-Based Policy Optimization.</strong> Janner, M., Fu, J., Zhang, M., &amp; Levine, S. (2019). [<a href="https://papers.nips.cc/paper/9416-when-to-trust-your-model-model-based-policy-optimization" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>设计有效的基于模型的强化学习算法非常困难，因为必须权衡数据生成的难易程度与模型生成的数据的偏差。 在本文中，我们从理论上和经验上都研究了模型使用在政策优化中的作用。 我们首先制定并分析基于模型的强化学习算法，并保证每一步的单调改进。 在实践中，这种分析过于悲观，表明实际的非政策数据总是比模型生成的政策数据更可取，但是我们表明，可以将模型概括性的经验估计合并到此类分析中以证明模型的使用是正确的。 受此分析的启发，我们然后证明了使用短模型生成的，从真实数据分支的卷展栏的简单过程，具有基于模型的算法更复杂而没有通常的陷阱的好处。 特别地，这种方法超越了先前基于模型的方法的样本效率，匹配了最佳的无模型算法的渐近性能，并扩展到导致其他基于模型的方法完全失败的地域。</li>
+</ul>
+</li>
+<li><p><strong>When to use parametric models in reinforcement learning?</strong> Van Hasselt, H., London, D., Hessel, M., &amp; Aslanides, J. (2019). [<a href="https://papers.nips.cc/paper/9579-when-to-use-parametric-models-in-reinforcement-learning" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>我们研究了何时以及如何在强化学习中参数模型最有用的问题。 特别是，我们着眼于参数模型和体验重放之间的共性和差异。 基于重放的学习算法与基于模型的方法具有重要的特征，包括计划能力：使用更多的计算而无需其他数据来改善预测和行为。 我们讨论什么时候可以期望从这两种方法中受益，并在这种情况下解释先前的工作。 我们假设，在适当的条件下，如果仅将模型用于从观察状态生成虚假的过渡，而基于更新的算法则无需模型，则基于重放的算法应比基于模型的算法更具竞争力或更好。 我们在Atari 2600电子游戏上验证了这一假设。 基于重放的算法获得了最先进的数据效率，与参数模型的先前结果相比有所改善。 此外，我们讨论了使用模型的不同方法。 我们表明，使用模型执行信用分配（例如，直接学习价值或政策）时，向后计划比向前计划要好，即使后者似乎更常见。 最后，我们争论并证明，为即时行为而不是信用分配计划是有益的。</li>
+</ul>
+</li>
+<li><p><strong>Worst-Case Regret Bounds for Exploration via Randomized Value Functions.</strong> Russo, D. (2019). [<a href="https://papers.nips.cc/paper/9587-worst-case-regret-bounds-for-exploration-via-randomized-value-functions" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>本文研究了最近的一项建议，即使用随机值函数来驱动强化学习中的探索。 这些随机值函数是通过将随机噪声注入训练数据中生成的，从而使该方法与许多用于估计参数化值函数的流行方法兼容。 通过为表格有限水平马尔可夫决策过程提供最坏情况的后悔约束，我们表明，针对这些随机值函数的规划可以诱导可证明有效的探索。</li>
+</ul>
 </li>
 </ul>
 
@@ -467,7 +792,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-22T09:15:23.819Z" itemprop="dateUpdated">2020-06-22 17:15:23</time>
+    最后更新时间：<time datetime="2020-06-23T12:14:01.524Z" itemprop="dateUpdated">2020-06-23 20:14:01</time>
 </span><br>
 
 
