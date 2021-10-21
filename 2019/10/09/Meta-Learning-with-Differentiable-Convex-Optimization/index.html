@@ -26,7 +26,7 @@
 <meta name="keywords" content="meta-learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Meta-Learning with Differentiable Convex Optimization">
-<meta property="og:url" content="https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/index.html">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要:少样本学习的许多元学习方法都依赖于简单的基础学习器，例如最近邻分类器。但是，即使在少样本情况下，经过判别训练的线性判别器可以提供更好的泛化能力。我们建议使用这些判别器作为基础学习器，以学习少样本学习的表示形式，并表明它们在一系列少样本识别benchmarks中提供了特征尺寸和性能之间的更好权衡。我们的目标是学习在线性分类规则下对新类别很好地泛化的特征嵌入。为了有效地解决该目标，我们利用线性分">
 <meta property="og:locale" content="zh-CN">
@@ -37,10 +37,10 @@
 <meta name="twitter:description" content="摘要:少样本学习的许多元学习方法都依赖于简单的基础学习器，例如最近邻分类器。但是，即使在少样本情况下，经过判别训练的线性判别器可以提供更好的泛化能力。我们建议使用这些判别器作为基础学习器，以学习少样本学习的表示形式，并表明它们在一系列少样本识别benchmarks中提供了特征尺寸和性能之间的更好权衡。我们的目标是学习在线性分类规则下对新类别很好地泛化的特征嵌入。为了有效地解决该目标，我们利用线性分">
 <meta name="twitter:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623069/wps_2019-09-30_16-53-43_ri1avv.png">
     
-        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
     
-    <link rel="shortcut icon" href="/img/avatar.jpg">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/blog/img/avatar.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -57,10 +57,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/blog/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Kang Yachen</h5>
@@ -72,28 +72,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/blog/"  >
                 <i class="icon icon-lg icon-home"></i>
                 Home
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/blog/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/blog/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/blog/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
@@ -147,7 +147,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
             
         </h5>
@@ -178,7 +178,7 @@
             <time class="post-time" title="2019-10-09 20:19:00" datetime="2019-10-09T12:19:00.000Z"  itemprop="datePublished">2019-10-09</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
 
 
@@ -210,13 +210,13 @@
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" target="_blank" rel="external">https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" target="_blank" rel="external">https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="https://sherlockbear.github.io">
-            <img src="/img/avatar.jpg" alt="Kang Yachen">
+        <a href="https://yachenkang.github.io/blog">
+            <img src="/blog/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
     </footer>
@@ -227,7 +227,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meta-learning/">meta-learning</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/meta-learning/">meta-learning</a></li></ul>
 
 
             
@@ -237,7 +237,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&title=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&title=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -247,22 +247,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&title=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&title=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -285,7 +285,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/10/09/Meta-Learning-with-Implicit-Gradients/" id="post-prev" class="post-nav-link">
+      <a href="/blog/2019/10/09/Meta-Learning-with-Implicit-Gradients/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Meta-Learning with Implicit Gradients</h4>
       </a>
@@ -363,13 +363,13 @@
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                <span><a href="/blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
             <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+        <p><span>Kang Yachen &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -387,7 +387,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&title=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&title=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -397,22 +397,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&title=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&title=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Meta-Learning with Differentiable Convex Optimization》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2019/10/09/Meta-Learning-with-Differentiable-Convex-Optimization/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -423,7 +423,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADK0lEQVR42u3aS27DMAwFwNz/0um2QBv3PcoFbHm8KoJE0TALlp/XK37e357vr/z8+/hT7ZmfPvvznNd/PNjY2Ng3Yb8Pn0/vyU9IgjULUPL6x5OxsbGxt2MfJ4Zj6vFp+eWOw9GG8g8jNjY29oPZeXlwfMVZOZGHABsbGxu7LSHaAmZ28nEBg42Njf1k9vq/+0kpkpc0yZmzYGFjY2Pvx84LgOv//S/zbWxsbOwLs9/lM2shJQPd9UFyocDGxsbeiD1r9+cXTU5oy5vku5L7Y2NjY+/BTpo16ysy7RA3bzYN74CNjY29KTtPEknSygeus+FEmzI/JjBsbGzsLdhtOyYf2Z7VVEpSWrE2hI2Njb0RO09RK+zZYk0biCQBY2NjYz+BXXxg9Kk27eUnnLC+g42NjX1D9krCyJdp2gQ2GzkUJRA2Njb2puy8ZZ8nmJVQRo3+WUrDxsbG3oi93qZpi5ac2pJm52NjY2Pfnd223ZPIzYLVLl/mv+RS3sbGxsa+PHslwbTLNyvLOnliW/rlsbGxsW/InjWJ2oKhff2sm0RrOtjY2Njbsc9q9LernCshrgOHjY2NvRE7H6POWj/tM1viaQOEjY2NvR/7rOb+ygBgZRGnXQnFxsbGfgJ7NnBdyQ4JfpZWo5EwNjY29kbsGXU20J0VG+/yGdZk2NjY2Ddht8fNLpQv2czWhtrlHmxsbOy92evtoXqBJgDMAvTxZ8DGxsbemt2WEEkB046B86TYrvKcVjlhY2NjX5KdfDhPGyuNqtmtip8EGxsbeyN2m07a67YXXQnr7D7Y2NjYe7CTZZfZAk176faGSyJsbGzs7djHpLZxMxvftkHPCxtsbGzsJ7Dz686aR/kJZ9VVdSmCjY2NfUP2u3xmLadkpWaWCJO0h42Njb03u23rrCeStsg5a0g8DAo2Njb2Tdj52LX9pz8f5Sbf26ZDbGxs7Kex28SzfsW89b8+MMbGxsbGzhPDLLXkA4n8e4fTA2xsbOwHsGeDhDaxzcbM+TdiY2Nj78fOG0BJgPKgzN7Trgr98gNjY2Njb8Ruh7Ut+KzG0Gzd54T5NjY2NvZ12V922HLeHDzdFAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADNklEQVR42u3awW5qMQwE0P7/T/M2XVR6AmZskLjh3BWqgOSEhetxfn7i5/bnufeXv3////W977y3yr0Vk+952YONjY19Efbt4ZO/51WkdvXhPrGxsbGPYz/e+mNGW6LaMjl7/WRdbGxs7C9mJ8Vphtk0RdjY2NjYLXt2EEnbkJfJVfCEjY2NfRx7Fs3nmDZIald5Y5aGjY2N/fHsvAH4/NdvmW9jY2NjfzD7Vj5tW5I3G21Zmu3/97PY2NjYB7HzAvCqI8iHvsnRzPaPjY2NfRK7LRLJdZw8yklGAjPek/djY2NjH8fOYbMRbDvQzZuWWWqEjY2NfR47L2Ytvh3o7n+GuvfCxsbGvjh7UxheGyptytXwyLCxsbGPZudh02b0m4dTs6HCC2YO2NjY2B/Pzq/mDIP4uLGZFc5Zk4ONjY19ErtdIF8miumDMKu9jtmGYtjY2NhnsPOiMru4s/kd2gtDxaewsbGxj2Dnl2M2EU/eHiQXd9o2ZniW2NjY2Bdhz/4/37Qrs9YiGUi0QwtsbGzsk9hJw5Bfr9kUqvxQ2r1hY2Njn8refEVb3tqQaBZj1WNdbGxs7OPYsyh/fxDtT7KKk7CxsbEPZef5+b4xaI8mD4+io8fGxsb+AnZbutrtzkjJbqNqhY2NjX0QOw9l2iPIG4y2a8hL6ZOWCRsbG/sgdh6+z0pFHkjNmpM28MLGxsY+m93GNI/LUl5gNg3PLPDCxsbGPo+dh+9tkdtEVO1AOo+isLGxsU9ib4Kets3YH8Hscs+TLA0bGxv74uw2Emqjn6RMzsbGs+gKGxsb+zx2cnWyHfHmlzJn44fZiCKq29jY2NiXZeehf16QNk3Fvvl58llsbGzsr2HnAX0+3H1HYJQfATY2NvZJ7Fv5tO1Hu7lZhJQ0PMPOCRsbG/vj2fmzug1Uxj3tpZ985FAfBDY2NvZF2LNAPx/9tgHTJvrPSyA2Njb2eey8SUiionyUOxtC5IHUkys72NjY2F/JHi4zKlSzEW+RqGFjY2N/JTsf67aB0aZE1WUPGxsb+zj25pJNPjaYFctNM3P3m7GxsbEPYrcXa1673XYkkLcos6KIjY2NfSn2PwpMNQCqjaeCAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
@@ -431,12 +431,12 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/blog/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -456,7 +456,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/blog/js/search.min.js?v=1.7.2" async></script>
 
 
 

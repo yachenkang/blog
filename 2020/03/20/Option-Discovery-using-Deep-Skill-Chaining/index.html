@@ -26,7 +26,7 @@
 <meta name="keywords" content="Reinforcement Learning,Skill Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Option Discovery using Deep Skill Chaining">
-<meta property="og:url" content="https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/index.html">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能。最终的算法，即deep skill chaining，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables">
 <meta property="og:locale" content="zh-CN">
@@ -38,10 +38,10 @@
 <meta name="twitter:description" content="摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能。最终的算法，即deep skill chaining，通过这样的属性来构建技能，即当执行一个时使能智能体去执行另一个。（constructs skills with the property that executing one enables">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_option_discovery_using_deep_skill_chaining.pdf_-_C_72.png">
     
-        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
     
-    <link rel="shortcut icon" href="/img/avatar.jpg">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/blog/img/avatar.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -58,10 +58,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/blog/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Kang Yachen</h5>
@@ -73,28 +73,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/blog/"  >
                 <i class="icon icon-lg icon-home"></i>
                 Home
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/blog/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/blog/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/blog/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
@@ -148,7 +148,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
             
         </h5>
@@ -179,7 +179,7 @@
             <time class="post-time" title="2020-03-20 14:17:04" datetime="2020-03-20T06:17:04.000Z"  itemprop="datePublished">2020-03-20</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
 
 
@@ -239,13 +239,13 @@
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" target="_blank" rel="external">https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" target="_blank" rel="external">https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="https://sherlockbear.github.io">
-            <img src="/img/avatar.jpg" alt="Kang Yachen">
+        <a href="https://yachenkang.github.io/blog">
+            <img src="/blog/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
     </footer>
@@ -256,7 +256,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Skill-Learning/">Skill Learning</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Reinforcement-Learning/">Reinforcement Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Skill-Learning/">Skill Learning</a></li></ul>
 
 
             
@@ -266,7 +266,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -276,22 +276,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&source=摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&source=摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -314,7 +314,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2020/04/10/Reinforcement-Learning-and-Control-as-Probabilistic-Inference-Tutorial-and-Review/" id="post-prev" class="post-nav-link">
+      <a href="/blog/2020/04/10/Reinforcement-Learning-and-Control-as-Probabilistic-Inference-Tutorial-and-Review/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review</h4>
       </a>
@@ -323,7 +323,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" id="post-next" class="post-nav-link">
+      <a href="/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery</h4>
       </a>
@@ -399,13 +399,13 @@
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                <span><a href="/blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
             <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+        <p><span>Kang Yachen &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -423,7 +423,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -433,22 +433,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&source=摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&title=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&source=摘要自动发现时间上可扩展的动作或技能是分层强化学习的长期目标。我们提出了一种新的算法，该算法将技能链与深度神经网络相结合，可以在高维、连续域中自动发现技能..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Option Discovery using Deep Skill Chaining》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -459,7 +459,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADE0lEQVR42u3aQU5jQQwEUO5/aWY70gyhyk4kYt5fIULS/TqLwnZ/fMTPZ/x8lM/f7/r3569e/eoTnvxgY2Njvwk7YTzmPX7XV4zkk/MDyi3Y2NjYV9n5MqvF4shJDmgVctjY2Ni/mJ0vPNtovnVsbGxs7E2AJQVG2/SZHRk2NjY29v5f/LwVlWx9Vpa8sJeGjY2N/ePZ+3Hsz/n5JfNtbGxs7B/M/iyfTeunDcLZDiMFNjY29iF2O3ZthwR5A6i9rNMGGDY2NvbvYbcxthkJ5Jdy9iXTahaBjY2N/SbspNiYHURyQWd2DWgzusDGxsa+wW63/viA8lf3f7MqVLCxsbHPsfOmz+NjagcDebBtxs//+Q02Njb2IXayQNseeu7INvl6hgpsbGzsc+xk03kzaBMt+9BKxszY2NjYN9izNk27TPJpzw2n6HvGxsbGPs2ewfZjhn1oRUMCbGxs7KPsljRr9LR1UtvSqrto2NjY2G/O3iy2Z+QHvT/iKL2xsbGx35A9i5BNq6htV7XRNbysg42NjX2InVMfkzafv1/rm3WxsbGxz7Efx8asJTSLq/1gOCqosLGxsQ+xn9WCb4uWPJCSAxr+JTY2NvYJdhtas1HBrEWV7CS5AISNjY19m70PsH3JMSs22rIHGxsb+za7vUzTFiGzSzaz8KuLKGxsbOxD7CTA2qhIYizZXFuuJCGHjY2NfYPdNuVn0dKedBufbZRiY2NjX2Lv2/ptSZAEYXL0m51gY2Nj32O3m5ttpT3iNhSTrwobGxv7KntzsSbf4mycUIxs22IGGxsb+zR7MxJIkmJ2oO1Fn+iyDjY2NvY5dn69ZjYSzg9u02aKRh3Y2NjYJ9if5dMOg183kNiUPdjY2NiX2JtJaAKYFRh5ICVDi9m1IWxsbOz3Yj8rtDZxMhtRrAYV2NjY2OfY7bWbfcOofW9xHScZUWBjY2NjvyyKZrFar4iNjY39i9mzYe3sGlB7oMXFHWxsbOxz7Ly5v2/05JtLrhO1oYiNjY19j503ZfIx8GyLzxo5t+UTNjY29tuy/wCuDCFM8hsjWgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADIklEQVR42u3aUW7bQAwE0Nz/0ukBgsgzXLmI6KevwLCtfSpQmkN+fcXX9y/Xz/f89qnr78zvldz3tgsbGxv7Iezvyyt5z/WNr7/n+j3Jw8rPiY2Njb2bnRx3dpvZ6+dne2HExsbGxi5bi/yVpEVJzomNjY2N3RatNlrKg6pZW4KNjY39aewck7QT7QOa8drwCxsbG3srO5+K/v2/3zLfxsbGxv7D7O/ymhWzpDidDBJqBTY2NvYidl4A2uhnNiRol35m58fGxsb+BHYe/cxConZsMGs5XrwfGxsbewX7JDpvF2iS9iYvgckgIerAsLGxsZey26O3LUo+0M1Xi4rFI2xsbOx17PMDJcFT+zjOy9Uwo8LGxsZ+FLuNeP7P6s/1KzNeHTBhY2Njr2C3kVDyqZzUlqhhAcbGxsZewU6+Ln9AeSPRFrbZCV8sX2JjY2MvZc/wJ0H/bAB8sjCEjY2NvYM9i/JnEdIscmpfGXZd2NjY2A9nnw9984YhL13tHfORMDY2NvY+drt8mTQVbTlsy9XR4AEbGxt7Hbv9ld6WorbgvX0FExsbG3sRe3bjk2WdNmBqy1URh2FjY2OvYOf/9c+CpNlqzr3F9UUHho2Njf1wdh7ffB1c+fBgNocdNjPY2NjYK9izliOJkPI2oxjQxg1PkaVhY2NjL2K3g9ukvJ03J/mjL86AjY2NvYg9+0Gfl7Q84m+P3hbXaFSAjY2N/UB22za0JSQfPLSx0VGMhY2Njb2Unf/0P1m1uW3PqK3P1+MBbGxs7Mey21HreZlJPnvvKKKuddjY2NgPZM9GAm1rkcdJ7VBh+E+CjY2NvZqdl5Y8vs+/52QZtBgkYGNjY69jny/HtOzb4v6TIQE2Njb2w9nvWLI5Wd+cPZr6nNjY2NiL2G2WPhup5n/f1fbMxsbY2NjYz2XP1mvyoWxeqGYDg+FnsbGxsdex7ypC+dLPSVM0C5WwsbGxsWeHnpXAJDDKRwjFyg42Njb2B7BnEU8e4t87eP617GFjY2OvY8+GuwnyZNUmGR7koRI2Njb2VnY+6H13ecvjodmwGRsbG3sd+x8Kony4NhnDVwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -467,12 +467,12 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/blog/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -492,7 +492,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/blog/js/search.min.js?v=1.7.2" async></script>
 
 
 

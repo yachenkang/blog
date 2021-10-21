@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- <link rel="stylesheet" type="text/css" href="/css/matery.css"> -->
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>NIPS2020 Reinforcement Learning Reading List | Hamish的科研blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Reinforcement Learning">
+    <meta name="description" content="NIPS2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
+<meta name="keywords" content="Reinforcement Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NIPS2020 Reinforcement Learning Reading List">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/index.html">
+<meta property="og:site_name" content="Hamish的科研blog">
+<meta property="og:description" content="NIPS2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-10-15T08:30:34.080Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NIPS2020 Reinforcement Learning Reading List">
+<meta name="twitter:description" content="NIPS2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
+    
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
+    
+    <link rel="shortcut icon" href="/blog/img/avatar.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.7.2">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+    
+</head>
+
+<body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/blog/img/brand.jpg)">
+      <div class="brand">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Kang Yachen</h5>
+          <a href="mailto:kangyachen@westlake.edu.cn" title="kangyachen@westlake.edu.cn" class="mail">kangyachen@westlake.edu.cn</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/blog/"  >
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/blog/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/blog/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/blog/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/sherlockbear" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">NIPS2020 Reinforcement Learning Reading List</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">NIPS2020 Reinforcement Learning Reading List</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-06-15T02:20:40.000Z" itemprop="datePublished" class="page-time">
+  2020-06-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/Reading-List/">Reading List</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-NIPS2020-Reinforcement-Learning-Reading-List"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">NIPS2020 Reinforcement Learning Reading List</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-06-15 10:20:40" datetime="2020-06-15T02:20:40.000Z"  itemprop="datePublished">2020-06-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/Reading-List/">Reading List</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>NIPS2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。</p>
+<a id="more"></a>
+<p>*标注的为值得精读论文</p>
+<ul>
+<li><p><strong>Rewriting History with Inverse RL: Hindsight Inference for Policy Improvement.</strong> [<a href="https://arxiv.org/abs/2002.11089" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Ben Eysenbach (Carnegie Mellon University) · XINYANG GENG (UC Berkeley) · Sergey Levine (UC Berkeley) · Russ Salakhutdinov (Carnegie Mellon University)</li>
+<li>多任务强化学习（RL）旨在学习同时解决许多任务的策略。一些先前的工作发现，使用不同的奖励函数重新标记过去的经验可以提高样本效率。重新标记方法通常会问：事后看来，如果我们假设我们的经验对于某些任务是最佳的，那么对于哪个任务最佳？ 在本文中，我们证明事后重新标记是逆RL，这一发现表明我们可以将逆RL与RL算法串联使用，来有效解决许多任务。我们使用这个想法来泛化目标重新标记技术，从先前的工作到任意类别的任务。我们的实验证实，使用逆RL重新标记数据可加快通用多任务设置中的学习速度，其中包括达成目标，具有离散奖励集的域以及具有线性奖励函数的域。</li>
+</ul>
+</li>
+<li><p><strong>Generalised Bayesian Filtering via Sequential Monte Carlo.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ayman Boustati (University of Warwick) · Omer Deniz Akyildiz (University of Warwick) · Theodoros Damoulas (University of Warwick &amp; The Alan Turing Institute) · Adam Johansen (University of Warwick)</li>
+</ul>
+</li>
+<li><p><strong>Softmax Deep Double Deterministic Policy Gradients.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ling Pan (Tsinghua University) · Qingpeng Cai (Alibaba Group) · Longbo Huang (IIIS, Tsinghua Univeristy)</li>
+</ul>
+</li>
+<li><p><strong>Breaking the Sample Size Barrier in Model-Based Reinforcement Learning with a Generative Model.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Gen Li (Tsinghua University) · Yuting Wei (Carnegie Mellon University) · Yuejie Chi (CMU) · Yuantao Gu (Tsinghua University) · Yuxin Chen (Princeton University)</li>
+</ul>
+</li>
+<li><p><strong>Learning Multi-Agent Coordination for Enhancing Target Coverage in Directional Sensor Networks.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jing Xu (Peking University) · Fangwei Zhong (Peking University) · Yizhou Wang (Peking University)</li>
+</ul>
+</li>
+<li><p><strong>Off-Policy Imitation Learning from Observations.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Zhuangdi Zhu (Michigan State University) · Kaixiang Lin (Michigan State University) · Bo Dai (Google Brain) · Jiayu Zhou (Michigan State University)</li>
+</ul>
+</li>
+<li><p><strong>Can Q-Learning with Graph Networks Learn a Generalizable Branching Heuristic for a SAT Solver?.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Vitaly Kurin (University of Oxford) · Saad Godil (NVIDIA) · Shimon Whiteson (University of Oxford) · Bryan Catanzaro (NVIDIA)</li>
+</ul>
+</li>
+<li><p><strong>DISK: Learning local features with policy gradient.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: MichaÅ‚ Tyszkiewicz (EPFL) · Pascal Fua (EPFL, Switzerland) · Eduard Trulls (Google)</li>
+</ul>
+</li>
+<li><p><strong>Learning Individually Inferred Communication for Multi-Agent Cooperation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ziluo Ding (Peking University) · Tiejun Huang (Peking University) · Zongqing Lu (Peking University)</li>
+</ul>
+</li>
+<li><p><strong>Lifelong Policy Gradient Learning of Factored Policies for Faster Training Without Forgetting.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jorge Mendez (University of Pennsylvania) · Boyu Wang (University of Western Ontario) · Eric Eaton (University of Pennsylvania)</li>
+</ul>
+</li>
+<li><p><strong>Fixed-Support Wasserstein Barycenters: Computational Hardness and Fast Algorithm.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Tianyi Lin (UC Berkeley) · Nhat Ho (University of Texas at Austin) · Xi Chen (New York University) · Marco Cuturi (Google Brain  &amp;  CREST - ENSAE) · Michael Jordan (UC Berkeley)</li>
+</ul>
+</li>
+<li><p><strong>Memory Based Trajectory-conditioned Policies for Learning from Sparse Rewards.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yijie Guo (University of Michigan) · Jongwook Choi (University of Michigan) · Marcin Moczulski (Google Brain) · Shengyu Feng (University of Illinois Urbana Champaign) · Samy Bengio (Google Research, Brain Team) · Mohammad Norouzi (Google Brain) · Honglak Lee (Google / U. Michigan)</li>
+</ul>
+</li>
+<li><p><strong>Almost Optimal Model-Free Reinforcement Learningvia Reference-Advantage Decomposition.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Zihan Zhang (Tsinghua University) · Yuan Zhou (UIUC) · Xiangyang Ji (Tsinghua University)</li>
+</ul>
+</li>
+<li><p><strong>Learning to Utilize Shaping Rewards: A New Approach of Reward Shaping.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yujing Hu (NetEase Fuxi AI Lab) · Weixun Wang (Tianjin University) · Hangtian Jia (Netease Fuxi AI Lab) · Yixiang Wang (University of Science and Technology of China) · Yingfeng Chen (NetEase Fuxi AI Lab) · Jianye Hao (Tianjin University) · Feng Wu (University of Science and Technology of China) · Changjie Fan (NetEase Fuxi AI Lab)</li>
+</ul>
+</li>
+<li><p><strong>Effective Diversity in Population Based Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jack Parker-Holder (University of Oxford) · Aldo Pacchiano (UC Berkeley) · Krzysztof M Choromanski (Google Brain Robotics) · Stephen J Roberts (University of Oxford)</li>
+</ul>
+</li>
+<li><p><strong>A Boolean Task Algebra for Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Geraud Nangue Tasse (University of the Witwatersrand) · Steven James (University of the Witwatersrand) · Benjamin Rosman (University of the Witwatersrand / CSIR)</li>
+</ul>
+</li>
+<li><p><strong>A new convergent variant of Q-learning with linear function approximation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Diogo Carvalho (GAIPS, INESC-ID) · Francisco S. Melo (IST/INESC-ID) · Pedro A. Santos (Instituto Superior TÃ©cnico)</li>
+</ul>
+</li>
+<li><p><strong>Knowledge Transfer in Multi-Task Deep Reinforcement Learning for Continuous Control.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Zhiyuan Xu (Syracuse University) · Kun Wu (Syracuse University) · Zhengping Che (DiDi AI Labs, Didi Chuxing) · Jian Tang (DiDi AI Labs, DiDi Chuxing) · Jieping Ye (Didi Chuxing)</li>
+</ul>
+</li>
+<li><p><strong>Multi-task Batch Reinforcement Learning with Metric Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jiachen Li (University of California, San Diego) · Quan Vuong (University of California San Diego) · Shuang Liu (University of California, San Diego) · Minghua Liu (UCSD) · Kamil Ciosek (Microsoft) · Henrik Christensen (UC San Diego) · Hao Su (UCSD)</li>
+</ul>
+</li>
+<li><p><strong>Demystifying Orthogonal Monte Carlo and Beyond.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Han Lin (Columbia University) · Haoxian Chen (Columbia University) · Krzysztof M Choromanski (Google Brain Robotics) · Tianyi Zhang (Columbia University) · Clement Laroche (Columbia University)</li>
+</ul>
+</li>
+<li><p><strong>On the Stability and Convergence of Robust Adversarial Reinforcement Learning: A Case Study on Linear Quadratic Systems.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Kaiqing Zhang (University of Illinois at Urbana-Champaign (UIUC)) · Bin Hu (University of Illinois at Urbana-Champaign) · Tamer Basar (University of Illinois at Urbana-Champaign)</li>
+</ul>
+</li>
+<li><p><strong>Towards Playing Full MOBA Games with Deep Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Deheng Ye (Tencent) · Guibin Chen (Tencent) · Wen Zhang (Tencent) · chen sheng (qq) · Bo Yuan (Tencent) · Bo Liu (Tencent) · Jia Chen (Tencent) · Hongsheng Yu (Tencent) · Zhao Liu (Tencent) · Fuhao Qiu (Tencent AI Lab) · Liang Wang (Tencent) · Tengfei Shi (Tencent) · Yinyuting Yin (Tencent) · Bei Shi (Tencent AI Lab) · Lanxiao Huang (Tencent) · qiang fu (Tencent AI Lab) · Wei Yang (Tencent AI Lab) · Wei Liu (Tencent AI Lab)</li>
+</ul>
+</li>
+<li><p><strong>How to Learn a Useful Critic? Model-based Action-Gradient-Estimator Policy Optimization.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Pierluca D’Oro (MILA) · Wojciech  JaÅ›kowski (NNAISENSE SA)</li>
+</ul>
+</li>
+<li><p><strong>Reinforcement Learning in Factored MDPs: Oracle-Efficient Algorithms and Tighter Regret Bounds for the Non-Episodic Setting.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ziping Xu (University of Michigan) · Ambuj Tewari (University of Michigan)</li>
+</ul>
+</li>
+<li><p><strong>HiPPO: Recurrent Memory with Optimal Polynomial Projections.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Albert Gu (Stanford) · Tri Dao (Stanford University) · Stefano Ermon (Stanford) · Atri Rudra (University at Buffalo, SUNY) · Christopher RÃ© (Stanford)</li>
+</ul>
+</li>
+<li><p><strong>Promoting Coordination through Policy Regularization in Multi-Agent Deep Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Julien Roy (Mila) · Paul Barde (Quebec AI institute - Ubisoft La Forge) · FÃ©lix G Harvey (Polytechnique MontrÃ©al) · Derek Nowrouzezahrai (McGill University) · Chris Pal (MILA, Polytechnique MontrÃ©al, Element AI)</li>
+</ul>
+</li>
+<li><p><strong>Bias no more: high-probability data-dependent regret bounds for adversarial bandits and MDPs.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Chung-Wei Lee (University of Southern California) · Haipeng Luo (University of Southern California) · Chen-Yu Wei (University of Southern California) · Mengxiao Zhang (University of Southern California)</li>
+</ul>
+</li>
+<li><p><strong>Minimax Confidence Interval for Off-Policy Evaluation and Policy Optimization.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Nan Jiang (University of Illinois at Urbana-Champaign) · Jiawei Huang (University of Illinois at Urbana-Champaign)</li>
+</ul>
+</li>
+<li><p><strong>Confounding-Robust Policy Evaluation in Infinite-Horizon Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Nathan Kallus (Cornell University) · Angela Zhou (Cornell University)</li>
+</ul>
+</li>
+<li><p><strong>Simultaneously Learning Stochastic and Adversarial Episodic MDPs with Known Transition.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Tiancheng Jin (University of Southern California) · Haipeng Luo (University of Southern California)</li>
+</ul>
+</li>
+<li><p><strong>Learning Retrospective Knowledge with Reverse Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Shangtong Zhang (University of Oxford) · Vivek Veeriah (University of Michigan) · Shimon Whiteson (University of Oxford)</li>
+</ul>
+</li>
+<li><p><strong>Combining Deep Reinforcement Learning and Search for Imperfect-Information Games.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Noam Brown (Facebook AI Research) · Anton Bakhtin (Facebook AI Research) · Adam Lerer (Facebook AI Research) · Qucheng Gong (Facebook AI Research)</li>
+</ul>
+</li>
+<li><p><strong>Variance reduction for Langevin Monte Carlo in high dimensional sampling problems.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: ZHIYAN DING (University of Wisconsin-Madison) · Qin Li (University of Wisconsin-Madison)</li>
+</ul>
+</li>
+<li><p><strong>POMO: Policy Optimization with Multiple Optima for Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yeong-Dae Kwon (Samsung SDS) · Jinho Choo (Samsung SDS) · Byoungjip Kim (Samsung SDS) · Iljoo Yoon (Samsung SDS) · Youngjune Gwon (Samsung SDS) · Seungjai Min (Samsung SDS)</li>
+</ul>
+</li>
+<li><p><strong>Mixed Hamiltonian Monte Carlo for Mixed Discrete and Continuous Variables.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Guangyao Zhou (Vicarious AI)</li>
+</ul>
+</li>
+<li><p><strong>Self-Paced Deep Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Pascal Klink (TU Darmstadt) · Carlo D’Eramo (TU Darmstadt) · Jan Peters (TU Darmstadt &amp; MPI Intelligent Systems) · Joni Pajarinen (TU Darmstadt)</li>
+</ul>
+</li>
+<li><p><strong>Efficient Model-Based Reinforcement Learning through Optimistic Policy Search and Planning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Sebastian Curi (ETH ZÃ¼rich) · Felix Berkenkamp (Bosch Center for Artificial Intelligence) · Andreas Krause (ETH Zurich)</li>
+</ul>
+</li>
+<li><p><strong>Doubly Robust Off-Policy Value and Gradient Estimation for Deterministic Policies.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Nathan Kallus (Cornell University) · Masatoshi Uehara (Cornell University)</li>
+</ul>
+</li>
+<li><p><strong>Off-Policy Evaluation and Learning for External Validity under a Covariate Shift.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Masatoshi Uehara (Cornell University) · Masahiro Kato (The University of Tokyo) · Shota Yasui (Cyberagent)</li>
+</ul>
+</li>
+<li><p><strong>Improving Sample Complexity Bounds for (Natural) Actor-Critic Algorithms.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Tengyu Xu (The Ohio State University) · Zhe Wang (Ohio State University) · Yingbin Liang (The Ohio State University)</li>
+</ul>
+</li>
+<li><p><strong>Fast Epigraphical Projection-based Incremental Algorithms for Wasserstein Distributionally Robust Support Vector Machine.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jiajin Li (The Chinese University of Hong Kong) · Caihua Chen (Nanjing University) · Anthony Man-Cho So (CUHK)</li>
+</ul>
+</li>
+<li><p><strong>A maximum-entropy approach to off-policy evaluation in average-reward MDPs.</strong> [<a href="https://arxiv.org/abs/2006.12620" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Nevena Lazic (DeepMind) · Dong Yin (DeepMind) · Mehrdad Farajtabar (DeepMind) · Nir Levine (DeepMind) · Dilan Gorur (DeepMind) · Chris Harris (Google) · Dale Schuurmans (Google Brain &amp; University of Alberta)</li>
+<li>这项工作的重点是在无限水平的无折扣马尔可夫决策过程（MDP）中使用函数逼近的off-policy评估（OPE）。对于遍历和线性的MDP（即在某些已知特征中奖励和动态是线性的），我们提供了第一个有限样本OPE误差界限，将现有结果扩展到了偶发和折扣情况之外。在更一般的情况下，当特征动态近似线性且具有任意奖励时，我们提出了一种使用函数逼近来估计平稳分布的新方法。 我们将这个问题公式构造为在经验动态下找到匹配特征期望值的最大熵分布。我们表明，这导致指数族分布，其足够的统计量是特征，与监督学习中的最大熵方法平行。 我们在多种环境中证明了提出的OPE方法的有效性。</li>
+</ul>
+</li>
+<li><p><strong>Off-policy Policy Evaluation For Sequential Decisions Under Unobserved Confounding.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Hongseok Namkoong (Stanford University) · Ramtin Keramati (Stanford University) · Steve Yadlowsky (Stanford University) · Emma Brunskill (Stanford University)</li>
+</ul>
+</li>
+<li><p><strong>Self-Imitation Learning via Generalized Lower Bound Q-learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yunhao Tang (Columbia University)</li>
+</ul>
+</li>
+<li><p><strong>Weakly-Supervised Reinforcement Learning for Controllable Behavior.</strong> [<a href="https://arxiv.org/abs/2004.02860" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Lisa Lee (CMU / Google Brain / Stanford) · Ben Eysenbach (Carnegie Mellon University) · Russ Salakhutdinov (Carnegie Mellon University) · Shixiang (Shane) Gu (Google Brain) · Chelsea Finn (Stanford)</li>
+<li>强化学习（RL）是学习采取动作解决任务的强大框架。但是，在许多设定下，智能体必须将所有可能任务的难以想象的巨大空间缩小到当前被要求解决的单个任务。我们是否可以将任务空间限制为语义上有意义的任务？ 在这项工作中，我们介绍了一个框架，该框架使用弱监督自动将任务的这个语义有意义的子空间与无意义的“chaff”任务的巨大空间自动区分开。我们表明，该学到的子空间能够进行有效的探索，并提供包含状态之间距离信息的表示。在各种具有挑战性的，基于视觉的连续控制问题上，我们的方法可带来可观的性能提升，尤其是随着环境复杂性的提高。</li>
+</ul>
+</li>
+<li><p><strong>An Improved Analysis of  (Variance-Reduced) Policy Gradient and Natural Policy Gradient Methods.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yanli Liu (UCLA) · Kaiqing Zhang (University of Illinois at Urbana-Champaign (UIUC)) · Tamer Basar (University of Illinois at Urbana-Champaign) · Wotao Yin (Alibaba US, DAMO Academy)</li>
+</ul>
+</li>
+<li><p><strong>MOReL: Model-Based Offline Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Rahul Kidambi (Cornell University) · Aravind Rajeswaran (University of Washington) · Praneeth Netrapalli (Microsoft Research) · Thorsten Joachims (Cornell)</li>
+</ul>
+</li>
+<li><p><strong>Zap Q-Learning With Nonlinear Function Approximation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Shuhang Chen (University of Florida) · Adithya M Devraj (University of Florida) · Fan Lu (University of Florida) · Ana Busic (INRIA) · Sean Meyn (University of Florida)</li>
+</ul>
+</li>
+<li><p><strong>Reinforcement Learning with General Value Function Approximation: Provably Efficient Approach via Bounded Eluder Dimension.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ruosong Wang (Carnegie Mellon University) · Russ Salakhutdinov (Carnegie Mellon University) · Lin Yang (UCLA)</li>
+</ul>
+</li>
+<li><p><strong>Security Analysis of Safe and Seldonian Reinforcement Learning Algorithms.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Pinar Ozisik (UMass Amherst) · Philip Thomas (University of Massachusetts Amherst)</li>
+</ul>
+</li>
+<li><p><strong>RepPoints v2: Verification Meets Regression for Object Detection.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yihong Chen (Peking University) · Zheng Zhang (MSRA) · Yue Cao (Microsoft Research) · Liwei Wang (Peking University) · Stephen Lin (Microsoft Research) · Han Hu (Microsoft Research Asia)</li>
+</ul>
+</li>
+<li><p><strong>Learning to Communicate in Multi-Agent Systems via Transformer-Guided Program Synthesis.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jeevana Priya Inala (MIT) · Yichen Yang (MIT) · James Paulos (University of Pennsylvania) · Yewen Pu (MIT) · Osbert Bastani (University of Pennysylvania) · Vijay Kumar (University of Pennsylvania) · Martin Rinard (MIT) · Armando Solar-Lezama (MIT)</li>
+</ul>
+</li>
+<li><p><strong>Belief-Dependent Macro-Action Discovery in POMDPs using the Value of Information.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Genevieve E Flaspohler (Massachusetts Institute of Technology) · Nicholas Roy (MIT) · John W Fisher III (MIT)</li>
+</ul>
+</li>
+<li><p><strong>Bayesian Multi-type Mean Field Multi-agent Imitation Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Fan Yang (University at Buffalo) · Alina Vereshchaka (University at Buffalo) · Changyou Chen (University at Buffalo) · Wen Dong (University at Buffalo)</li>
+</ul>
+</li>
+<li><p><strong>Model-based Adversarial Meta-Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Zichuan Lin (Tsinghua University) · Garrett W. Thomas (Stanford University) · Guangwen Yang (Tsinghua University) · Tengyu Ma (Stanford University)</li>
+</ul>
+</li>
+<li><p><strong>Provably Efficient Neural GTD for Off-Policy Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Hoi-To Wai (The Chinese University of Hong Kong) · Zhuoran Yang (Princeton) · Zhaoran Wang (Northwestern University) · Mingyi Hong (University of Minnesota)</li>
+</ul>
+</li>
+<li><p><strong>A Randomized Algorithm to Reduce the Support of Discrete Measures.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Francesco Cosentino (University of Oxford) · Harald Oberhauser (University of Oxford) · Alessandro Abate (University of Oxford)</li>
+</ul>
+</li>
+<li><p><strong>Model Inversion Networks for Model-Based Optimization.</strong> [<a href="https://arxiv.org/abs/1912.13464" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Aviral Kumar (UC Berkeley) · Sergey Levine (UC Berkeley)</li>
+<li>在这项工作中，我们旨在解决数据驱动的优化问题，其中的目标是找到一个输入，该输入可以在访问具有相应分数的输入数据集的情况下最大化未知分数函数。当输入为高维且有效输入构成该空间的一小部分子集（例如，有效的蛋白质序列或有效的自然图像）时，此类基于模型的优化问题将变得异常困难，因为优化器必须避免分布不均和无效的输入。我们建议使用模型反演网络（MINs）解决此类问题，模型反演网络学习从得分到输入的逆映射。MINs可以扩展到高维输入空间，并利用脱机记录的数据来解决上下文优化和非上下文优化问题。MINs还可以处理offline数据源和active数据收集。我们从贝叶斯优化文献，基于高维模型的图像和蛋白质设计优化问题以及从记录数据中进行的上下文老虎机优化等任务来评估MINs。</li>
+</ul>
+</li>
+<li><p><strong>Safe Reinforcement Learning via Curriculum Induction.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Matteo Turchetta (ETH Zurich) · Andrey Kolobov (Microsoft Research) · Shital Shah (Microsoft) · Andreas Krause (ETH Zurich) · Alekh Agarwal (Microsoft Research)</li>
+</ul>
+</li>
+<li><p><strong>Conservative Q-Learning for Offline Reinforcement Learning.</strong> [<a href="https://arxiv.org/abs/2006.04779" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Aviral Kumar (UC Berkeley) · Aurick Zhou (University of California, Berkeley) · George Tucker (Google Brain) · Sergey Levine (UC Berkeley)</li>
+<li>在强化学习（RL）中有效地利用以前收集的大型数据集是大规模实际应用的主要挑战。offline RL算法保证无需进一步交互即可从以前收集的静态数据集中学习有效的策略。但是，在实践中，offline RL提出了一个重大挑战，标准的off-policy RL方法可能会因对价值的高估而失败，这种高估往往由数据集以及学到的策略之间的分布偏移引起，尤其是在训练复杂和多模态数据分布时。在本文中，我们提出了保守Q学习（CQL），其目的是通过学习保守Q函数来解决这些局限性，从而使该Q函数下的策略期望值lower-bounds其真实值。我们从理论上证明CQL对当前策略的价值产生了lower bound，并且可以将其纳入具有理论改进保证的策略学习过程中。在实践中，CQL通过简单的Q值正则化扩展了标准的Bellman误差目标，该Q值正则化可以在现有的深度Q-learning和actor-critic的实现基础上直接实现。在离散和连续控制域上，我们都表明CQL大大优于现有的offline RL方法，经常，学习的策略可以获得更高的2-5倍的最终回报，尤其是从复杂的多模态数据分布中学习时。</li>
+</ul>
+</li>
+<li><p><strong>SAC: Accelerating and Structuring Self-Attention via Sparse Adaptive Connection.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Xiaoya Li (Shannon.AI) · Yuxian Meng (Shannon.AI) · Mingxin Zhou (Shannon.AI) · Qinghong  Han (Shannon.AI) · Fei Wu (Zhejiang University) · Jiwei Li (Shannon.AI)</li>
+</ul>
+</li>
+<li><p><strong>Variational Bayesian Monte Carlo with Noisy Likelihoods.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Luigi Acerbi (University of Helsinki)</li>
+</ul>
+</li>
+<li><p><strong>Munchausen Reinforcement Learning.</strong> [<a href="https://arxiv.org/abs/2007.14430" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Nino Vieillard (Google Brain) · Olivier Pietquin (Google Research Brain Team) · Matthieu Geist (Google Brain)</li>
+<li>自举是强化学习（RL）中的核心机制。 大多数算法都基于temporal differences，以其对当前值的估计来代替过渡状态的真实值。但是，可以利用另一个估算来引导RL：当前策略。我们的核心贡献在于一个非常简单的想法：将放缩的log-policy添加到即时奖励中。我们证明，以这种方式稍加修改Deep Q-Network（DQN）即可提供一种在Atari游戏上与分布式方法匹敌的智能体，而无需利用分布式RL，n步收益或先验重放。为了证明这种想法的通用性，我们还将其与Implicit Quantile Network（IQN）结合使用。最终的智能体在Atari上的表现要优于Rainbow，在不对原始算法进行很少修改的情况下安装了最新的技术。 为了增加此经验研究，我们提供了关于幕后发生的强大理论见解-隐式Kullback-Leibler正则化和行动差距的增加。</li>
+</ul>
+</li>
+<li><p><strong>A Self-Tuning Actor-Critic Algorithm.</strong> [<a href="https://arxiv.org/abs/2002.12928" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Tom Zahavy (Technion) · Zhongwen Xu (DeepMind) · Vivek Veeriah (University of Michigan) · Matteo Hessel (Google DeepMind) · Junhyuk Oh (DeepMind) · Hado van Hasselt (DeepMind) · David Silver (DeepMind) · Satinder Singh (DeepMind)</li>
+<li>强化学习算法对超参数的选择高度敏感，通常需要大量的人工工作才能确定在新域上表现良好的超参数。在本文中，我们迈出了一步，通过meta-gradient descent（Xu等人，2018）使用元梯度在线自动调整超参数。我们应用我们的算法Self-Tuning Actor-Critic（STAC），自调整actor-critic损失函数的所有可微超参数，发现辅助任务，并使用新型的leaky V-trace算子改善off-policy学习。STAC易于使用，高效采样并且不需要显着增加计算量。Ablative studies表明，随着我们适应更多的超参数，STAC的整体性能得到改善。 当应用于Arcade学习环境（Bellemare等人，2012）时，STAC将人类正常化得分的中位数从200％的步长从243％提高到364％。当应用于DM Control套件（Tassa等人，2018）时，STAC在使用特征学习时以3,000万步的​​平均得分从217提高到389，从像素学习时从108改进到202，在真实世界强化学习挑战赛（Dulac-Arnold等人，2020年）中从195改进到295。</li>
+</ul>
+</li>
+<li><p><strong>Non-Crossing Quantile Regression for Distributional Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Fan Zhou (Shanghai University of Finance and Economics) · Jianing Wang (Shanghai University of Finance and Economics) · Xingdong Feng (Shanghai University of Finance and Economics)</li>
+</ul>
+</li>
+<li><p><strong>Learning Implicit Credit Assignment for Multi-Agent Actor-Critic.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Meng Zhou (University of Sydney) · Ziyu Liu (University of Sydney) · Pengwei Sui (University of Sydney) · Yixuan Li (The University of Sydney) · Yuk Ying Chung (The University of Sydney)</li>
+</ul>
+</li>
+<li><p><strong>Online Meta-Critic Learning for Off-Policy Actor-Critic Methods.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Wei Zhou (National University of Defense Technology) · Yiying Li (National University of Defense Technology) · Yongxin Yang (University of Edinburgh ) · Huaimin Wang (National University of Defense Technology) · Timothy Hospedales (University of Edinburgh)</li>
+</ul>
+</li>
+<li><p><strong>Online Decision Based Visual Tracking via Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: ke Song (Shandong university) · Wei Zhang (Shandong University) · Ran Song (School of Control Science and Engineering, Shandong University) · Yibin Li (Shandong University)</li>
+</ul>
+</li>
+<li><p><strong>Adversarial Soft Advantage Fitting: Imitation Learning without Policy Optimization.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Paul Barde (Quebec AI institute - Ubisoft La Forge) · Julien Roy (Mila) · Wonseok Jeon (MILA, McGill University) · Joelle Pineau (McGill University) · Chris Pal (MILA, Polytechnique MontrÃ©al, Element AI) · Derek Nowrouzezahrai (McGill University)</li>
+</ul>
+</li>
+<li><p><strong>Discovering Reinforcement Learning Algorithms.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Junhyuk Oh (DeepMind) · Matteo Hessel (Google DeepMind) · Wojciech Czarnecki (DeepMind) · Zhongwen Xu (DeepMind) · Hado van Hasselt (DeepMind) · Satinder Singh (DeepMind) · David Silver (DeepMind)</li>
+</ul>
+</li>
+<li><p><strong>Model-based Policy Optimization with Unsupervised Model Adaptation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jian Shen (Shanghai Jiao Tong University) · Han Zhao (Carnegie Mellon University) · Weinan Zhang (Shanghai Jiao Tong University) · Yong Yu (Shanghai Jiao Tong Unviersity)</li>
+</ul>
+</li>
+<li><p><strong>Shared Experience Actor-Critic for Multi-Agent Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Filippos Christianos (University of Edinburgh) · Lukas SchÃ¤fer (University of Edinburgh) · Stefano Albrecht (University of Edinburgh)</li>
+</ul>
+</li>
+<li><p><strong>The LoCA Regret: A Consistent Metric to Evaluate Model-Based Behavior in Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Harm Van Seijen (Microsoft Research) · Hadi Nekoei (MILA) · Evan Racah (Mila, UniversitÃ© de MontrÃ©al) · Sarath Chandar (Mila / Ã‰cole Polytechnique de MontrÃ©al)</li>
+</ul>
+</li>
+<li><p><strong>Deep Inverse Q-learning with Constraints.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Gabriel Kalweit (University of Freiburg) · Maria Huegle (University of Freiburg) · Moritz Werling (BMWGroup, Unterschleissheim) · Joschka Boedecker (University of Freiburg)</li>
+</ul>
+</li>
+<li><p><strong>Leverage the Average: an Analysis of KL Regularization in Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Nino Vieillard (Google Brain) · Tadashi Kozuno (Okinawa Institute of Science and Technology) · Bruno Scherrer (INRIA) · Olivier Pietquin (Google Research    Brain Team) · Remi Munos (DeepMind) · Matthieu Geist (Google Brain)</li>
+</ul>
+</li>
+<li><p><strong>Task-agnostic Exploration in Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Xuezhou Zhang (UW-Madison) · Yuzhe Ma (University of Wisconsin-Madison) · Adish Singla (MPI-SWS)</li>
+</ul>
+</li>
+<li><p><strong>Generating Adjacency-Constrained Subgoals in Hierarchical Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Tianren Zhang (Tsinghua University) · Shangqi Guo (Tsinghua University) · Tian Tan (Stanford University) · Xiaolin Hu (Tsinghua University) · Feng Chen (Tsinghua University)</li>
+</ul>
+</li>
+<li><p><strong>Reinforcement Learning with Feedback Graphs.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Christoph Dann (Carnegie Mellon University) · Yishay Mansour (Google) · Mehryar Mohri (Courant Inst. of Math. Sciences &amp; Google Research) · Ayush Sekhari (Cornell University) · Karthik Sridharan (Cornell University)</li>
+</ul>
+</li>
+<li><p><strong>Storage Efficient and Dynamic Flexible Runtime Channel Pruning via Deep Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jianda Chen (Nanyang Technological University) · Shangyu Chen (Nanyang Technological University, Singapore) · Sinno Jialin Pan (Nanyang Technological University, Singapore)</li>
+</ul>
+</li>
+<li><p><strong>Towards Safe Policy Improvement for Non-Stationary MDPs.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yash Chandak (University of Massachusetts Amherst) · Scott Jordan (University of Massachusetts Amherst) · Georgios Theocharous (Adobe Research) · Martha White (University of Alberta) · Philip Thomas (University of Massachusetts Amherst)</li>
+</ul>
+</li>
+<li><p><strong>Multi-Task Reinforcement Learning with Soft Modularization.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ruihan Yang (UC San Diego) · Huazhe Xu (UC Berkeley) · YI WU (UC Berkeley) · Xiaolong Wang (UCSD/UC Berkeley)</li>
+</ul>
+</li>
+<li><p><strong>Weighted QMIX: Improving Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Tabish Rashid (University of Oxford) · Gregory Farquhar (University of Oxford) · Bei Peng (University of Oxford) · Shimon Whiteson (University of Oxford)</li>
+</ul>
+</li>
+<li><p><strong>MDP Homomorphic Networks: Group Symmetries in Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Elise van der Pol (University of Amsterdam) · Daniel Worrall (University of Amsterdam) · Herke van Hoof (University of Amsterdam) · Frans Oliehoek (TU Delft) · Max Welling (University of Amsterdam / Qualcomm AI Research)</li>
+</ul>
+</li>
+<li><p><strong>CoinDICE: Off-Policy Confidence Interval Estimation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Bo Dai (Google Brain) · Ofir Nachum (Google Brain) · Yinlam Chow (Google Research) · Lihong Li (Google Research) · Csaba Szepesvari (DeepMind / University of Alberta) · Dale Schuurmans (Google Brain &amp; University of Alberta)</li>
+</ul>
+</li>
+<li><p><strong>An Operator View of Policy Gradient Methods.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Dibya Ghosh (Google) · Marlos C. Machado (Google Brain) · Nicolas Le Roux (Google Brain)</li>
+</ul>
+</li>
+<li><p><strong>On Efficiency in Hierarchical Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Zheng Wen (DeepMind) · Doina Precup (DeepMind) · Morteza Ibrahimi (DeepMind) · Andre Barreto (DeepMind) · Benjamin Van Roy (Stanford University) · Satinder Singh (DeepMind)</li>
+</ul>
+</li>
+<li><p><strong>Variational Policy Gradient Method for Reinforcement Learning with General Utilities.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Junyu Zhang (Princeton University) · Alec Koppel (U.S. Army Research Laboratory) · Amrit Singh Bedi (US Army Research Laboratory) · Csaba Szepesvari (DeepMind / University of Alberta) · Mengdi Wang (Princeton University)</li>
+</ul>
+</li>
+<li><p><strong>A Finite-Time Analysis of Two Time-Scale Actor-Critic Methods.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yue Wu (University of California, Los Angeles) · Weitong ZHANG (University of California, Los Angeles) · Pan Xu (University of California, Los Angeles) · Quanquan Gu (UCLA)</li>
+</ul>
+</li>
+<li><p><strong>POLY-HOOT: Monte-Carlo Planning in Continuous Space MDPs with Non-Asymptotic Analysis.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Weichao Mao (University of Illinois Urbana-Champaign) · Kaiqing Zhang (University of Illinois at Urbana-Champaign (UIUC)) · Qiaomin Xie (Cornell University) · Tamer Basar (University of Illinois at Urbana-Champaign)</li>
+</ul>
+</li>
+<li><p><strong>Can Temporal-Diï¬€erence and Q-Learning Learn Representation? A Mean-Field Theory.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yufeng Zhang (Northwestern University) · Qi Cai (Northwestern University) · Zhuoran Yang (Princeton) · Yongxin Chen (Georgia Institute of Technology) · Zhaoran Wang (Northwestern University)</li>
+</ul>
+</li>
+<li><p><strong>Model-based Reinforcement Learning for Semi-Markov Decision Processes with Neural ODEs.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jianzhun Du (Harvard University) · Joseph Futoma (Harvard University) · Finale Doshi-Velez (Harvard)</li>
+</ul>
+</li>
+<li><p><strong>Sample Complexity of Asynchronous Q-Learning: Sharper Analysis and Variance Reduction.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Gen Li (Tsinghua University) · Yuting Wei (Carnegie Mellon University) · Yuejie Chi (CMU) · Yuantao Gu (Tsinghua University) · Yuxin Chen (Princeton University)</li>
+</ul>
+</li>
+<li><p><strong>Reinforcement Learning with Augmented Data.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Misha Laskin (UC Berkeley) · Kimin Lee (UC Berkeley) · Adam Stooke (UC Berkeley) · Lerrel Pinto (New York University) · Pieter Abbeel (UC Berkeley &amp; covariant.ai) · Aravind Srinivas (UC Berkeley)</li>
+</ul>
+</li>
+<li><p><strong>Improved Sample Complexity for Incremental Autonomous Exploration in MDPs.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jean Tarbouriech (Facebook AI Research Paris &amp; Inria Lille) · Matteo Pirotta (Facebook AI Research) · Michal Valko (DeepMind Paris and Inria Lille - Nord Europe) · Alessandro Lazaric (Facebook Artificial Intelligence Research)</li>
+</ul>
+</li>
+<li><p><strong>EvolveGraph: Multi-Agent Trajectory Prediction with Dynamic Relational Reasoning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jiachen Li (University of California, Berkeley) · Fan Yang (University of California, Berkeley) · Masayoshi Tomizuka (University of California, Berkeley) · Chiho Choi (Honda Research Institute US)</li>
+</ul>
+</li>
+<li><p><strong>Autofocused oracles for model-based design.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Clara Fannjiang (UC Berkeley) · Jennifer Listgarten (UC Berkeley)</li>
+</ul>
+</li>
+<li><p><strong>Off-Policy Evaluation via the Regularized Lagrangian.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Mengjiao Yang (Google) · Ofir Nachum (Google Brain) · Bo Dai (Google Brain) · Lihong Li (Google Research) · Dale Schuurmans (Google Brain &amp; University of Alberta)</li>
+</ul>
+</li>
+<li><p><strong>Reinforcement Learning with Combinatorial Actions: An Application to Vehicle Routing.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Arthur Delarue (MIT) · Ross Anderson (Google Research) · Christian Tjandraatmadja (Google)</li>
+</ul>
+</li>
+<li><p><strong>MOPO: Model-based Offline Policy Optimization.</strong> [<a href="https://arxiv.org/abs/2005.13239" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Tianhe Yu (Stanford University) · Garrett W. Thomas (Stanford University) · Lantao Yu (Stanford University) · Stefano Ermon (Stanford) · James Zou (Stanford University) · Sergey Levine (UC Berkeley) · Chelsea Finn (Stanford) · Tengyu Ma (Stanford University)</li>
+<li><a href="https://github.com/tianheyu927/mopo" target="_blank" rel="noopener">code</a></li>
+<li>offline 强化学习（RL）指的是完全从大量先前收集的数据中学习策略的问题。这个问题设置提供了利用此类数据集获取策略的希望，而无需进行任何昂贵或危险的主动探索。但是，由于脱机训练数据与所学习策略访问的状态之间的分布偏移，这一问题同样具有挑战性。尽管最近取得了重大进展，但最成功的现有方法是无模型的，并且将策略限制在数据的支持上，从而无法将模型推广到未见状态。在本文中，我们首先观察到，与无模型方法相比，现有的基于模型的RL算法在offline环境中已经产生了可观的收益。但是，为在线设置设计的基于标准模型的RL方法没有提供明确的机制来避免offline设置的分布偏移问题。取而代之的是，我们建议修改现有的基于模型的RL方法，方法是由动态的不确定性人为惩罚所获得的奖励。我们从理论上表明，该算法在真实MDP下最大化了策略收益的下限。我们还描述了在离开批数据支持的风险与收益之间的权衡。我们的算法Model-based Offline Policy Optimization（MOPO）在现有的offline RL基准测试和两项具有挑战性的连续控制任务（需要利用新任务收集的数据进行泛化）上均优于标准的基于模型的RL算法和现有的最新无模型offline RL算法。</li>
+</ul>
+</li>
+<li><p><strong>Variance-Reduced Off-Policy TDC Learning: Non-Asymptotic Convergence Analysis.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Shaocong Ma (University of Utah) · Yi Zhou (University of Utah) · Shaofeng Zou (University at Buffalo, the State University of New York)</li>
+</ul>
+</li>
+<li><p><strong>Dynamic Regret of Policy Optimization in Non-stationary Environments.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yingjie Fei (Cornell University) · Zhuoran Yang (Princeton) · Zhaoran Wang (Northwestern University) · Qiaomin Xie (Cornell University)</li>
+</ul>
+</li>
+<li><p><strong>DisCor: Corrective Feedback in Reinforcement Learning via Distribution Correction.</strong> [<a href="https://arxiv.org/abs/2003.07305" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Aviral Kumar (UC Berkeley) · Abhishek Gupta (University of California, Berkeley) · Sergey Levine (UC Berkeley)</li>
+<li><a href="https://bair.berkeley.edu/blog/2020/03/16/discor/" target="_blank" rel="noopener">blog</a></li>
+<li><a href="https://github.com/ku2482/discor.pytorch" target="_blank" rel="noopener">code</a></li>
+<li>深度强化学习可以学习适用于各种任务的有效策略，但众所周知，由于不稳定和对超参数敏感，因此难以使用。其原因尚不清楚。当使用标准的监督方法（例如，针对老虎机问题）时，on-policy的数据收集会提供“hard negatives”，可以在策略可能访问的那些状态和动作中准确地纠正模型。我们称这种现象为“校正反馈”。我们表明，基于自举的Q-learning算法不一定能从此校正反馈中受益，并且对算法收集的经验进行训练不足以校正Q函数中的错误。实际上，Q-learning和相关方法可能会表现出智能体收集的经验分布与该经验的训练所诱导的策略之间病态的相互作用，从而导致潜在的不稳定，局部最优收敛，以及从嘈杂、稀疏或延迟的奖励中学习获得较差的结果。我们从理论和实验上证明了这个问题的存在。然后，我们表明对数据分布的特定修正可以缓解此问题。基于这些观察，我们提出了一种新算法DisCor，该算法可计算出该最佳分布的近似值，并使用它重新加权用于训练的transitions，从而在一系列具有挑战性的RL设置（例如多任务学习和从嘈杂的奖励信号中学习）中得到实质性的改进。</li>
+</ul>
+</li>
+<li><p><strong>FLAMBE: Structural Complexity and Representation Learning of Low Rank MDPs.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Alekh Agarwal (Microsoft Research) · Sham Kakade (University of Washington) · Akshay Krishnamurthy (Microsoft) · Wen Sun (Microsoft Research NYC)</li>
+</ul>
+</li>
+<li><p><strong>Neurosymbolic Reinforcement Learning with Formally Verified Exploration.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Greg Anderson (University of Texas at Austin) · Abhinav Verma (Rice University) · Isil Dillig (UT Austin) · Swarat Chaudhuri (The University of Texas at Austin)</li>
+</ul>
+</li>
+<li><p><strong>Generalized Hindsight for Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Alexander Li (UC Berkeley) · Lerrel Pinto (New York University) · Pieter Abbeel (UC Berkeley &amp; covariant.ai)</li>
+</ul>
+</li>
+<li><p><strong>Finite-Time Analysis for Double Q-learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Huaqing Xiong (Ohio State University) · Lin Zhao (National University of Singapore) · Yingbin Liang (The Ohio State University) · Wei  Zhang (Southern University of Science and Technology)</li>
+</ul>
+</li>
+<li><p><strong>Subgroup-based Rank-1 Lattice Quasi-Monte Carlo.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yueming LYU (University of Technology Sydney) · Yuan Yuan (MIT) · Ivor Tsang (University of Technology, Sydney)</li>
+</ul>
+</li>
+<li><p><strong>Meta-Gradient Reinforcement Learning with an Objective Discovered Online.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Zhongwen Xu (DeepMind) · Hado van Hasselt (DeepMind) · Matteo Hessel (Google DeepMind) · Junhyuk Oh (DeepMind) · Satinder Singh (DeepMind) · David Silver (DeepMind)</li>
+</ul>
+</li>
+<li><p><strong>TorsionNet: A Reinforcement Learning Approach to Sequential Conformer Search.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Tarun Gogineni (University of Michigan) · Ziping Xu (University of Michigan) · Exequiel  Punzalan (University of Michigan) · Runxuan Jiang (University of Michigan) · Joshua Kammeraad (University of Michigan) · Ambuj Tewari (University of Michigan) · Paul Zimmerman (University of Michigan)</li>
+</ul>
+</li>
+<li><p><strong>Succinct and Robust Multi-Agent Communication With Temporal Message Control.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Sai Qian Zhang (Harvard University) · Qi  Zhang (Amazon) · Jieyu Lin (University of Toronto)</li>
+</ul>
+</li>
+<li><p><strong>Learning to Dispatch for Job Shop Scheduling via Deep Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Cong Zhang (Nanyang Technological University) · Wen Song (Institute of Marine Scinece and Technology, Shandong University) · Zhiguang Cao (National University of Singapore) · Jie Zhang (Nanyang Technological University) · Puay Siew Tan (SIMTECH) · Xu Chi (Singapore Institute of Manufacturing Technology, A-Star)</li>
+</ul>
+</li>
+<li><p><strong>Is Plug-in Solver Sample-Efficient for Feature-based Reinforcement Learning?.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Qiwen Cui (Peking University) · Lin Yang (UCLA)</li>
+</ul>
+</li>
+<li><p><strong>Instance-based Generalization in Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Martin Bertran (Duke University) · Natalia L Martinez (Duke University) · Mariano Phielipp (Intel AI Labs) · Guillermo Sapiro (Duke University)</li>
+</ul>
+</li>
+<li><p><strong>Preference-based Reinforcement Learning with Finite-Time Guarantees.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yichong Xu (Carnegie Mellon University) · Ruosong Wang (Carnegie Mellon University) · Lin Yang (UCLA) · Aarti Singh (CMU) · Artur Dubrawski (Carnegie Mellon University)</li>
+</ul>
+</li>
+<li><p><strong>Learning to Decode: Reinforcement Learning for Decoding of Sparse Graph-Based Channel Codes.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Salman Habib (New Jersey Institute of Tech) · Allison Beemer (New Jersey Institute of Technology) · Joerg Kliewer (New Jersey Institute of Technology)</li>
+</ul>
+</li>
+<li><p><strong>BAIL: Best-Action Imitation Learning for Batch Deep Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Xinyue Chen (NYU Shanghai) · Zijian Zhou (NYU Shanghai) · Zheng Wang (NYU Shanghai) · Che Wang (New York University) · Yanqiu Wu (New York University) · Keith Ross (NYU Shanghai)</li>
+</ul>
+</li>
+<li><p><strong>Task-Agnostic Online Reinforcement Learning with an Infinite Mixture of Gaussian Processes.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Mengdi Xu (Carnegie Mellon University) · Wenhao Ding (Carnegie Mellon University) · Jiacheng Zhu (Carnegie Mellon University) · ZUXIN LIU (Carnegie Mellon University) · Baiming Chen (Tsinghua University) · Ding Zhao (Carnegie Mellon University)</li>
+</ul>
+</li>
+<li><p><strong>On Reward-Free Reinforcement Learning with Linear Function Approximation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ruosong Wang (Carnegie Mellon University) · Simon Du (Institute for Advanced Study) · Lin Yang (UCLA) · Russ Salakhutdinov (Carnegie Mellon University)</li>
+</ul>
+</li>
+<li><p><strong>Near-Optimal Reinforcement Learning with Self-Play.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yu Bai (Salesforce Research) · Chi Jin (Princeton University) · Tiancheng Yu (MIT )</li>
+</ul>
+</li>
+<li><p><strong>Robust Multi-Agent Reinforcement Learning with Model Uncertainty.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Kaiqing Zhang (University of Illinois at Urbana-Champaign (UIUC)) · TAO SUN (Amazon.com) · Yunzhe Tao (Amazon Artificial Intelligence) · Sahika Genc (Amazon Artificial Intelligence) · Sunil Mallya (Amazon AWS) · Tamer Basar (University of Illinois at Urbana-Champaign)</li>
+</ul>
+</li>
+<li><p><strong>Towards Minimax Optimal Reinforcement Learning in Factored Markov Decision Processes.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yi Tian (MIT) · Jian Qian (MIT) · Suvrit Sra (MIT)</li>
+</ul>
+</li>
+<li><p><strong>Scalable Multi-Agent Reinforcement Learning for Networked Systems with Average Reward.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Guannan Qu (California Institute of Technology) · Yiheng Lin (California Institute of Technology) · Adam Wierman (California Institute of Technology) · Na Li (Harvard University)</li>
+</ul>
+</li>
+<li><p><strong>Constrained episodic reinforcement learning in concave-convex and knapsack settings.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: KiantÃ© Brantley (The University of Maryland College Park) · Miro Dudik (Microsoft Research) · Thodoris Lykouris (Microsoft Research NYC) · Sobhan Miryoosefi (Princeton University) · Max Simchowitz (Berkeley) · Aleksandrs Slivkins (Microsoft Research) · Wen Sun (Microsoft Research NYC)</li>
+</ul>
+</li>
+<li><p><strong>Sample Efficient Reinforcement Learning via Low-Rank Matrix Estimation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Devavrat Shah (Massachusetts Institute of Technology) · Dogyoon Song (Massachusetts Institute of Technology) · Zhi Xu (MIT) · Yuzhe Yang (MIT)</li>
+</ul>
+</li>
+<li><p><strong>Trajectory-wise Multiple Choice Learning for Dynamics Generalization in Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Younggyo Seo (KAIST) · Kimin Lee (UC Berkeley) · Ignasi Clavera Gilaberte (UC Berkeley) · Thanard Kurutach (University of California Berkeley) · Jinwoo Shin (KAIST) · Pieter Abbeel (UC Berkeley &amp; covariant.ai)</li>
+</ul>
+</li>
+<li><p><strong>Cooperative Heterogeneous Deep Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Han Zheng (UTS) · Pengfei Wei (National University of Singapore) · Jing Jiang (University of Technology Sydney) · Guodong Long (University of Technology Sydney (UTS)) · Qinghua Lu (Data61, CSIRO) · Chengqi Zhang (University of Technology Sydney)</li>
+</ul>
+</li>
+<li><p><strong>Global Convergence of Natural Primal-Dual Method for Constrained Markov Decision Processes.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Dongsheng Ding (University of Southern California) · Kaiqing Zhang (University of Illinois at Urbana-Champaign (UIUC)) · Mihailo Jovanovic (University of Southern California) · Tamer Basar (University of Illinois at Urbana-Champaign)</li>
+</ul>
+</li>
+<li><p><strong>Implicit Distributional Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yuguang Yue (University of Texas at Austin) · Zhendong Wang (University of Texas, Austin) · Mingyuan Zhou (University of Texas at Austin)</li>
+</ul>
+</li>
+<li><p><strong>Efficient Exploration of Reward Functions in Inverse Reinforcement Learning via Bayesian Optimization.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Sreejith Balakrishnan (National University of Singapore) · Quoc Phong Nguyen (National University of Singapore) · Bryan Kian Hsiang Low (National University of Singapore) · Harold Soh (National University Singapore)</li>
+</ul>
+</li>
+<li><p><strong>EPOC: A Provably Correct Policy Gradient Approach to Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Alekh Agarwal (Microsoft Research) · Mikael Henaff (Microsoft) · Sham Kakade (University of Washington) · Wen Sun (Microsoft Research NYC)</li>
+</ul>
+</li>
+<li><p><strong>Provably Efficient Reinforcement Learning with Kernel and Neural Function Approximations.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Zhuoran Yang (Princeton) · Chi Jin (Princeton University) · Zhaoran Wang (Northwestern University) · Mengdi Wang (Princeton University) · Michael Jordan (UC Berkeley)</li>
+</ul>
+</li>
+<li><p><strong>Decoupled Policy Gradient Methods for Competitive Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Constantinos Daskalakis (MIT) · Dylan Foster (MIT) · Noah Golowich (Massachusetts Institute of Technology)</li>
+</ul>
+</li>
+<li><p><strong>Upper Confidence Primal-Dual Reinforcement Learning for CMDP with Adversarial Loss.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Shuang Qiu (University of Michigan) · Xiaohan Wei (University of Southern California) · Zhuoran Yang (Princeton) · Jieping Ye (University of Michigan) · Zhaoran Wang (Northwestern University)</li>
+</ul>
+</li>
+<li><p><strong>Model-Based Multi-Agent RL in Zero-Sum Markov Games with Near-Optimal Sample Complexity.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Kaiqing Zhang (University of Illinois at Urbana-Champaign (UIUC)) · Sham Kakade (University of Washington) · Tamer Basar (University of Illinois at Urbana-Champaign) · Lin Yang (UCLA)</li>
+</ul>
+</li>
+<li><p><strong>PlanGAN: Model-based Planning With Sparse Rewards and Multiple Goals.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Henry Charlesworth (University of Warwick) · Giovanni Montana (University of Warwick)</li>
+</ul>
+</li>
+<li><p><strong>Improving Generalization in Reinforcement Learning with Mixture Regularization.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: KAIXIN WANG (National University of Singapore) · Bingyi Kang (National University of Singapore) · Jie Shao (Fudan University) · Jiashi Feng (National University of Singapore)</li>
+</ul>
+</li>
+<li><p><strong>A game-theoretic analysis of networked system control for common-pool resource management using multi-agent reinforcement learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Arnu Pretorius (InstaDeep) · Scott Cameron (Instadeep) · Elan van Biljon (Stellenbosch University) · Thomas Makkink (InstaDeep) · Shahil Mawjee (InstaDeep) · Jeremy du Plessis (University of Cape Town) · Jonathan Shock (University of Cape Town) · Alexandre Laterre (InstaDeep) · Karim Beguir (InstaDeep)</li>
+</ul>
+</li>
+<li><p><strong>Fast Adaptive Non-Monotone Submodular Maximization Subject to a Knapsack Constraint.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Georgios Amanatidis (University of Essex) · Federico Fusco (Sapienza University of Rome) · Philip Lazos (Sapienza University of Rome) · Stefano Leonardi (Sapienza University of Rome) · Rebecca ReiffenhÃ¤user (Sapienza University of Rome)</li>
+</ul>
+</li>
+<li><p><strong>Planning in Markov Decision Processes with Gap-Dependent Sample Complexity.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Anders Jonsson (Universitat Pompeu Fabra) · Emilie Kaufmann (CNRS) · Pierre Menard (Inria) · Omar Darwiche Domingues (Inria) · Edouard Leurent (INRIA) · Michal Valko (DeepMind)</li>
+</ul>
+</li>
+<li><p><strong>Deep Reinforcement Learning with Stacked Hierarchical Attention for Text-based Games.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yunqiu Xu (University of Technology Sydney) · Meng Fang (Tencent) · Ling Chen (“ University of Technology, Sydney, Australia”) · Yali Du (University College London) · Joey Tianyi Zhou (IHPC, A*STAR) · Chengqi Zhang (University of Technology Sydney)</li>
+</ul>
+</li>
+<li><p><strong>Robust Reinforcement Learning via Adversarial training with Langevin Dynamics.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Parameswaran Kamalaruban (EPFL) · Yu-Ting Huang (EPFL) · Ya-Ping Hsieh (EPFL) · Paul Rolland (EPFL) · Cheng Shi (Unversity of Basel) · Volkan Cevher (EPFL)</li>
+</ul>
+</li>
+<li><p><strong>Interferobot: aligning an optical interferometer by a reinforcement learning agent.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Dmitry Sorokin (Russian Quantum Center) · Alexander Ulanov (Russian Quantum Center) · Ekaterina Sazhina (Russian Quantum Center) · Alexander Lvovsky (Oxford University)</li>
+</ul>
+</li>
+<li><p><strong>Reinforcement Learning for Control with Multiple Frequencies.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Jongmin Lee (KAIST) · ByungJun Lee (KAIST) · Kee-Eung Kim (KAIST)</li>
+</ul>
+</li>
+<li><p><strong>Learning to Play Sequential Games versus Unknown Opponents.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Pier Giuseppe Sessa (ETH ZÃ¼rich) · Ilija Bogunovic (ETH Zurich) · Maryam Kamgarpour (ETH ZÃ¼rich) · Andreas Krause (ETH Zurich)</li>
+</ul>
+</li>
+<li><p><strong>Contextual Games: Multi-Agent Learning with Side Information.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Pier Giuseppe Sessa (ETH ZÃ¼rich) · Ilija Bogunovic (ETH Zurich) · Andreas Krause (ETH Zurich) · Maryam Kamgarpour (ETH ZÃ¼rich)</li>
+</ul>
+</li>
+<li><p><strong>Risk-Sensitive Reinforcement Learning: Near-Optimal Risk-Sample Tradeoff in Regret.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yingjie Fei (Cornell University) · Zhuoran Yang (Princeton) · Yudong Chen (Cornell University) · Zhaoran Wang (Northwestern University) · Qiaomin Xie (Cornell University)</li>
+</ul>
+</li>
+<li><p><strong>Expert-Supervised Reinforcement Learning for Offline Policy Learning and Evaluation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Aaron Sonabend (Harvard University) · Junwei Lu () · Leo Anthony Celi (Massachusetts Institute of Technology) · Tianxi Cai (Harvard School of Public Health) · Peter Szolovits (MIT)</li>
+</ul>
+</li>
+<li><p><strong>Dynamic allocation of limited memory resources in reinforcement learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Nisheet Patel (University of Geneva) · Luigi Acerbi (University of Helsinki) · Alexandre Pouget (University of Geneva)</li>
+</ul>
+</li>
+<li><p><strong>AttendLight: Universal Attention-Based Reinforcement Learning Model for Traffic Signal Control.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Afshin Oroojlooy (SAS Institute, Inc) · Mohammadreza Nazari (SAS Institute Inc.) · Davood Hajinezhad (SAS Institute Inc.) · Jorge Silva (SAS)</li>
+</ul>
+</li>
+<li><p><strong>Sample-Efficient Reinforcement Learning of Undercomplete POMDPs.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Chi Jin (Princeton University) · Sham Kakade (University of Washington) · Akshay Krishnamurthy (Microsoft) · Qinghua Liu (Princeton University)</li>
+</ul>
+</li>
+<li><p><strong>Learning discrete distributions with infinite support.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Doron Cohen (Ben-Gurion University of the Negev) · Aryeh Kontorovich (Ben Gurion University) · Geoï¬€rey Wolfer (Ben-Gurion University of the Negev)</li>
+</ul>
+</li>
+<li><p><strong>Joint Policy Search for Multi-agent Collaboration with Incomplete Information.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yuandong Tian (Facebook AI Research) · Qucheng Gong (Facebook AI Research) · Yu Jiang (Facebook AI Research)</li>
+</ul>
+</li>
+<li><p><strong>R-learning in actor-critic model offers a biologically relevant mechanism for sequential decision-making.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Sergey Shuvaev (Cold Spring Harbor Laboratory) · Sarah Starosta (Washington University in St. Louis) · Duda Kvitsiani (Aarhus University) · Adam Kepecs (Washington University in St. Louis) · Alexei Koulakov (Cold Spring Harbor Laboratory)</li>
+</ul>
+</li>
+<li><p><strong>Multi-agent active perception with prediction rewards.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Mikko Lauri (University of Hamburg) · Frans Oliehoek (TU Delft)</li>
+</ul>
+</li>
+<li><p><strong>RL Unplugged: A Collection of Benchmarks for Offline Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ziyu Wang (Deepmind) · Caglar Gulcehre (Deepmind) · Alexander Novikov (DeepMind) · Thomas Paine (DeepMind) · Sergio GÃ³mez (DeepMind) · Konrad Zolna (DeepMind) · Rishabh Agarwal (Google Research, Brain Team) · Josh Merel (DeepMind) · Daniel Mankowitz (DeepMind) · Cosmin Paduraru (DeepMind) · Gabriel Dulac-Arnold (Google Research) · Jerry Li (Google) · Mohammad Norouzi (Google Brain) · Matthew Hoffman (DeepMind) · Nicolas Heess (Google DeepMind) · Nando de Freitas (DeepMind)</li>
+</ul>
+</li>
+<li><p><strong>A local temporal difference code for distributional reinforcement learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Pablo Tano (University of Geneva) · Peter Dayan (Max Planck Institute for Biological Cybernetics) · Alexandre Pouget (University of Geneva)</li>
+</ul>
+</li>
+<li><p><strong>Learning to Play No-Press Diplomacy with Best Response Policy Iteration.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Thomas Anthony (DeepMind) · Tom Eccles (DeepMind) · Andrea Tacchetti (DeepMind) · JÃ¡nos KramÃ¡r (DeepMind) · Ian Gemp (DeepMind) · Thomas Hudson (DeepMind) · Nicolas Porcel (DeepMind) · Marc Lanctot (DeepMind) · Julien Perolat (DeepMind) · Richard Everett (DeepMind) · Satinder Singh (DeepMind) · Thore Graepel (DeepMind) · Yoram Bachrach ()</li>
+</ul>
+</li>
+<li><p><strong>The Value Equivalence Principle for Model-Based Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Christopher Grimm (University of Michigan) · Andre Barreto (DeepMind) · Satinder Singh (DeepMind) · David Silver (DeepMind)</li>
+</ul>
+</li>
+<li><p><strong>Multi-agent Trajectory Prediction with Fuzzy Query Attention.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Nitin Kamra (University of Southern California) · Hao Zhu (Peking University) · Dweep Kumarbhai Trivedi (University of Southern California) · Ming Zhang (Peking University) · Yan Liu (University of Southern California)</li>
+</ul>
+</li>
+<li><p><strong>Trust the Model When It Is Confident: Masked Model-based Actor-Critic.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Feiyang Pan (Institute of Computing Technology, Chinese Academy of Sciences) · Jia He (Huawei) · Dandan Tu (Huawei) · Qing He (Institute of Computing Technology, Chinese Academy of Sciences)</li>
+</ul>
+</li>
+<li><p><strong>POMDPs in Continuous Time and Discrete Spaces.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Bastian Alt (Technische UniversitÃ¤t Darmstadt) · Matthias Schultheis (Technische UniversitÃ¤t Darmstadt) · Heinz Koeppl (Technische UniversitÃ¤t Darmstadt)</li>
+</ul>
+</li>
+<li><p><strong>Steady State Analysis of Episodic Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Huang Bojun (Rakuten Institute of Technology)</li>
+</ul>
+</li>
+<li><p><strong>Learning Multi-Agent Communication through Structured Attentive Reasoning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Murtaza Rangwala (Virginia Tech) · Ryan K Williams (Virginia Tech)</li>
+</ul>
+</li>
+<li><p><strong>Information-theoretic Task Selection for Meta-Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ricardo Luna Gutierrez (University of Leeds) · Matteo Leonetti (University of Leeds)</li>
+</ul>
+</li>
+<li><p><strong>The Mean-Squared Error of Double Q-Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Wentao Weng (Tsinghua University) · Harsh Gupta (University of Illinois at Urbana-Champaign) · Niao He (UIUC) · Lei Ying (University of Michigan) · R. Srikant (University of Illinois at Urbana-Champaign)</li>
+</ul>
+</li>
+<li><p><strong>A Unifying View of Optimism in Episodic Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Gergely Neu (Universitat Pompeu Fabra) · Ciara Pike-Burke (Imperial College London)</li>
+</ul>
+</li>
+<li><p><strong>Accelerating Reinforcement Learning through GPU Atari Emulation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Steven Dalton (Nvidia) · iuri frosio (nvidia)</li>
+</ul>
+</li>
+<li><p><strong>Robust Deep Reinforcement Learning against Adversarial Perturbations on State Observations.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Huan Zhang (UCLA) · Hongge Chen (MIT) · Chaowei Xiao (University of Michigan, Ann Arbor) · Bo Li (UIUC) · mingyan liu (university of Michigan, Ann Arbor) · Duane Boning (Massachusetts Institute of Technology) · Cho-Jui Hsieh (UCLA)</li>
+</ul>
+</li>
+<li><p><strong>Bridging Imagination and Reality for Model-Based Deep Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Guangxiang Zhu (Tsinghua university) · Minghao Zhang (Tsinghua University) · Honglak Lee (Google / U. Michigan) · Chongjie Zhang (Tsinghua University)</li>
+</ul>
+</li>
+<li><p><strong>Direct Policy Gradients: Direct Optimization of Policies in Discrete Action Spaces.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Guy Lorberbom (Technion) · Chris J. Maddison (University of Toronto) · Nicolas Heess (Google DeepMind) · Tamir Hazan (Technion) · Daniel Tarlow (Google Brain)</li>
+</ul>
+</li>
+<li><p><strong>Hamiltonian Monte Carlo using an adjoint-differentiated Laplace approximation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Charles Margossian (Columbia) · Aki Vehtari (Aalto University) · Daniel Simpson (University of Toronto) · Raj Agrawal (MIT)</li>
+</ul>
+</li>
+<li><p><strong>A Unified Switching System Perspective and Convergence Analysis of Q-Learning Algorithms.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Niao He (UIUC) · Donghwan Lee (KAIST)</li>
+</ul>
+</li>
+<li><p><strong>Adaptive Discretization for Model-Based Reinforcement Learning.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Sean Sinclair (Cornell University) · Tianyu Wang (Duke University) · Gauri Jain (Cornell University) · Siddhartha Banerjee (Cornell University) · Christina Yu (Cornell University)</li>
+</ul>
+</li>
+<li><p><strong>Stateful Posted Pricing with Vanishing Regret via Dynamic Deterministic Markov Decision Processes.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yuval Emek (Technion - Israel Institute of Technology) · Ron Lavi (Technion) · Rad Niazadeh (Chicago Booth School of Business) · Yangguang Shi (Technion - Israel Institute of Technology)</li>
+</ul>
+</li>
+<li><p><strong>Provably Good Batch Off-Policy Reinforcement Learning Without Great Exploration.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Yao Liu (Stanford University) · Adith Swaminathan (Microsoft Research) · Alekh Agarwal (Microsoft Research) · Emma Brunskill (Stanford University)</li>
+</ul>
+</li>
+<li><p><strong>Off-Policy Interval Estimation with Lipschitz Value Iteration.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Ziyang Tang (UT Austin) · Yihao Feng (UT Austin) · Na Zhang (Tsinghua University) · Jian Peng (University of Illinois at Urbana-Champaign) · Qiang Liu (UT Austin)</li>
+</ul>
+</li>
+<li><p><strong>Provably adaptive reinforcement learning in metric spaces.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Tongyi Cao (University of Massachusetts Amherst) · Akshay Krishnamurthy (Microsoft)</li>
+</ul>
+</li>
+<li><p><strong>Stochastic Latent Actor-Critic: Deep Reinforcement Learning with a Latent Variable Model.</strong> [<a href="https://arxiv.org/abs/1907.00953" target="_blank" rel="noopener">论文链接</a>]</p>
+<ul>
+<li>作者: Alex Lee (UC Berkeley) · Anusha Nagabandi (UC Berkeley) · Pieter Abbeel (UC Berkeley &amp; covariant.ai) · Sergey Levine (UC Berkeley)</li>
+<li><a href="https://alexlee-gk.github.io/slac/" target="_blank" rel="noopener">website</a></li>
+<li><a href="https://github.com/alexlee-gk/slac" target="_blank" rel="noopener">code</a></li>
+<li>深度强化学习（RL）算法可以使用大容量深度网络直接从图像观察中学习。但是，这些高维度的观察空间在实践中提出了许多挑战，因为策略现在必须解决两个问题：表示学习和任务学习。在这项工作中，我们通过显式学习可以加速从图像进行强化学习的潜在表示，分别解决这两个问题。我们提出了stochastic latent actor-critic（SLAC）算法：一种样本有效且高性能的RL算法，用于直接从高维图像输入中学习复杂连续控制任务的策略。SLAC提供了一种新颖且有原则的方法，通过学习紧凑的潜在表示，然后在模型学到的潜在空间中执行RL，将随机顺序模型和RL统一为一个方法。我们的实验评估表明，在一系列困难的基于图像的控制任务上，我们的方法在最终性能和样本效率方面均优于无模型和基于模型的替代方法。</li>
+</ul>
+</li>
+<li><p><strong>Inverse Reinforcement Learning from a Gradient-based Learner.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Giorgia Ramponi (Politecnico di Milano) · Gianluca Drappo (Politecnico di Milano) · Marcello Restelli (Politecnico di Milano)</li>
+</ul>
+</li>
+<li><p><strong>Efficient Planning in Large MDPs with Weak Linear Function Approximation.</strong> [<a href>论文链接</a>]</p>
+<ul>
+<li>作者: Roshan Shariff (University of Alberta) · Csaba Szepesvari (DeepMind / University of Alberta)</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2020-10-15T08:30:34.080Z" itemprop="dateUpdated">2020-10-15 16:30:34</time>
+</span><br>
+
+
+        
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/" target="_blank" rel="external">https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/</a> 转载请注明出处
+        
+    </div>
+    
+    <footer>
+        <a href="https://yachenkang.github.io/blog">
+            <img src="/blog/img/avatar.jpg" alt="Kang Yachen">
+            Kang Yachen
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/&title=《NIPS2020 Reinforcement Learning Reading List》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/&title=《NIPS2020 Reinforcement Learning Reading List》 — Hamish的科研blog&source=NIPS2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NIPS2020 Reinforcement Learning Reading List》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/blog/2020/07/16/One-Policy-to-Control-Them-All-Shared-Modular-Policies-for-Agent-Agnostic-Control/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">One Policy to Control Them All Shared Modular Policies for Agent-Agnostic Control</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/blog/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">NIPS2019 Reinforcement Learning Reading List</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitalk-container"></div>
+    <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        var id = location.pathname
+        if (location.pathname.length > 50) {
+          id = location.pathname.replace(/\/\d+\/\d+\/\d+\//, '').replace('/', '').substring(0, 50)
+        }
+        const gitalk = new Gitalk({
+          clientID: 'acc13bb9287721dc399c',
+          clientSecret: '6b291913ac95fa96b3d3d1b23efd53d4bb162c08',
+          repo: 'blogcomment',
+          owner: 'sherlockbear',
+          admin: ['sherlockbear'],
+          id: id,      // Ensure uniqueness and length less than 50
+          title: document.title.split('|')[0],
+          distractionFreeMode: false  // Facebook-like distraction free mode
+        })
+
+        gitalk.render('gitalk-container')
+    </script>
+</section>
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Kang Yachen &copy; 2015 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/&title=《NIPS2020 Reinforcement Learning Reading List》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/&title=《NIPS2020 Reinforcement Learning Reading List》 — Hamish的科研blog&source=NIPS2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《NIPS2020 Reinforcement Learning Reading List》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/06/15/NIPS2020-Reinforcement-Learning-Reading-List/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADNElEQVR42u3awW7qQAwFUP7/p3lSV5X6SK7tIAVzskJVEuZMFxfb83jE1/PnSv7+/HW9uvPvPclTr77l1T0XXNjY2Ngfwn4eXseLPr4/x+S8fPtOtgYbGxt7Hfs4nHpLr+KTrDl+cx602NjY2N/Jrn7NMbgalsn7sbGxsbHzAMuXmLefkqJivk5sbGzsrexe+yaPrjyuJuOBt/TSsLGxsW/Prg567/z5jfNtbGxs7Fuyn4OrOojtheJkDS+fwsbGxl7ETppBveFrXmZUB8BJcRIFGzY2NvYKdm+MWm3czGHVdZ7EJzY2NvY69rWh1WtOVVtFOfg/f8HGxsZexM5vvao1f200XvCPwcbGxv5w9uSIzPFGJHceP5uEX7kIwcbGxl7H7o1U86VUtyk5mpOHXDQwwMbGxl7BTkqL6sGaybnHXryVD2hiY2NjL2XPMb3DOkmk9QqVaFKBjY2NvZpdLVfytk71qd43nox4sbGxsVewm431cSuq2lrqhehoSICNjY19e3ZShOS/4XuFx+RIZb7ak/k2NjY29mr2yY/4vIlz+Ob5puTNLGxsbOxN7MljvVbUO0YUedGCjY2NvY+dt4Typnx1uUns9bbmpKmEjY2NvYKdx0ASXclyq6Pf3liiEKLY2NjYK9h5zFywu3HkVAukasRiY2Njb2VXj90ki6uWItXyprkSbGxs7BXsPBh6h296RU7vnYVRBzY2NvYidu8Izrzd3xshT1aLjY2NvZvdi5M8VPLha68cqq4ZGxsbexO71zbqDQPyAcB8MHBBUwkbGxv7Q9jVgJkUD9UlVresXJBgY2NjL2LPGzfJ/e8YG+cFz6N3YWNjY38gOz++U236VKl5oFY3AhsbG/sb2L2YqQZYtcE0Kip6ExJsbGzs27Ofxau6cfPNqm5E9GZsbGzsRexesCUFyXxw29sUbGxs7O9k542kXlz1hsG9cCo0trCxsbHXsathk2/ZZADc2z5sbGxs7HxomrR78s/Hz+aHRKMYxsbGxv5KdjXGqgODPMx6I4QoCbGxsbE/lt2LhGo5kcdMNbTKLS1sbGzsRezqoLc6TriqjJl/12i+jY2NjX1H9j8tdljcWIktQAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="/blog/js/main.min.js?v=1.7.2"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/blog/js/search.min.js?v=1.7.2" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+
+
+
+</body>
+</html>

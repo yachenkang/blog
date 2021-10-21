@@ -26,7 +26,7 @@
 <meta name="keywords" content="meta-learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Learning to Learn via Self-Critique">
-<meta property="og:url" content="https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/index.html">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要:在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信">
 <meta property="og:locale" content="zh-CN">
@@ -38,10 +38,10 @@
 <meta name="twitter:description" content="摘要:在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充分利用所有可能的信息。通常，模型从小型训练集（support-set）中学习任务特定的信息，以对无标签验证集（target-set也叫query-set）进行预测。target-set包含其他特定于任务的信息，而现有的少样本学习方法并未利用这些信">
 <meta name="twitter:image" content="https://res.cloudinary.com/dyxexppyu/image/upload/v1570623088/wps_2019-09-28_22-57-12_eioif3.png">
     
-        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
     
-    <link rel="shortcut icon" href="/img/avatar.jpg">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/blog/img/avatar.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -58,10 +58,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/blog/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Kang Yachen</h5>
@@ -73,28 +73,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/blog/"  >
                 <i class="icon icon-lg icon-home"></i>
                 Home
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/blog/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/blog/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/blog/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
@@ -148,7 +148,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
             
         </h5>
@@ -179,7 +179,7 @@
             <time class="post-time" title="2019-10-09 20:33:12" datetime="2019-10-09T12:33:12.000Z"  itemprop="datePublished">2019-10-09</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
 
 
@@ -227,13 +227,13 @@
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2019/10/09/Learning-to-Learn-via-Self-Critique/" target="_blank" rel="external">https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/" target="_blank" rel="external">https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="https://sherlockbear.github.io">
-            <img src="/img/avatar.jpg" alt="Kang Yachen">
+        <a href="https://yachenkang.github.io/blog">
+            <img src="/blog/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
     </footer>
@@ -244,7 +244,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meta-learning/">meta-learning</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/meta-learning/">meta-learning</a></li></ul>
 
 
             
@@ -254,7 +254,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -264,22 +264,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&source=摘要:在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&source=摘要:在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Learning to Learn via Self-Critique》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Learning to Learn via Self-Critique》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -302,7 +302,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/10/09/Meta-Learning-A-Survey/" id="post-prev" class="post-nav-link">
+      <a href="/blog/2019/10/09/Meta-Learning-A-Survey/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Meta-Learning: A Survey[更新中]</h4>
       </a>
@@ -311,7 +311,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" id="post-next" class="post-nav-link">
+      <a href="/blog/2019/10/09/HOW-TO-TRAIN-YOUR-MAML/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">HOW TO TRAIN YOUR MAML</h4>
       </a>
@@ -387,13 +387,13 @@
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                <span><a href="/blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
             <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+        <p><span>Kang Yachen &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -411,7 +411,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -421,22 +421,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&source=摘要:在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/&title=《Learning to Learn via Self-Critique》 — Hamish的科研blog&source=摘要:在少样本学习中，机器学习系统从一小组与特定任务有关的有标签样本中学习，从而可以推广到同一任务的新示例。鉴于此类任务中有标签样本的数量有限，我们希望充..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Learning to Learn via Self-Critique》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Learning to Learn via Self-Critique》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2019/10/09/Learning-to-Learn-via-Self-Critique/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -447,7 +447,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3awW4rMQgF0Pz/T7dSV69S4ncBk3RxZhVN0xkfLwwBHo/4+vq5zp//vXP+fv7XV2u4fOHh4eG1lv7qOi+ryju/8Qw+33+5NXh4eHhrvCQYTEj54Z4EocLz8fDw8D7K6y20erhX2Xh4eHh/n5eEhzxNPwcYPDw8vL/MqxYI8i3oHfrVIsWFWgseHh5ezLvVAHvn5w/09/Dw8PCKSXAvAFST5knT68l/4eHh4S3w8hQ2WeI8gZ4Eg8IvBjw8PLwBLx+rqmKqpd5eU+0/G4SHh4e3wKvGkOqj87bZpPyRvAUPDw/vLu/8ylsjU/khPtmIJ3fw8PDw1nh59MjDQ3VB+UBAYVAADw8P7yqvx6i2rPJDPF9PVBzBw8PDW+AlR/ZkKKpXcp231vDw8PD2ePMWV6/ZPynLFkILHh4e3hovP+Inae5elaC5i3h4eHgtXpKY5g2w3nZMEvTqduDh4eHd4t1t+U+KF9WwFIUoPDw8vAVecuwmP/6TVtZG4SPaDjw8PLwFXlKqqL4mDzDnLZuMf+Hh4eHd5X21rkmjq9rc6gUVPDw8vPfwquNN+fcnQwaTkgQeHh7ee3jVMYK8eDHJ+vPt+3UHDw8Pb4E3KaTmpdhqWaFaFI5CCB4eHt4a7/yyfCDgVmOsl77j4eHh7fEmyWv14E62bD5egIeHh/d+Xq9MsFGK7aX7jzza4OHh4bV4eXG2+p0qe/KEQhkXDw8Pb8ybjFslhdr5c3pveSRZPB4eHt60A9VMhfOEO0nHNwrHeHh4eBu8XjCoUnu1gt4IQjSVgIeHhzfmVUsPeUG2t02TFPlJYMDDw8P7EC8ZDqimvHmwybfvwq8BPDw8vDVeNZDc6toVUn88PDy8Nd6k+ZQXbfNSby8IvUyp8fDw8K7yJg2wfOkbhY/5gBceHh5ekfcNtS8NAQilr4cAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3ay04DMQwF0P7/T8OGBRLM9N44oUU6s6r6yOQMUmxsPx7x9XFxff/0/vXa+mur1RceHh7epq3/XPrnDa7euV8hv67unvwKDw8P7zTv6kRNvnPPvr99tMVyP3h4eHj/hXe/uV3fx8PDw/vvvLUV7l+3JQ88PDy8V/EmJdSkcJBj8oe1udaCh4eH1/026iK9z+sj/T08PDy8cVc9T20nxdkTbbOvFfDw8PAO8PIDd36bSXEhT5fx8PDwTvPyA729QT5ekBdk61EwPDw8vGO8dkAquVm+QkJteY98i3h4eHglb2+DKk+d23faZhgeHh7eaV5beG2/MzniJ6k8Hh4e3jleUpJow0b7sJJH3LbH8PDw8E7w7osFk6GrJL1uyxx5q+zJ3w0PDw9vwFsrRkwGDtZqraO0Gw8PD28rb61tv7fwWs+I5Y8ADw8P7wAvudpEuR1EmIwjJHg8PDy8vbyJPj+OW0Cbdl/uGQ8PD+8Ab1dpoC0TtCnyrpIHHh4e3pyXl2h3HcptGGhD1y+1Fjw8PLwDvPzIzre4Fjby0kNUEMHDw8M7xpuksMmvcupiceEqfcfDw8M7wGs3tJZ85+EhDzkbai14eHh4Y95aMp0f9+2nk2EFPDw8vL/htQMB+dJRybUcMlgLKnh4eHi7eMkIVFssKIqtmwJD/RfDw8PDG/PaH7cBIw8ha601PDw8vFfx2vGpthHVljPa65cV8PDw8LbyPsqrDRttQytJ4ouSMR4eHt4B3nykqR3Sun9k+aYXG2B4eHh4m3hrwSBPbSeNruT9JzvEw8PDO8ZrxwLyRn6eaq9FsCfhCg8PD+8teW1BYS0kFKS83oyHh4f3Ut6kUJs0wBabZ3h4eHjHeJMy69px34aZxfXx8PDwDvA2/MO/FCra5tm2QQE8PDy8dd4nF5QDJy62F9kAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -455,12 +455,12 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/blog/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -480,7 +480,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/blog/js/search.min.js?v=1.7.2" async></script>
 
 
 

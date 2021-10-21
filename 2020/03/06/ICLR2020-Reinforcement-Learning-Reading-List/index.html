@@ -26,7 +26,7 @@
 <meta name="keywords" content="Reinforcement Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ICLR2020 Reinforcement Learning Reading List">
-<meta property="og:url" content="https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/index.html">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="ICLR2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
 <meta property="og:locale" content="zh-CN">
@@ -55,16 +55,16 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-17_Mendeley_Desktop_52.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-18_Mendeley_Desktop_53.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-18_Mendeley_Desktop_54.png">
-<meta property="og:updated_time" content="2020-06-24T01:51:51.590Z">
+<meta property="og:updated_time" content="2020-09-17T23:41:27.632Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ICLR2020 Reinforcement Learning Reading List">
 <meta name="twitter:description" content="ICLR2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-13_Mendeley_Desktop_25.png">
     
-        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
     
-    <link rel="shortcut icon" href="/img/avatar.jpg">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/blog/img/avatar.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -81,10 +81,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/blog/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Kang Yachen</h5>
@@ -96,28 +96,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/blog/"  >
                 <i class="icon icon-lg icon-home"></i>
                 Home
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/blog/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/blog/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/blog/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
@@ -171,7 +171,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Reading-List/">Reading List</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/Reading-List/">Reading List</a></li></ul>
 
             
         </h5>
@@ -202,7 +202,7 @@
             <time class="post-time" title="2020-03-06 09:44:37" datetime="2020-03-06T01:44:37.000Z"  itemprop="datePublished">2020-03-06</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Reading-List/">Reading List</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/Reading-List/">Reading List</a></li></ul>
 
 
 
@@ -248,7 +248,7 @@
 <li><p><strong>Meta-Q-Learning.</strong> Fakoor, R., Chaudhari, P., Soatto, S., &amp; Smola, A. J. (2019). [<a href="http://arxiv.org/abs/1910.00125" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
 <li>元强化学习，Q-learning</li>
-<li>本文介绍了Meta-Q-Learning（MQL），这是<strong>一种用于元强化学习（meta-RL）的新的off-policy算法</strong>。MQL基于三个简单的想法。首先，我们展示了如果可以访问表示过去轨迹的上下文变量，Q-learning可以匹敌最新的meta-RL算法。其次，使用多任务目标来最大化训练任务的平均奖励是对RL策略进行元训练的有效方法。第三，元训练replay buffer中的过去数据可以被循环，用于在新任务上使用off-policy更新来改变策略。MQL借鉴了propensity estimation中的想法，从而扩大了可用于更新的数据量。在标准连续控制benchmark上进行的实验表明，MQL与最新的meta-RL算法相比具有优势。</li>
+<li>本文介绍了Meta-Q-Learning（MQL），这是<strong>一种用于元强化学习（meta-RL）的新的off-policy算法</strong>。MQL基于三个简单的想法。首先，我们展示了如果可以访问表示过去轨迹的上下文变量，Q-learning可以匹敌最新的meta-RL算法。其次，最大化训练任务的平均奖励这样一种多任务目标是对RL策略进行元训练的有效方法。第三，元训练replay buffer中的过去数据可以被循环利用，在新任务上可以使用off-policy更新来更新策略。MQL借鉴了propensity estimation中的想法，从而扩大了可用于更新的数据量。在标准连续控制benchmark上进行的实验表明，MQL与最新的meta-RL算法相比具有优势。</li>
 </ul>
 </li>
 <li><p><strong>POSTERIOR SAMPLING FOR MULTI-AGENT REINFORCE-MENT LEARNING: SOLVING EXTENSIVE GAMES WITH IMPERFECT INFORMATION.</strong> Zhou, Y., Li, J., &amp; Zhu, J. (2019). [<a href="https://openreview.net/forum?id=Syg-ET4FPS" target="_blank" rel="noopener">论文链接</a>]</p>
@@ -579,7 +579,7 @@
 <li>我们人类对时间的不对称发展有着天生的理解，我们可以用来高效、安全地感知和操纵环境。<strong>从中汲取灵感，我们解决了在马尔可夫（决策）过程中学习arrow of time的问题</strong>。我们将说明学到的arrow of time如何捕获有关环境的重要信息，这些信息又可以用于衡量可达性，检测副作用并获得内在的奖励信号。最后，我们提出一种简单而有效的算法来参数化当前问题，并使用函数逼近器（此处为深度神经网络）学习arrow of time。我们的实验结果涵盖了一系列离散和连续的环境，并针对一类随机过程证明了学习的arrow of time与Jordan, Kinderlehrer, and Otto (1998)提出的arrow of time概念相当吻合。</li>
 </ul>
 </li>
-<li><p><strong>Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives.</strong> Goyal, A., Sodhani, S., Binas, J., Peng, X. Bin, Levine, S., &amp; Bengio, Y. (2019). [<a href="http://arxiv.org/abs/1906.10667" target="_blank" rel="noopener">论文链接</a>] [<a href="https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/">阅读笔记</a>]*</p>
+<li><p><strong>Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives.</strong> Goyal, A., Sodhani, S., Binas, J., Peng, X. Bin, Levine, S., &amp; Bengio, Y. (2019). [<a href="http://arxiv.org/abs/1906.10667" target="_blank" rel="noopener">论文链接</a>] [<a href="https://sherlockbear.github.io/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/" target="_blank" rel="noopener">阅读笔记</a>]*</p>
 <ul>
 <li><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -889,7 +889,7 @@
 </li>
 <li><p><strong>VariBAD: A Very Good Method for Bayes-Adaptive Deep RL via Meta-Learning.</strong> Zintgraf, L., Shiarlis, K., Igl, M., Schulze, S., Gal, Y., Hofmann, K., &amp; Whiteson, S. (2019). [<a href="http://arxiv.org/abs/1910.08348" target="_blank" rel="noopener">论文链接</a>]</p>
 <ul>
-<li>在未知环境中权衡探索和开发是最大程度地提高学习过程中预期回报的关键。 一种贝叶斯最佳策略，该策略以最佳方式运行，不仅取决于环境状态，还取决于代理人对环境的不确定性，决定其行动。 但是，除了最小的任务外，计算贝叶斯最佳策略是很困难的。 在本文中，我们介绍了变分贝叶斯自适应深度RL（variBAD），这是一种在未知环境中进行元学习以执行近似推理的方法，并直接在动作选择过程中合并了任务的不确定性。 在网格世界中，我们说明variBAD如何根据任务不确定性执行结构化的在线探索。 我们进一步评估了在meta-RL中广泛使用的MuJoCo域上的variBAD，并表明与现有方法相比，它可实现更高的在线回报。<br>1个</li>
+<li>在未知环境中权衡探索和开发是最大程度地提高学习期间的预期回报的关键。 一种贝叶斯最佳策略，该策略以最佳方式进行操作，不仅取决于环境状态，还取决于智能体对环境的不确定性，决定其行动。 但是，除了最小的任务外，计算贝叶斯最优策略是很棘手的。 在本文中，我们介绍了变分贝叶斯自适应深度RL（variBAD），这是一种在未知环境中进行元学习以进行近似推理的方法，并直接在操作选择过程中纳入了不确定性。 在网格世界中，我们说明了variBAD如何根据任务不确定性执行结构化的在线探索。</li>
 </ul>
 </li>
 <li><p><strong>KEEP DOING WHAT WORKED: BEHAVIOR MODELLING PRIORS FOR OFFLINE REIN-FORCEMENT LEARNING.</strong> Siegel, N. Y., Springenberg, T., Berkenkamp, F., Abdolmaleki, A., Neunert, M., Lampe, T., … Deepmind, M. R. (2019). [<a href>论文链接</a>]</p>
@@ -958,18 +958,18 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-06-24T01:51:51.590Z" itemprop="dateUpdated">2020-06-24 09:51:51</time>
+    最后更新时间：<time datetime="2020-09-17T23:41:27.632Z" itemprop="dateUpdated">2020-09-18 07:41:27</time>
 </span><br>
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" target="_blank" rel="external">https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" target="_blank" rel="external">https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="https://sherlockbear.github.io">
-            <img src="/img/avatar.jpg" alt="Kang Yachen">
+        <a href="https://yachenkang.github.io/blog">
+            <img src="/blog/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
     </footer>
@@ -980,7 +980,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
 
 
             
@@ -990,7 +990,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&title=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&title=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1000,22 +1000,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&title=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&source=ICLR2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&title=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&source=ICLR2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1038,7 +1038,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" id="post-prev" class="post-nav-link">
+      <a href="/blog/2020/03/19/Fast-Task-Inference-with-Variational-Intrinsic-Successor-Features/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Fast Task Inference with Variational Intrinsic Successor Features</h4>
       </a>
@@ -1047,7 +1047,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/" id="post-next" class="post-nav-link">
+      <a href="/blog/2020/02/17/Reinforcement-Learning-with-Competitive-Ensembles-of-Information-Constrained-Primitives/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">Reinforcement Learning with Competitive Ensembles of Information-Constrained Primitives</h4>
       </a>
@@ -1123,13 +1123,13 @@
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                <span><a href="/blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
             <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+        <p><span>Kang Yachen &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -1147,7 +1147,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&title=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&title=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1157,22 +1157,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&title=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&source=ICLR2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&title=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&source=ICLR2020论文中关于强化学习的论文列表，大部分应都有收录，如有缺漏，感谢指正。" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《ICLR2020 Reinforcement Learning Reading List》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/03/06/ICLR2020-Reinforcement-Learning-Reading-List/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -1183,7 +1183,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADM0lEQVR42u3aS27jQAwFQN//0h5gVlnE0iMpIxZdWgUZu7urBQzDz+MRP8//z8+ffz6vPv/qX49XfrXC8V6PdzzY2NjYN2E/D59XS+dHPL6ynJ2vcPwZbGxs7K3satDKkdUQWDj64S4nRmxsbOyvZFcTlauCVn5x2NjY2NiTZGOSzOSFpz+L29jY2Ngfz54Ua/LAkwe5STHr4loaNjY29seze43ez/z57f1tbGxs7A9jP4tPHoTmIzjJ7k0FNjY29iJ2tdwzb8pOSlcXr4CNjY29gp2Ub5JG7FVFnMuKQfl7xsbGxr45O9+yOtaTpBmThGSSrmBjY2NvYiejMNUxneMVcnxvACj6FjY2NvYi9rxwk383OWjyrWSFaDVsbGzsFey8XdoLSEl60Lvi40s5+SQ2Njb2anbS+u0FsDw0VsNbuYWAjY2NvY7d2zhPBqqBp5qWlF8SNjY29iJ2tVhfLfdUB4Oq7YfqCuWeMzY2NvYN2XlBJ/9rf5Q2BK8heTEnAQwbGxv7tuwc84yfavWmOqAzHwPCxsbG3sfuHWUSeCb4/Lpf/gYbGxt7ETsfnan2T98X3vLRH2xsbOxvYFfHYvJ0JW8S5EErbwyX3w82Njb2zdnzFCJv90ZJQuskeUsYGxsbexM7OWJhCOai5KTXNs5/g42Njb2Pnf/XXw1IeXG/t++okYCNjY29iH3VH/15cWfSQk4uupDwYGNjY69g9wr6eQKTF4/ygZ55LwAbGxt7BzsJP72Nq+3hanmr9/KwsbGxv4E9CR69vkQ+KpSMFo2au9jY2Ngr2JMSfK+aVS3xVxvAv5wKGxsbexG7iuyFumrQmjSGC8kMNjY29gp2HhiS4JQ3fXtJRe+Kf/kuNjY29jp23jColm96BaPelRUebGxs7HXs3lGqAz3V11DdsVDMwsbGxl7EnoS6XkCat5Z719G8AmxsbOybsCfHzVuzvabsVecpJyTY2NjYN2T3CvF5AWgSkHoR+OS02NjY2F/JvjaFmCdC1aISNjY2NnbOvio0TtKekyvDxsbGXsfOt5mEtMnKycBQOYBhY2Njr2DPk4Hj7XuHrobJalMBGxsbewX7H3oK1JgdZ0XiAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADK0lEQVR42u3awW4iQQwEUP7/p9nrShGkyoaIad6cVlmmZ15HimmXb7f4uv+4nn/m+b3tCv//b/75F1zY2NjYF2Hfn17tA3LS8588f9bPu3ILNjY29qnsZOlNKcqLU3vXo3t/MWJjY2N/MTs/GLQlsF0/uQsbGxsbOzkk5KUubzklW4CNjY2NPXtwsXS5rbNm09t7adjY2Ngfz85T0c//91vybWxsbOwPZt9H16xxnwzfzELl+v2xsbGxD2K3rf9ZZJs3lf6msYWNjY19HjuJUfOv+3nBmxXITeG85TdgY2NjX4SdxwDtK+ZxwiaWGJZDbGxs7KPZLf59UWs73JNvCjY2NvbZ7HY0p31wwmhXyE8Zt329xcbGxv549n7pfLW2cO5bY9jY2NjnsdsxmrzTvuHlZa/dFGxsbOzz2Hlx2ozO5KUlLzxJe+vhJ7GxsbEPYid/2/Pjx35ks21p7Y9G2NjY2Gew8xdqg9t2a/KStgkVsLGxsU9i51/cXxX6tuOb+XhlvgI2Njb2Sex2ubx45AWvHfRsf0lROwkbGxv7suxZfJsUoVkAnIcEszD4YSqCjY2NfVl2vsSsCZUHrnmZbItinYRgY2NjX5bdtv6HSXK5Tj7QU0cR2NjY2EewZzFqHg/sN3TWIYv6Z9jY2NhHsGelaMZoDzazY0a96djY2NhHsDejM5uDRFtKZ8Hww3fAxsbG/hr2/gHF3NCo2dT+wrCxsbFPYm8Kw765Pwub86PLw6MINjY29nHszRBMUsza9n1S3trxUGxsbOyz2W07/rVlLzlCbAZAh0kINjY29kXYM/Cs0dMWy/1VtJawsbGxL8tuX2LT9Mmb+PkTh80sbGxs7IPYbfjaNoNWdfVtITE2Njb2Sez9l/u2MZQ3nvLPD89e2NjY2Eew86vdiH1wu29szd4EGxsb+4rsvCDti1MeFczaUlE7CRsbG/tQdt7QyaOCfQA8e4do9AcbGxv7K9l5CZwdG5Ii1G76L6kINjY29pexZwVsMySUbP2HHkWwsbGx/5w9C27zsZv88LDZymIjsLGxsQ9i50FvflBptyCJEGavjo2NjX00+x/bM1jcEZxm8wAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -1191,12 +1191,12 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/blog/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -1216,7 +1216,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/blog/js/search.min.js?v=1.7.2" async></script>
 
 
 

@@ -26,7 +26,7 @@
 <meta name="keywords" content="meta-learning,MAML">
 <meta property="og:type" content="article">
 <meta property="og:title" content="On First-Order Meta-Learning Algorithms">
-<meta property="og:url" content="https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/index.html">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要:本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初">
 <meta property="og:locale" content="zh-CN">
@@ -35,10 +35,10 @@
 <meta name="twitter:title" content="On First-Order Meta-Learning Algorithms">
 <meta name="twitter:description" content="摘要:本文考虑了存在任务分布的元学习问题，并且我们希望获得一个从该分布中采样到以前没有见过的任务时表现良好（即快速学习）的agent。我们分析了一族用于学习参数初始化的算法，可以在新任务上进行快速微调，仅使用一阶导数进行元学习更新。该族包括并推广了一阶MAML，它是通过忽略二阶导数获得的MAML的近似值。它还包括Reptile，这是我们在此处引入的新算法，该算法通过重复采样任务，对其进行训练并将初">
     
-        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
     
-    <link rel="shortcut icon" href="/img/avatar.jpg">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/blog/img/avatar.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -55,10 +55,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/blog/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Kang Yachen</h5>
@@ -70,28 +70,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/blog/"  >
                 <i class="icon icon-lg icon-home"></i>
                 Home
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/blog/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/blog/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/blog/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
@@ -145,7 +145,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
             
         </h5>
@@ -176,7 +176,7 @@
             <time class="post-time" title="2019-10-17 10:58:41" datetime="2019-10-17T02:58:41.000Z"  itemprop="datePublished">2019-10-17</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
 
 
@@ -202,13 +202,13 @@
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" target="_blank" rel="external">https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" target="_blank" rel="external">https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="https://sherlockbear.github.io">
-            <img src="/img/avatar.jpg" alt="Kang Yachen">
+        <a href="https://yachenkang.github.io/blog">
+            <img src="/blog/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
     </footer>
@@ -219,7 +219,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MAML/">MAML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/meta-learning/">meta-learning</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/MAML/">MAML</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/meta-learning/">meta-learning</a></li></ul>
 
 
             
@@ -229,7 +229,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&title=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&title=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -239,22 +239,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&title=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&title=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -277,7 +277,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/10/18/iMAML笔记（翻译）/" id="post-prev" class="post-nav-link">
+      <a href="/blog/2019/10/18/iMAML笔记（翻译）/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">iMAML笔记（翻译）[更新中]</h4>
       </a>
@@ -286,7 +286,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/10/09/Meta-Learning-A-Survey/" id="post-next" class="post-nav-link">
+      <a href="/blog/2019/10/09/Meta-Learning-A-Survey/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">Meta-Learning: A Survey[更新中]</h4>
       </a>
@@ -362,13 +362,13 @@
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                <span><a href="/blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
             <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+        <p><span>Kang Yachen &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -386,7 +386,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&title=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&title=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -396,22 +396,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&title=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&source=" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&title=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&source=" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《On First-Order Meta-Learning Algorithms》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2019/10/17/On-First-Order-Meta-Learning-Algorithms/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -422,7 +422,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3awW4bMQwE0Pz/T7dATwUcOzOk5LrA25PheLN6e5CIIb++4uvXn+vZN4+f/74e73r8a/v94QsPDw9vtPRn1zPejXuTF5c/Fw8PD+827/VhkCw3ZydPfPbf8jXj4eHhfQIvB99YKB4eHt7/yMuXmxwGeRiBh4eH95m8JFDID4DXm3teWOfx7oGsBQ8PD6/LAYoG2Cd8vtjfw8PDw1uHre2VHwNt2FGvBA8PD+8C73W53B4V7QBBO2rQBsF4eHh4N3gHRpriBlgebcyChm8seHh4eNd4pxpdbT5wNiiJimk8PDy8NS+vPGcl9awZtjkehoU1Hh4e3nrXzYPXsy8ijzNmowx4eHh4e14eNOSxRRu5zgLc6JjBw8PDu8DLH1NHqIuiOT9akkAZDw8P7yyv3YhnAUS+6Pbw+OGJeHh4eNd4+6i0HQVItvv25eLh4eG9k9eWuckvN4Xy7GXh4eHhvYeX98RyUrvpt5FuHjfj4eHh3eCtCtb1hp7c1TbS8PDw8P4tLx8jaAPcNpxtA5EfJiPw8PDwrvH2G/rr7/OXMoyD8fDw8G51mopttx1X3Yyctq9sCMPDw8M7xJsdEvei4bzgjpB4eHh4C167BSejAElBPNvu25eOh4eHd4OXhAL5cEAeHMwC3GEYgYeHh3eB17aXZkMDp0a4TjXM8PDw8Da82aL3jGGJXA434OHh4d3jbUrbWfCaPKVtzhVnGh4eHt6Id2q4Kil/29+0kS4eHh7ee3izoau2Jda+jjbwTVaCh4eHd5a3CVXbkYLZYZOPEXxzLx4eHt41Xr6t5z2mzejVvjmHh4eH92m8WRtsVkbPCno8PDy8T+BtwoVZsy0faHj63/Dw8PCu8TZDUbPydzN6VTwXDw8P7wKvbYC1j8zj3c0xc6y/h4eHh/eK9xuA7UEFzPDVUAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADMklEQVR42u3awVLjQAwEUP7/p9nLHqgCnG4poZLJ84kKxJ43Pgi15uMjvj6/XF8/+f7b71dy5+t7/vbJ92/d+cLGxsZ+EXay6GtGspTrRe83qH4B2NjY2MexZ6Vlw8ifeP3c62/9+jk2Njb2G7NnTUveSMxeAzY2Njb2veKe6wJzff9ks5JvYWNjY78nO1/6jN3eM9+mh2dp2NjY2E/P3sQ9z/bzQ+bb2NjY2E/M/iyvR4xdZ2Vptv7/38XGxsY+iJ0XgPs2ErORQxsk3Rg/Y2NjYx/BTpY+i5OSQCc59DOM/q+3AxsbG/sgdhvQ5EUroeYDhs0xnagVwcbGxn5ZdoJsl5IPffNN2RSqHzYIGxsb+yD2X4Y7eUFqo6J8y7CxsbHPY2/GrrNDP7Pjkm0pvbFN2NjY2AexN0vf/3YzNpiFXNjY2NjnsffHLvMo6l6j37zJucOZU2xsbOynZ7c1bTZeLZZSPjcvZj88BRsbG/s4dhvx5O1K21q0Adaqr8LGxsY+gj0btbaB/qy8tcWpDrywsbGxj2PnN83jodkW7JuT5CgPNjY29hnstnmYBUmb0pi3NMUcGxsbG/sg9n6JeVDVRkLtyLkthNjY2Nivzt4fkckbjLY4taRiyIGNjY19EDuPafIof1g/4+i/LajY2NjY78CelZ9Zm9GOBGbjimid2NjY2Aex23/o2xHshpS3H21Yho2NjX0Ge/Nv/eYv22M6bRm78dqwsbGxj2PP2om8XLXxU52HxQUMGxsb+zx2XiTy9mMzfM3jrVnzU9dGbGxs7Jdl70tOG9m3o4LNS8LGxsY+j70vXe0goR0hbwbDvz4XGxsb+zh2O+idfTIbMOeD5zwCw8bGxj6V3Za0zXGc2X3awzrFwR1sbGzsF2R/lle7rNniNgPmqHxiY2NjH8TeZOnt53+zQe1xImxsbOwz2O1hmn3Ekx/xabe4aFqwsbGxj2O3BaMFJBu6P9aTbyI2Njb2O7PbMXAeG+VR1yyQujEVwcbGxn4bdtsMtI3EHWL9ZG3Y2NjYx7HbgjQ7dvOXxfLGnbGxsbEPYudloC1syagg37L8BeTlExsbG/vF2f8AegvtOQOQdtEAAAAASUVORK5CYII=" alt="微信分享二维码">
 </div>
 
 
@@ -430,12 +430,12 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/blog/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -455,7 +455,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/blog/js/search.min.js?v=1.7.2" async></script>
 
 
 

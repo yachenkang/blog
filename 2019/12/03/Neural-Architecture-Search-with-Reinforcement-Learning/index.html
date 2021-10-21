@@ -26,7 +26,7 @@
 <meta name="keywords" content="Reinforcement Learning,NAS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Neural Architecture Search with Reinforcement Learning">
-<meta property="og:url" content="https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/index.html">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们">
 <meta property="og:locale" content="zh-CN">
@@ -37,10 +37,10 @@
 <meta name="twitter:description" content="摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，我们使用递归网络来生成神经网络的模型描述，并利用强化学习来训练该RNN，最大化所生成的架构在验证集上的期望精度。在CIFAR-10数据集上，我们的方法可以从头开始，设计一种新的网络体系结构，在测试集精度方面可以与人类发明的最佳体系结构相媲美。我们">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2019-12-03_Zoph%2C_Le_-_2016_-_Neural_Architecture_Search_with__17.png">
     
-        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
     
-    <link rel="shortcut icon" href="/img/avatar.jpg">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/blog/img/avatar.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -57,10 +57,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/blog/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Kang Yachen</h5>
@@ -72,28 +72,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/blog/"  >
                 <i class="icon icon-lg icon-home"></i>
                 Home
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/blog/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/blog/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/blog/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
@@ -147,7 +147,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
             
         </h5>
@@ -178,7 +178,7 @@
             <time class="post-time" title="2019-12-03 10:26:34" datetime="2019-12-03T02:26:34.000Z"  itemprop="datePublished">2019-12-03</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
 
 
@@ -220,13 +220,13 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" target="_blank" rel="external">https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" target="_blank" rel="external">https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="https://sherlockbear.github.io">
-            <img src="/img/avatar.jpg" alt="Kang Yachen">
+        <a href="https://yachenkang.github.io/blog">
+            <img src="/blog/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
     </footer>
@@ -237,7 +237,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NAS/">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/NAS/">NAS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Reinforcement-Learning/">Reinforcement Learning</a></li></ul>
 
 
             
@@ -247,7 +247,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -257,22 +257,22 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&source=摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&source=摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -295,7 +295,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/12/05/NAS-Reading-List/" id="post-prev" class="post-nav-link">
+      <a href="/blog/2019/12/05/NAS-Reading-List/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">NAS Reading List</h4>
       </a>
@@ -304,7 +304,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/11/01/Meta-World-A-Benchmark-and-Evaluation-for-Multi-Task-and-Meta-Reinforcement-Learning/" id="post-next" class="post-nav-link">
+      <a href="/blog/2019/11/01/Meta-World-A-Benchmark-and-Evaluation-for-Multi-Task-and-Meta-Reinforcement-Learning/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning</h4>
       </a>
@@ -380,13 +380,13 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                <span><a href="/blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
             <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+        <p><span>Kang Yachen &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -404,7 +404,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -414,22 +414,22 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&source=摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&title=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&source=摘要:神经网络是一种功能强大、灵活的模型，在图像、语音和自然语言理解等许多困难的学习任务中起着很好的作用。尽管取得了成功，神经网络仍然很难设计。在本文中，..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Neural Architecture Search with Reinforcement Learning》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2019/12/03/Neural-Architecture-Search-with-Reinforcement-Learning/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -440,7 +440,7 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADJ0lEQVR42u3aSW4jMRAEQP//0/J1DtPdWVWUIVLRJ8PQwqCByanl5yd+XrfPv6+5etfVb64+//577z9t2YONjY29CXtCuvpN9Qrmv88t2NjY2Keyr/6Fv39N9cvmAXZ/tsSCjY2NjV0tCZLX98DY2NjY2FV2NaKqTZ+8nXR/WdjY2Njfya424ntN/zksD9dlvTRsbGzsj2f3ouUzf37LfBsbGxv7g9mv4rPqiJPh7vzBxsbGPok9Wdmprj/m17dq5PzQWsLGxsY+gj0Z3yYHmizozJeKHnIbGxsb+wj2qrFrPl7tfeZkuQcbGxv7G9jVRs+qiOo1sPIrfngXNjY29hHs/LgJploS9NZxeis7Ua5iY2Njb8ueHKLXHsoLifmlF1Z2sLGxsbdl9waxhe5UsfWfX0HVUpiKYGNjY2/CfsfwdVXRkhczzRjDxsbGPoKdN3pGNzo4enUAHIUrNjY29kHsXlM+j7rk66vxlodo4S+PjY2NvS2795/7+YHmS0K9EMXGxsY+j72qwZS06Xuj38mfp1mWYGNjY2/F/pvFmvziJhVVYf0IGxsb+yB20rjP8XlQ5dddrSPyJR5sbGzsk9h5GygvNlYNG6pnKM9GsLGxsTdnryobqqPfVQtDvVUebGxs7JPYeRkwj5YkonrDifw6yotM2NjY2JuwJ82jyQpOb2TbGydgY2Njn83uLTL2Gv29kcBkTeehyMHGxsbenJ2UH9XGUF4e9K6sOmAubCphY2Njb8sefURwoGqDKS858nz+z44SNjY29hHsZtUyKFTWFi3VQQU2Njb22ez5USZDgvyg1TDDxsbG/gZ2r6iYhFYvzKqh+HDp2NjY2Eezqwsx99fULAyK4Tpa1sHGxsbelv0qPvkgYTJCroZo0gK7XNnBxsbG3pw9iY38y3rUajspb3thY2Njn8eetPjzyKk2j3phWSiBsLGxsY9j5/FTHbtWG0lry4nLd2FjY2N/MTsvG3prN9Vvz1tO2NjY2NhVarV0qV56dRS9rBTBxsbG/kh2LySqrZx5eyiProe0wsbGxj6I/Y5Gz2ShpxdIeQRiY2NjH8T+BV+uxdEJ/T7hAAAAAElFTkSuQmCC" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADIUlEQVR42u3ay24bMRAEQP//TztXB4mk7pkVoKVrT4KwDxZ5GLCHX1/x9f3jyu98dLXP/nvP838uu7CxsbFvwk6GmPyfDOv572SCnn+xmG5sbGzs49iPPpD/fv5sjnn3eLCxsbGxk61Ce89mU4SNjY2N3bKvipPae54vADY2NjZ2Eiolm43ZO/PmQR5yXZalYWNjY388O98AfP7vt/S3sbGxsT+Y/V1ebYN2/7ZNuXr4XWxsbOyD2LPAaBP3zArP/j3Y2NjYZ7NnwVB+BKcdSh5s5ZM1XE9sbGzsG7KTdunz4c5av7OGxGzZsLGxsU9it8FNeyxms4FJpjUpVNEKY2NjY9+W3X54NmX5tmdfUIspw8bGxj6CPWvKvpuXl9LLzh9hY2Nj35y9YSSYdjra8pk89eKkEjY2NvbN2TNA2xhuK0vek81bxQUSGxsb+ybs4a2jpzabiuTZ9h5sbGzsM9htAdvHTG1Dd9ZgfjG52NjY2Aex9zHQfqPSLkD7nnrlsbGxsW/FbsvM85JzVYOh5dUBEzY2NvZB7AS5KSHtoPPrsrYENjY29hHs2QGadoLaVCdfhnyCsLGxsc9m7weUI5OIqm0bJGX1r3diY2NjH8HeF5i8VdC2Iq4tpf85soONjY19EHvWat0cr9m0E/LQ6kUBw8bGxj6InR++2UdFm3J1WaiEjY2NfRB7NgX5B9pDP+/uya5WHhsbG/sj2XnInkc5VzUPNk3lF9sVbGxs7IPYm9KVx0ltkPTubRI2Njb2eew9ow2GklLUtpOH0RI2Njb2EexZ87UtJ7MtTZGKxZsZbGxs7LPZeQHLQ/y2PTCLltqNEDY2NvZ57FkQn5e6WfQz23hEC4aNjY19BPu7vGbD2rccZu2NF/kZNjY29hHsthhsmgHJezYHeq4qmdjY2Nh3ZCdFaxY5Je+MovxF2DSs3tjY2Ng3ZG8O8cwKzIw0C6QeHtnBxsbG/pXsNpZKWrB7ah0nYWNjY/9idrvZSFoCVwVMxf3Y2NjYx7FnAVD7sVmxzMdWbISwsbGxD2LngLyAta2FPGzaBEzY2NjYx7H/AB0E41/YLL7GAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 
@@ -448,12 +448,12 @@ J\left(\theta_{c}\right)=E_{P\left(a_{1: T} ; \theta_{c}\right)}[R]</script><p>�
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/blog/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -473,7 +473,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/blog/js/search.min.js?v=1.7.2" async></script>
 
 
 

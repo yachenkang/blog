@@ -15,26 +15,24 @@
     
     
     
-    <title>SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS | Hamish的科研blog</title>
+    <title>Generative Adversarial Imitation Learning | Hamish的科研blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
-    <meta name="description" content="摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方法存在分布偏移的问题：因为智能体贪婪地模仿演示的动作，它可能会由于误差累积而偏离演示的状态。近来基于强化学习（RL）的方法，例如逆强化学习（inverse RL）和生成对抗式模仿学习（GAIL），通过训练RL智能体去匹配长时程的演示来克服这个问题">
+    <meta name="description" content="摘要考虑从示例专家行为中学习策略，而无需与专家互动或访问增强信号。一种方法是通过逆强化学习来恢复专家的cost function，然后通过强化学习从该cost function中提取策略。 这种方法是间接的，可能会很慢。我们提出了一个从数据中直接提取策略的新通用框架，就像它是通过逆强化学习之后的强化学习获得的一样。我们证明了我们框架的某种实例化在模仿学习和生成对抗网络之间进行了类比，从中我们得出了">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS">
-<meta property="og:url" content="https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/index.html">
+<meta property="og:title" content="Generative Adversarial Imitation Learning">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
-<meta property="og:description" content="摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方法存在分布偏移的问题：因为智能体贪婪地模仿演示的动作，它可能会由于误差累积而偏离演示的状态。近来基于强化学习（RL）的方法，例如逆强化学习（inverse RL）和生成对抗式模仿学习（GAIL），通过训练RL智能体去匹配长时程的演示来克服这个问题">
+<meta property="og:description" content="摘要考虑从示例专家行为中学习策略，而无需与专家互动或访问增强信号。一种方法是通过逆强化学习来恢复专家的cost function，然后通过强化学习从该cost function中提取策略。 这种方法是间接的，可能会很慢。我们提出了一个从数据中直接提取策略的新通用框架，就像它是通过逆强化学习之后的强化学习获得的一样。我们证明了我们框架的某种实例化在模仿学习和生成对抗网络之间进行了类比，从中我们得出了">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-17_Mendeley_Desktop_41.png">
-<meta property="og:updated_time" content="2020-05-31T22:01:49.458Z">
+<meta property="og:updated_time" content="2020-09-07T02:13:00.926Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS">
-<meta name="twitter:description" content="摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方法存在分布偏移的问题：因为智能体贪婪地模仿演示的动作，它可能会由于误差累积而偏离演示的状态。近来基于强化学习（RL）的方法，例如逆强化学习（inverse RL）和生成对抗式模仿学习（GAIL），通过训练RL智能体去匹配长时程的演示来克服这个问题">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-17_Mendeley_Desktop_41.png">
+<meta name="twitter:title" content="Generative Adversarial Imitation Learning">
+<meta name="twitter:description" content="摘要考虑从示例专家行为中学习策略，而无需与专家互动或访问增强信号。一种方法是通过逆强化学习来恢复专家的cost function，然后通过强化学习从该cost function中提取策略。 这种方法是间接的，可能会很慢。我们提出了一个从数据中直接提取策略的新通用框架，就像它是通过逆强化学习之后的强化学习获得的一样。我们证明了我们框架的某种实例化在模仿学习和生成对抗网络之间进行了类比，从中我们得出了">
     
         <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
     
@@ -116,7 +114,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS</div>
+        <div class="flex-col header-title ellipsis">Generative Adversarial Imitation Learning</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -138,11 +136,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS</h1>
+        <h1 class="title">Generative Adversarial Imitation Learning</h1>
         <h5 class="subtitle">
             
-                <time datetime="2020-05-31T21:16:39.000Z" itemprop="datePublished" class="page-time">
-  2020-06-01
+                <time datetime="2020-09-03T08:11:22.000Z" itemprop="datePublished" class="page-time">
+  2020-09-03
 </time>
 
 
@@ -168,13 +166,13 @@
     </aside>
 
 
-<article id="post-SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS"
+<article id="post-Generative-Adversarial-Imitation-Learning"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS</h1>
+        <h1 class="post-card-title">Generative Adversarial Imitation Learning</h1>
         <div class="post-meta">
-            <time class="post-time" title="2020-06-01 05:16:39" datetime="2020-05-31T21:16:39.000Z"  itemprop="datePublished">2020-06-01</time>
+            <time class="post-time" title="2020-09-03 16:11:22" datetime="2020-09-03T08:11:22.000Z"  itemprop="datePublished">2020-09-03</time>
 
             
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
@@ -189,25 +187,26 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h3><p>学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方法存在分布偏移的问题：因为智能体贪婪地模仿演示的动作，它可能会由于误差累积而偏离演示的状态。近来基于强化学习（RL）的方法，例如逆强化学习（inverse RL）和生成对抗式模仿学习（GAIL），通过训练RL智能体去匹配长时程的演示来克服这个问题。由于该任务的真正奖励函数是未知的，因此这些方法通常通过使用复杂且脆弱的近似技术来参与对抗训练，从演示中学习奖励函数。我们提出了一个简单的替代方法，该替代方法仍然使用RL，但不需要学习奖励函数。关键思想是通过鼓励智能体在遇到新的、分布之外的状态时返回到演示状态，从而激励他们在很长的时间内匹配演示。为此，我们为智能体提供了在演示状态下匹配演示操作的$r=+1$的恒定奖励，以及对所有其他行为的$r=0$的恒定奖励。我们的方法，我们称为soft Q imitation learning（SQIL），可以通过对任何标准Q-learning或off-policy actor-critic算法进行少量的修改来实现。从理论上讲，我们表明SQIL可以解释为BC利用稀疏先验来鼓励长时程模仿的正则化变体。实验上，我们在Box2D，Atari和MuJoCo中的各种基于图像的以及低维的任务上，SQIL的性能优于BC，与GAIL相比也取得了相近的结果。本文证明了基于RL且具有固定奖励的简单模仿方法与使用学到奖励的更复杂方法一样有效。</p>
+            <h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h3><p>考虑从示例专家行为中学习策略，而无需与专家互动或访问增强信号。一种方法是通过逆强化学习来恢复专家的cost function，然后通过强化学习从该cost function中提取策略。 这种方法是间接的，可能会很慢。我们提出了一个从数据中直接提取策略的新通用框架，就像它是通过逆强化学习之后的强化学习获得的一样。我们证明了我们框架的某种实例化在模仿学习和生成对抗网络之间进行了类比，从中我们得出了一种无模型的模仿学习算法，该算法比现有的无模型的方法在大，高维环境中模仿复杂行为时获得了显着的性能提升</p>
 <a id="more"></a>
 <h3 id="论文信息"><a href="#论文信息" class="headerlink" title="论文信息"></a>论文信息</h3><ul>
-<li>作者：Reddy, S., Dragan, A. D., &amp; Levine, S.</li>
-<li>出处：ICLR2020(poster)</li>
-<li>机构：UCB</li>
-<li>关键词：IMITATION LEARNING, RL, SPARSE REWARDS</li>
-<li><a href="https://arxiv.org/abs/1905.11108" target="_blank" rel="noopener">论文链接</a></li>
+<li>作者：</li>
+<li>出处：</li>
+<li>机构：</li>
+<li>关键词：</li>
+<li><a href="https://arxiv.org/abs/1606.03476" target="_blank" rel="noopener">论文链接</a></li>
+<li>开源代码：</li>
+<li>其他资料：<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/69773693" target="_blank" rel="noopener">知乎解析1</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/60327435" target="_blank" rel="noopener">知乎解析2</a></li>
 </ul>
-<!-- * 开源代码：
-* 其他资料： -->
-<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-17_Mendeley_Desktop_41.png" alt title>
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
+</li>
+</ul>
+<h3 id="内容简记"><a href="#内容简记" class="headerlink" title="内容简记"></a>内容简记</h3><p>特殊的模仿学习设置，只能得到专家的演示轨迹，没有任何形式的强化信号。之前主要有两种方式，行为克隆（通过监督学习方式直接模仿专家的行为）和逆强化学习（学习只有专家能够达到最优的cost function）</p>
+<p>行为克隆，非常简单但是需要大量的data才能成功，因为累积误差。逆强化学习可以克服这一点，因为其对轨迹的整体性考虑。</p>
+<p>然而很多IRL方法运行昂贵（双层循环）。所以近来工作都在研究如何将IRL扩展到大环境中。IRL学习cost function，用以解释专家的行为，但并没有直接告诉学习器怎么做。我们的目标是模仿专家，而IRL也是根据所学到的cost的最优动作的质量来进行评估，那么为什么一定要学一个cost function，既昂贵又不直接？</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>maximum causal entropy IRL框架</p>
+<script type="math/tex; mode=display">\underset{c \in \mathcal{C}}{\operatorname{maximize}}\left(\min _{\pi \in \Pi}-H(\pi)+\mathbb{E}_{\pi}[c(s, a)]\right)-\mathbb{E}_{\pi_{E}}[c(s, a)]</script><h3 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h3>
         </div>
 
         <blockquote class="post-copyright">
@@ -215,12 +214,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2020-05-31T22:01:49.458Z" itemprop="dateUpdated">2020-06-01 06:01:49</time>
+    最后更新时间：<time datetime="2020-09-07T02:13:00.926Z" itemprop="dateUpdated">2020-09-07 10:13:00</time>
 </span><br>
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" target="_blank" rel="external">https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/" target="_blank" rel="external">https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/</a> 转载请注明出处
         
     </div>
     
@@ -245,7 +244,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&title=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/&title=《Generative Adversarial Imitation Learning》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -255,22 +254,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&title=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&source=摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/&title=《Generative Adversarial Imitation Learning》 — Hamish的科研blog&source=摘要考虑从示例专家行为中学习策略，而无需与专家互动或访问增强信号。一种方法是通过逆强化学习来恢复专家的cost function，然后通过强化学习从该co..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Generative Adversarial Imitation Learning》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -290,21 +289,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/blog/2020/06/15/NIPS2019-Reinforcement-Learning-Reading-List/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">NIPS2019 Reinforcement Learning Reading List</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/blog/2020/04/10/Reinforcement-Learning-and-Control-as-Probabilistic-Inference-Tutorial-and-Review/" id="post-next" class="post-nav-link">
+      <a href="/blog/2020/07/16/One-Policy-to-Control-Them-All-Shared-Modular-Policies-for-Agent-Agnostic-Control/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Reinforcement Learning and Control as Probabilistic Inference: Tutorial and Review</h4>
+        <h4 class="title">One Policy to Control Them All Shared Modular Policies for Agent-Agnostic Control</h4>
       </a>
     </div>
   
@@ -402,7 +394,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&title=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/&title=《Generative Adversarial Imitation Learning》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -412,22 +404,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&title=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&source=摘要学习模仿演示中的专家行为可能是富有挑战性的，特别是在高维，观察连续以及动态未知的环境中。基于behavioral cloning（BC）的有监督学习方..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/&title=《Generative Adversarial Imitation Learning》 — Hamish的科研blog&source=摘要考虑从示例专家行为中学习策略，而无需与专家互动或访问增强信号。一种方法是通过逆强化学习来恢复专家的cost function，然后通过强化学习从该co..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SQIL: IMITATION LEARNING VIA REINFORCEMENT LEARNING WITH SPARSE REWARDS》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Generative Adversarial Imitation Learning》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/06/01/SQIL-IMITATION-LEARNING-VIA-REINFORCEMENT-LEARNING-WITH-SPARSE-REWARDS/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/09/03/Generative-Adversarial-Imitation-Learning/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -438,7 +430,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD30lEQVR42u3aS3bjMAwEQN//0s4BJpK7ASrjRWmVlygiWVpA+Lxe8fX+50ruub/un5ysdbX61T3HLhw4cODAUR613XT7nPsD56sn9+d7w4EDBw4cZznug1myiTa8tcebvZj8jDhw4MCB439xDJeJA+0mtOevEwcOHDhwfCfHrPJ2qhyZr4UDBw4cOP6eY1bUO1XCy1PEtsX1YK0UBw4cOHDMY1adzn3bz4/Md+DAgQMHjkW4ypechdKkfZWHyffowoEDBw4ce448IG2G5zZfAbNjb86FAwcOHDg2HHljZhb2ZiMLs8PsAzkOHDhw4HiCIw9am0B7PzA3SxfzF3D5Mw4cOHDgeIwjCbGzhCoflUiO3dJ8uAcHDhw4cKw5ZulcvmT+nE3LKs+/ilE5HDhw4MCx6N3n4bYdd0ie0Da6Er5haMeBAwcOHCezpLpg144RzCBm3w6boiEOHDhw4NhwtOW8NmTmQxKbFzBLEXHgwIEDx9McyYBavt22CDh7ZvIii4YWDhw4cOA4yrHfYtusmo1NtGlhMWCBAwcOHDiOctT/HBymhds3kFbDEDhw4MCBY82Rj6m1YW821taG3vaZRTERBw4cOHCMOPKjJgW+fPn8yWeP/eH5OHDgwIFjzZEfMh8+yxfLx9025cXZyAUOHDhw4Jhx7McX8qLefjzi/qht6fDyuwMHDhw4cCw4kgCZNIH27aW2kNeOxyWsOHDgwIFjz7EpC+ZhclY0nI1ZzJ7/ajeHAwcOHDiC3kp7gNkIwgZ9U8SskzccOHDgwDHiyHtTm8ZPXjqcpZF52fHDPThw4MCB4zGO9tF5CNyUAnOydrQOBw4cOHA8wTELY/lAQ1vU2wzqzVBw4MCBA8eeIx9oaA+/P3bLkQ9YRC8eBw4cOHCMONrhthZuM9Y2C7SbwI8DBw4cOE5xJKF0tsX2+fk9bWOsGGjAgQMHDhzb3xSb2zelZiW89oXlTa96izhw4MCBoztdnQjNhg/a9G9TmtysggMHDhw42j0ngSpvAu1bU5tGVD6od/mJgAMHDhw4DnG0IXYfIE/dmSeQ0Slw4MCBA8eao11sFjg39bdTuEUWiwMHDhw4Fhzv8tqnbW1auBmJaEFx4MCBA8eeY9/Hb4chPpTnggbVrMXVroUDBw4cODZrJcE1P2RetpsF8nyVYaDFgQMHDhyHOGaL5VuZFe+SlzRLwy53hQMHDhw4vobjVPLWBto8YEefDjhw4MCB48858sA2G33YrzsrbuLAgQMHjrMcbbLUplV5wTH535yv/kTAgQMHDhxrjjZk7ptVp0qEM6YDIRwHDhw4cPz+1x+VCveqklTmYQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADNklEQVR42u3aQRaiMBAEUO9/aecADljV0RmIn5UPEflxUXZ3Ho/4eL4cR+8enXm9Pnl9/r2vn/rwgY2NjX0T9vP0SB4if7h2gc6XNV+sv9wfGxsbezt2HjPfDsijb0yWrAg5bGxs7J9nn59JAm8WTvlrbGxsbOz8djkpWaakdPnPuY2NjY19SfYsctpG0qy11C7Kh3tp2NjY2Jdn502f67/+Sq8LGxsb+8LsZ3nM2vQrY9qVuDpUYGNjY2/EzgNgVn60o9w8Ptv7YGNjY+/KbptBUdv9NHJmd6hb/+flCjY2NvZ27PXGzayMaUcOs2bTmwoMGxsbewt2UkL8m7HrLCzbIgobGxt7P3YOnpUT58uXvDsLzsPnwcbGxt6aPRv6tm39/Hzb5PrKlh1sbGzsC7PzkUASNu1GnDa6kgisixxsbGzsm7PbpnzbbPrGdp+27VX/wtjY2Ni3Yucx0AZbW9LkI4q8gfXGhY2Njb0FexY2+Ti2HdzOAjVvbH3gi7GxsbEvyU4a7rMoal+35Uoyrqi37GBjY2Pflt1+QR4YK+VNUn7US4mNjY29HXtWhCRNnKRUWB8S5LH6mCUnNjY29oXZS4PSMmDy1tLKiDdvfmFjY2PvwZ617z9VqOQR2H72zTXY2NjYG7GTsmH2pz9vGK0sTd5mejPlxsbGxr4te+WmswKjXY7ZAOANHhsbG3s7dh5FeaHStn7Wi5Oi4YWNjY29EXt92007ml1p9BcNo1nbCxsbG/uG7Pwv/nCGHDSt2uVr74+NjY29Nzs/8o2VKynaLn1+PTY2NvYvsNuNO8lC5K2ovD00C6TDK7GxsbG3YCcx0AZPvkztyLYdDB+ex8bGxv4B9uyhZ4PeWRy2cYuNjY39m+x27Jq3otY3Xw6rLmxsbOyN2M/ySP7uF+v9haWJFgUbGxt7I3Y76F2JmXwA3AbS17fsYGNjY1+enYdW2xia4fOhRTu6KNIbGxsb+4bsWTDk+HwA0N4hL7SwsbGxsVtwfv+21bX+hNjY2NjYK3G1vkkoL5CwsbGxf4edD3fbTTMr497zJ2ybStjY2Ni7snNAS83bUrMoSsbP7Q+AjY2NfSv2H+hLNQDfBnSgAAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

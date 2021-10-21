@@ -26,7 +26,7 @@
 <meta name="keywords" content="Reinforcement Learning,Skill Learning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery">
-<meta property="og:url" content="https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/index.html">
+<meta property="og:url" content="https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/index.html">
 <meta property="og:site_name" content="Hamish的科研blog">
 <meta property="og:description" content="摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量。这些动态距离可用于提供well-shaped奖">
 <meta property="og:locale" content="zh-CN">
@@ -41,10 +41,10 @@
 <meta name="twitter:description" content="摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整，以便产生平滑的梯度导向成功的结果。但手动调整是很难的，尤其是从原始观察结果（例如图像）获取任务时。在本文中，我们研究了如何自动学习动态距离：一种从任何其他状态到达给定目标状态的预期时间步个数的度量。这些动态距离可用于提供well-shaped奖">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/sherlockbear/picrepo/master/img/2020-03-20_Hartikainen_et_al._-_2019_-_Dynamical_Distance_Lea_68.png">
     
-        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/atom.xml">
+        <link rel="alternate" type="application/atom+xml" title="Hamish的科研blog" href="/blog/atom.xml">
     
-    <link rel="shortcut icon" href="/img/avatar.jpg">
-    <link rel="stylesheet" href="/css/style.css?v=1.7.2">
+    <link rel="shortcut icon" href="/blog/img/avatar.jpg">
+    <link rel="stylesheet" href="/blog/css/style.css?v=1.7.2">
     <script>window.lazyScripts=[]</script>
 
     <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -61,10 +61,10 @@
     <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
         <i class="icon icon-lg icon-close"></i>
     </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+    <div class="brand-wrap" style="background-image:url(/blog/img/brand.jpg)">
       <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
+        <a href="/blog/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/blog/img/avatar.jpg">
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">Kang Yachen</h5>
@@ -76,28 +76,28 @@
       <ul class="nav">
         
             <li class="waves-block waves-effect">
-              <a href="/"  >
+              <a href="/blog/"  >
                 <i class="icon icon-lg icon-home"></i>
                 Home
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/tags"  >
+              <a href="/blog/tags"  >
                 <i class="icon icon-lg icon-tags"></i>
                 Tags
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/categories"  >
+              <a href="/blog/categories"  >
                 <i class="icon icon-lg icon-th-list"></i>
                 Categories
               </a>
             </li>
         
             <li class="waves-block waves-effect">
-              <a href="/archives"  >
+              <a href="/blog/archives"  >
                 <i class="icon icon-lg icon-archives"></i>
                 Archives
               </a>
@@ -151,7 +151,7 @@
 </time>
 
 
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
             
         </h5>
@@ -182,7 +182,7 @@
             <time class="post-time" title="2020-03-20 13:56:49" datetime="2020-03-20T05:56:49.000Z"  itemprop="datePublished">2020-03-20</time>
 
             
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/paper笔记/">paper笔记</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/blog/categories/paper笔记/">paper笔记</a></li></ul>
 
 
 
@@ -254,13 +254,13 @@
 
 
         
-        本文作者： Kang Yachen 本文链接： <a href="/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" target="_blank" rel="external">https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/</a> 转载请注明出处
+        本文作者： Kang Yachen 本文链接： <a href="/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" target="_blank" rel="external">https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/</a> 转载请注明出处
         
     </div>
     
     <footer>
-        <a href="https://sherlockbear.github.io">
-            <img src="/img/avatar.jpg" alt="Kang Yachen">
+        <a href="https://yachenkang.github.io/blog">
+            <img src="/blog/img/avatar.jpg" alt="Kang Yachen">
             Kang Yachen
         </a>
     </footer>
@@ -271,7 +271,7 @@
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reinforcement-Learning/">Reinforcement Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Skill-Learning/">Skill Learning</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Reinforcement-Learning/">Reinforcement Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/Skill-Learning/">Skill Learning</a></li></ul>
 
 
             
@@ -281,7 +281,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -291,22 +291,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&source=摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&source=摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -329,7 +329,7 @@
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" id="post-prev" class="post-nav-link">
+      <a href="/blog/2020/03/20/Option-Discovery-using-Deep-Skill-Chaining/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
         <h4 class="title">Option Discovery using Deep Skill Chaining</h4>
       </a>
@@ -338,7 +338,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2020/03/20/COMPOSING-TASK-AGNOSTIC-POLICIES-WITH-DEEP-REINFORCEMENT-LEARNING/" id="post-next" class="post-nav-link">
+      <a href="/blog/2020/03/20/COMPOSING-TASK-AGNOSTIC-POLICIES-WITH-DEEP-REINFORCEMENT-LEARNING/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">COMPOSING TASK-AGNOSTIC POLICIES WITH DEEP REINFORCEMENT LEARNING</h4>
       </a>
@@ -414,13 +414,13 @@
 
         <p>
             
-                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+                <span><a href="/blog/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
             <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p><span>Kang Yachen &copy; 2015 - 2020</span>
+        <p><span>Kang Yachen &copy; 2015 - 2021</span>
             <span>
                 
                 Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
@@ -438,7 +438,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&pic=https://sherlockbear.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&pic=https://yachenkang.github.io/blog/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -448,22 +448,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&source=摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整..." data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&title=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&source=摘要强化学习需要手动指定奖励函数才能学习任务。虽然原则上该奖励函数仅需要指定任务目标，但在实践中，强化学习可能非常耗时甚至不可行，除非对奖励函数进行了调整..." data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&via=https://sherlockbear.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Dynamical Distance Learning for Semi-Supervised and Unsupervised Skill Discovery》 — Hamish的科研blog&url=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/&via=https://yachenkang.github.io/blog" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://sherlockbear.github.io/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yachenkang.github.io/blog/2020/03/20/Dynamical-Distance-Learning-for-Semi-Supervised-and-Unsupervised-Skill-Discovery/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -474,7 +474,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEjklEQVR42u3aW67aQBAFQPa/6eQ3UQKc020kxrf4uiLGHtdEmn49HvHn1z+fP79/9vez65Mrk5Ukz319/cUfTJgwYcL0lUz5rZMrE44N8eu3ePas5Mo3G4YJEyZMmA5nSm73+lf5NzlBe3jnW1g/FxMmTJgw/RimJFn9VX42YcQmUMCECRMmTJg2hdS8dJuXdNtrZgVfTJgwYcJ0P6b2dm1Y8LkgYxPEfKQWjgkTJkyYvowpP5jv9/dH5pswYcKECdPXMF1Vip01LDepcvv01VtjwoQJE6ZjmfID8tqBmPxInm1J3s4snosJEyZMmA5nel3GfX0YzwZoNgFEjrVpiGLChAkTptOZNhCzFuZmY9rWY7ttb5JeTJgwYcJ0IFNy602Ke20afFV4kW/S07VhwoQJE6ZDmDZHdd7mzJPYWdLbNj7b4AYTJkyYMN2JKTk+2wR1tcQycZ2ltW+GWTFhwoQJ07FMnzjs88R19pQ2mMjL0FFhFxMmTJgwHcXUFkPzY3UWXrRty7xp2gYrUSiACRMmTJi+nmn2uba0mo+Q5gSfWC0mTJgwYTqXadNcbMOFJATZF2dnRec3BWhMmDBhwnQs01VhQZvW5mM6+4AgX8MFNJgwYcKE6WuY2tJqDjHjbod+Zi3S5A6YMGHChOkeTHnUsF9cPgmTl4A3Bdx6/ZgwYcKE6VimWZE0P/7bgm/b4JwFCq/vjAkTJkyY7sG0r/vO6sqzRV8VBFxQz8aECRMmTIcwzY7n2TBo8q9tStw2U/NSMiZMmDBhugdTOzDaFk/z43/226saqMX/I0yYMGHCdBTTrFWZXLkpGbfBR9vyzBulT7u+mDBhwoTpEKarSqibAu6slJxD7Ku4mDBhwoTpdKYkOcy/yenbVmiSHrdhR7QGTJgwYcJ0LNO+sDsLAvKGYp4St+FFftZjwoQJE6bTmfYHfz5wk6fB7XhN3hBNgoCnG48JEyZMmA5kyg/mfBHty+Shw6xnmyf5daUZEyZMmDB9PVNeNm3J8u9b3FlBeZZgY8KECROmc5mS5DZ/sbyVONvPWSl5H45gwoQJE6ZzmWbl1/aahHvTOp0FJe02Y8KECROmE5nygGCWUm5Q2tGc2bhPMdmECRMmTJgOZ8pvmv9qtqxZG7IdKioapZgwYcKE6RZMm7Jp/qptY7ItOs/KuG8cMGHChAnT4UxtMtwuevYy7eblG1Y3VjFhwoQJ0y2YWoLNsd0e55sj/1F+nhZ5MWHChAnT4UyfeLH8zm278aoib1I+xoQJEyZM5zK1r7FJhotFlKx5uXkVFmDChAkTpgOZZmXZ/LebUCM/vGdblSTSf8VNmDBhwoTpQKb2gJw1O2cNxas2YzNI9JjFEZgwYcKE6cuY2ldtS7rtqOssPU6O/1lQggkTJkyY7sHUNvbapDFPaPMG5yw4GBa4MWHChAnTj2eaFYXbYZpZkXfW6f1PUxMTJkyYMP0Ypvb19ol0m6jnZFHQgAkTJkyYDmfKH5wPx7ShQ178zek340eYMGHChOkeTG1aOJsJ2jcaZ6+3SZsxYcKECdPhTL8BNWxYqS9JELAAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEdUlEQVR42u3aS3LbMBAFQN//0k5Vtomt92aQikA3Vy5ZFIHmAvP7+Iivz99X/t/P4Prz3q+ektw1u/fwhQkTJkyY3pIp38xXnyRMCUry3GQXCXq+d0yYMGHC9Aym/OdmgUJyYOeBRf7079ec7B0TJkyYMP0cphyoPbzzp+RhSv59TJgwYcKEKU8X88M7h96AzkIKTJgwYcL0PKZTPzejmSXAsxLwP6+FY8KECROmN2Nqj+Qn/X34woQJEyZMb8a0T2L3o6t5QJAXdg/vGhMmTJgwXcuULL3d/P77swS7KNeOWq2YMGHChOlGplk5dTYcsxly3Y+irl4wJkyYMGG6lilPZds0eHaEt2lt/qraVBwTJkyYMD2DabPhZAPtWE/COgspNm1aTJgwYcJ0L1NbzE2S5Fmhdpayzl7JLMjAhAkTJkw3Ms0gvj+q8++cKtfmCXPessWECRMmTE9iyg/1WXJ7qvg7Cy+SXbxYCSZMmDBhehBTntzuD938F5Kyb57c1vSYMGHChOlapnZ7bdKYHLdtqTcJYvIBo7psjQkTJkyYrmXaH9izMZrkaM9f1alxIkyYMGHC9FSmxG/W1EwO4DawaIu2OdyLZ2HChAkTpquYTo3FzNLUtunYNkHzlb8o8mLChAkTpguZZof3qZJre7S30c2x14MJEyZMmK5lSkqceTKZp805Sr7JPETIAxdMmDBhwvQ8ptm12czZBHhWGq4DAkyYMGHCdC1TMsKySZjzg3mW4rafF3yYMGHChOlCpqQ4m/+9Kbzmg6ct/YH1Y8KECROmRzO1W5olujOCPPXN9/WX/2LChAkTpmuZ9oXaNmecNSnztHZT5I3uwoQJEyZMVzHlCWe+uLbRmDcjZ7/ZXn9ZFSZMmDBhupYpPz7z43w25Joz5enx/sXUUQYmTJgwYXpjptkoz2wRG47ZvQfGejBhwoQJ04VMZ9PLvBCcFHlPvYy8afrlCjFhwoQJ07VMOdBm87MibxuszKKhor2KCRMmTJguZ0pu27QM80VvxolmeynamZgwYcKE6SqmYRJ4dBzn+5N3k5a3v/miyIsJEyZMmC5kalE2Zdn2ZbTBRxtwrAIRTJgwYcJ0CVNyYOdLyQups7biZvOboAETJkyYMD2DKbrhaBMxTzjbwaB9CRgTJkyYMD2DKZ9Rqcugo19uv9k2LDelZEyYMGHCdCPTLNGdJZmzRDR/DbMxo6hIjQkTJkyYHsF04OdGaeqMuE2DZ+3Vj308ggkTJkyY/itTDpSHCHk7c1+c3eDOQgpMmDBhwnQX02d5zTaWH8Cbdmb+xLo0jAkTJkyYrmU61YbMFzQbLd2UdDfPwoQJEyZMz2BKgoDk83y5mxHVs8lzPc2ECRMmTJiuZWqDgLY9ebYN2QYl+6AHEyZMmDD9BKZ20ZvAIi8N71Pf6OmYMGHChOnHMLUpZf79/ahrW1Auwg5MmDBhwnQ506bIm6eUbRM0D1DyJmg+nIQJEyZMmJ7BtCndnhqv2W9yM7Jz7MKECRMmTO/F9AsApYARdcAKrAAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
@@ -482,12 +482,12 @@
 
     <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
 <script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+var BLOG = { ROOT: '/blog/', SHARE: true, REWARD: false };
 
 
 </script>
 
-<script src="/js/main.min.js?v=1.7.2"></script>
+<script src="/blog/js/main.min.js?v=1.7.2"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -507,7 +507,7 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.7.2" async></script>
+<script src="/blog/js/search.min.js?v=1.7.2" async></script>
 
 
 
